@@ -1,43 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[TestDisqus]]></title>
-    <url>%2F2018%2F05%2F27%2FTestDisqus%2F</url>
-    <content type="text"><![CDATA[欢迎使用 MarkdownPad 2MarkdownPad 是 Windows 平台上一个功能完善的 Markdown 编辑器。 专为 Markdown 打造提供了语法高亮和方便的快捷键功能，给您最好的 Markdown 编写体验。 来试一下： 粗体 (Ctrl+B) and 斜体 (Ctrl+I) 引用 (Ctrl+Q) 代码块 (Ctrl+K) 标题 1, 2, 3 (Ctrl+1, Ctrl+2, Ctrl+3) 列表 (Ctrl+U and Ctrl+Shift+O) 实时预览，所见即所得无需猜测您的 语法 是否正确；每当您敲击键盘，实时预览功能都会立刻准确呈现出文档的显示效果。 自由定制100% 可自定义的字体、配色、布局和样式，让您可以将 MarkdownPad 配置的得心应手。 为高级用户而设计的稳定的 Markdown 编辑器 MarkdownPad 支持多种 Markdown 解析引擎，包括 标准 Markdown 、 Markdown 扩展 (包括表格支持) 以及 GitHub 风格 Markdown 。 有了标签式多文档界面、PDF 导出、内置的图片上传工具、会话管理、拼写检查、自动保存、语法高亮以及内置的 CSS 管理器，您可以随心所欲地使用 MarkdownPad。]]></content>
+    <title><![CDATA[常用Markdown语法]]></title>
+    <url>%2F2018%2F05%2F27%2F%E5%B8%B8%E7%94%A8Markdown%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[其实这周挺忙的，各种考试，实验，作业统统集中到一起（os:不过也习以为常了。。。QAQ），但是还是抽空搭建了自己的个人博客网站，第一篇博文也不知道该写什么好，就把昨天学到的Markdown语法写下来吧。&lt;！–More–&gt; ##关于Mar的down，你需要了解的概念Markdown 是一种可以使用 普通文本编辑器编写的轻量级 标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的 语法很简单。常用的标记符号不超过十个。让我们开始学习MarkDown语法吧！ ##具体的Markdown语法因为MarkDown并不是我的学习方向，我学Markdown只是为了更好的写博文。因此，对于实现的效果相同的语法，我只列出最容易记的那种。若需要详细的学习MarkDown语法，请移步官方文档或者我推荐的链接 ###1.段落，标题和区块代码①段落: 一个以上的空行则会划分出不同的段落,一般的段落不需要用空白或换行缩进。(标题和正文之间会自动添加阴影线以及段落) ②标题: 推荐使用ATX形式。即在行首插入1到六个#，对应到标题的1到六阶。 ③区块代码: 区块引用则使用 email 形式的 ‘&gt;’ 角括号。 ###2.强调可以在需要强调的位置前后加两个星号来标记需要强调的区段。 ###3.列表(共有两种形式)①无序列表:使用星号，加号，减号来进行标记,例如 +Candy. +Gum. 效果： Candy. Gum. ②有序列表:使用一般的数字接着一个英文句点,例如 Red Green 效果: Red Green ###4.链接(不区分大小写，共有两种形式) ①行内形式: []里写链接文字，()里写链接地址, ()中的”“中可以为链接指定title属性，title属性可加可不加 ②参考形式:文中的写法 [链接文字][链接标记]，在文本的任意位置添加[链接标记]:链接地址 “链接标题”，链接地址与链接标题前有一个空格。 ###5图片(类似于链接，分为两种形式) ①行内形式:： ②参考形式:在文档要插入图片的地方写![图片Alt][标记],在文档的最后写上[标记]:图片地址 “Title” ###6代码和代码段 ①段落文字中存在代码区段，可以使用反引号在代码区段左右加一个 `来标记代码区段 ②代码区块已经被格式化,可以使用tab或者空四个格 ③代码段可以使用’’’代码段’’’来实现]]></content>
       <categories>
-        <category>Test</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>Test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[FinalTest]]></title>
-    <url>%2F2018%2F05%2F27%2FFinalTest%2F</url>
-    <content type="text"><![CDATA[欢迎使用 MarkdownPad 2MarkdownPad 是 Windows 平台上一个功能完善的 Markdown 编辑器。 专为 Markdown 打造提供了语法高亮和方便的快捷键功能，给您最好的 Markdown 编写体验。 来试一下： 粗体 (Ctrl+B) and 斜体 (Ctrl+I) 引用 (Ctrl+Q) 代码块 (Ctrl+K) 标题 1, 2, 3 (Ctrl+1, Ctrl+2, Ctrl+3) 列表 (Ctrl+U and Ctrl+Shift+O) 实时预览，所见即所得无需猜测您的 语法 是否正确；每当您敲击键盘，实时预览功能都会立刻准确呈现出文档的显示效果。 自由定制100% 可自定义的字体、配色、布局和样式，让您可以将 MarkdownPad 配置的得心应手。 为高级用户而设计的稳定的 Markdown 编辑器 MarkdownPad 支持多种 Markdown 解析引擎，包括 标准 Markdown 、 Markdown 扩展 (包括表格支持) 以及 GitHub 风格 Markdown 。 有了标签式多文档界面、PDF 导出、内置的图片上传工具、会话管理、拼写检查、自动保存、语法高亮以及内置的 CSS 管理器，您可以随心所欲地使用 MarkdownPad。]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>Test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[TestMySite]]></title>
-    <url>%2F2018%2F05%2F22%2FTestMySite%2F</url>
-    <content type="text"></content>
-      <tags>
-        <tag>npm</tag>
-        <tag>hexo</tag>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2016%2F11%2F09%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.]]></content>
-      <tags>
-        <tag>Java</tag>
+        <tag>Blog</tag>
+        <tag>HTML</tag>
       </tags>
   </entry>
 </search>
