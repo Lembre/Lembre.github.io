@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="codingLembre&#39;s blog">
 <meta property="og:description" content="过去我们在开发时都需要通过数据库中的表然后自己在po包下手动建立相对应的pojo类，并要创建相应的mapper.xml写出对表的所有操作，而使用插件mybatis-generator-core生成mybatis逆向工程就不用我们自己再编写pojo类与相应的mapper类和相应的xml文件，它可以自动对单表生成sql，包括:mapper.xml、mapper.java、表名.java(po类)。这是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-17T05:16:16.976Z">
+<meta property="og:updated_time" content="2018-09-17T05:31:21.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IDEA创建MyBatis逆向工程">
 <meta name="twitter:description" content="过去我们在开发时都需要通过数据库中的表然后自己在po包下手动建立相对应的pojo类，并要创建相应的mapper.xml写出对表的所有操作，而使用插件mybatis-generator-core生成mybatis逆向工程就不用我们自己再编写pojo类与相应的mapper类和相应的xml文件，它可以自动对单表生成sql，包括:mapper.xml、mapper.java、表名.java(po类)。这是">
@@ -355,7 +355,7 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-17T13:16:16+08:00">
+              <time title="Update on" itemprop="dateModified" datetime="2018-09-17T13:31:21+08:00">
                 2018-09-17
               </time>
             
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  484
+                  709
                 </span>
               
 
@@ -445,7 +445,7 @@
       
         <p>过去我们在开发时都需要通过数据库中的表然后自己在po包下手动建立相对应的pojo类，并要创建相应的mapper.xml写出对表的所有操作，而使用插件mybatis-generator-core生成mybatis逆向工程就不用我们自己再编写pojo类与相应的mapper类和相应的xml文件，它可以自动对单表生成sql，包括:mapper.xml、mapper.java、表名.java(po类)。这是非常方便快捷的。下面我将为你们介绍如何使用插件生成mybatis的逆向工程，只需三步而已。</p>
 <a id="more"></a>
-<h2 id="1-逆向工程的配置"><a href="#1-逆向工程的配置" class="headerlink" title="1.逆向工程的配置"></a>1.逆向工程的配置</h2><h3 id="1-1pom-xml的需要导入的依赖和配置"><a href="#1-1pom-xml的需要导入的依赖和配置" class="headerlink" title="1.1pom.xml的需要导入的依赖和配置"></a>1.1pom.xml的需要导入的依赖和配置</h3><blockquote>
+<h2 id="逆向工程的部署"><a href="#逆向工程的部署" class="headerlink" title="逆向工程的部署"></a>逆向工程的部署</h2><h3 id="pom-xml的需要导入的依赖和配置"><a href="#pom-xml的需要导入的依赖和配置" class="headerlink" title="pom.xml的需要导入的依赖和配置"></a>pom.xml的需要导入的依赖和配置</h3><blockquote>
 <p>需要导入的依赖</p>
 </blockquote>
 <pre><code>&lt;!-- -添加mybatis-generator-core插件 --&gt;
@@ -495,19 +495,55 @@
         &lt;/plugins&gt;
     &lt;/pluginManagement&gt;
 &lt;/build&gt;
-</code></pre><p>###1.2逆向工程的配置文件generatorConfig.xml<br>        &lt;?xml version=”1.0” encoding=”UTF-8”?&gt;<br>        &lt;!DOCTYPE generatorConfiguration<br>        PUBLIC “-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN”<br>        “<a href="http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;" target="_blank" rel="noopener">http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;</a><br>        <generatorconfiguration><br>    <!-- 数据库驱动--><br>    <classpathentry location="lib/mysql-connector-java-8.0.11.jar"><br>    <context id="DB2Tables" targetruntime="MyBatis3"><br>        <commentgenerator><br>            <property name="suppressDate" value="true"><br>            <!-- 是否去除自动生成的注释 true：是 ： false:否 --><br>            <property name="suppressAllComments" value="true"><br>        </property></property></commentgenerator><br>        <!--数据库链接URL，用户名、密码 --><br>        <jdbcconnection driverclass="com.mysql.jdbc.Driver" connectionurl="jdbc:mysql://localhost:3306/ssmtest" userid="root" password="123456"><br>            <!--设置为 true 可以获取 tables 信息, 解决生成文件缺少 xxxByPrimaryKey 的问题 --><br>            <property name="useInformationSchema" value="true"><br>        </property></jdbcconnection><br>        <javatyperesolver><br>            <property name="forceBigDecimals" value="false"><br>        </property></javatyperesolver><br>        <!-- 生成模型的包名和位置--><br>        <javamodelgenerator targetpackage="pojo" targetproject="src/main/java"><br>            <property name="enableSubPackages" value="true"><br>            <property name="trimStrings" value="true"><br>        </property></property></javamodelgenerator><br>        <!-- 生成映射文件的包名和位置--><br>        <sqlmapgenerator targetpackage="mapping" targetproject="src/main/java"><br>            <property name="enableSubPackages" value="true"><br>        </property></sqlmapgenerator><br>        <!-- 生成DAO的包名和位置--><br>        <javaclientgenerator type="XMLMAPPER" targetpackage="dao" targetproject="src/main/java"><br>            <property name="enableSubPackages" value="true"><br>        </property></javaclientgenerator><br>        <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名--><br>        <table tablename="user_t" domainobjectname="User" enablecountbyexample="false" enableupdatebyexample="false" enabledeletebyexample="false" enableselectbyexample="false" selectbyexamplequeryid="false"><br>        </table><br>    </context><br>    </classpathentry></generatorconfiguration></p>
-<blockquote>
+</code></pre><h3 id="逆向工程的配置文件generatorConfig-xml"><a href="#逆向工程的配置文件generatorConfig-xml" class="headerlink" title="逆向工程的配置文件generatorConfig.xml"></a>逆向工程的配置文件generatorConfig.xml</h3><pre><code>    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;!DOCTYPE generatorConfiguration
+    PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
+    &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;
+    &lt;generatorConfiguration&gt;
+&lt;!-- 数据库驱动--&gt;
+&lt;classPathEntry  location=&quot;lib/mysql-connector-java-8.0.11.jar&quot;/&gt;
+&lt;context id=&quot;DB2Tables&quot;  targetRuntime=&quot;MyBatis3&quot;&gt;
+    &lt;commentGenerator&gt;
+        &lt;property name=&quot;suppressDate&quot; value=&quot;true&quot;/&gt;
+        &lt;!-- 是否去除自动生成的注释 true：是 ： false:否 --&gt;
+        &lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot;/&gt;
+    &lt;/commentGenerator&gt;
+    &lt;!--数据库链接URL，用户名、密码 --&gt;
+    &lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot; connectionURL=&quot;jdbc:mysql://localhost:3306/ssmtest&quot; userId=&quot;root&quot; password=&quot;123456&quot;&gt;
+        &lt;!--设置为 true 可以获取 tables 信息, 解决生成文件缺少 xxxByPrimaryKey 的问题 --&gt;
+        &lt;property name=&quot;useInformationSchema&quot; value=&quot;true&quot;/&gt;
+    &lt;/jdbcConnection&gt;
+    &lt;javaTypeResolver&gt;
+        &lt;property name=&quot;forceBigDecimals&quot; value=&quot;false&quot;/&gt;
+    &lt;/javaTypeResolver&gt;
+    &lt;!-- 生成模型的包名和位置--&gt;
+    &lt;javaModelGenerator targetPackage=&quot;pojo&quot; targetProject=&quot;src/main/java&quot;&gt;
+        &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+        &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot;/&gt;
+    &lt;/javaModelGenerator&gt;
+    &lt;!-- 生成映射文件的包名和位置--&gt;
+    &lt;sqlMapGenerator targetPackage=&quot;mapping&quot; targetProject=&quot;src/main/java&quot;&gt;
+        &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+    &lt;/sqlMapGenerator&gt;
+    &lt;!-- 生成DAO的包名和位置--&gt;
+    &lt;javaClientGenerator type=&quot;XMLMAPPER&quot; targetPackage=&quot;dao&quot; targetProject=&quot;src/main/java&quot;&gt;
+        &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+    &lt;/javaClientGenerator&gt;
+    &lt;!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名--&gt;
+    &lt;table tableName=&quot;user_t&quot; domainObjectName=&quot;User&quot; enableCountByExample=&quot;false&quot; enableUpdateByExample=&quot;false&quot; enableDeleteByExample=&quot;false&quot; enableSelectByExample=&quot;false&quot; selectByExampleQueryId=&quot;false&quot;&gt;
+    &lt;/table&gt;
+&lt;/context&gt;
+&lt;/generatorConfiguration&gt;
+</code></pre><blockquote>
 <p>关键的属性:</p>
 </blockquote>
 <ul>
 <li>javaModelGenerator,生成PO类的位置</li>
-</ul>
-<ol start="2">
 <li>sqlMapGenerator,mapper映射文件生成的位置</li>
 <li>javaClientGenerator,mapper接口生成的位置</li>
 <li>table,其tableName属性对应数据库中相应表</li>
-</ol>
-<h3 id="1-3配置相应的运行命令"><a href="#1-3配置相应的运行命令" class="headerlink" title="1.3配置相应的运行命令"></a>1.3配置相应的运行命令</h3><p>点击Edit Configuration，点击+号，在Command line中输入mybatis-generator:generate -e；点击应用，选择运行。此时逆向工程便成功地建立！</p>
+</ul>
+<h3 id="配置相应的运行命令"><a href="#配置相应的运行命令" class="headerlink" title="配置相应的运行命令"></a>配置相应的运行命令</h3><p>点击Edit Configuration，点击+号，在Command line中输入mybatis-generator:generate -e然后点击应用，选择运行，等一会逆向工程便成功地建立！</p>
 <h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><p>如果需要联系作者，请在主页点击右下角的微信图标，或者通过以下方式:</p>
 <p><a href="https://github.com/Lembre" target="_blank" rel="noopener">Github@codinglembre</a></p>
 <p><a href="https://www.zhihu.com/people/yan-zhong-hui-11/activities" target="_blank" rel="noopener">Zhihu@codinglembre</a></p>
@@ -839,7 +875,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-逆向工程的配置"><span class="nav-number">1.</span> <span class="nav-text">1.逆向工程的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1pom-xml的需要导入的依赖和配置"><span class="nav-number">1.1.</span> <span class="nav-text">1.1pom.xml的需要导入的依赖和配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3配置相应的运行命令"><span class="nav-number">1.2.</span> <span class="nav-text">1.3配置相应的运行命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">1.3.</span> <span class="nav-text">联系</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逆向工程的部署"><span class="nav-number">1.</span> <span class="nav-text">逆向工程的部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pom-xml的需要导入的依赖和配置"><span class="nav-number">1.1.</span> <span class="nav-text">pom.xml的需要导入的依赖和配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逆向工程的配置文件generatorConfig-xml"><span class="nav-number">1.2.</span> <span class="nav-text">逆向工程的配置文件generatorConfig.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置相应的运行命令"><span class="nav-number">1.3.</span> <span class="nav-text">配置相应的运行命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">1.4.</span> <span class="nav-text">联系</span></a></li></ol></li></ol></div>
             
 
           </div>
