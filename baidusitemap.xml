@@ -5,18 +5,23 @@
     
   <url>
     <loc>http://codinglembre.top/2018/09/17/MyBatis%E5%92%8CSpring%E6%95%B4%E5%90%88/</loc>
-    <lastmod>2018-09-17T06:57:29.308Z</lastmod>
+    <lastmod>2018-09-17T07:08:44.747Z</lastmod>
     <data>
         <display>
         <title>MyBatis和Spring整合</title>
         <pubTime>2018-09-17T04:36:10.000Z</pubTime>
         
-        <tag>MyBatis，Spring</tag>
+        <tag>MyBatis</tag>
+         
+        <tag>Spring</tag>
          
          
            
              
               <breadCrumb title="后端" url="http://codinglembre.top/categories/%E5%90%8E%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="框架" url="http://codinglembre.top/categories/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/"/>
           
         </display>
     </data>
