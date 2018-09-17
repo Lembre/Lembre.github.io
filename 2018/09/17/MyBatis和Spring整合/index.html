@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MyBatis，Spring," />
 
 
 
@@ -90,17 +90,18 @@
 
 
 
-<meta name="description" content="Coding makes me happy!">
-<meta name="keywords" content="Coding makes me happy!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="codingLembre&#39;s blog">
-<meta property="og:url" content="http://codinglembre.top/archives/2018/05/index.html">
+<meta name="description" content="MyBatis是一种开源的半自动的持久化框架，它通过抽象jdbc模板代码提供简单的api交互简化持久层实现。通过读取mybatis.xml，Mapper.xml，Mapper映射了相应的JavaBean，通过SqlSessionFactory的实例化出来的SqlSession，执行对应方法，根据方法名回到Mapper.xml中找到和方法名相对应的id(注释方式的话找到接口类里面注释id对应的方法)">
+<meta name="keywords" content="MyBatis，Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis和Spring整合">
+<meta property="og:url" content="http://codinglembre.top/2018/09/17/MyBatis和Spring整合/index.html">
 <meta property="og:site_name" content="codingLembre&#39;s blog">
-<meta property="og:description" content="Coding makes me happy!">
+<meta property="og:description" content="MyBatis是一种开源的半自动的持久化框架，它通过抽象jdbc模板代码提供简单的api交互简化持久层实现。通过读取mybatis.xml，Mapper.xml，Mapper映射了相应的JavaBean，通过SqlSessionFactory的实例化出来的SqlSession，执行对应方法，根据方法名回到Mapper.xml中找到和方法名相对应的id(注释方式的话找到接口类里面注释id对应的方法)">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-17T06:57:29.308Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codingLembre&#39;s blog">
-<meta name="twitter:description" content="Coding makes me happy!">
+<meta name="twitter:title" content="MyBatis和Spring整合">
+<meta name="twitter:description" content="MyBatis是一种开源的半自动的持久化框架，它通过抽象jdbc模板代码提供简单的api交互简化持久层实现。通过读取mybatis.xml，Mapper.xml，Mapper映射了相应的JavaBean，通过SqlSessionFactory的实例化出来的SqlSession，执行对应方法，根据方法名回到Mapper.xml中找到和方法名相对应的id(注释方式的话找到接口类里面注释id对应的方法)">
 
 
 
@@ -130,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://codinglembre.top/archives/2018/05/"/>
+  <link rel="canonical" href="http://codinglembre.top/2018/09/17/MyBatis和Spring整合/"/>
 
 
 
 
 
-  <title>归档 | codingLembre's blog</title>
+  <title>MyBatis和Spring整合 | codingLembre's blog</title>
   
 
 
@@ -165,7 +166,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <a href="https://github.com/Lembre"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
@@ -295,74 +296,522 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 3 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/09/17/MyBatis和Spring整合/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lembre">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codingLembre's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/27/常用Markdown语法/" itemprop="url">
-              
-                <span itemprop="name">常用Markdown语法</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">MyBatis和Spring整合</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-27T10:09:01+08:00"
-              content="2018-05-27" >
-          05-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-17T12:36:10+08:00">
+                2018-09-17
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Update on&#58;</span>
+              
+              <time title="Update on" itemprop="dateModified" datetime="2018-09-17T14:57:29+08:00">
+                2018-09-17
+              </time>
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/17/MyBatis和Spring整合/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/17/MyBatis和Spring整合/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Wordcount&#58;</span>
+                
+                <span title="Wordcount">
+                  1,067
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>MyBatis是一种开源的半自动的持久化框架，它通过抽象jdbc模板代码提供简单的api交互简化持久层实现。通过读取mybatis.xml，Mapper.xml，Mapper映射了相应的JavaBean，通过SqlSessionFactory的实例化出来的SqlSession，执行对应方法，根据方法名回到Mapper.xml中找到和方法名相对应的id(注释方式的话找到接口类里面注释id对应的方法)，根据sql语句，还有传入的参数，还有Bean，这几者的联系形成的映射，进行CURD操作，省去JDBC那些模板方法代码。Spring也是开源框架，简化了Java开发，其主要功能是依赖注入和面向切面工程。</p>
+<a id="more"></a>
+<h2 id="mybatis和spring整合的思路"><a href="#mybatis和spring整合的思路" class="headerlink" title="mybatis和spring整合的思路"></a>mybatis和spring整合的思路</h2><ul>
+<li>使用spring管理SqlSessionFactory</li>
+<li><p>使用spring管理mapper对象和dao</p>
+<blockquote>
+<p>使用spring和mybatis整合开发mapper代理及原始dao接口。<br>自动开启事务，自动管理sqlsession</p>
+</blockquote>
+</li>
+<li><p>让spring管理数据源(即数据库连接池)</p>
+</li>
+</ul>
+<h2 id="开始整合工作"><a href="#开始整合工作" class="headerlink" title="开始整合工作"></a>开始整合工作</h2><h3 id="pom-xml的需要导入的依赖和配置"><a href="#pom-xml的需要导入的依赖和配置" class="headerlink" title="pom.xml的需要导入的依赖和配置"></a>pom.xml的需要导入的依赖和配置</h3><blockquote>
+<p>需要导入的依赖</p>
+</blockquote>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;junit&lt;/groupId&gt;
+    &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;version&gt;4.11&lt;/version&gt;
+    &lt;!-- 表示开发的时候引入，发布的时候不会加载此包 --&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;!-- spring核心包 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-web&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-oxm&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-aop&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-context-support&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- mybatis核心包 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+    &lt;version&gt;${mybatis.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- mybatis/spring包 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
+    &lt;version&gt;1.2.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- 导入java ee jar 包 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;javax&lt;/groupId&gt;
+    &lt;artifactId&gt;javaee-api&lt;/artifactId&gt;
+    &lt;version&gt;7.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- 导入Mysql数据库链接jar包 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+    &lt;version&gt;5.1.30&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;commons-dbcp&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-dbcp&lt;/artifactId&gt;
+    &lt;version&gt;1.2.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- 日志文件管理包 --&gt;
+&lt;!-- log start --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;log4j&lt;/groupId&gt;
+    &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+    &lt;version&gt;${log4j.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- 格式化对象，方便输出日志 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+    &lt;version&gt;1.1.41&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+    &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
+    &lt;version&gt;${slf4j.version}&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+    &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+    &lt;version&gt;${slf4j.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- log end --&gt;
+&lt;!-- 映入JSON --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-mapper-asl&lt;/artifactId&gt;
+    &lt;version&gt;1.9.13&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><h3 id="整合配置文件spring-MyBatis-xml"><a href="#整合配置文件spring-MyBatis-xml" class="headerlink" title="整合配置文件spring-MyBatis.xml"></a>整合配置文件spring-MyBatis.xml</h3><pre><code>    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+   xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+   xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+   xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                    http://www.springframework.org/schema/context
+                    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+                    http://www.springframework.org/schema/mvc
+                    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd&quot;&gt;
+&lt;!-- 自动扫描 --&gt;
+&lt;context:component-scan base-package=&quot;dao&quot; /&gt;
+&lt;context:component-scan base-package=&quot;pojo&quot; /&gt;
+&lt;context:component-scan base-package=&quot;mapping&quot; /&gt;
+&lt;context:component-scan base-package=&quot;service&quot; /&gt;
+&lt;context:component-scan base-package=&quot;serviceimpl&quot; /&gt;
+&lt;!-- 引入配置文件 --&gt;
+&lt;bean id=&quot;propertyConfigurer&quot;
+      class=&quot;org.springframework.beans.factory.config.PropertyPlaceholderConfigurer&quot;&gt;
+    &lt;property name=&quot;location&quot; value=&quot;classpath:jdbc.properties&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;
+      destroy-method=&quot;close&quot;&gt;
+    &lt;property name=&quot;driverClassName&quot; value=&quot;${driver}&quot; /&gt;
+    &lt;property name=&quot;url&quot; value=&quot;${url}&quot; /&gt;
+    &lt;property name=&quot;username&quot; value=&quot;${username}&quot; /&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${password}&quot; /&gt;
+    &lt;!-- 初始化连接大小 --&gt;
+    &lt;property name=&quot;initialSize&quot; value=&quot;${initialSize}&quot;&gt;&lt;/property&gt;
+    &lt;!-- 连接池最大数量 --&gt;
+    &lt;property name=&quot;maxActive&quot; value=&quot;${maxActive}&quot;&gt;&lt;/property&gt;
+    &lt;!-- 连接池最大空闲 --&gt;
+    &lt;property name=&quot;maxIdle&quot; value=&quot;${maxIdle}&quot;&gt;&lt;/property&gt;
+    &lt;!-- 连接池最小空闲 --&gt;
+    &lt;property name=&quot;minIdle&quot; value=&quot;${minIdle}&quot;&gt;&lt;/property&gt;
+    &lt;!-- 获取连接最大等待时间 --&gt;
+    &lt;property name=&quot;maxWait&quot; value=&quot;${maxWait}&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 --&gt;
+&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
+    &lt;!-- 自动扫描mapping.xml文件 --&gt;
+    &lt;property name=&quot;mapperLocations&quot; value=&quot;classpath*:mapping/*.xml&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- DAO接口所在包名，Spring会自动查找其下的类 --&gt;
+&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+    &lt;property name=&quot;basePackage&quot; value=&quot;dao&quot; /&gt;
+    &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- (事务管理)transaction manager, use JtaTransactionManager for global tx --&gt;
+&lt;bean id=&quot;transactionManager&quot;
+      class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
+&lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre><p>至此，MyBatis便和Spring整合成功。</p>
+<h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><p>如果需要联系作者，请在主页点击右下角的微信图标，或者通过以下方式:</p>
+<p><a href="https://github.com/Lembre" target="_blank" rel="noopener">Github@codinglembre</a></p>
+<p><a href="https://www.zhihu.com/people/yan-zhong-hui-11/activities" target="_blank" rel="noopener">Zhihu@codinglembre</a></p>
+<p><a href="https://codinglembre.top">Blog@codinglembre</a></p>
+
+      
     </div>
+    
+    
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/09/17/MyBatis和Spring整合/">MyBatis和Spring整合</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
+  <p><span>发布时间:</span>2018年09月17日 - 12:09</p>
+  <p><span>最后更新:</span>2018年09月17日 - 14:09</p>
+  <p><span>原始链接:</span><a href="/2018/09/17/MyBatis和Spring整合/" title="MyBatis和Spring整合">http://codinglembre.top/2018/09/17/MyBatis和Spring整合/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/17/MyBatis和Spring整合/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+    </div>
+
+    
+
+        <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/alipay.jpg" alt="Lembre 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MyBatis，Spring/" rel="tag"><i class="fa fa-tag"></i> MyBatis，Spring</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/27/常用Markdown语法/" rel="next" title="常用Markdown语法">
+                <i class="fa fa-chevron-left"></i> 常用Markdown语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/17/IDEA创建MyBatis逆向工程/" rel="prev" title="IDEA创建MyBatis逆向工程">
+                IDEA创建MyBatis逆向工程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -370,6 +819,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -390,8 +853,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -490,6 +962,22 @@
         <div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis和spring整合的思路"><span class="nav-number">1.</span> <span class="nav-text">mybatis和spring整合的思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始整合工作"><span class="nav-number">2.</span> <span class="nav-text">开始整合工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pom-xml的需要导入的依赖和配置"><span class="nav-number">2.1.</span> <span class="nav-text">pom.xml的需要导入的依赖和配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整合配置文件spring-MyBatis-xml"><span class="nav-number">2.2.</span> <span class="nav-text">整合配置文件spring-MyBatis.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">2.3.</span> <span class="nav-text">联系</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -638,6 +1126,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -655,6 +1147,18 @@
       <script id="dsq-count-scr" src="https://codinglembre.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://codinglembre.top/2018/09/17/MyBatis和Spring整合/';
+          this.page.identifier = '2018/09/17/MyBatis和Spring整合/';
+          this.page.title = 'MyBatis和Spring整合';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codinglembre.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
