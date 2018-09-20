@@ -1,1 +1,1 @@
-http://codinglembre.top/2018/09/17/IDEA创建MyBatis逆向工程/
+http://codinglembre.top/2018/09/20/关于抽象类和接口/

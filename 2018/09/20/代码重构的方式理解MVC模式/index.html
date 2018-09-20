@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaWeb," />
 
 
 
@@ -90,17 +90,20 @@
 
 
 
-<meta name="description" content="Coding makes me happy!">
-<meta name="keywords" content="Coding makes me happy!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="codingLembre&#39;s blog">
-<meta property="og:url" content="http://codinglembre.top/tags/HTML/index.html">
+<meta name="description" content="MVC模式是基于WEB系统模块化框架的大思想，繁衍出的一个把视图和处理做低耦合分离的一种模式。核心就是尽可能让一个后台系统，在几乎不做任何修改的情况下，同时支持多种视图。但是它的缺点是由于它没有明确的定义，所以完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。 接下来我将以代码重构的方式帮助我们更好地理解MVC设计模式。">
+<meta name="keywords" content="JavaWeb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码重构的方式理解MVC模式">
+<meta property="og:url" content="http://codinglembre.top/2018/09/20/代码重构的方式理解MVC模式/index.html">
 <meta property="og:site_name" content="codingLembre&#39;s blog">
-<meta property="og:description" content="Coding makes me happy!">
+<meta property="og:description" content="MVC模式是基于WEB系统模块化框架的大思想，繁衍出的一个把视图和处理做低耦合分离的一种模式。核心就是尽可能让一个后台系统，在几乎不做任何修改的情况下，同时支持多种视图。但是它的缺点是由于它没有明确的定义，所以完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。 接下来我将以代码重构的方式帮助我们更好地理解MVC设计模式。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/JKevvci.png">
+<meta property="og:updated_time" content="2018-09-20T11:26:08.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codingLembre&#39;s blog">
-<meta name="twitter:description" content="Coding makes me happy!">
+<meta name="twitter:title" content="代码重构的方式理解MVC模式">
+<meta name="twitter:description" content="MVC模式是基于WEB系统模块化框架的大思想，繁衍出的一个把视图和处理做低耦合分离的一种模式。核心就是尽可能让一个后台系统，在几乎不做任何修改的情况下，同时支持多种视图。但是它的缺点是由于它没有明确的定义，所以完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。 接下来我将以代码重构的方式帮助我们更好地理解MVC设计模式。">
+<meta name="twitter:image" content="https://i.imgur.com/JKevvci.png">
 
 
 
@@ -130,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://codinglembre.top/tags/HTML/"/>
+  <link rel="canonical" href="http://codinglembre.top/2018/09/20/代码重构的方式理解MVC模式/"/>
 
 
 
 
 
-  <title>标签: HTML | codingLembre's blog</title>
+  <title>代码重构的方式理解MVC模式 | codingLembre's blog</title>
   
 
 
@@ -165,7 +168,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <a href="https://github.com/Lembre"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
@@ -295,54 +298,551 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>HTML<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/09/20/代码重构的方式理解MVC模式/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lembre">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codingLembre's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/27/常用Markdown语法/" itemprop="url">
-              
-                <span itemprop="name">常用Markdown语法</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">代码重构的方式理解MVC模式</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-27T10:09:01+08:00"
-              content="2018-05-27" >
-          05-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T14:56:00+08:00">
+                2018-09-20
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Update on&#58;</span>
+              
+              <time title="Update on" itemprop="dateModified" datetime="2018-09-20T19:26:08+08:00">
+                2018-09-20
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/20/代码重构的方式理解MVC模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/20/代码重构的方式理解MVC模式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Wordcount&#58;</span>
+                
+                <span title="Wordcount">
+                  1,634
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>MVC模式是基于WEB系统模块化框架的大思想，繁衍出的一个把视图和处理做低耦合分离的一种模式。<br>核心就是尽可能让一个后台系统，在几乎不做任何修改的情况下，同时支持多种视图。但是它的缺点是由于它没有明确的定义，所以完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。 接下来我将以代码重构的方式帮助我们更好地理解MVC设计模式<br>。<br><a id="more"></a></p>
+<h2 id="关于MVC设计模式"><a href="#关于MVC设计模式" class="headerlink" title="关于MVC设计模式"></a>关于MVC设计模式</h2><p>MVC模式（Model-View-Controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）：</p>
+<ul>
+<li>Model——业务功能编写（例如算法实现）、数据库设计以及数据存取处理等操作实现</li>
+<li>Controller——负责转发请求并对请求进行处理</li>
+<li>View——负责界面显示</li>
+</ul>
+<p>在JSP/Servlet开发的软件系统中，这三个部分的实现如下所示：</p>
+<p><img src="https://i.imgur.com/JKevvci.png" alt="">   </p>
+<ol>
+<li>Web浏览器发送HTTP请求到服务端，被Controller(Servlet)获取并进行处理（例如参数解析、请求转发）</li>
+<li>Controller(Servlet)调用核心业务逻辑——Model部分，获得结果</li>
+<li>Controller(Servlet)将逻辑处理结果交给View（JSP），动态输出HTML内容</li>
+<li>动态生成的HTML内容返回到浏览器显示</li>
+</ol>
+<p>MVC模式在Web开发中的好处是非常明显，它规避了JSP与Servlet各自的短板，Servlet只负责业务逻辑而不会通过out.append()动态生成HTML代码；JSP中也不会充斥着大量的业务代码。这大大提高了代码的可读性和可维护性。</p>
+<h2 id="具体体现"><a href="#具体体现" class="headerlink" title="具体体现"></a>具体体现</h2><blockquote>
+<p>在进行代码重构之前的Servlet代码:</p>
+</blockquote>
+<pre><code>@SuppressWarnings(&quot;serial&quot;)
+public class ListServlet extends HttpServlet {
+@Override
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    try {
+        //设置编码
+        req.setCharacterEncoding(&quot;UTF-8&quot;);
+        //获取页面的值
+        String command = req.getParameter(&quot;command&quot;);
+        String description = req.getParameter(&quot;description&quot;);
+
+        //向页面传接到的值
+        req.setAttribute(&quot;command&quot;, command);
+        req.setAttribute(&quot;description&quot;, description);
+
+        Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+        Connection conn = DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/mybatis&quot;, &quot;root&quot;, &quot;123456&quot;);
+        StringBuilder sql = new StringBuilder(&quot;select ID, COMMAND, DESCRIPTION, CONTENT from MESSAGE where 1 = 1&quot;) ;
+
+        List&lt;String&gt; paramList = new ArrayList&lt;&gt;();//缓冲,添加动态传参
+        if (command != null &amp;&amp; !&quot;&quot;.equals(command.trim()))
+        {
+            sql.append( &quot; and COMMAND = ?&quot;);
+            paramList.add(command);
+        }
+        if (description != null &amp;&amp; !&quot;&quot;.equals(description.trim()))
+        {
+            sql.append( &quot; and DESCRIPTION like &apos;%&apos; ? &apos;%&apos;&quot;);
+            paramList.add(description);
+        }
+
+        PreparedStatement statement = conn.prepareStatement(sql.toString());
+
+        for (int i = 0; i &lt; paramList.size(); i++) {
+            //sql语句从1开始的，所以i+1
+            statement.setString(i+1, paramList.get(i));
+        }
+
+        ResultSet rs = statement.executeQuery();
+        List&lt;Message&gt; messageList = new ArrayList&lt;&gt;();
+        while(rs.next())
+        {
+            Message message = new Message();
+            messageList.add(message);
+            message.setId(rs.getString(&quot;ID&quot;));
+            message.setCommand(rs.getString(&quot;COMMAND&quot;));
+            message.setDescription(rs.getString(&quot;DESCRIPTION&quot;));
+            message.setContent(rs.getString(&quot;CONTENT&quot;));
+        }
+        //查询消息列表并传给页面
+        req.setAttribute(&quot;messageList&quot;, messageList);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    req.getRequestDispatcher(&quot;/WEB-INF/jsp/back/list.jsp&quot;).forward(req, resp);
+}
+
+@Override
+protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    this.doGet(req, resp);
+}
+}
+</code></pre><p>上述servlet代码不仅负责了业务逻辑代码，如获取页面的值，向页面传接收到的值，还包括了获取数据库驱动，获取数据库连接和相关的数据库操作代码。这样使得servlet的代码过于冗长，代码的可读性，可维护性差</p>
+<blockquote>
+<p>下面是代码重构之后的servlet</p>
+</blockquote>
+<pre><code>@SuppressWarnings(&quot;serial&quot;)
+public class ListServlet extends HttpServlet {
+@Override
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    //设置编码
+    req.setCharacterEncoding(&quot;UTF-8&quot;);
+    //获取页面的值
+    String command = req.getParameter(&quot;command&quot;);
+    String description = req.getParameter(&quot;description&quot;);
+
+    //向页面传接到的值
+    req.setAttribute(&quot;command&quot;, command);
+    req.setAttribute(&quot;description&quot;, description);
+
+    ListService listService = new ListService();
+
+    //查询消息列表并传给页面
+    req.setAttribute(&quot;messageList&quot;, listService.queryMessageList(command, description));
+    req.getRequestDispatcher(&quot;/WEB-INF/jsp/back/list.jsp&quot;).forward(req, resp);
+}
+
+@Override
+protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    this.doGet(req, resp);
+}
+}
+</code></pre><blockquote>
+<p>下面的代码是重构之后的dao代码:</p>
+</blockquote>
+<pre><code>public class MessageDao {
+public List&lt;Message&gt; queryMessageList(String command, String description){
+    List&lt;Message&gt; messageList = new ArrayList&lt;&gt;();
+    try {
+        Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+        Connection conn = DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/mybatis&quot;, &quot;root&quot;, &quot;123456&quot;);
+        StringBuilder sql = new StringBuilder(&quot;select ID, COMMAND, DESCRIPTION, CONTENT from MESSAGE where 1 = 1&quot;) ;
+        List&lt;String&gt; paramList = new ArrayList&lt;String&gt;();//缓冲,添加动态传参
+        if (command != null &amp;&amp; !&quot;&quot;.equals(command.trim()))
+        {
+            sql.append( &quot; and COMMAND = ?&quot;);
+            paramList.add(command);
+        }
+        if (description != null &amp;&amp; !&quot;&quot;.equals(description.trim()))
+        {
+            sql.append( &quot; and DESCRIPTION like &apos;%&apos; ? &apos;%&apos;&quot;);
+            paramList.add(description);
+        }
+        PreparedStatement statement = conn.prepareStatement(sql.toString());
+        for (int i = 0; i &lt; paramList.size(); i++) {
+            statement.setString(i+1, paramList.get(i));
+        }
+        ResultSet rs = statement.executeQuery();
+        while(rs.next())
+        {
+            Message message = new Message();
+            //先放和后放是一样的，因为容器里面放的都是引用，不是真正的对象本身，所以接下来对这个对象操作依然有效
+            messageList.add(message);
+            message.setId(rs.getString(&quot;ID&quot;));
+            message.setCommand(rs.getString(&quot;COMMAND&quot;));
+            message.setDescription(rs.getString(&quot;DESCRIPTION&quot;));
+            message.setContent(rs.getString(&quot;CONTENT&quot;));
+        }
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return messageList;
+}
+}
+</code></pre><blockquote>
+<p>下面是重构之后的数据库连接代码</p>
+</blockquote>
+<pre><code>public class DBHelper {
+
+private static final String driver = &quot;com.mysql.jdbc.Driver&quot;;
+//因为这些变量都是，全局的不需要修改的，固定的写法，所以设置为静态的私有的
+private static final String url=&quot;jdbc:mysql://localhost:3306/shopping?useUnicode=true&amp;characterEncoding=UTF-8&quot;;
+private static final String username=&quot;root&quot;;
+private static final String password=&quot;123456&quot;;
+
+private static Connection conn=null;
+
+//静态代码块负责加载驱动
+static
+{
+    try
+    {
+        Class.forName(driver);
+    }
+    catch(Exception ex)
+    {
+        ex.printStackTrace();
+    }
+}
+
+public static Connection getConnection() throws Exception//static关键字表示类方法，直接通过类名调用
+{
+    if(conn==null)
+    {
+        conn = DriverManager.getConnection(url, username, password);
+        return conn;
+    }
+    return conn;
+}
+
+public static void main(String[] args) {
+
+    try
+    {
+        Connection conn = DBHelper.getConnection();
+        if(conn!=null)
+        {
+            System.out.println(&quot;数据库连接正常&quot;);
+        }
+        else
+        {
+            System.out.println(&quot;数据库连接异常&quot;);
+        }
+    }
+    catch(Exception ex)
+    {
+        ex.printStackTrace();
+    }
+}
+}
+</code></pre><p>通过代码重构可以清楚的发现，使用MVC设计模式的项目的代码可读性更高，可维护性更高。但是其实MVC设计模式也有它的不足:</p>
+<ol>
+<li>增加了系统结构和实现的复杂性。对于简单的界面，严格遵循MVC，使模型、视图与控制器分离，会增加结构的复杂性，并可能产生过多的更新操作，降低运行效率。 </li>
+<li>视图对模型数据的低效率访问。依据模型操作接口的不同，视图可能需要多次调用才能获得足够的显示数据。对未变化数据的不必要的频繁访问，也将损害操作性能。 </li>
+<li>视图与控制器间的过于紧密的连接。视图与控制器是相互分离，但确实联系紧密的部件，视图没有控制器的存在，其应用是很有限的，反之亦然，这样就妨碍了他们的独立重用。</li>
+</ol>
+<h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p>如果需要联系作者，请在主页点击右下角的微信图标，或者通过以下方式:</p>
+<ul>
+<li><p><a href="https://github.com/Lembre" target="_blank" rel="noopener">Github@codinglembre</a></p>
+</li>
+<li><p><a href="https://www.zhihu.com/people/yan-zhong-hui-11/activities" target="_blank" rel="noopener">Zhihu@codinglembre</a></p>
+</li>
+<li><p><a href="https://codinglembre.top">Blog@codinglembre</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/09/20/代码重构的方式理解MVC模式/">代码重构的方式理解MVC模式</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
+  <p><span>发布时间:</span>2018年09月20日 - 14:09</p>
+  <p><span>最后更新:</span>2018年09月20日 - 19:09</p>
+  <p><span>原始链接:</span><a href="/2018/09/20/代码重构的方式理解MVC模式/" title="代码重构的方式理解MVC模式">http://codinglembre.top/2018/09/20/代码重构的方式理解MVC模式/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/20/代码重构的方式理解MVC模式/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
 
       
     </div>
 
+    
+
+        <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/alipay.jpg" alt="Lembre 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/17/SSM整合工程的搭建/" rel="next" title="SSM整合工程的搭建">
+                <i class="fa fa-chevron-left"></i> SSM整合工程的搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/20/关于抽象类和接口/" rel="prev" title="关于抽象类和接口">
+                关于抽象类和接口 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -350,6 +850,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -370,8 +884,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -470,6 +993,22 @@
         <div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于MVC设计模式"><span class="nav-number">1.</span> <span class="nav-text">关于MVC设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体体现"><span class="nav-number">2.</span> <span class="nav-text">具体体现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">3.</span> <span class="nav-text">联系</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -618,6 +1157,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -635,6 +1178,18 @@
       <script id="dsq-count-scr" src="https://codinglembre.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://codinglembre.top/2018/09/20/代码重构的方式理解MVC模式/';
+          this.page.identifier = '2018/09/20/代码重构的方式理解MVC模式/';
+          this.page.title = '代码重构的方式理解MVC模式';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codinglembre.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
