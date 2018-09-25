@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="MyBatis,Spring," />
+  <meta name="keywords" content="JavaWeb,JDBC,MySql," />
 
 
 
@@ -90,18 +90,20 @@
 
 
 
-<meta name="description" content="MyBatis是一种开源的半自动的持久化框架，它通过抽象jdbc模板代码提供简单的api交互简化持久层实现。通过读取mybatis.xml，Mapper.xml，Mapper映射了相应的JavaBean，通过SqlSessionFactory的实例化出来的SqlSession，执行对应方法，根据方法名回到Mapper.xml中找到和方法名相对应的id(注释方式的话找到接口类里面注释id对应的方法)">
-<meta name="keywords" content="MyBatis,Spring">
+<meta name="description" content="概念JDBC，全称java database connectity,即Java数据库连接，意思是用Java语言操作数据库，可以为多种数据库提供统一的连接(MySql,Sql Server, Oracle)。原本我们都是通过在命令行或者在数据库图形化界面工具上面输入SQL语句操作数据库。而JDBC则是用Java语言向数据库发送SQL语句来操作数据库。 JDBC流程 获得Connection的对象">
+<meta name="keywords" content="JavaWeb,JDBC,MySql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MyBatis和Spring整合">
-<meta property="og:url" content="http://codinglembre.top/2018/09/17/MyBatis和Spring整合/index.html">
+<meta property="og:title" content="JavaWeb之JDBC详解">
+<meta property="og:url" content="http://codinglembre.top/2018/09/25/JavaWeb之JDBC详解/index.html">
 <meta property="og:site_name" content="codingLembre&#39;s blog">
-<meta property="og:description" content="MyBatis是一种开源的半自动的持久化框架，它通过抽象jdbc模板代码提供简单的api交互简化持久层实现。通过读取mybatis.xml，Mapper.xml，Mapper映射了相应的JavaBean，通过SqlSessionFactory的实例化出来的SqlSession，执行对应方法，根据方法名回到Mapper.xml中找到和方法名相对应的id(注释方式的话找到接口类里面注释id对应的方法)">
+<meta property="og:description" content="概念JDBC，全称java database connectity,即Java数据库连接，意思是用Java语言操作数据库，可以为多种数据库提供统一的连接(MySql,Sql Server, Oracle)。原本我们都是通过在命令行或者在数据库图形化界面工具上面输入SQL语句操作数据库。而JDBC则是用Java语言向数据库发送SQL语句来操作数据库。 JDBC流程 获得Connection的对象">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-20T11:27:05.449Z">
+<meta property="og:image" content="https://i.imgur.com/ytwSK7G.png">
+<meta property="og:updated_time" content="2018-09-25T17:17:34.856Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MyBatis和Spring整合">
-<meta name="twitter:description" content="MyBatis是一种开源的半自动的持久化框架，它通过抽象jdbc模板代码提供简单的api交互简化持久层实现。通过读取mybatis.xml，Mapper.xml，Mapper映射了相应的JavaBean，通过SqlSessionFactory的实例化出来的SqlSession，执行对应方法，根据方法名回到Mapper.xml中找到和方法名相对应的id(注释方式的话找到接口类里面注释id对应的方法)">
+<meta name="twitter:title" content="JavaWeb之JDBC详解">
+<meta name="twitter:description" content="概念JDBC，全称java database connectity,即Java数据库连接，意思是用Java语言操作数据库，可以为多种数据库提供统一的连接(MySql,Sql Server, Oracle)。原本我们都是通过在命令行或者在数据库图形化界面工具上面输入SQL语句操作数据库。而JDBC则是用Java语言向数据库发送SQL语句来操作数据库。 JDBC流程 获得Connection的对象">
+<meta name="twitter:image" content="https://i.imgur.com/ytwSK7G.png">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://codinglembre.top/2018/09/17/MyBatis和Spring整合/"/>
+  <link rel="canonical" href="http://codinglembre.top/2018/09/25/JavaWeb之JDBC详解/"/>
 
 
 
 
 
-  <title>MyBatis和Spring整合 | codingLembre's blog</title>
+  <title>JavaWeb之JDBC详解 | codingLembre's blog</title>
   
 
 
@@ -310,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/09/17/MyBatis和Spring整合/">
+    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/09/25/JavaWeb之JDBC详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lembre">
@@ -327,7 +329,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">MyBatis和Spring整合</h2>
+          <h2 class="post-title" itemprop="name headline">JavaWeb之JDBC详解</h2>
         
 
         <div class="post-meta">
@@ -339,8 +341,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-17T12:36:10+08:00">
-                2018-09-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T22:40:35+08:00">
+                2018-09-25
               </time>
             
 
@@ -355,8 +357,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-20T19:27:05+08:00">
-                2018-09-20
+              <time title="Update on" itemprop="dateModified" datetime="2018-09-26T01:17:34+08:00">
+                2018-09-26
               </time>
             
           </span>
@@ -374,8 +376,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/框架/" itemprop="url" rel="index">
-                    <span itemprop="name">框架</span>
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
                   </a>
                 </span>
 
@@ -392,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/17/MyBatis和Spring整合/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/25/JavaWeb之JDBC详解/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/17/MyBatis和Spring整合/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/25/JavaWeb之JDBC详解/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -418,7 +420,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  1,067
+                  1,708
                 </span>
               
 
@@ -443,202 +445,174 @@
       
 
       
-        <p>MyBatis是一种开源的半自动的持久化框架，它通过抽象jdbc模板代码提供简单的api交互简化持久层实现。通过读取mybatis.xml，Mapper.xml，Mapper映射了相应的JavaBean，通过SqlSessionFactory的实例化出来的SqlSession，执行对应方法，根据方法名回到Mapper.xml中找到和方法名相对应的id(注释方式的话找到接口类里面注释id对应的方法)，根据sql语句，还有传入的参数，还有Bean，这几者的联系形成的映射，进行CURD操作，省去JDBC那些模板方法代码。Spring也是开源框架，简化了Java开发，其主要功能是依赖注入和面向切面工程。</p>
-<a id="more"></a>
-<h2 id="mybatis和spring整合的思路"><a href="#mybatis和spring整合的思路" class="headerlink" title="mybatis和spring整合的思路"></a>mybatis和spring整合的思路</h2><ul>
-<li>使用spring管理SqlSessionFactory</li>
-<li><p>使用spring管理mapper对象和dao</p>
-<blockquote>
-<p>使用spring和mybatis整合开发mapper代理及原始dao接口。<br>自动开启事务，自动管理sqlsession</p>
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>JDBC，全称java database connectity,即Java数据库连接，意思是用Java语言操作数据库，可以为多种数据库提供统一的连接(MySql,Sql Server, Oracle)。原本我们都是通过在命令行或者在数据库图形化界面工具上面输入SQL语句操作数据库。而JDBC则是用Java语言向数据库发送SQL语句来操作数据库。<br><img src="https://i.imgur.com/ytwSK7G.png" alt=""></p>
+<h3 id="JDBC流程"><a href="#JDBC流程" class="headerlink" title="JDBC流程"></a>JDBC流程</h3><blockquote>
+<p>获得Connection的对象</p>
 </blockquote>
-</li>
-<li><p>让spring管理数据源(即数据库连接池)</p>
+<ul>
+<li>导jar包。mysql-connector-java jar</li>
+<li>加载驱动类:Class.forName(“类名”);</li>
+<li>配置url、username、password等参数</li>
+<li>使用DriverManager类来的到Connection对象。</li>
+</ul>
+<p>示例:</p>
+<pre><code>public class Demo{
+    public void main(String[] args) throws ClassNotFoundException,SQLException{
+    Class.forName(&quot;com.mysql.jdbc.Driver&quot;);//加载驱动类。
+    String url=&quot;jdbc:mysql://localhost:3306/数据库名&quot;;
+    String username=&quot;数据库账号&quot;;
+    String password=&quot;数据库密码&quot;;
+
+    Connection con=DriverManager.getConnection(url,username,password);
+}
+}
+</code></pre><p>代码分析:</p>
+<ul>
+<li>url的格式为–jdbc:厂商名称:子协议(由厂商自己来规定)。对于mysql而言，它的子协议结构的格式为://localhost:3306/数据库名。</li>
+<li>出现SQLException的原因:1.url username password 是否正确。2.检查是否打开了sql服务器</li>
+<li>出现ClassNotFoundException的原因:1.没导入驱动包。2.Class.forName()传入的驱动类错误。</li>
+</ul>
+<h3 id="JDBC之增删改查"><a href="#JDBC之增删改查" class="headerlink" title="JDBC之增删改查"></a>JDBC之增删改查</h3><h4 id="增，删，改"><a href="#增，删，改" class="headerlink" title="增，删，改"></a>增，删，改</h4><p>示例:<br>    public class Demo{<br>    public void main(String[] args) throws ClassNotFoundException,SQLException{</p>
+<pre><code>    Class.forName(&quot;com.mysql.jdbc.Driver&quot;);//加载驱动类。
+    String url=&quot;jdbc:mysql://localhost:3306/数据库名&quot;;
+    String username=&quot;root&quot;;
+    String password=&quot;123&quot;;
+
+    Connection con=DriverManager.getConnection(url,username,password);
+
+    Statement stmt=con.createStatement();
+    String sql＝&quot;insert into stu values(&apos;...&apos;,&apos;...&apos;,&apos;...&apos;,&apos;...&apos;)&quot;;
+    stmt.executeUpdate(sql);
+}
+}
+</code></pre><p>代码分析:</p>
+<ul>
+<li>调用Connection的方法创建Statement对象，它是sql语句的发送器，功能就是向数据库发送sql语句</li>
+<li>sql不需要打分号，打了就会出错，因为程序会自动帮我们加。</li>
+<li>调用此方法向数据库发送sql语句。该语句返回的值为改变数据库的行数。</li>
+</ul>
+<h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><pre><code>public class Demo{
+public void main(String[] args) throws ClassNotFoundException,SQLException{
+
+    Class.forName(&quot;com.mysql.jdbc.Driver&quot;);//加载驱动类。
+    String url=&quot;jdbc:mysql://localhost:3306/数据库名&quot;;
+    String username=&quot;root&quot;;
+    String password=&quot;123&quot;;
+
+    Connection con=DriverManager.getConnection(url,username,password);
+
+    Statement stmt=con.createStatement();
+
+    String sql=&quot;selece * from stu&quot;;
+
+    ResultSet rs=stmt.execute(sql);//ResultSet提供了一系列的getXxx()方法
+
+     while(rs.next())//第一次调用next()方法是将光标移动到该表的第一行
+     {
+         rs.getInt(1);//通过列编号来获取该列的值，如果第一列是id，此时得到id的值
+         rs.getString(&quot;name&quot;);//通过列名称来获取该列的值。
+     }
+}
+}
+</code></pre><h3 id="关闭资源"><a href="#关闭资源" class="headerlink" title="关闭资源"></a>关闭资源</h3><p>数据库连接时重要的资源，不用时应该关闭。关闭资源时采用倒关的手法将对象进行处理:即先得到的对象后关，后得到的对象先关</p>
+<h3 id="PreparedStatement接口"><a href="#PreparedStatement接口" class="headerlink" title="PreparedStatement接口"></a>PreparedStatement接口</h3><p>PrepaerdStatement是Statement的子接口<br>示例:<br>    public class Demo{<br>    public void main(String[] args) throws ClassNotFoundException,SQLException{</p>
+<pre><code>    Class.forName(&quot;com.mysql.jdbc.Driver&quot;);//加载驱动类。
+    String url=&quot;jdbc:mysql://localhost:3306/数据库名&quot;;            
+    String username=&quot;root&quot;;
+    String password=&quot;123&quot;;
+
+    Connection con=DriverManager.getConnection(url,username,password);
+
+    String sql=&quot;insert into stu values(?,?)&quot;;//定义sql模板，即参数以问号的形式给出
+
+    PreparedStatement pst=con.prepaerStatement(sql);
+    pst.setString(1,username);//数字1代表第一个问号
+    pst.setString(2.password);//数字2代表第二个问号
+    pst.executeUpdate();//向数据库发送sql语句
+}
+}
+</code></pre><p>原理：</p>
+<ul>
+<li>检验sql语句的语法</li>
+<li>编译：一个与函数相似的东西</li>
+<li>执行：调用函数</li>
+</ul>
+<h3 id="Java中的时间类型和mysql中的时间类型转换"><a href="#Java中的时间类型和mysql中的时间类型转换" class="headerlink" title="Java中的时间类型和mysql中的时间类型转换"></a>Java中的时间类型和mysql中的时间类型转换</h3><h4 id="数据库类型与Java中类型的对应关系"><a href="#数据库类型与Java中类型的对应关系" class="headerlink" title="数据库类型与Java中类型的对应关系"></a>数据库类型与Java中类型的对应关系</h4><ul>
+<li>数据库中的DATE–&gt;java.sql.Date–&gt;java.util.Date; </li>
+<li>数据库中的TIME–&gt;java.sql.Time–&gt;java.util.Date; </li>
+<li>数据库中的TIMESTAMP–&gt;java.sql.Timestamp–&gt;java.util.Date; </li>
+</ul>
+<p>需要注意的是:</p>
+<ul>
+<li>领域对象(domain)中的所有属性不能出现java.sql包下的东西，即不能使用java.sql.Date、java.sql.Time、java.sql.TimeStamp。</li>
+<li>ResultSet的getDate()返回的是java.sql.Date()。</li>
+<li>PreparedStatment的setDate(int,Date),其中第二个参数是sql包下的java.sql.Date()。为了在java中使用sql包下的时间类型，这时就出现了时间类型的转换。</li>
+</ul>
+<h4 id="具体的转换"><a href="#具体的转换" class="headerlink" title="具体的转换"></a>具体的转换</h4><p>将util包下的Date转换为sql包下的Date、Time、Timestamp</p>
+<ul>
+<li>把util的的Date转换成毫秒值。</li>
+<li><p>使用毫秒值创建sql的Date、Time、Timestamp</p>
+<ul>
+<li>java.util.Date date=new java.util.Date();</li>
+<li>long l=date.getTime();</li>
+<li>java.sql.Date sqlDate=new java.sql.Date(l);</li>
+</ul>
 </li>
 </ul>
-<h2 id="开始整合工作"><a href="#开始整合工作" class="headerlink" title="开始整合工作"></a>开始整合工作</h2><h3 id="pom-xml的需要导入的依赖和配置"><a href="#pom-xml的需要导入的依赖和配置" class="headerlink" title="pom.xml的需要导入的依赖和配置"></a>pom.xml的需要导入的依赖和配置</h3><blockquote>
-<p>需要导入的依赖</p>
+<p>将sql包下的Date、Time、Timestamp转换为util包下的Date</p>
+<blockquote>
+<p>因为sql包下的Date、Time、和Timestamp继承自util包下的Date。所以可以直接用:</p>
 </blockquote>
-<pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;junit&lt;/groupId&gt;
-    &lt;artifactId&gt;junit&lt;/artifactId&gt;
-    &lt;version&gt;4.11&lt;/version&gt;
-    &lt;!-- 表示开发的时候引入，发布的时候不会加载此包 --&gt;
-    &lt;scope&gt;test&lt;/scope&gt;
-&lt;/dependency&gt;
-&lt;!-- spring核心包 --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
-    &lt;version&gt;${spring.version}&lt;/version&gt;
-&lt;/dependency&gt;
+<h3 id="JDBC之数据库存取大文件"><a href="#JDBC之数据库存取大文件" class="headerlink" title="JDBC之数据库存取大文件"></a>JDBC之数据库存取大文件</h3><p>示例:存<br>            String sql = “INSERT INTO tab_bin VALUES(?,?,?)”;<br>            PreparedStatement pstmt = con.prepareStatement(sql);<br>            pstmt.setInt(1,001);<br>            pstmt.setString(2,”hello.mp3”);</p>
+<pre><code>// mp3 保存为 blob 类型的数据
+// 通过 commons-io 工具类, 将 mp3 转换成 byte[]
+Byte[] bytes = IOUtils.toByteArray(new FileInputStream(&quot;/Users/姓名/Desktop/hello.mp3&quot;));
 
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-web&lt;/artifactId&gt;
-    &lt;version&gt;${spring.version}&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-oxm&lt;/artifactId&gt;
-    &lt;version&gt;${spring.version}&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;
-    &lt;version&gt;${spring.version}&lt;/version&gt;
-&lt;/dependency&gt;
+// 使用 bytes, 创建 Blob 对象
+Blob blob = new SerialBlob(bytes);
+pstmt.setBlob(3,blob);
+// 发送 sql 语句
+pstmt.executeUpdate();
+</code></pre><p>示例:取<br>            String sql = “SELECT * FROM tab_bin”;<br>            PreparedStatement pstmt = con.prepareStatement(sql);<br>            ResultSet rs = pstmt.executeQuery();</p>
+<pre><code>// 将 rs 中名为 data 列的数据
+if(rs.next()){
+        Blob blob = rs.getBlob(&quot;data&quot;);
+        // 把 blob 转换成硬盘上的 mp3 文件
 
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
-    &lt;version&gt;${spring.version}&lt;/version&gt;
-&lt;/dependency&gt;
+        // 1. 通过 blob 得到输入流对象
+        // 2. 自己创建输出流对象
+        // 3. 把输入流的数据写入到输出流中
+        InputStream in = blob.getBinaryStream();
+        OutputStream out = new FileOutputStream(&quot;/Users/姓名/Document/world.mp3&quot;);
 
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
-    &lt;version&gt;${spring.version}&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-aop&lt;/artifactId&gt;
-    &lt;version&gt;${spring.version}&lt;/version&gt;
-&lt;/dependency&gt;
-
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-context-support&lt;/artifactId&gt;
-    &lt;version&gt;${spring.version}&lt;/version&gt;
-&lt;/dependency&gt;
-
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
-    &lt;version&gt;${spring.version}&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!-- mybatis核心包 --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
-    &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
-    &lt;version&gt;${mybatis.version}&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!-- mybatis/spring包 --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
-    &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
-    &lt;version&gt;1.2.2&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!-- 导入java ee jar 包 --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;javax&lt;/groupId&gt;
-    &lt;artifactId&gt;javaee-api&lt;/artifactId&gt;
-    &lt;version&gt;7.0&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!-- 导入Mysql数据库链接jar包 --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;mysql&lt;/groupId&gt;
-    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-    &lt;version&gt;5.1.30&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;commons-dbcp&lt;/groupId&gt;
-    &lt;artifactId&gt;commons-dbcp&lt;/artifactId&gt;
-    &lt;version&gt;1.2.2&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!-- 日志文件管理包 --&gt;
-&lt;!-- log start --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;log4j&lt;/groupId&gt;
-    &lt;artifactId&gt;log4j&lt;/artifactId&gt;
-    &lt;version&gt;${log4j.version}&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!-- 格式化对象，方便输出日志 --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
-    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
-    &lt;version&gt;1.1.41&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-    &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
-    &lt;version&gt;${slf4j.version}&lt;/version&gt;
-&lt;/dependency&gt;
-
-&lt;dependency&gt;
-    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-    &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
-    &lt;version&gt;${slf4j.version}&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!-- log end --&gt;
-&lt;!-- 映入JSON --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;
-    &lt;artifactId&gt;jackson-mapper-asl&lt;/artifactId&gt;
-    &lt;version&gt;1.9.13&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre><h3 id="整合配置文件spring-MyBatis-xml"><a href="#整合配置文件spring-MyBatis-xml" class="headerlink" title="整合配置文件spring-MyBatis.xml"></a>整合配置文件spring-MyBatis.xml</h3><pre><code>    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-    &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
-   xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
-   xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
-   xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
-                    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-                    http://www.springframework.org/schema/context
-                    http://www.springframework.org/schema/context/spring-context-3.1.xsd
-                    http://www.springframework.org/schema/mvc
-                    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd&quot;&gt;
-&lt;!-- 自动扫描 --&gt;
-&lt;context:component-scan base-package=&quot;dao&quot; /&gt;
-&lt;context:component-scan base-package=&quot;pojo&quot; /&gt;
-&lt;context:component-scan base-package=&quot;mapping&quot; /&gt;
-&lt;context:component-scan base-package=&quot;service&quot; /&gt;
-&lt;context:component-scan base-package=&quot;serviceimpl&quot; /&gt;
-&lt;!-- 引入配置文件 --&gt;
-&lt;bean id=&quot;propertyConfigurer&quot;
-      class=&quot;org.springframework.beans.factory.config.PropertyPlaceholderConfigurer&quot;&gt;
-    &lt;property name=&quot;location&quot; value=&quot;classpath:jdbc.properties&quot; /&gt;
-&lt;/bean&gt;
-
-&lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;
-      destroy-method=&quot;close&quot;&gt;
-    &lt;property name=&quot;driverClassName&quot; value=&quot;${driver}&quot; /&gt;
-    &lt;property name=&quot;url&quot; value=&quot;${url}&quot; /&gt;
-    &lt;property name=&quot;username&quot; value=&quot;${username}&quot; /&gt;
-    &lt;property name=&quot;password&quot; value=&quot;${password}&quot; /&gt;
-    &lt;!-- 初始化连接大小 --&gt;
-    &lt;property name=&quot;initialSize&quot; value=&quot;${initialSize}&quot;&gt;&lt;/property&gt;
-    &lt;!-- 连接池最大数量 --&gt;
-    &lt;property name=&quot;maxActive&quot; value=&quot;${maxActive}&quot;&gt;&lt;/property&gt;
-    &lt;!-- 连接池最大空闲 --&gt;
-    &lt;property name=&quot;maxIdle&quot; value=&quot;${maxIdle}&quot;&gt;&lt;/property&gt;
-    &lt;!-- 连接池最小空闲 --&gt;
-    &lt;property name=&quot;minIdle&quot; value=&quot;${minIdle}&quot;&gt;&lt;/property&gt;
-    &lt;!-- 获取连接最大等待时间 --&gt;
-    &lt;property name=&quot;maxWait&quot; value=&quot;${maxWait}&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
-
-&lt;!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 --&gt;
-&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
-    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
-    &lt;!-- 自动扫描mapping.xml文件 --&gt;
-    &lt;property name=&quot;mapperLocations&quot; value=&quot;classpath*:mapping/*.xml&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
-
-&lt;!-- DAO接口所在包名，Spring会自动查找其下的类 --&gt;
-&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
-    &lt;property name=&quot;basePackage&quot; value=&quot;dao&quot; /&gt;
-    &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
-
-&lt;!-- (事务管理)transaction manager, use JtaTransactionManager for global tx --&gt;
-&lt;bean id=&quot;transactionManager&quot;
-      class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
-    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
-&lt;/bean&gt;
-&lt;/beans&gt;
-</code></pre><p>至此，MyBatis便和Spring整合成功。</p>
-<h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><p>如果需要联系作者，请在主页点击右下角的微信图标，或者通过以下方式:</p>
+        // 使用io流工具类中的方法
+        IOUtils.copy(in,out);
+</code></pre><h3 id="批处理批处理只针对更新-增、删、改"><a href="#批处理批处理只针对更新-增、删、改" class="headerlink" title="批处理批处理只针对更新(增、删、改)"></a>批处理批处理只针对更新(增、删、改)</h3><p>当需要向数据库发送多条sql语句时, 为了提升执行效率, 可以考虑采用JDBC的批处理机制.<br>JDBC的批处理机制主要涉及Statement或PreparedStatement对象的以下方法：</p>
+<ul>
+<li>addBatch(String sql) ：Statement类的方法, 多次调用该方法可以将多条sql语句添加到Statement对象的命令列表中.</li>
+<li><p>addBatch(): PreparedStatement类的方法, 多次调用该方法可以将多条预编译的sql语句添加到PreparedStatement对象的命令列表中.执行批处理时将一次性的把这些sql语句发送给数据库进行处理.</p>
+</li>
+<li><p>executeBatch()：把Statement对象或PreparedStatement对象命令列表中的所有sql语句发送给数据库进行处理.</p>
+</li>
+<li><p>clearBatch():  清空当前sql命令列表.</p>
+</li>
+</ul>
+<p>采用Statement.addBatch(sql)方式实现批处理的优缺点：</p>
+<ul>
+<li>优点：可以向数据库发送多条不同的ＳＱＬ语句。</li>
+<li>缺点：SQL语句没有预编译。当向数据库发送多条语句相同，但仅参数不同的SQL语句时，需重复写上很多条SQL语句</li>
+</ul>
+<p>采用PreparedStatement.addBatch()方式实现批处理的优缺点:</p>
+<ul>
+<li>优点：发送的是预编译后的SQL语句，执行效率高。</li>
+<li>缺点：只能应用在SQL语句相同，但参数不同的批处理中。因此此种形式的批处理经常用于在同一个表中批量插入数据，或批量更新表的数据。</li>
+</ul>
+<blockquote>
+<p>注意:mysql默认批处理是关闭的，需要在url参数后面加上?rewriteBatchedStatement=true;</p>
+</blockquote>
+<h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
+<p>If you have some questions after you see my blog , you can tell your doubts in the comments area or you can find some infos by clicking these links or ask me by sending me an email：</p>
+</blockquote>
 <ul>
 <li><p><a href="https://github.com/Lembre" target="_blank" rel="noopener">Github@codinglembre</a></p>
 </li>
@@ -663,12 +637,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/09/17/MyBatis和Spring整合/">MyBatis和Spring整合</a></p>
+  <p><span>本文标题:</span><a href="/2018/09/25/JavaWeb之JDBC详解/">JavaWeb之JDBC详解</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
-  <p><span>发布时间:</span>2018年09月17日 - 12:09</p>
-  <p><span>最后更新:</span>2018年09月20日 - 19:09</p>
-  <p><span>原始链接:</span><a href="/2018/09/17/MyBatis和Spring整合/" title="MyBatis和Spring整合">http://codinglembre.top/2018/09/17/MyBatis和Spring整合/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/17/MyBatis和Spring整合/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年09月25日 - 22:09</p>
+  <p><span>最后更新:</span>2018年09月26日 - 01:09</p>
+  <p><span>原始链接:</span><a href="/2018/09/25/JavaWeb之JDBC详解/" title="JavaWeb之JDBC详解">http://codinglembre.top/2018/09/25/JavaWeb之JDBC详解/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/25/JavaWeb之JDBC详解/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -733,9 +707,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MyBatis/" rel="tag"><i class="fa fa-tag"></i> MyBatis</a>
+            <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
           
-            <a href="/tags/Spring/" rel="tag"><i class="fa fa-tag"></i> Spring</a>
+            <a href="/tags/JDBC/" rel="tag"><i class="fa fa-tag"></i> JDBC</a>
+          
+            <a href="/tags/MySql/" rel="tag"><i class="fa fa-tag"></i> MySql</a>
           
         </div>
       
@@ -748,8 +724,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/27/常用Markdown语法/" rel="next" title="常用Markdown语法">
-                <i class="fa fa-chevron-left"></i> 常用Markdown语法
+              <a href="/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/" rel="next" title="代码检查规范CheckStyle和PMD的配置使用">
+                <i class="fa fa-chevron-left"></i> 代码检查规范CheckStyle和PMD的配置使用
               </a>
             
           </div>
@@ -758,8 +734,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/17/IDEA创建MyBatis逆向工程/" rel="prev" title="IDEA创建MyBatis逆向工程">
-                IDEA创建MyBatis逆向工程 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/25/JDBC之高级知识点/" rel="prev" title="JDBC之高级知识点">
+                JDBC之高级知识点 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -979,7 +955,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis和spring整合的思路"><span class="nav-number">1.</span> <span class="nav-text">mybatis和spring整合的思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始整合工作"><span class="nav-number">2.</span> <span class="nav-text">开始整合工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pom-xml的需要导入的依赖和配置"><span class="nav-number">2.1.</span> <span class="nav-text">pom.xml的需要导入的依赖和配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整合配置文件spring-MyBatis-xml"><span class="nav-number">2.2.</span> <span class="nav-text">整合配置文件spring-MyBatis.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">2.3.</span> <span class="nav-text">联系</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDBC流程"><span class="nav-number">2.</span> <span class="nav-text">JDBC流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDBC之增删改查"><span class="nav-number">3.</span> <span class="nav-text">JDBC之增删改查</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#增，删，改"><span class="nav-number">3.1.</span> <span class="nav-text">增，删，改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询"><span class="nav-number">3.2.</span> <span class="nav-text">查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭资源"><span class="nav-number">4.</span> <span class="nav-text">关闭资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PreparedStatement接口"><span class="nav-number">5.</span> <span class="nav-text">PreparedStatement接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中的时间类型和mysql中的时间类型转换"><span class="nav-number">6.</span> <span class="nav-text">Java中的时间类型和mysql中的时间类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库类型与Java中类型的对应关系"><span class="nav-number">6.1.</span> <span class="nav-text">数据库类型与Java中类型的对应关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体的转换"><span class="nav-number">6.2.</span> <span class="nav-text">具体的转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDBC之数据库存取大文件"><span class="nav-number">7.</span> <span class="nav-text">JDBC之数据库存取大文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批处理批处理只针对更新-增、删、改"><span class="nav-number">8.</span> <span class="nav-text">批处理批处理只针对更新(增、删、改)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">9.</span> <span class="nav-text">联系</span></a></li></ol></div>
             
 
           </div>
@@ -1157,9 +1133,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://codinglembre.top/2018/09/17/MyBatis和Spring整合/';
-          this.page.identifier = '2018/09/17/MyBatis和Spring整合/';
-          this.page.title = 'MyBatis和Spring整合';
+          this.page.url = 'http://codinglembre.top/2018/09/25/JavaWeb之JDBC详解/';
+          this.page.identifier = '2018/09/25/JavaWeb之JDBC详解/';
+          this.page.title = 'JavaWeb之JDBC详解';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://codinglembre.disqus.com/embed.js';

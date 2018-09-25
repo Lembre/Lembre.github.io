@@ -99,7 +99,7 @@
 <meta property="og:description" content="MVC模式是基于WEB系统模块化框架的大思想，繁衍出的一个把视图和处理做低耦合分离的一种模式。核心就是尽可能让一个后台系统，在几乎不做任何修改的情况下，同时支持多种视图。但是它的缺点是由于它没有明确的定义，所以完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。 接下来我将以代码重构的方式帮助我们更好地理解MVC设计模式。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/JKevvci.png">
-<meta property="og:updated_time" content="2018-09-20T11:26:08.058Z">
+<meta property="og:updated_time" content="2018-09-25T14:33:53.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码重构的方式理解MVC模式">
 <meta name="twitter:description" content="MVC模式是基于WEB系统模块化框架的大思想，繁衍出的一个把视图和处理做低耦合分离的一种模式。核心就是尽可能让一个后台系统，在几乎不做任何修改的情况下，同时支持多种视图。但是它的缺点是由于它没有明确的定义，所以完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。 接下来我将以代码重构的方式帮助我们更好地理解MVC设计模式。">
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-20T19:26:08+08:00">
-                2018-09-20
+              <time title="Update on" itemprop="dateModified" datetime="2018-09-25T22:33:53+08:00">
+                2018-09-25
               </time>
             
           </span>
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  1,634
+                  1,648
                 </span>
               
 
@@ -460,7 +460,7 @@
 <li>Controller(Servlet)将逻辑处理结果交给View（JSP），动态输出HTML内容</li>
 <li>动态生成的HTML内容返回到浏览器显示</li>
 </ol>
-<p>MVC模式在Web开发中的好处是非常明显，它规避了JSP与Servlet各自的短板，Servlet只负责业务逻辑而不会通过out.append()动态生成HTML代码；JSP中也不会充斥着大量的业务代码。这大大提高了代码的可读性和可维护性。</p>
+<p>MVC模式在Web开发中的好处是非常明显，它规避了JSP与Servlet各自的短板，Servlet只负责业务逻辑而不会通过out.append()动态生成HTML代码；JSP中也不会充斥着大量的业务代码。这大大提高了代码的可读性和可维护性。本博文相关github代码如下<a href="https://github.com/Lembre/mvc" target="_blank" rel="noopener">点击进入github</a></p>
 <h2 id="具体体现"><a href="#具体体现" class="headerlink" title="具体体现"></a>具体体现</h2><blockquote>
 <p>在进行代码重构之前的Servlet代码:</p>
 </blockquote>
@@ -692,7 +692,7 @@ public static void main(String[] args) {
   <p><span>本文标题:</span><a href="/2018/09/20/代码重构的方式理解MVC模式/">代码重构的方式理解MVC模式</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月20日 - 14:09</p>
-  <p><span>最后更新:</span>2018年09月20日 - 19:09</p>
+  <p><span>最后更新:</span>2018年09月25日 - 22:09</p>
   <p><span>原始链接:</span><a href="/2018/09/20/代码重构的方式理解MVC模式/" title="代码重构的方式理解MVC模式">http://codinglembre.top/2018/09/20/代码重构的方式理解MVC模式/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/20/代码重构的方式理解MVC模式/"  aria-label="复制成功！"></i></span>
   </p>
@@ -913,7 +913,7 @@ public static void main(String[] args) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -935,7 +935,7 @@ public static void main(String[] args) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
