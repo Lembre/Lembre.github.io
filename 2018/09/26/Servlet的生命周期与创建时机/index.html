@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="Java," />
+  <meta name="keywords" content="JavaWeb,Servlet," />
 
 
 
@@ -90,24 +90,20 @@
 
 
 
-<meta name="description" content="CheckStyle是SourceForge下的一个项目，提供了一个帮助JAVA开发人员遵守某些编码规范的工具。它能够自动化代码规范检查过程，从而使得开发人员从这项重要，但是枯燥的任务中解脱出来。PMD是一种开源分析Java代码错误的工具。与其他分析工具不同的是，PMD通过静态分析获知代码错误。也就是说，在不运行Java程序的情况下报告错误。PMD附带了许多可以直接使用的规则，利用这些规则可以找出">
-<meta name="keywords" content="Java">
+<meta name="description" content="Servlet的生命周期指的是 Servlet从被Web服务器加载到它被销毁的整个生命过程。那么他的生命周期主要分为哪几个阶段以及它的工作原理是怎么样的呢？本博文接下来将讨论这些内容。">
+<meta name="keywords" content="JavaWeb,Servlet">
 <meta property="og:type" content="article">
-<meta property="og:title" content="代码检查规范CheckStyle和PMD的配置使用">
-<meta property="og:url" content="http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/index.html">
+<meta property="og:title" content="Servlet的生命周期与创建时机">
+<meta property="og:url" content="http://codinglembre.top/2018/09/26/Servlet的生命周期与创建时机/index.html">
 <meta property="og:site_name" content="codingLembre&#39;s blog">
-<meta property="og:description" content="CheckStyle是SourceForge下的一个项目，提供了一个帮助JAVA开发人员遵守某些编码规范的工具。它能够自动化代码规范检查过程，从而使得开发人员从这项重要，但是枯燥的任务中解脱出来。PMD是一种开源分析Java代码错误的工具。与其他分析工具不同的是，PMD通过静态分析获知代码错误。也就是说，在不运行Java程序的情况下报告错误。PMD附带了许多可以直接使用的规则，利用这些规则可以找出">
+<meta property="og:description" content="Servlet的生命周期指的是 Servlet从被Web服务器加载到它被销毁的整个生命过程。那么他的生命周期主要分为哪几个阶段以及它的工作原理是怎么样的呢？本博文接下来将讨论这些内容。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/OaN4xrT.png">
-<meta property="og:image" content="https://i.imgur.com/Umsxf89.png">
-<meta property="og:image" content="https://i.imgur.com/oGRxvuU.png">
-<meta property="og:image" content="https://i.imgur.com/O6DomA6.png">
-<meta property="og:image" content="https://i.imgur.com/Osowhq8.png">
-<meta property="og:updated_time" content="2018-09-20T17:21:42.744Z">
+<meta property="og:image" content="https://i.imgur.com/WhRjp5B.png">
+<meta property="og:updated_time" content="2018-09-26T09:43:00.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="代码检查规范CheckStyle和PMD的配置使用">
-<meta name="twitter:description" content="CheckStyle是SourceForge下的一个项目，提供了一个帮助JAVA开发人员遵守某些编码规范的工具。它能够自动化代码规范检查过程，从而使得开发人员从这项重要，但是枯燥的任务中解脱出来。PMD是一种开源分析Java代码错误的工具。与其他分析工具不同的是，PMD通过静态分析获知代码错误。也就是说，在不运行Java程序的情况下报告错误。PMD附带了许多可以直接使用的规则，利用这些规则可以找出">
-<meta name="twitter:image" content="https://i.imgur.com/OaN4xrT.png">
+<meta name="twitter:title" content="Servlet的生命周期与创建时机">
+<meta name="twitter:description" content="Servlet的生命周期指的是 Servlet从被Web服务器加载到它被销毁的整个生命过程。那么他的生命周期主要分为哪几个阶段以及它的工作原理是怎么样的呢？本博文接下来将讨论这些内容。">
+<meta name="twitter:image" content="https://i.imgur.com/WhRjp5B.png">
 
 
 
@@ -137,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/"/>
+  <link rel="canonical" href="http://codinglembre.top/2018/09/26/Servlet的生命周期与创建时机/"/>
 
 
 
 
 
-  <title>代码检查规范CheckStyle和PMD的配置使用 | codingLembre's blog</title>
+  <title>Servlet的生命周期与创建时机 | codingLembre's blog</title>
   
 
 
@@ -316,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/">
+    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/09/26/Servlet的生命周期与创建时机/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lembre">
@@ -333,7 +329,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">代码检查规范CheckStyle和PMD的配置使用</h2>
+          <h2 class="post-title" itemprop="name headline">Servlet的生命周期与创建时机</h2>
         
 
         <div class="post-meta">
@@ -345,8 +341,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T00:22:26+08:00">
-                2018-09-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T15:43:24+08:00">
+                2018-09-26
               </time>
             
 
@@ -361,8 +357,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-21T01:21:42+08:00">
-                2018-09-21
+              <time title="Update on" itemprop="dateModified" datetime="2018-09-26T17:43:00+08:00">
+                2018-09-26
               </time>
             
           </span>
@@ -398,9 +394,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/26/Servlet的生命周期与创建时机/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/21/代码检查规范CheckStyle和PMD的配置使用/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/26/Servlet的生命周期与创建时机/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -424,7 +420,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  742
+                  1,084
                 </span>
               
 
@@ -449,36 +445,53 @@
       
 
       
-        <p>CheckStyle是SourceForge下的一个项目，提供了一个帮助JAVA开发人员遵守某些编码规范的工具。它能够自动化代码规范检查过程，从而使得开发人员从这项重要，但是枯燥的任务中解脱出来。PMD是一种开源分析Java代码错误的工具。与其他分析工具不同的是，PMD通过静态分析获知代码错误。也就是说，在不运行Java程序的情况下报告错误。PMD附带了许多可以直接使用的规则，利用这些规则可以找出Java源程序的许多问题。现在就来看看它们的安装配置和使用吧。</p>
+        <p>Servlet的生命周期指的是 Servlet从被Web服务器加载到它被销毁的整个生命过程。那么他的生命周期主要分为哪几个阶段以及它的工作原理是怎么样的呢？本博文接下来将讨论这些内容。</p>
 <a id="more"></a>
-<h2 id="CheckStyle插件的安装与配置"><a href="#CheckStyle插件的安装与配置" class="headerlink" title="CheckStyle插件的安装与配置"></a>CheckStyle插件的安装与配置</h2><h3 id="安装CheckStyle插件"><a href="#安装CheckStyle插件" class="headerlink" title="安装CheckStyle插件"></a>安装CheckStyle插件</h3><p><img src="https://i.imgur.com/OaN4xrT.png" alt=""></p>
-<h3 id="CheckStyle插件的配置"><a href="#CheckStyle插件的配置" class="headerlink" title="CheckStyle插件的配置"></a>CheckStyle插件的配置</h3><p><img src="https://i.imgur.com/Umsxf89.png" alt=""></p>
-<p>当安装好插件，打开 IDEA的设置页面 settings -&gt; Other Settings 你会发现默认的 Checkstyle , 勾选就OK了,如上图。其实在还可以点击上面绿色加号添加自定义checkstyle文件，该文件放在项目的根目录。在里面可以设置你想要的格式。基本的配置就完毕了。现在 IDEA的控制面板会多一个 CheckStyle，你可以在这里方便的进行代码检查。可以点击面板的左上角下拉框 Rules 去动态切换不同的 checkstyle。</p>
-<p><img src="https://i.imgur.com/oGRxvuU.png" alt=""></p>
-<h3 id="CheckStyle插件的使用"><a href="#CheckStyle插件的使用" class="headerlink" title="CheckStyle插件的使用"></a>CheckStyle插件的使用</h3><p>完成安装与配置之后CheckStyle，便可以运行CheckStyle。根据CheckStyle扫描结果对应修改。</p>
-<p><img src="https://i.imgur.com/O6DomA6.png" alt=""></p>
-<h3 id="定制专属CheckStyle检查规则"><a href="#定制专属CheckStyle检查规则" class="headerlink" title="定制专属CheckStyle检查规则"></a>定制专属CheckStyle检查规则</h3><p> CheckStyle不管是插件方式还是脚本方式，使用都是相当方便快捷的，而难点在于如何定制专属于我们项目的CheckStyle检查规则。</p>
-<blockquote>
-<p>定制CheckStyle规则大致思路：通过对Google 提供的checkStyle检查规则修改完善，打造出属于自己的检查规则。<a href="https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/google_checks.xml" target="_blank" rel="noopener">谷歌配置文件规则</a></p>
-</blockquote>
-<p>在配置文件中中主要由module 、property、message等节点构成：</p>
+<h3 id="Servlet的生命周期的详细分析"><a href="#Servlet的生命周期的详细分析" class="headerlink" title="Servlet的生命周期的详细分析"></a>Servlet的生命周期的详细分析</h3><p>Servlet的生命周期分为三个阶段</p>
 <ul>
-<li>module节点 主要是指检查项，如MethodName （检查方法命名）module中有两个比较重要的节点，它们分别是Checker（checkStyle配置文件的根节点，必须存在）、TreeWalker（树遍历器），TreeWalker会自动去检查指定范围内的每一个java源文件，TreeWalker内部会定义很多module。</li>
-<li>property 节点对应module 检查项中具体检查属性，如果使用默认值，property节点可以省略</li>
-<li>message节点 checkStyle检查出来，是否打印出message消息，message节点可以省略</li>
+<li>初始化阶段，调用init()方法</li>
+<li>响应客户请求阶段，调用service()方法</li>
+<li>终止阶段，调用destory()方法</li>
 </ul>
-<p>如何添加过滤能力？</p>
-<blockquote>
-<p>解决办法：在定制好的checkStyle.xml文件中，添加一个名为SuppressionFilter的moudle，在过滤规则文件suppressions.xml中添加相应的过滤规则。</p>
+<p>一个Servlet的具体步骤以及和JSP的区别(web.xml和Service方法)</p>
+<ul>
+<li>Web服务器加载Servlet：Web服务器启动后，它会根据每个工程的web.xml文件去查找该工程的Servlet，并且找到这些Servlet的Class文件所在的地址，将它们载入到Web容器中，不同的Servlet被Web容器加载的次序不同，通过web.xml文件可以配置每个Servlet载入的次序。</li>
+<li>一般来说，Servlet在服务器启动时就会被Web服务器加载，而JSP文件只有在用户访问到该页面时才会被动态载入。</li>
+<li>创建一个Servlet实例：这时会调用该Servlet的构造函数去创建一个具体的对象。 </li>
+<li>经过以上的两个步骤后，这时如果有客户端请求，Web服务器就会调用Servlet对象的init()方法 </li>
+<li>接着Web服务器调用Servlet的service()方法去接收请求，处理请求，并把处理结果返回。 </li>
+<li>销毁：Servlet实例被销毁，这是通过调用Servlet的destory()方法来实现的。</li>
+</ul>
+<p>在以上的几个阶段中，Servlet对外提供服务阶段最重要的。service()方法是编程人员真正要关心的方法，因为它才是Servlet真正开始响应客户端请求，并且处理业务逻辑的方法。Service()接收到客户端请求后，再调用Servlet的doGet()方法或者doPost()方法去处理请求。所以在编写自己的Servlet时，一般只需要重写doGet()和doPost()方法，在该方法中去处理客户端请求，并把处理结果返回。</p>
+<p><img src="https://i.imgur.com/WhRjp5B.png" alt=""></p>
+<p>过程分析:</p>
+<ul>
+<li>Web Client向Servlet容器(tomcat)发出Http请求 </li>
+<li>Servlet容器接收Web Client的请求 </li>
+<li>Servlet容器创建一个HttpRequest对象，将Web Client请求的信息封装到这个对象中。 </li>
+<li>Servlet容器创建一个HttpResponse对象 </li>
+<li>Servlet容器调用HttpServlet对象的service方法，把HttpRequest对象与HttpResponse对象作为参数传递给HttpServlet对象。 </li>
+<li>HttpServlet调用HttpRequest对象的有关方法，获取Http请求信息 </li>
+<li>HttpServlet调用HttpResponse对象的有关方法，生成响应数据 </li>
+<li>Servlet容器把HttpServlet的响应结果传入Web Client。</li>
+</ul>
+<h3 id="Servlet工作原理"><a href="#Servlet工作原理" class="headerlink" title="Servlet工作原理:"></a>Servlet工作原理:</h3><p>首先客户发送个请求，Servlet容器会创建特定于这个请求的ServletRequest对象和ServletResponse对象，然后调用Servlet的service()方法。Service()方法从ServletRequest对象获得客户请求信息，处理该请求，然后通过ServletResponse对象向客户返回响应信息。</p>
+<p>创建Servlet对象的时机:</p>
+<ul>
+<li>Servlet容器启动时：读取web.xml配置文件中的信息，构造指定的Servlet对象，创建ServletConfig对象，同时将ServletConfig对象作为参数来调用Servlet对象的init方法。 </li>
+<li>在Servlet容器启动后：客户首次向Servlet发出请求，Servlet容器会判断内存中是否存在指定的Servlet对象，如果没有则创建它，然后根据客户的请求创建HttpRequest、HttpResponse对象，从而调用Servlet 对象的service方法。 </li>
+<li>Servlet容器在启动时自动创建Servlet，这是由在web.xml文件中为Servlet设置的<load-on-startup>属性决定的。从中我们也能看到同一个类型的Servlet对象在Servlet容器中以单例的形式存在。</load-on-startup></li>
+</ul>
+<pre><code>&lt;servlet&gt;
+    &lt;servlet-name&gt;Init&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.xl.servlet.InitServlet&lt;/servlet-class&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+</code></pre><p>在servlet的配置当中，<load-on-startup>1</load-on-startup>的含义是：<br>标记容器是否在启动的时候就加载这个servlet。<br>当值为0或者大于0时，表示容器在应用启动时就加载这个servlet；<br>当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载。<br>正数的值越小，启动该servlet的优先级越高。</p>
+<h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
+<p>If you have some questions after you see my blog , you can tell your doubts in the comments area or you can find some infos by clicking these links or ask me by sending me an email：</p>
 </blockquote>
-<h2 id="PMD插件的安装和使用"><a href="#PMD插件的安装和使用" class="headerlink" title="PMD插件的安装和使用"></a>PMD插件的安装和使用</h2><ol>
-<li><p>自动安装：file –&gt; settings –&gt; plugins  搜索  pmd</p>
-</li>
-<li><p>用户可以选择在单个或者多个文件或文件夹上运行PMD：选中 文件或文件夹 –&gt; 右击 –&gt; Run PDM –&gt; 选择规则集</p>
-</li>
-</ol>
-<p><img src="https://i.imgur.com/Osowhq8.png" alt=""></p>
-<h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><ul>
+<ul>
 <li><p><a href="https://github.com/Lembre" target="_blank" rel="noopener">Github@codinglembre</a></p>
 </li>
 <li><p><a href="https://www.zhihu.com/people/yan-zhong-hui-11/activities" target="_blank" rel="noopener">Zhihu@codinglembre</a></p>
@@ -502,12 +515,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/">代码检查规范CheckStyle和PMD的配置使用</a></p>
+  <p><span>本文标题:</span><a href="/2018/09/26/Servlet的生命周期与创建时机/">Servlet的生命周期与创建时机</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
-  <p><span>发布时间:</span>2018年09月21日 - 00:09</p>
-  <p><span>最后更新:</span>2018年09月21日 - 01:09</p>
-  <p><span>原始链接:</span><a href="/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/" title="代码检查规范CheckStyle和PMD的配置使用">http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年09月26日 - 15:09</p>
+  <p><span>最后更新:</span>2018年09月26日 - 17:09</p>
+  <p><span>原始链接:</span><a href="/2018/09/26/Servlet的生命周期与创建时机/" title="Servlet的生命周期与创建时机">http://codinglembre.top/2018/09/26/Servlet的生命周期与创建时机/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/26/Servlet的生命周期与创建时机/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -572,7 +585,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+            <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
+          
+            <a href="/tags/Servlet/" rel="tag"><i class="fa fa-tag"></i> Servlet</a>
           
         </div>
       
@@ -585,8 +600,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/20/关于抽象类和接口/" rel="next" title="关于抽象类和接口">
-                <i class="fa fa-chevron-left"></i> 关于抽象类和接口
+              <a href="/2018/09/26/JavaWeb之Servlet学习/" rel="next" title="JavaWeb之Servlet学习">
+                <i class="fa fa-chevron-left"></i> JavaWeb之Servlet学习
               </a>
             
           </div>
@@ -595,8 +610,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/25/JavaWeb之JDBC详解/" rel="prev" title="JavaWeb之JDBC详解">
-                JavaWeb之JDBC详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/26/Servlet请求转发和请求包含/" rel="prev" title="Servlet请求转发和请求包含">
+                Servlet请求转发和请求包含 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -816,7 +831,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CheckStyle插件的安装与配置"><span class="nav-number">1.</span> <span class="nav-text">CheckStyle插件的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装CheckStyle插件"><span class="nav-number">1.1.</span> <span class="nav-text">安装CheckStyle插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CheckStyle插件的配置"><span class="nav-number">1.2.</span> <span class="nav-text">CheckStyle插件的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CheckStyle插件的使用"><span class="nav-number">1.3.</span> <span class="nav-text">CheckStyle插件的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定制专属CheckStyle检查规则"><span class="nav-number">1.4.</span> <span class="nav-text">定制专属CheckStyle检查规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PMD插件的安装和使用"><span class="nav-number">2.</span> <span class="nav-text">PMD插件的安装和使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">3.</span> <span class="nav-text">联系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet的生命周期的详细分析"><span class="nav-number">1.</span> <span class="nav-text">Servlet的生命周期的详细分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet工作原理"><span class="nav-number">2.</span> <span class="nav-text">Servlet工作原理:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">3.</span> <span class="nav-text">联系</span></a></li></ol></div>
             
 
           </div>
@@ -994,9 +1009,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/';
-          this.page.identifier = '2018/09/21/代码检查规范CheckStyle和PMD的配置使用/';
-          this.page.title = '代码检查规范CheckStyle和PMD的配置使用';
+          this.page.url = 'http://codinglembre.top/2018/09/26/Servlet的生命周期与创建时机/';
+          this.page.identifier = '2018/09/26/Servlet的生命周期与创建时机/';
+          this.page.title = 'Servlet的生命周期与创建时机';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://codinglembre.disqus.com/embed.js';

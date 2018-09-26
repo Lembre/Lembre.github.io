@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="Java," />
+  <meta name="keywords" content="JavaWeb,Servlet," />
 
 
 
@@ -90,24 +90,26 @@
 
 
 
-<meta name="description" content="CheckStyle是SourceForge下的一个项目，提供了一个帮助JAVA开发人员遵守某些编码规范的工具。它能够自动化代码规范检查过程，从而使得开发人员从这项重要，但是枯燥的任务中解脱出来。PMD是一种开源分析Java代码错误的工具。与其他分析工具不同的是，PMD通过静态分析获知代码错误。也就是说，在不运行Java程序的情况下报告错误。PMD附带了许多可以直接使用的规则，利用这些规则可以找出">
-<meta name="keywords" content="Java">
+<meta name="description" content="Servlet（Servlet Applet），全称Java Servlet,是用Java编写的服务器端程序。而这些Servlet都要事先Servlet接口或继承了HttpServlet的java代码(一般用继承的方法)。其主要功能在于交互式的浏览和修改数据，生成动态Web内容。Servlet运行于支持Java的应用服务器中。HttpServlet 重写doGet 和 doPost 方法或者你也可">
+<meta name="keywords" content="JavaWeb,Servlet">
 <meta property="og:type" content="article">
-<meta property="og:title" content="代码检查规范CheckStyle和PMD的配置使用">
-<meta property="og:url" content="http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/index.html">
+<meta property="og:title" content="JavaWeb之Servlet学习">
+<meta property="og:url" content="http://codinglembre.top/2018/09/26/JavaWeb之Servlet学习/index.html">
 <meta property="og:site_name" content="codingLembre&#39;s blog">
-<meta property="og:description" content="CheckStyle是SourceForge下的一个项目，提供了一个帮助JAVA开发人员遵守某些编码规范的工具。它能够自动化代码规范检查过程，从而使得开发人员从这项重要，但是枯燥的任务中解脱出来。PMD是一种开源分析Java代码错误的工具。与其他分析工具不同的是，PMD通过静态分析获知代码错误。也就是说，在不运行Java程序的情况下报告错误。PMD附带了许多可以直接使用的规则，利用这些规则可以找出">
+<meta property="og:description" content="Servlet（Servlet Applet），全称Java Servlet,是用Java编写的服务器端程序。而这些Servlet都要事先Servlet接口或继承了HttpServlet的java代码(一般用继承的方法)。其主要功能在于交互式的浏览和修改数据，生成动态Web内容。Servlet运行于支持Java的应用服务器中。HttpServlet 重写doGet 和 doPost 方法或者你也可">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/OaN4xrT.png">
-<meta property="og:image" content="https://i.imgur.com/Umsxf89.png">
-<meta property="og:image" content="https://i.imgur.com/oGRxvuU.png">
-<meta property="og:image" content="https://i.imgur.com/O6DomA6.png">
-<meta property="og:image" content="https://i.imgur.com/Osowhq8.png">
-<meta property="og:updated_time" content="2018-09-20T17:21:42.744Z">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%AE%9E%E7%8E%B0Servlet%E6%8E%A5%E5%8F%A3.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/GenericServlet%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%85%A8%E9%83%A8%E6%96%B9%E6%B3%95.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/GenericServlet%E7%B1%BB%E6%BA%90%E4%BB%A3%E7%A0%81.jpg">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/ServletContext%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/httpservlet%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/httpServlet%E4%B8%AD%E5%AF%B9service%E6%96%B9%E6%B3%95%E7%9A%84%E8%A7%A3%E9%87%8A.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E6%97%B6%E5%BA%8F%E5%9B%BE.png">
+<meta property="og:updated_time" content="2018-09-26T07:48:47.829Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="代码检查规范CheckStyle和PMD的配置使用">
-<meta name="twitter:description" content="CheckStyle是SourceForge下的一个项目，提供了一个帮助JAVA开发人员遵守某些编码规范的工具。它能够自动化代码规范检查过程，从而使得开发人员从这项重要，但是枯燥的任务中解脱出来。PMD是一种开源分析Java代码错误的工具。与其他分析工具不同的是，PMD通过静态分析获知代码错误。也就是说，在不运行Java程序的情况下报告错误。PMD附带了许多可以直接使用的规则，利用这些规则可以找出">
-<meta name="twitter:image" content="https://i.imgur.com/OaN4xrT.png">
+<meta name="twitter:title" content="JavaWeb之Servlet学习">
+<meta name="twitter:description" content="Servlet（Servlet Applet），全称Java Servlet,是用Java编写的服务器端程序。而这些Servlet都要事先Servlet接口或继承了HttpServlet的java代码(一般用继承的方法)。其主要功能在于交互式的浏览和修改数据，生成动态Web内容。Servlet运行于支持Java的应用服务器中。HttpServlet 重写doGet 和 doPost 方法或者你也可">
+<meta name="twitter:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%AE%9E%E7%8E%B0Servlet%E6%8E%A5%E5%8F%A3.png">
 
 
 
@@ -137,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/"/>
+  <link rel="canonical" href="http://codinglembre.top/2018/09/26/JavaWeb之Servlet学习/"/>
 
 
 
 
 
-  <title>代码检查规范CheckStyle和PMD的配置使用 | codingLembre's blog</title>
+  <title>JavaWeb之Servlet学习 | codingLembre's blog</title>
   
 
 
@@ -316,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/">
+    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/09/26/JavaWeb之Servlet学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lembre">
@@ -333,7 +335,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">代码检查规范CheckStyle和PMD的配置使用</h2>
+          <h2 class="post-title" itemprop="name headline">JavaWeb之Servlet学习</h2>
         
 
         <div class="post-meta">
@@ -345,8 +347,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T00:22:26+08:00">
-                2018-09-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T11:00:31+08:00">
+                2018-09-26
               </time>
             
 
@@ -361,8 +363,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-21T01:21:42+08:00">
-                2018-09-21
+              <time title="Update on" itemprop="dateModified" datetime="2018-09-26T15:48:47+08:00">
+                2018-09-26
               </time>
             
           </span>
@@ -398,9 +400,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/26/JavaWeb之Servlet学习/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/21/代码检查规范CheckStyle和PMD的配置使用/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/26/JavaWeb之Servlet学习/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -424,7 +426,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  742
+                  1,316
                 </span>
               
 
@@ -449,36 +451,62 @@
       
 
       
-        <p>CheckStyle是SourceForge下的一个项目，提供了一个帮助JAVA开发人员遵守某些编码规范的工具。它能够自动化代码规范检查过程，从而使得开发人员从这项重要，但是枯燥的任务中解脱出来。PMD是一种开源分析Java代码错误的工具。与其他分析工具不同的是，PMD通过静态分析获知代码错误。也就是说，在不运行Java程序的情况下报告错误。PMD附带了许多可以直接使用的规则，利用这些规则可以找出Java源程序的许多问题。现在就来看看它们的安装配置和使用吧。</p>
+        <p>Servlet（Servlet Applet），全称Java Servlet,是用Java编写的服务器端程序。而这些Servlet都要事先Servlet接口或继承了HttpServlet的java代码(一般用继承的方法)。其主要功能在于交互式的浏览和修改数据，生成动态Web内容。Servlet运行于支持Java的应用服务器中。HttpServlet 重写doGet 和 doPost 方法或者你也可以重写service方法完成对get和post请求响应。</p>
 <a id="more"></a>
-<h2 id="CheckStyle插件的安装与配置"><a href="#CheckStyle插件的安装与配置" class="headerlink" title="CheckStyle插件的安装与配置"></a>CheckStyle插件的安装与配置</h2><h3 id="安装CheckStyle插件"><a href="#安装CheckStyle插件" class="headerlink" title="安装CheckStyle插件"></a>安装CheckStyle插件</h3><p><img src="https://i.imgur.com/OaN4xrT.png" alt=""></p>
-<h3 id="CheckStyle插件的配置"><a href="#CheckStyle插件的配置" class="headerlink" title="CheckStyle插件的配置"></a>CheckStyle插件的配置</h3><p><img src="https://i.imgur.com/Umsxf89.png" alt=""></p>
-<p>当安装好插件，打开 IDEA的设置页面 settings -&gt; Other Settings 你会发现默认的 Checkstyle , 勾选就OK了,如上图。其实在还可以点击上面绿色加号添加自定义checkstyle文件，该文件放在项目的根目录。在里面可以设置你想要的格式。基本的配置就完毕了。现在 IDEA的控制面板会多一个 CheckStyle，你可以在这里方便的进行代码检查。可以点击面板的左上角下拉框 Rules 去动态切换不同的 checkstyle。</p>
-<p><img src="https://i.imgur.com/oGRxvuU.png" alt=""></p>
-<h3 id="CheckStyle插件的使用"><a href="#CheckStyle插件的使用" class="headerlink" title="CheckStyle插件的使用"></a>CheckStyle插件的使用</h3><p>完成安装与配置之后CheckStyle，便可以运行CheckStyle。根据CheckStyle扫描结果对应修改。</p>
-<p><img src="https://i.imgur.com/O6DomA6.png" alt=""></p>
-<h3 id="定制专属CheckStyle检查规则"><a href="#定制专属CheckStyle检查规则" class="headerlink" title="定制专属CheckStyle检查规则"></a>定制专属CheckStyle检查规则</h3><p> CheckStyle不管是插件方式还是脚本方式，使用都是相当方便快捷的，而难点在于如何定制专属于我们项目的CheckStyle检查规则。</p>
-<blockquote>
-<p>定制CheckStyle规则大致思路：通过对Google 提供的checkStyle检查规则修改完善，打造出属于自己的检查规则。<a href="https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/google_checks.xml" target="_blank" rel="noopener">谷歌配置文件规则</a></p>
-</blockquote>
-<p>在配置文件中中主要由module 、property、message等节点构成：</p>
+<h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h3><p>Servlet是Java Web三大组件之一(Filter、Servlet、Listener)，它属于动态资源。Servlet的作用是处理请求，服务器会把接收到的请求交给Servlet来处理，在Servlet中通常需要: </p>
 <ul>
-<li>module节点 主要是指检查项，如MethodName （检查方法命名）module中有两个比较重要的节点，它们分别是Checker（checkStyle配置文件的根节点，必须存在）、TreeWalker（树遍历器），TreeWalker会自动去检查指定范围内的每一个java源文件，TreeWalker内部会定义很多module。</li>
-<li>property 节点对应module 检查项中具体检查属性，如果使用默认值，property节点可以省略</li>
-<li>message节点 checkStyle检查出来，是否打印出message消息，message节点可以省略</li>
+<li>接受数据请求</li>
+<li>处理请求</li>
+<li>完成响应 </li>
 </ul>
-<p>如何添加过滤能力？</p>
-<blockquote>
-<p>解决办法：在定制好的checkStyle.xml文件中，添加一个名为SuppressionFilter的moudle，在过滤规则文件suppressions.xml中添加相应的过滤规则。</p>
+<p>客户端发出登录请求，或者输入注册请求，这些请求都应该由Servlet来完成处理。当然Servlet类需要我们自己来编写，每个Servlet类都必须实现javax.servlet.Servlet接口。 </p>
+<h3 id="实现Servlet的方式-需要我们自己来写"><a href="#实现Servlet的方式-需要我们自己来写" class="headerlink" title="实现Servlet的方式(需要我们自己来写)"></a>实现Servlet的方式(需要我们自己来写)</h3><ul>
+<li>实现javax.servlet.Servlet接口;</li>
+<li>继承javax.servlet.GenericServlet类;</li>
+<li>继承javax.servlet.http.HttpServlet类;</li>
+</ul>
+<p>一般来说我们都选择实现HttpServlet类来完成我们的Servlet，但学习Servlet还要从javax.servlet.Servlet接口来学起。 </p>
+<h4 id="实现javax-servlet-Servlet接口"><a href="#实现javax-servlet-Servlet接口" class="headerlink" title="实现javax.servlet.Servlet接口"></a>实现javax.servlet.Servlet接口</h4><p><img src="http://od2xrf8gr.bkt.clouddn.com/%E5%AE%9E%E7%8E%B0Servlet%E6%8E%A5%E5%8F%A3.png" alt=""></p>
+<p>其中只有三个生命周期的方法是由服务器(例如我用的Tomcat)在认为需要调用的时候自动调用的(即我们自己是无法调用的)，另外的两个方法由我们自己需要的时候调用。 </p>
+<h4 id="继承javax-servlet-GenericServlet类"><a href="#继承javax-servlet-GenericServlet类" class="headerlink" title="继承javax.servlet.GenericServlet类"></a>继承javax.servlet.GenericServlet类</h4><p>有人会说，那我每次实现Servlet接口都要重写这5个方法岂不是很麻烦？那肯定麻烦！所以GenericServlet类派上用场了。<br>GenericServlet类实现了Servlet接口，所以在GenericServlet类中实现了Servlet接口中的5个抽象方法，另外在GenerecServlet类中还定义了自己的方法，将其作为我们要定义的xxxServlet类的父类，这样我们在自己定义的xxxServlet类中便可以不用全部实现Servlet接口中的方法。<br>GenericServlet类中的方法如下:</p>
+<p><img src="http://od2xrf8gr.bkt.clouddn.com/GenericServlet%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%85%A8%E9%83%A8%E6%96%B9%E6%B3%95.png" alt=""></p>
+<p>GenericServlet类除了实现Servlet接口中的四个方法外，还定义了getInitParameter()返回Servlet的参数值、getInitParameterNames()返回Servlet的参数名、getServletName()返回Servlet名、getServletContext()返回Servlet上下文、不带参数的init()、log()等方法。这些自己定义的方法中，前面四个是ServletConfig接口中的方法，不带参数的init()方法跟Servlet接口中的init(ServletConfig config)方法要区别，在init()方法中，我们可以添加当xxxServlet被初始化的操作，此方法在初始化方法init(ServletConfig config)中被调用(若是文字解析看不懂见下图GenericServlet源代码中注释)。 </p>
+<p>图中只有service()方法属于抽象方法，所以当我们定义的xxxServlet类去继承GenericServlet类时我们只需重写这一个方法即可，其他方法可重写可不重写。 </p>
+<p><img src="http://od2xrf8gr.bkt.clouddn.com/GenericServlet%E7%B1%BB%E6%BA%90%E4%BB%A3%E7%A0%81.jpg" alt=""></p>
+<h3 id="JavaWeb，Servlet，JSP的域对象"><a href="#JavaWeb，Servlet，JSP的域对象" class="headerlink" title="JavaWeb，Servlet，JSP的域对象"></a>JavaWeb，Servlet，JSP的域对象</h3><p>扩展:对ServletContext的解释:</p>
+<p>服务器会为每个应用创建一个ServletContext对象，一个应用只有一个ServletContext对象！我们可以在N多个Servlet中来获取这个唯一的对象，使用它可以给多个Servlet传递数据。此对象在Tomcat(服务器)启动时就创建，在服务器关闭时就销毁。 </p>
+<p>ServletContext是Java Web四大域对象(PageContext、ServletRequest、HttpSession、ServletContext)之一，域对象所具有的特点是: </p>
+<ul>
+<li>能够存数据</li>
+<li>能够取数据</li>
+</ul>
+<p>所有的域对象都有存取数据的功能，因为域对象内部有一个Map，用来存储数据，下面是ServletContext对象用来操作数据的方法: </p>
+<p><img src="http://od2xrf8gr.bkt.clouddn.com/ServletContext%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95.png" alt=""></p>
+<p>扩展:Servlet类三大域对象:</p>
+<ul>
+<li>request:在Servlet中直接用，因为实现的doPost()方法中有request这个参数。</li>
+<li>session:在Servlet中通过HttpSession session=request.getSession();得到。</li>
+<li>application:在Servlet中通过ServletContext application=this.getServletContext();得到。</li>
+</ul>
+<p>扩展:JSP中四大域对象</p>
+<ul>
+<li>page域:即9大内置对象中的pageContext，为PageContext的实例。</li>
+<li>request域:即9大内置对象中的request，为HttpServletRequest的实例。</li>
+<li>session域:即9大内置对象中的session,为HttpSession的实例。</li>
+<li>application:即9大内置对象中的ServletContext的实例</li>
+</ul>
+<p>注意:“page域”不同于9大内置对象中“page”。</p>
+<h3 id="继承HttpServlet类"><a href="#继承HttpServlet类" class="headerlink" title="继承HttpServlet类"></a>继承HttpServlet类</h3><p>HttpServlet类是我们用到次数最多的，也是最简单的。由类名可知，该类总是跟http协议相关的。<br>HttpServlet类中的方法如下图:</p>
+<p><img src="http://od2xrf8gr.bkt.clouddn.com/httpservlet%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95.png" alt=""></p>
+<p>方法中值得我们注意的有doGet()、doPost()、还有两个service()方法。其中doGet()和doPost()方法是需要我们重写的，我来解释下两个service()方法的区别。 </p>
+<p>其中一个service()方法是Serlvet接口中的生命周期方法，另外一个是跟http协议有关的方法。二者方法的解释见下两站图的说明(图1中指出HttpServlet类是继承自GenderServlet类):</p>
+<p><img src="http://od2xrf8gr.bkt.clouddn.com/httpServlet%E4%B8%AD%E5%AF%B9service%E6%96%B9%E6%B3%95%E7%9A%84%E8%A7%A3%E9%87%8A.png" alt=""></p>
+<p><img src="http://od2xrf8gr.bkt.clouddn.com/%E6%97%B6%E5%BA%8F%E5%9B%BE.png" alt=""></p>
+<p>图中405的含义是说服务器不支持客户端(即浏览器)用此种方法访问。因为HttpServlet类的源代码中的doGet()和doPost()方法体里面就是这样写的，你在定义的xxxservlet中如果不重新重写这两个方法就会出现405的响应状态码。</p>
+<h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
+<p>If you have some questions after you see my blog , you can tell your doubts in the comments area or you can find some infos by clicking these links or ask me by sending me an email：</p>
 </blockquote>
-<h2 id="PMD插件的安装和使用"><a href="#PMD插件的安装和使用" class="headerlink" title="PMD插件的安装和使用"></a>PMD插件的安装和使用</h2><ol>
-<li><p>自动安装：file –&gt; settings –&gt; plugins  搜索  pmd</p>
-</li>
-<li><p>用户可以选择在单个或者多个文件或文件夹上运行PMD：选中 文件或文件夹 –&gt; 右击 –&gt; Run PDM –&gt; 选择规则集</p>
-</li>
-</ol>
-<p><img src="https://i.imgur.com/Osowhq8.png" alt=""></p>
-<h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><ul>
+<ul>
 <li><p><a href="https://github.com/Lembre" target="_blank" rel="noopener">Github@codinglembre</a></p>
 </li>
 <li><p><a href="https://www.zhihu.com/people/yan-zhong-hui-11/activities" target="_blank" rel="noopener">Zhihu@codinglembre</a></p>
@@ -502,12 +530,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/">代码检查规范CheckStyle和PMD的配置使用</a></p>
+  <p><span>本文标题:</span><a href="/2018/09/26/JavaWeb之Servlet学习/">JavaWeb之Servlet学习</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
-  <p><span>发布时间:</span>2018年09月21日 - 00:09</p>
-  <p><span>最后更新:</span>2018年09月21日 - 01:09</p>
-  <p><span>原始链接:</span><a href="/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/" title="代码检查规范CheckStyle和PMD的配置使用">http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年09月26日 - 11:09</p>
+  <p><span>最后更新:</span>2018年09月26日 - 15:09</p>
+  <p><span>原始链接:</span><a href="/2018/09/26/JavaWeb之Servlet学习/" title="JavaWeb之Servlet学习">http://codinglembre.top/2018/09/26/JavaWeb之Servlet学习/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/26/JavaWeb之Servlet学习/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -572,7 +600,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+            <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
+          
+            <a href="/tags/Servlet/" rel="tag"><i class="fa fa-tag"></i> Servlet</a>
           
         </div>
       
@@ -585,8 +615,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/20/关于抽象类和接口/" rel="next" title="关于抽象类和接口">
-                <i class="fa fa-chevron-left"></i> 关于抽象类和接口
+              <a href="/2018/09/26/Java之Socket编程与应用/" rel="next" title="Java之Socket编程与应用">
+                <i class="fa fa-chevron-left"></i> Java之Socket编程与应用
               </a>
             
           </div>
@@ -595,8 +625,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/25/JavaWeb之JDBC详解/" rel="prev" title="JavaWeb之JDBC详解">
-                JavaWeb之JDBC详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/26/Servlet的生命周期与创建时机/" rel="prev" title="Servlet的生命周期与创建时机">
+                Servlet的生命周期与创建时机 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -816,7 +846,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CheckStyle插件的安装与配置"><span class="nav-number">1.</span> <span class="nav-text">CheckStyle插件的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装CheckStyle插件"><span class="nav-number">1.1.</span> <span class="nav-text">安装CheckStyle插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CheckStyle插件的配置"><span class="nav-number">1.2.</span> <span class="nav-text">CheckStyle插件的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CheckStyle插件的使用"><span class="nav-number">1.3.</span> <span class="nav-text">CheckStyle插件的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定制专属CheckStyle检查规则"><span class="nav-number">1.4.</span> <span class="nav-text">定制专属CheckStyle检查规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PMD插件的安装和使用"><span class="nav-number">2.</span> <span class="nav-text">PMD插件的安装和使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">3.</span> <span class="nav-text">联系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet"><span class="nav-number">1.</span> <span class="nav-text">Servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现Servlet的方式-需要我们自己来写"><span class="nav-number">2.</span> <span class="nav-text">实现Servlet的方式(需要我们自己来写)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现javax-servlet-Servlet接口"><span class="nav-number">2.1.</span> <span class="nav-text">实现javax.servlet.Servlet接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承javax-servlet-GenericServlet类"><span class="nav-number">2.2.</span> <span class="nav-text">继承javax.servlet.GenericServlet类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaWeb，Servlet，JSP的域对象"><span class="nav-number">3.</span> <span class="nav-text">JavaWeb，Servlet，JSP的域对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承HttpServlet类"><span class="nav-number">4.</span> <span class="nav-text">继承HttpServlet类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">5.</span> <span class="nav-text">联系</span></a></li></ol></div>
             
 
           </div>
@@ -994,9 +1024,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/';
-          this.page.identifier = '2018/09/21/代码检查规范CheckStyle和PMD的配置使用/';
-          this.page.title = '代码检查规范CheckStyle和PMD的配置使用';
+          this.page.url = 'http://codinglembre.top/2018/09/26/JavaWeb之Servlet学习/';
+          this.page.identifier = '2018/09/26/JavaWeb之Servlet学习/';
+          this.page.title = 'JavaWeb之Servlet学习';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://codinglembre.disqus.com/embed.js';

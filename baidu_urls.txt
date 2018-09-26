@@ -1,1 +1,1 @@
-http://codinglembre.top/2018/09/25/JDBC之高级知识点/
+http://codinglembre.top/2018/09/26/理解session和cookie机制/

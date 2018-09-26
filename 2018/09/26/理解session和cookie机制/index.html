@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="Java," />
+  <meta name="keywords" content="JavaWeb,Servlet," />
 
 
 
@@ -90,24 +90,23 @@
 
 
 
-<meta name="description" content="CheckStyle是SourceForge下的一个项目，提供了一个帮助JAVA开发人员遵守某些编码规范的工具。它能够自动化代码规范检查过程，从而使得开发人员从这项重要，但是枯燥的任务中解脱出来。PMD是一种开源分析Java代码错误的工具。与其他分析工具不同的是，PMD通过静态分析获知代码错误。也就是说，在不运行Java程序的情况下报告错误。PMD附带了许多可以直接使用的规则，利用这些规则可以找出">
-<meta name="keywords" content="Java">
+<meta name="description" content="sessionHttpSession概述与作用 HttpSession是由JavaWeb提供的，用来会话跟踪的类。session是服务器端对象，保存在服务器端。 HttpSession是Servlet三大域对象(request、session、application)之一，所以它也有setAttribute()、getAttribute()、removeAttribute()三个方法。 HttpS">
+<meta name="keywords" content="JavaWeb,Servlet">
 <meta property="og:type" content="article">
-<meta property="og:title" content="代码检查规范CheckStyle和PMD的配置使用">
-<meta property="og:url" content="http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/index.html">
+<meta property="og:title" content="理解session和cookie机制">
+<meta property="og:url" content="http://codinglembre.top/2018/09/26/理解session和cookie机制/index.html">
 <meta property="og:site_name" content="codingLembre&#39;s blog">
-<meta property="og:description" content="CheckStyle是SourceForge下的一个项目，提供了一个帮助JAVA开发人员遵守某些编码规范的工具。它能够自动化代码规范检查过程，从而使得开发人员从这项重要，但是枯燥的任务中解脱出来。PMD是一种开源分析Java代码错误的工具。与其他分析工具不同的是，PMD通过静态分析获知代码错误。也就是说，在不运行Java程序的情况下报告错误。PMD附带了许多可以直接使用的规则，利用这些规则可以找出">
+<meta property="og:description" content="sessionHttpSession概述与作用 HttpSession是由JavaWeb提供的，用来会话跟踪的类。session是服务器端对象，保存在服务器端。 HttpSession是Servlet三大域对象(request、session、application)之一，所以它也有setAttribute()、getAttribute()、removeAttribute()三个方法。 HttpS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/OaN4xrT.png">
-<meta property="og:image" content="https://i.imgur.com/Umsxf89.png">
-<meta property="og:image" content="https://i.imgur.com/oGRxvuU.png">
-<meta property="og:image" content="https://i.imgur.com/O6DomA6.png">
-<meta property="og:image" content="https://i.imgur.com/Osowhq8.png">
-<meta property="og:updated_time" content="2018-09-20T17:21:42.744Z">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/login.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/loginservlet.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/succ1.png">
+<meta property="og:image" content="https://i.imgur.com/NmkgQpc.png">
+<meta property="og:updated_time" content="2018-09-26T10:14:49.737Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="代码检查规范CheckStyle和PMD的配置使用">
-<meta name="twitter:description" content="CheckStyle是SourceForge下的一个项目，提供了一个帮助JAVA开发人员遵守某些编码规范的工具。它能够自动化代码规范检查过程，从而使得开发人员从这项重要，但是枯燥的任务中解脱出来。PMD是一种开源分析Java代码错误的工具。与其他分析工具不同的是，PMD通过静态分析获知代码错误。也就是说，在不运行Java程序的情况下报告错误。PMD附带了许多可以直接使用的规则，利用这些规则可以找出">
-<meta name="twitter:image" content="https://i.imgur.com/OaN4xrT.png">
+<meta name="twitter:title" content="理解session和cookie机制">
+<meta name="twitter:description" content="sessionHttpSession概述与作用 HttpSession是由JavaWeb提供的，用来会话跟踪的类。session是服务器端对象，保存在服务器端。 HttpSession是Servlet三大域对象(request、session、application)之一，所以它也有setAttribute()、getAttribute()、removeAttribute()三个方法。 HttpS">
+<meta name="twitter:image" content="http://od2xrf8gr.bkt.clouddn.com/login.png">
 
 
 
@@ -137,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/"/>
+  <link rel="canonical" href="http://codinglembre.top/2018/09/26/理解session和cookie机制/"/>
 
 
 
 
 
-  <title>代码检查规范CheckStyle和PMD的配置使用 | codingLembre's blog</title>
+  <title>理解session和cookie机制 | codingLembre's blog</title>
   
 
 
@@ -316,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/">
+    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/09/26/理解session和cookie机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lembre">
@@ -333,7 +332,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">代码检查规范CheckStyle和PMD的配置使用</h2>
+          <h2 class="post-title" itemprop="name headline">理解session和cookie机制</h2>
         
 
         <div class="post-meta">
@@ -345,8 +344,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T00:22:26+08:00">
-                2018-09-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T17:41:27+08:00">
+                2018-09-26
               </time>
             
 
@@ -361,8 +360,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-21T01:21:42+08:00">
-                2018-09-21
+              <time title="Update on" itemprop="dateModified" datetime="2018-09-26T18:14:49+08:00">
+                2018-09-26
               </time>
             
           </span>
@@ -398,9 +397,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/26/理解session和cookie机制/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/21/代码检查规范CheckStyle和PMD的配置使用/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/26/理解session和cookie机制/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -424,7 +423,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  742
+                  1,763
                 </span>
               
 
@@ -449,36 +448,84 @@
       
 
       
-        <p>CheckStyle是SourceForge下的一个项目，提供了一个帮助JAVA开发人员遵守某些编码规范的工具。它能够自动化代码规范检查过程，从而使得开发人员从这项重要，但是枯燥的任务中解脱出来。PMD是一种开源分析Java代码错误的工具。与其他分析工具不同的是，PMD通过静态分析获知代码错误。也就是说，在不运行Java程序的情况下报告错误。PMD附带了许多可以直接使用的规则，利用这些规则可以找出Java源程序的许多问题。现在就来看看它们的安装配置和使用吧。</p>
-<a id="more"></a>
-<h2 id="CheckStyle插件的安装与配置"><a href="#CheckStyle插件的安装与配置" class="headerlink" title="CheckStyle插件的安装与配置"></a>CheckStyle插件的安装与配置</h2><h3 id="安装CheckStyle插件"><a href="#安装CheckStyle插件" class="headerlink" title="安装CheckStyle插件"></a>安装CheckStyle插件</h3><p><img src="https://i.imgur.com/OaN4xrT.png" alt=""></p>
-<h3 id="CheckStyle插件的配置"><a href="#CheckStyle插件的配置" class="headerlink" title="CheckStyle插件的配置"></a>CheckStyle插件的配置</h3><p><img src="https://i.imgur.com/Umsxf89.png" alt=""></p>
-<p>当安装好插件，打开 IDEA的设置页面 settings -&gt; Other Settings 你会发现默认的 Checkstyle , 勾选就OK了,如上图。其实在还可以点击上面绿色加号添加自定义checkstyle文件，该文件放在项目的根目录。在里面可以设置你想要的格式。基本的配置就完毕了。现在 IDEA的控制面板会多一个 CheckStyle，你可以在这里方便的进行代码检查。可以点击面板的左上角下拉框 Rules 去动态切换不同的 checkstyle。</p>
-<p><img src="https://i.imgur.com/oGRxvuU.png" alt=""></p>
-<h3 id="CheckStyle插件的使用"><a href="#CheckStyle插件的使用" class="headerlink" title="CheckStyle插件的使用"></a>CheckStyle插件的使用</h3><p>完成安装与配置之后CheckStyle，便可以运行CheckStyle。根据CheckStyle扫描结果对应修改。</p>
-<p><img src="https://i.imgur.com/O6DomA6.png" alt=""></p>
-<h3 id="定制专属CheckStyle检查规则"><a href="#定制专属CheckStyle检查规则" class="headerlink" title="定制专属CheckStyle检查规则"></a>定制专属CheckStyle检查规则</h3><p> CheckStyle不管是插件方式还是脚本方式，使用都是相当方便快捷的，而难点在于如何定制专属于我们项目的CheckStyle检查规则。</p>
-<blockquote>
-<p>定制CheckStyle规则大致思路：通过对Google 提供的checkStyle检查规则修改完善，打造出属于自己的检查规则。<a href="https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/google_checks.xml" target="_blank" rel="noopener">谷歌配置文件规则</a></p>
-</blockquote>
-<p>在配置文件中中主要由module 、property、message等节点构成：</p>
-<ul>
-<li>module节点 主要是指检查项，如MethodName （检查方法命名）module中有两个比较重要的节点，它们分别是Checker（checkStyle配置文件的根节点，必须存在）、TreeWalker（树遍历器），TreeWalker会自动去检查指定范围内的每一个java源文件，TreeWalker内部会定义很多module。</li>
-<li>property 节点对应module 检查项中具体检查属性，如果使用默认值，property节点可以省略</li>
-<li>message节点 checkStyle检查出来，是否打印出message消息，message节点可以省略</li>
+        <h2 id="session"><a href="#session" class="headerlink" title="session"></a>session</h2><h4 id="HttpSession概述与作用"><a href="#HttpSession概述与作用" class="headerlink" title="HttpSession概述与作用"></a>HttpSession概述与作用</h4><ul>
+<li>HttpSession是由JavaWeb提供的，用来会话跟踪的类。session是服务器端对象，保存在服务器端。</li>
+<li>HttpSession是Servlet三大域对象(request、session、application)之一，所以它也有setAttribute()、getAttribute()、removeAttribute()三个方法。</li>
+<li>HttpSession底层依赖Cookie，或是URL重写。</li>
 </ul>
-<p>如何添加过滤能力？</p>
-<blockquote>
-<p>解决办法：在定制好的checkStyle.xml文件中，添加一个名为SuppressionFilter的moudle，在过滤规则文件suppressions.xml中添加相应的过滤规则。</p>
+<p>HttpSession的作用</p>
+<ul>
+<li>会话范围:会话范围是某个用户从首次访问服务器开始，到该用户关闭浏览器结束。(会话:一个用户对服务器的多次连贯性请求！所谓连贯请求，就是该用户多次请求 中间没有关闭浏览器)</li>
+<li><p><strong><em>服务器会为每个客户端创建一个session对象，session就好比客户在服务器端的账户，它们被服务器保存到一个Map中，这个Map被称之为session缓存。</em></strong></p>
+<ul>
+<li>Servlet中得到session对象的方法为:HttpSession session=request.getSession();</li>
+<li>Jsp中得到session对象的方法:session是JSP内置对象之一，不用创建就可以直接使用。</li>
+</ul>
+</li>
+<li><p>session域相关方法:</p>
+<ul>
+<li>void setAttribute(String name,Object value);</li>
+<li>Object getAttribute(String name);</li>
+<li>void removeAttribute(String name);</li>
+</ul>
+</li>
+</ul>
+<h3 id="session保存用户登录信息"><a href="#session保存用户登录信息" class="headerlink" title="session保存用户登录信息"></a>session保存用户登录信息</h3><p>login.jsp</p>
+<p><img src="http://od2xrf8gr.bkt.clouddn.com/login.png" alt=""></p>
+<p>LoginServlet.java</p>
+<p><img src="http://od2xrf8gr.bkt.clouddn.com/loginservlet.png" alt=""></p>
+<p>success.jsp</p>
+<p><img src="http://od2xrf8gr.bkt.clouddn.com/succ1.png" alt=""></p>
+<h3 id="HttpSession原理"><a href="#HttpSession原理" class="headerlink" title="HttpSession原理"></a>HttpSession原理</h3><h4 id="初入HttpSession原理"><a href="#初入HttpSession原理" class="headerlink" title="初入HttpSession原理"></a>初入HttpSession原理</h4><blockquote>
+<p>1.每当客户端与服务器建立了一个会话，服务器就会为该客户端建立一个session对象，将session对象保存在服务器端的同时服务器还会给客户端发送一个带有JSESSIONID的Cookie(放在响应头中)；2.当客户端在不关闭浏览器的情况下再次访问该服务器时，客户端就会通过这个JSESSIONID来取出保存在服务器端相应session对象。3.当客户关闭了浏览器时，意味着与服务器断开连接然后会话session也随着就结束了，此时能识别存在服务器端的HttpSession对象的JSESSIONID也就跟着丢失了。4.但是此HttpSession对象依旧保存在服务器端。5.当再次打开浏览器时，就会重新建立新连接，服务器给过来的JSESSIONID也是新的了。</p>
 </blockquote>
-<h2 id="PMD插件的安装和使用"><a href="#PMD插件的安装和使用" class="headerlink" title="PMD插件的安装和使用"></a>PMD插件的安装和使用</h2><ol>
-<li><p>自动安装：file –&gt; settings –&gt; plugins  搜索  pmd</p>
+<blockquote>
+<p>这就好比你第一次去银行办卡，1.银行给你办了一张带有独特帐号的银行卡(JSESSIONID)然后你回家了，你存在银行卡里的钱保存在银行里(相应的HttpSession对象)(对应上面的步骤1)；2.当你再次访问该银行取钱时，你首先要给银行你的带有独特帐号的银行卡(将JSESSIONID给服务器),然后银行会给你要取的钱(获取相应的HttpSession对象)(对应上面的步骤2)。3.当你丢失了你的银行卡，而银行的工作人员又不小心在数据库中删除了你银行卡对应的帐号(对应上面的步骤3关闭浏览器)。4.但是你的钱还保存在银行里(对应上面的步骤4)。5.这时当你再次返回该银行时，你就需要重新办一张银行卡(由于工作人员删除了你原先的帐号所以不能补办),并且新办理的银行卡会对应新的帐号(新的JSESSIONID)。</p>
+</blockquote>
+<p><strong><em>对于断开连接后保存在服务器端的HttpSession对象不会一直存在，它有它的生命时间，一般为30分钟，到达这个时间后服务器端就会将它删除。还有一种情况就是当客户端与服务器建立一个会话后，但是该客户却很长时间不对服务器发请求，当时间到达该session对象存活的时间后服务器也会删除该session对象。就比如你登录了淘宝的主页，然后你半天时间不去碰电脑，当你想起要去购物时，你点击一个超链接后服务器就会要求你重新登录，因为由于你长时间不给服务器发起请求，服务器就误认为这是一个没用的session，然后服务器就将它删了。</em></strong> </p>
+<h3 id="深入HttpSession原理"><a href="#深入HttpSession原理" class="headerlink" title="深入HttpSession原理"></a>深入HttpSession原理</h3><p><strong><em>只有当客户端请求的Servlet中调用了request.getSession()方法要求获取HttpSession对象时服务器才会创建；但是若请求的是jsp页面，则服务器会立刻创建HttpSession对象，因为jsp对应的Servlet类中已经默认调用了request.getSession()。</em></strong></p>
+<h3 id="HttpSession的其它方法"><a href="#HttpSession的其它方法" class="headerlink" title="HttpSession的其它方法"></a>HttpSession的其它方法</h3><ul>
+<li>String getId():获取JSESSIONID。</li>
+<li>int getMaxInactiveInterval():获取session可以的最大不活动时间(秒),默认为30分钟，当session在30分钟内没有使用，哪么Tomcat会在session缓存中删掉这个session。</li>
+<li>void invalidate():让session失效。调用这个方法会被session失效，当session失效后，客户端再次请求，服务器会给客户端创建一个新的session，并在响应中创建一个新的JSESSIONID。</li>
+<li>boolean isNew():查看session是否为新。当客户端第一次请求时，服务器为客户端创建session，并把JSESSIONID存在Cookie中发给客户端，这时调用这个方法返回的就是新session；当再次发起请求时，JSESSIONID放在Cookie中作为请求头发给服务器，这时调用此方法，返回的就是false，即此session不是新的。</li>
+</ul>
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><h3 id="Http协议与Cookie-了解"><a href="#Http协议与Cookie-了解" class="headerlink" title="Http协议与Cookie(了解)"></a>Http协议与Cookie(了解)</h3><ul>
+<li>Cookie是Http协议制定的。先有服务器保存Cookie到浏览器，再下次浏览器请求服务器时把上一次请求得到的Cookie归还给服务器。</li>
+<li>由服务器创建保存到客户端的一个键值对。服务器保存Cookie的响应头,使用response发送响应头:Set-Cookie:aaa=AAA;Set-Cookie:bbb=BBB;例如: <ul>
+<li>response.addHeader(“Set-Cookie”,”aaa=AAA”);<ul>
+<li>response.addHeader(“Set-Cookie”,”bbb=BBB”);</li>
+</ul>
 </li>
-<li><p>用户可以选择在单个或者多个文件或文件夹上运行PMD：选中 文件或文件夹 –&gt; 右击 –&gt; Run PDM –&gt; 选择规则集</p>
+</ul>
 </li>
-</ol>
-<p><img src="https://i.imgur.com/Osowhq8.png" alt=""></p>
-<h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><ul>
+</ul>
+<p>当浏览器请求服务器时，会把该服务器保存的Cookie随请求发送给服务器。浏览器归还Cookie的请求头:Cookie:aaa=AAA;bbb=BBB。多个键值对间用分号隔开。<br>Http协议规定(为了不给浏览器太大压力) </p>
+<ul>
+<li>1个Cookie最大4KB</li>
+<li>1个服务器最多向1个浏览器保存20个Cookie</li>
+<li>1个浏览器最多可以保存300个Cookie </li>
+</ul>
+<h3 id="Cookie的用途"><a href="#Cookie的用途" class="headerlink" title="Cookie的用途"></a>Cookie的用途</h3><ul>
+<li>服务器使用Cookie来跟踪客户端状态。</li>
+<li>保存购物车(购物车中的商品不能使用request域来保存，因为它是一个用户向服务器发送的多个请求信息)</li>
+<li>显示上次登录用户名(并记住密码)</li>
+</ul>
+<h3 id="Java-Web中使用Cookie"><a href="#Java-Web中使用Cookie" class="headerlink" title="Java Web中使用Cookie."></a>Java Web中使用Cookie.</h3><p><img src="https://i.imgur.com/NmkgQpc.png" alt=""></p>
+<h3 id="Cookie详解"><a href="#Cookie详解" class="headerlink" title="Cookie详解"></a>Cookie详解</h3><ul>
+<li>Cookie不只有name和value两个属性。</li>
+<li><p>Cookie的maxAge:指Cookie的最大生命，即Cookie可保存在客户端中的最大时长，以秒为单位。</p>
+<ul>
+<li>maxAge&gt;0:浏览器会把Cookie保存到客户端硬盘上，有效时长为maxAge的值决定，例如:cookie.setMaxAge(60)表示这个Cookie会被浏览器保存到硬盘上60秒。</li>
+<li>maxAge&lt;0:Cookie只会在浏览器内存中存在，当用户关闭浏览器时浏览器进程结束，同时Cookie也就死亡了。</li>
+<li>maxAge=0:浏览器会马上删除这个Cookie。</li>
+</ul>
+</li>
+</ul>
+<h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
+<p>If you have some questions after you see my blog , you can tell your doubts in the comments area or you can find some infos by clicking these links or ask me by sending me an email：</p>
+</blockquote>
+<ul>
 <li><p><a href="https://github.com/Lembre" target="_blank" rel="noopener">Github@codinglembre</a></p>
 </li>
 <li><p><a href="https://www.zhihu.com/people/yan-zhong-hui-11/activities" target="_blank" rel="noopener">Zhihu@codinglembre</a></p>
@@ -502,12 +549,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/">代码检查规范CheckStyle和PMD的配置使用</a></p>
+  <p><span>本文标题:</span><a href="/2018/09/26/理解session和cookie机制/">理解session和cookie机制</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
-  <p><span>发布时间:</span>2018年09月21日 - 00:09</p>
-  <p><span>最后更新:</span>2018年09月21日 - 01:09</p>
-  <p><span>原始链接:</span><a href="/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/" title="代码检查规范CheckStyle和PMD的配置使用">http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年09月26日 - 17:09</p>
+  <p><span>最后更新:</span>2018年09月26日 - 18:09</p>
+  <p><span>原始链接:</span><a href="/2018/09/26/理解session和cookie机制/" title="理解session和cookie机制">http://codinglembre.top/2018/09/26/理解session和cookie机制/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/26/理解session和cookie机制/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -572,7 +619,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+            <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
+          
+            <a href="/tags/Servlet/" rel="tag"><i class="fa fa-tag"></i> Servlet</a>
           
         </div>
       
@@ -585,8 +634,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/20/关于抽象类和接口/" rel="next" title="关于抽象类和接口">
-                <i class="fa fa-chevron-left"></i> 关于抽象类和接口
+              <a href="/2018/09/26/Servlet请求转发和请求包含/" rel="next" title="Servlet请求转发和请求包含">
+                <i class="fa fa-chevron-left"></i> Servlet请求转发和请求包含
               </a>
             
           </div>
@@ -594,10 +643,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/25/JavaWeb之JDBC详解/" rel="prev" title="JavaWeb之JDBC详解">
-                JavaWeb之JDBC详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -816,7 +861,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CheckStyle插件的安装与配置"><span class="nav-number">1.</span> <span class="nav-text">CheckStyle插件的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装CheckStyle插件"><span class="nav-number">1.1.</span> <span class="nav-text">安装CheckStyle插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CheckStyle插件的配置"><span class="nav-number">1.2.</span> <span class="nav-text">CheckStyle插件的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CheckStyle插件的使用"><span class="nav-number">1.3.</span> <span class="nav-text">CheckStyle插件的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定制专属CheckStyle检查规则"><span class="nav-number">1.4.</span> <span class="nav-text">定制专属CheckStyle检查规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PMD插件的安装和使用"><span class="nav-number">2.</span> <span class="nav-text">PMD插件的安装和使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">3.</span> <span class="nav-text">联系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#session"><span class="nav-number">1.</span> <span class="nav-text">session</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HttpSession概述与作用"><span class="nav-number">1.0.1.</span> <span class="nav-text">HttpSession概述与作用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session保存用户登录信息"><span class="nav-number">1.1.</span> <span class="nav-text">session保存用户登录信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpSession原理"><span class="nav-number">1.2.</span> <span class="nav-text">HttpSession原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#初入HttpSession原理"><span class="nav-number">1.2.1.</span> <span class="nav-text">初入HttpSession原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入HttpSession原理"><span class="nav-number">1.3.</span> <span class="nav-text">深入HttpSession原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpSession的其它方法"><span class="nav-number">1.4.</span> <span class="nav-text">HttpSession的其它方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">2.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Http协议与Cookie-了解"><span class="nav-number">2.1.</span> <span class="nav-text">Http协议与Cookie(了解)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie的用途"><span class="nav-number">2.2.</span> <span class="nav-text">Cookie的用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Web中使用Cookie"><span class="nav-number">2.3.</span> <span class="nav-text">Java Web中使用Cookie.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie详解"><span class="nav-number">2.4.</span> <span class="nav-text">Cookie详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">2.5.</span> <span class="nav-text">联系</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -994,9 +1039,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://codinglembre.top/2018/09/21/代码检查规范CheckStyle和PMD的配置使用/';
-          this.page.identifier = '2018/09/21/代码检查规范CheckStyle和PMD的配置使用/';
-          this.page.title = '代码检查规范CheckStyle和PMD的配置使用';
+          this.page.url = 'http://codinglembre.top/2018/09/26/理解session和cookie机制/';
+          this.page.identifier = '2018/09/26/理解session和cookie机制/';
+          this.page.title = '理解session和cookie机制';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://codinglembre.disqus.com/embed.js';
