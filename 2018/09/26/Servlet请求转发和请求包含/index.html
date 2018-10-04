@@ -90,22 +90,22 @@
 
 
 
-<meta name="description" content="为什么需要这样的操作呢？因为很多时候一个请求需要多个Servlet协作才能完成，所以需要在一个Servlet中跳转到另一个Servlet中处理。">
+<meta name="description" content="为什么需要这样的操作呢？因为很多时候一个请求需要多个Servlet协作才能完成，所以需要在一个Servlet中跳转到另一个Servlet中处理。类似于以后学到的框架中的controller的写法。">
 <meta name="keywords" content="JavaWeb,Servlet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Servlet请求转发和请求包含">
 <meta property="og:url" content="http://codinglembre.top/2018/09/26/Servlet请求转发和请求包含/index.html">
 <meta property="og:site_name" content="codingLembre&#39;s blog">
-<meta property="og:description" content="为什么需要这样的操作呢？因为很多时候一个请求需要多个Servlet协作才能完成，所以需要在一个Servlet中跳转到另一个Servlet中处理。">
+<meta property="og:description" content="为什么需要这样的操作呢？因为很多时候一个请求需要多个Servlet协作才能完成，所以需要在一个Servlet中跳转到另一个Servlet中处理。类似于以后学到的框架中的controller的写法。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/wgU0Iz7.png">
 <meta property="og:image" content="https://i.imgur.com/PtNLaDj.png">
 <meta property="og:image" content="https://i.imgur.com/I0GSrG3.png">
 <meta property="og:image" content="https://i.imgur.com/K9Aw6pW.png">
-<meta property="og:updated_time" content="2018-09-26T09:40:12.134Z">
+<meta property="og:updated_time" content="2018-10-02T13:47:47.991Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet请求转发和请求包含">
-<meta name="twitter:description" content="为什么需要这样的操作呢？因为很多时候一个请求需要多个Servlet协作才能完成，所以需要在一个Servlet中跳转到另一个Servlet中处理。">
+<meta name="twitter:description" content="为什么需要这样的操作呢？因为很多时候一个请求需要多个Servlet协作才能完成，所以需要在一个Servlet中跳转到另一个Servlet中处理。类似于以后学到的框架中的controller的写法。">
 <meta name="twitter:image" content="https://i.imgur.com/wgU0Iz7.png">
 
 
@@ -360,8 +360,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-26T17:40:12+08:00">
-                2018-09-26
+              <time title="Update on" itemprop="dateModified" datetime="2018-10-02T21:47:47+08:00">
+                2018-10-02
               </time>
             
           </span>
@@ -423,7 +423,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  835
+                  853
                 </span>
               
 
@@ -448,7 +448,7 @@
       
 
       
-        <p>为什么需要这样的操作呢？因为很多时候一个请求需要多个Servlet协作才能完成，所以需要在一个Servlet中跳转到另一个Servlet中处理。</p>
+        <p>为什么需要这样的操作呢？<strong>因为很多时候一个请求需要多个Servlet协作才能完成，所以需要在一个Servlet中跳转到另一个Servlet中处理。</strong>类似于以后学到的框架中的controller的写法。</p>
 <a id="more"></a>
 <h3 id="请求转发和请求包含的语法格式"><a href="#请求转发和请求包含的语法格式" class="headerlink" title="请求转发和请求包含的语法格式"></a>请求转发和请求包含的语法格式</h3><blockquote>
 <p>ResquestDispatcher rd=request.getRequestDispatcher(“/MyServlet”);  </p>
@@ -460,8 +460,8 @@
 </ul>
 <p>这样就完成我们的请求转发和请求包含。二者的区别为: </p>
 <ul>
-<li>请求转发:由当前Servlet设置响应头(不能设置响应体)，下一个Servlet既可设置响应头也可设置响应体。</li>
-<li>请求包含:当前Servlet和下一个Servlet共同完成相应头和响应体</li>
+<li>请求转发:<strong>由当前Servlet设置响应头(不能设置响应体)，下一个Servlet既可设置响应头也可设置响应体。</strong></li>
+<li>请求包含:<strong>当前Servlet和下一个Servlet共同完成相应头和响应体</strong></li>
 </ul>
 <p>请求转发具体效果请看下图<br><img src="https://i.imgur.com/wgU0Iz7.png" alt=""><br><img src="https://i.imgur.com/PtNLaDj.png" alt=""><br>输出结果是</p>
 <blockquote>
@@ -474,14 +474,14 @@
 </blockquote>
 <p>从响应结果中我们可以看到在OneServlet和TwoServlet中设置的响应体都显示了出来。</p>
 <blockquote>
-<p>需要注意的是无论是请求转发还是请求包含，都在一个请求范围内，所以多个Servlet中使用的是同一个request和response。 </p>
+<p><strong>需要注意的是无论是请求转发还是请求包含，都在一个请求范围内，所以多个Servlet中其实使用的是同一个request和response。</strong> </p>
 </blockquote>
 <h3 id="请求转发和请求重定向的区别"><a href="#请求转发和请求重定向的区别" class="headerlink" title="请求转发和请求重定向的区别"></a>请求转发和请求重定向的区别</h3><ul>
-<li>请求转发是一个请求一次响应，而重定向是两次请求两次响应。</li>
-<li>请求转发地址栏不变化，而重定向会显示后一个请求的地址。</li>
-<li>请求转发只能转发到本项目其他Servlet，而重定向不只能重定向到本项目的其它Servlet，还能定向到其它项目。</li>
-<li>请求转发是服务器端行为，只需给出转发的Servlet路径，而重定向需要给出requestURI,即包含项目名。</li>
-<li>请求转发和重定向二者效率前者高，因为前者只发出一个请求。</li>
+<li><strong>请求转发是一个请求一次响应，而重定向是两次请求两次响应。</strong></li>
+<li><strong>请求转发地址栏不变化，而重定向会显示后一个请求的地址。</strong></li>
+<li><strong>请求转发只能转发到本项目其他Servlet，而重定向不仅能重定向到本项目的其它Servlet，还能定向到其它项目。</strong></li>
+<li><strong>请求转发是服务器端行为，只需给出转发的Servlet路径，而重定向需要给出requestURI,即包含项目名。</strong></li>
+<li><strong>请求转发和重定向二者效率前者高，因为前者只发出一个请求。</strong></li>
 </ul>
 <h3 id="什么时候用请求转发-重定向"><a href="#什么时候用请求转发-重定向" class="headerlink" title="什么时候用请求转发/重定向"></a>什么时候用请求转发/重定向</h3><blockquote>
 <p>很多时候我们需要地址栏发生变化，那时候必须使用重定向。<br>需要在下一个Servlet中获取到request域中的数据，必须用请求转发。</p>
@@ -526,7 +526,7 @@
   <p><span>本文标题:</span><a href="/2018/09/26/Servlet请求转发和请求包含/">Servlet请求转发和请求包含</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月26日 - 16:09</p>
-  <p><span>最后更新:</span>2018年09月26日 - 17:09</p>
+  <p><span>最后更新:</span>2018年10月02日 - 21:10</p>
   <p><span>原始链接:</span><a href="/2018/09/26/Servlet请求转发和请求包含/" title="Servlet请求转发和请求包含">http://codinglembre.top/2018/09/26/Servlet请求转发和请求包含/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/26/Servlet请求转发和请求包含/"  aria-label="复制成功！"></i></span>
   </p>
@@ -749,7 +749,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -760,7 +760,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -771,7 +771,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -90,14 +90,15 @@
 
 
 
-<meta name="description" content="Servlet（Servlet Applet），全称Java Servlet,是用Java编写的服务器端程序。而这些Servlet都要事先Servlet接口或继承了HttpServlet的java代码(一般用继承的方法)。其主要功能在于交互式的浏览和修改数据，生成动态Web内容。Servlet运行于支持Java的应用服务器中。HttpServlet 重写doGet 和 doPost 方法或者你也可">
+<meta name="description" content="Servlet（Servlet Applet），全称Java Servlet,是JSP页面的前身,是SUN公司规定的用Java编写的服务器端程序。而这些Servlet都要事先Servlet接口或继承了HttpServlet的java代码(一般用继承的方法)。其主要功能在于交互式的浏览和修改数据，生成动态Web内容。Servlet运行于支持Java的应用服务器中。HttpServlet 重写doGe">
 <meta name="keywords" content="JavaWeb,Servlet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaWeb之Servlet学习">
 <meta property="og:url" content="http://codinglembre.top/2018/09/26/JavaWeb之Servlet学习/index.html">
 <meta property="og:site_name" content="codingLembre&#39;s blog">
-<meta property="og:description" content="Servlet（Servlet Applet），全称Java Servlet,是用Java编写的服务器端程序。而这些Servlet都要事先Servlet接口或继承了HttpServlet的java代码(一般用继承的方法)。其主要功能在于交互式的浏览和修改数据，生成动态Web内容。Servlet运行于支持Java的应用服务器中。HttpServlet 重写doGet 和 doPost 方法或者你也可">
+<meta property="og:description" content="Servlet（Servlet Applet），全称Java Servlet,是JSP页面的前身,是SUN公司规定的用Java编写的服务器端程序。而这些Servlet都要事先Servlet接口或继承了HttpServlet的java代码(一般用继承的方法)。其主要功能在于交互式的浏览和修改数据，生成动态Web内容。Servlet运行于支持Java的应用服务器中。HttpServlet 重写doGe">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/4LQZjpa.png">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%AE%9E%E7%8E%B0Servlet%E6%8E%A5%E5%8F%A3.png">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/GenericServlet%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%85%A8%E9%83%A8%E6%96%B9%E6%B3%95.png">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/GenericServlet%E7%B1%BB%E6%BA%90%E4%BB%A3%E7%A0%81.jpg">
@@ -105,11 +106,18 @@
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/httpservlet%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95.png">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/httpServlet%E4%B8%AD%E5%AF%B9service%E6%96%B9%E6%B3%95%E7%9A%84%E8%A7%A3%E9%87%8A.png">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E6%97%B6%E5%BA%8F%E5%9B%BE.png">
-<meta property="og:updated_time" content="2018-09-26T07:48:47.829Z">
+<meta property="og:image" content="https://i.imgur.com/fXjdzVa.png">
+<meta property="og:image" content="https://i.imgur.com/8BFrEpB.png">
+<meta property="og:image" content="https://i.imgur.com/TYRkoit.png">
+<meta property="og:image" content="https://i.imgur.com/XUD1nnh.png">
+<meta property="og:image" content="https://i.imgur.com/ANAo3vl.png">
+<meta property="og:image" content="https://i.imgur.com/qhjGCuh.png">
+<meta property="og:image" content="https://i.imgur.com/9si9eGI.png">
+<meta property="og:updated_time" content="2018-10-03T18:00:08.309Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb之Servlet学习">
-<meta name="twitter:description" content="Servlet（Servlet Applet），全称Java Servlet,是用Java编写的服务器端程序。而这些Servlet都要事先Servlet接口或继承了HttpServlet的java代码(一般用继承的方法)。其主要功能在于交互式的浏览和修改数据，生成动态Web内容。Servlet运行于支持Java的应用服务器中。HttpServlet 重写doGet 和 doPost 方法或者你也可">
-<meta name="twitter:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%AE%9E%E7%8E%B0Servlet%E6%8E%A5%E5%8F%A3.png">
+<meta name="twitter:description" content="Servlet（Servlet Applet），全称Java Servlet,是JSP页面的前身,是SUN公司规定的用Java编写的服务器端程序。而这些Servlet都要事先Servlet接口或继承了HttpServlet的java代码(一般用继承的方法)。其主要功能在于交互式的浏览和修改数据，生成动态Web内容。Servlet运行于支持Java的应用服务器中。HttpServlet 重写doGe">
+<meta name="twitter:image" content="https://i.imgur.com/4LQZjpa.png">
 
 
 
@@ -363,8 +371,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-26T15:48:47+08:00">
-                2018-09-26
+              <time title="Update on" itemprop="dateModified" datetime="2018-10-04T02:00:08+08:00">
+                2018-10-04
               </time>
             
           </span>
@@ -426,7 +434,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  1,316
+                  1,655
                 </span>
               
 
@@ -451,58 +459,70 @@
       
 
       
-        <p>Servlet（Servlet Applet），全称Java Servlet,是用Java编写的服务器端程序。而这些Servlet都要事先Servlet接口或继承了HttpServlet的java代码(一般用继承的方法)。其主要功能在于交互式的浏览和修改数据，生成动态Web内容。Servlet运行于支持Java的应用服务器中。HttpServlet 重写doGet 和 doPost 方法或者你也可以重写service方法完成对get和post请求响应。</p>
+        <p>Servlet（Servlet Applet），全称Java Servlet,是JSP页面的前身,是<strong>SUN公司规定的用Java编写的服务器端程序</strong>。而这些Servlet都要事先Servlet接口或继承了HttpServlet的java代码(一般用继承的方法)。其<strong>主要功能在于交互式的浏览和修改数据，生成动态Web内容</strong>。Servlet运行于支持Java的应用服务器中。HttpServlet 重写doGet 和 doPost 方法或者你也可以重写service方法完成对get和post请求响应。</p>
 <a id="more"></a>
-<h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h3><p>Servlet是Java Web三大组件之一(Filter、Servlet、Listener)，它属于动态资源。Servlet的作用是处理请求，服务器会把接收到的请求交给Servlet来处理，在Servlet中通常需要: </p>
+<h3 id="Servlet的概念"><a href="#Servlet的概念" class="headerlink" title="Servlet的概念"></a>Servlet的概念</h3><p><strong>Servlet是Java Web三大组件之一(Filter、Servlet、Listener)，它属于动态资源。Servlet的作用是处理请求，服务器会把接收到的请求交给Servlet来处理，在Servlet中通常需要: </strong></p>
 <ul>
 <li>接受数据请求</li>
 <li>处理请求</li>
 <li>完成响应 </li>
 </ul>
-<p>客户端发出登录请求，或者输入注册请求，这些请求都应该由Servlet来完成处理。当然Servlet类需要我们自己来编写，每个Servlet类都必须实现javax.servlet.Servlet接口。 </p>
+<p>客户端发出登录请求，或者输入注册请求，这些请求都应该由Servlet来完成处理。<strong><em>当然Servlet类需要我们自己来编写，每个Servlet类都必须实现javax.servlet.Servlet接口。 </em></strong></p>
+<h3 id="Servlet的执行流程"><a href="#Servlet的执行流程" class="headerlink" title="Servlet的执行流程"></a>Servlet的执行流程</h3><p><img src="https://i.imgur.com/4LQZjpa.png" alt=""></p>
+<blockquote>
+<p><strong>注意超链接其实对应的是GET方式。</strong></p>
+</blockquote>
 <h3 id="实现Servlet的方式-需要我们自己来写"><a href="#实现Servlet的方式-需要我们自己来写" class="headerlink" title="实现Servlet的方式(需要我们自己来写)"></a>实现Servlet的方式(需要我们自己来写)</h3><ul>
 <li>实现javax.servlet.Servlet接口;</li>
 <li>继承javax.servlet.GenericServlet类;</li>
 <li>继承javax.servlet.http.HttpServlet类;</li>
 </ul>
-<p>一般来说我们都选择实现HttpServlet类来完成我们的Servlet，但学习Servlet还要从javax.servlet.Servlet接口来学起。 </p>
+<p><strong><em>一般来说我们都选择实现HttpServlet类来完成我们的Servlet，但学习Servlet还要从javax.servlet.Servlet接口来学起。</em></strong> </p>
 <h4 id="实现javax-servlet-Servlet接口"><a href="#实现javax-servlet-Servlet接口" class="headerlink" title="实现javax.servlet.Servlet接口"></a>实现javax.servlet.Servlet接口</h4><p><img src="http://od2xrf8gr.bkt.clouddn.com/%E5%AE%9E%E7%8E%B0Servlet%E6%8E%A5%E5%8F%A3.png" alt=""></p>
-<p>其中只有三个生命周期的方法是由服务器(例如我用的Tomcat)在认为需要调用的时候自动调用的(即我们自己是无法调用的)，另外的两个方法由我们自己需要的时候调用。 </p>
-<h4 id="继承javax-servlet-GenericServlet类"><a href="#继承javax-servlet-GenericServlet类" class="headerlink" title="继承javax.servlet.GenericServlet类"></a>继承javax.servlet.GenericServlet类</h4><p>有人会说，那我每次实现Servlet接口都要重写这5个方法岂不是很麻烦？那肯定麻烦！所以GenericServlet类派上用场了。<br>GenericServlet类实现了Servlet接口，所以在GenericServlet类中实现了Servlet接口中的5个抽象方法，另外在GenerecServlet类中还定义了自己的方法，将其作为我们要定义的xxxServlet类的父类，这样我们在自己定义的xxxServlet类中便可以不用全部实现Servlet接口中的方法。<br>GenericServlet类中的方法如下:</p>
+<p><strong><em>其中只有三个生命周期的方法是由服务器(例如我用的Tomcat)在认为需要调用的时候自动调用的(即我们自己是无法调用的)，另外的两个方法由我们自己需要的时候调用。 </em></strong></p>
+<h4 id="继承javax-servlet-GenericServlet类"><a href="#继承javax-servlet-GenericServlet类" class="headerlink" title="继承javax.servlet.GenericServlet类"></a>继承javax.servlet.GenericServlet类</h4><p>有人会说，那我每次实现Servlet接口都要重写这5个方法岂不是很麻烦？那肯定麻烦！所以GenericServlet类派上用场了。<br><strong><em>GenericServlet类实现了Servlet接口，所以在GenericServlet类中实现了Servlet接口中的5个抽象方法</em></strong>，另外在GenerecServlet类中还定义了自己的方法，将其作为我们要定义的xxxServlet类的父类，这样我们在自己定义的xxxServlet类中便可以不用全部实现Servlet接口中的方法。<br>GenericServlet类中的方法如下:</p>
 <p><img src="http://od2xrf8gr.bkt.clouddn.com/GenericServlet%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%85%A8%E9%83%A8%E6%96%B9%E6%B3%95.png" alt=""></p>
-<p>GenericServlet类除了实现Servlet接口中的四个方法外，还定义了getInitParameter()返回Servlet的参数值、getInitParameterNames()返回Servlet的参数名、getServletName()返回Servlet名、getServletContext()返回Servlet上下文、不带参数的init()、log()等方法。这些自己定义的方法中，前面四个是ServletConfig接口中的方法，不带参数的init()方法跟Servlet接口中的init(ServletConfig config)方法要区别，在init()方法中，我们可以添加当xxxServlet被初始化的操作，此方法在初始化方法init(ServletConfig config)中被调用(若是文字解析看不懂见下图GenericServlet源代码中注释)。 </p>
+<p>GenericServlet类除了实现Servlet接口中的四个方法外，还定义了getInitParameter()返回Servlet的参数值、getInitParameterNames()返回Servlet的参数名、getServletName()返回Servlet名、<strong><em>getServletContext()返回Servlet上下文、不带参数的init()</em></strong>、log()等方法。这些自己定义的方法中，前面四个是ServletConfig接口中的方法，不带参数的init()方法跟Servlet接口中的init(ServletConfig config)方法要区别，在init()方法中，我们可以添加当xxxServlet被初始化的操作，此方法在初始化方法init(ServletConfig config)中被调用(若是文字解析看不懂见下图GenericServlet源代码中注释)。 </p>
 <p>图中只有service()方法属于抽象方法，所以当我们定义的xxxServlet类去继承GenericServlet类时我们只需重写这一个方法即可，其他方法可重写可不重写。 </p>
+<blockquote>
+<p><strong><em>注意，为什么会出现GenericServlet？如果我们直接通过实现Servlet接口来编写一个Servlet类，就需要实现Servlet接口中定义的5种方法，为了简化Servlet的编写，在javax.servlet包中，给我们提供了一个抽象的类GenericServlet，它提供了除service()方法外的其他4种方法的简单实现。GenericServlet类定义了一个通用的，不依赖具体协议的Servlet</em></strong></p>
+</blockquote>
+<p>另外附上GenericServlet类的源代码:</p>
 <p><img src="http://od2xrf8gr.bkt.clouddn.com/GenericServlet%E7%B1%BB%E6%BA%90%E4%BB%A3%E7%A0%81.jpg" alt=""></p>
 <h3 id="JavaWeb，Servlet，JSP的域对象"><a href="#JavaWeb，Servlet，JSP的域对象" class="headerlink" title="JavaWeb，Servlet，JSP的域对象"></a>JavaWeb，Servlet，JSP的域对象</h3><p>扩展:对ServletContext的解释:</p>
 <p>服务器会为每个应用创建一个ServletContext对象，一个应用只有一个ServletContext对象！我们可以在N多个Servlet中来获取这个唯一的对象，使用它可以给多个Servlet传递数据。此对象在Tomcat(服务器)启动时就创建，在服务器关闭时就销毁。 </p>
-<p>ServletContext是Java Web四大域对象(PageContext、ServletRequest、HttpSession、ServletContext)之一，域对象所具有的特点是: </p>
+<p>ServletContext是<strong><em>Java Web四大域对象(PageContext、ServletRequest、HttpSession、ServletContext)之一</em></strong>，域对象所具有的特点是: </p>
 <ul>
-<li>能够存数据</li>
-<li>能够取数据</li>
+<li><strong><em>能够存数据</em></strong></li>
+<li><strong><em>能够取数据</em></strong></li>
 </ul>
-<p>所有的域对象都有存取数据的功能，因为域对象内部有一个Map，用来存储数据，下面是ServletContext对象用来操作数据的方法: </p>
+<p><strong><em>所有的域对象都有存取数据的功能，因为域对象内部都有一个Map，用来存储数据和读取数据，下面是ServletContext对象用来操作数据的方法: </em></strong></p>
 <p><img src="http://od2xrf8gr.bkt.clouddn.com/ServletContext%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95.png" alt=""></p>
-<p>扩展:Servlet类三大域对象:</p>
+<p>扩展:<strong><em>Servlet类三大域对象:</em></strong></p>
 <ul>
 <li>request:在Servlet中直接用，因为实现的doPost()方法中有request这个参数。</li>
 <li>session:在Servlet中通过HttpSession session=request.getSession();得到。</li>
-<li>application:在Servlet中通过ServletContext application=this.getServletContext();得到。</li>
+<li><strong><em>application:在Servlet中通过ServletContext application=this.getServletContext();得到。</em></strong></li>
 </ul>
 <p>扩展:JSP中四大域对象</p>
 <ul>
-<li>page域:即9大内置对象中的pageContext，为PageContext的实例。</li>
+<li><strong><em>page域:即9大内置对象中的pageContext，为PageContext的实例。</em></strong></li>
 <li>request域:即9大内置对象中的request，为HttpServletRequest的实例。</li>
 <li>session域:即9大内置对象中的session,为HttpSession的实例。</li>
 <li>application:即9大内置对象中的ServletContext的实例</li>
 </ul>
-<p>注意:“page域”不同于9大内置对象中“page”。</p>
+<p>注意:<strong><em>“page域”不同于9大内置对象中“page”。</em></strong></p>
 <h3 id="继承HttpServlet类"><a href="#继承HttpServlet类" class="headerlink" title="继承HttpServlet类"></a>继承HttpServlet类</h3><p>HttpServlet类是我们用到次数最多的，也是最简单的。由类名可知，该类总是跟http协议相关的。<br>HttpServlet类中的方法如下图:</p>
 <p><img src="http://od2xrf8gr.bkt.clouddn.com/httpservlet%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95.png" alt=""></p>
 <p>方法中值得我们注意的有doGet()、doPost()、还有两个service()方法。其中doGet()和doPost()方法是需要我们重写的，我来解释下两个service()方法的区别。 </p>
-<p>其中一个service()方法是Serlvet接口中的生命周期方法，另外一个是跟http协议有关的方法。二者方法的解释见下两站图的说明(图1中指出HttpServlet类是继承自GenderServlet类):</p>
+<p><strong><em>其中一个service()方法是Serlvet接口中的生命周期方法，另外一个是跟http协议有关的方法。</em></strong>二者方法的解释见下两站图的说明(图1中指出HttpServlet类是继承自GenderServlet类):</p>
 <p><img src="http://od2xrf8gr.bkt.clouddn.com/httpServlet%E4%B8%AD%E5%AF%B9service%E6%96%B9%E6%B3%95%E7%9A%84%E8%A7%A3%E9%87%8A.png" alt=""></p>
 <p><img src="http://od2xrf8gr.bkt.clouddn.com/%E6%97%B6%E5%BA%8F%E5%9B%BE.png" alt=""></p>
-<p>图中405的含义是说服务器不支持客户端(即浏览器)用此种方法访问。因为HttpServlet类的源代码中的doGet()和doPost()方法体里面就是这样写的，你在定义的xxxservlet中如果不重新重写这两个方法就会出现405的响应状态码。</p>
+<p>图中405的含义是说<strong><em>服务器不支持客户端(即浏览器)用此种方法访问。因为HttpServlet类的源代码中的doGet()和doPos88t()方法体里面就是这样写的，你在定义的xxxservlet中如果不重新重写这两个方法就会出现405的响应状态码。</em></strong></p>
+<h3 id="Servlet获取表单数据"><a href="#Servlet获取表单数据" class="headerlink" title="Servlet获取表单数据"></a>Servlet获取表单数据</h3><p><img src="https://i.imgur.com/fXjdzVa.png" alt=""><br><img src="https://i.imgur.com/8BFrEpB.png" alt=""><br><img src="https://i.imgur.com/TYRkoit.png" alt=""><br><img src="https://i.imgur.com/XUD1nnh.png" alt=""><br><img src="https://i.imgur.com/ANAo3vl.png" alt=""></p>
+<h3 id="Servlet高级"><a href="#Servlet高级" class="headerlink" title="Servlet高级"></a>Servlet高级</h3><p>1.获取初始化参数:<br><strong>在web.xml中配置servlet时，可以配置一些初始化参数。而在Servlet可以通过ServletConfig接口提供的方法来获取这些参数的值</strong><br><img src="https://i.imgur.com/qhjGCuh.png" alt=""><br>2.<strong>MVC模式:分层思想，即Model2</strong><br><img src="https://i.imgur.com/9si9eGI.png" alt=""></p>
+<p>使用Model2实现购物车<a href="https://github.com/Lembre/ServletCart" target="_blank" rel="noopener"></a></p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p><strong><em>首先明确，Servlet并不是专门用于处理Http请求的。</em></strong><br>由于大多数网络应用中，都是浏览器通过HTTP协议去访问服务器资源，而我们编写的Servlet也主要是应用于HTTP协议的请求和响应，<strong><em>为了快速开发应用于HTTP协议的Servlet，Sun公司在javax.servlet.http包中给我们提供了一个抽象的类HttpServlet</em></strong></p>
 <h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
 <p>If you have some questions after you see my blog , you can tell your doubts in the comments area or you can find some infos by clicking these links or ask me by sending me an email：</p>
 </blockquote>
@@ -533,7 +553,7 @@
   <p><span>本文标题:</span><a href="/2018/09/26/JavaWeb之Servlet学习/">JavaWeb之Servlet学习</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月26日 - 11:09</p>
-  <p><span>最后更新:</span>2018年09月26日 - 15:09</p>
+  <p><span>最后更新:</span>2018年10月04日 - 02:10</p>
   <p><span>原始链接:</span><a href="/2018/09/26/JavaWeb之Servlet学习/" title="JavaWeb之Servlet学习">http://codinglembre.top/2018/09/26/JavaWeb之Servlet学习/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/26/JavaWeb之Servlet学习/"  aria-label="复制成功！"></i></span>
   </p>
@@ -756,7 +776,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -767,7 +787,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -778,7 +798,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -846,7 +866,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet"><span class="nav-number">1.</span> <span class="nav-text">Servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现Servlet的方式-需要我们自己来写"><span class="nav-number">2.</span> <span class="nav-text">实现Servlet的方式(需要我们自己来写)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现javax-servlet-Servlet接口"><span class="nav-number">2.1.</span> <span class="nav-text">实现javax.servlet.Servlet接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承javax-servlet-GenericServlet类"><span class="nav-number">2.2.</span> <span class="nav-text">继承javax.servlet.GenericServlet类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaWeb，Servlet，JSP的域对象"><span class="nav-number">3.</span> <span class="nav-text">JavaWeb，Servlet，JSP的域对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承HttpServlet类"><span class="nav-number">4.</span> <span class="nav-text">继承HttpServlet类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">5.</span> <span class="nav-text">联系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet的概念"><span class="nav-number">1.</span> <span class="nav-text">Servlet的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet的执行流程"><span class="nav-number">2.</span> <span class="nav-text">Servlet的执行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现Servlet的方式-需要我们自己来写"><span class="nav-number">3.</span> <span class="nav-text">实现Servlet的方式(需要我们自己来写)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现javax-servlet-Servlet接口"><span class="nav-number">3.1.</span> <span class="nav-text">实现javax.servlet.Servlet接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承javax-servlet-GenericServlet类"><span class="nav-number">3.2.</span> <span class="nav-text">继承javax.servlet.GenericServlet类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaWeb，Servlet，JSP的域对象"><span class="nav-number">4.</span> <span class="nav-text">JavaWeb，Servlet，JSP的域对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承HttpServlet类"><span class="nav-number">5.</span> <span class="nav-text">继承HttpServlet类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet获取表单数据"><span class="nav-number">6.</span> <span class="nav-text">Servlet获取表单数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet高级"><span class="nav-number">7.</span> <span class="nav-text">Servlet高级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">8.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">9.</span> <span class="nav-text">联系</span></a></li></ol></div>
             
 
           </div>

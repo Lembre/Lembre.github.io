@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "c57d71f5"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaWeb,Servlet,JSP," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="codingLembre's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="JSTL标签库介绍JSTL标签库的使用是为弥补html标签的不足，规范自定义标签的使用而诞生的。使用JSLT标签的目的就是不希望在jsp页面中出现java逻辑代码。JSTL也是对EL表达式的扩展(也就是说JSTL依赖EL)，是一门标签语言。JSTL标签使用起来非常方便，它与JSP动作标签一样，只不过它不是JSP内置的标签，需要我们自己导包，一定要指定标签库。 如果你使用MyEclipse开发Jav">
+<meta name="keywords" content="JavaWeb,Servlet,JSP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb学习笔记之JSTL标签库">
+<meta property="og:url" content="http://codinglembre.top/2018/09/29/JavaWeb学习笔记之JSTL标签库/index.html">
+<meta property="og:site_name" content="codingLembre&#39;s blog">
+<meta property="og:description" content="JSTL标签库介绍JSTL标签库的使用是为弥补html标签的不足，规范自定义标签的使用而诞生的。使用JSLT标签的目的就是不希望在jsp页面中出现java逻辑代码。JSTL也是对EL表达式的扩展(也就是说JSTL依赖EL)，是一门标签语言。JSTL标签使用起来非常方便，它与JSP动作标签一样，只不过它不是JSP内置的标签，需要我们自己导包，一定要指定标签库。 如果你使用MyEclipse开发Jav">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/zs1yvH1.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/1.png">
+<meta property="og:image" content="https://i.imgur.com/j22yi14.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/2.png">
+<meta property="og:image" content="http://codinglembre.top/2018/09/29/JavaWeb学习笔记之JSTL标签库/src=%22http://od2xrf8gr.bkt.clouddn.com/3.png%22">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/4.png">
+<meta property="og:image" content="https://i.imgur.com/lL3BM3b.png">
+<meta property="og:image" content="https://i.imgur.com/PjqWhHR.png">
+<meta property="og:image" content="https://i.imgur.com/l8uSSnP.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/7.png">
+<meta property="og:image" content="https://i.imgur.com/rDMpJVJ.png">
+<meta property="og:updated_time" content="2018-10-02T13:57:42.094Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaWeb学习笔记之JSTL标签库">
+<meta name="twitter:description" content="JSTL标签库介绍JSTL标签库的使用是为弥补html标签的不足，规范自定义标签的使用而诞生的。使用JSLT标签的目的就是不希望在jsp页面中出现java逻辑代码。JSTL也是对EL表达式的扩展(也就是说JSTL依赖EL)，是一门标签语言。JSTL标签使用起来非常方便，它与JSP动作标签一样，只不过它不是JSP内置的标签，需要我们自己导包，一定要指定标签库。 如果你使用MyEclipse开发Jav">
+<meta name="twitter:image" content="https://i.imgur.com/zs1yvH1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://codinglembre.top/2018/09/29/JavaWeb学习笔记之JSTL标签库/"/>
+
+
+
+
+
+  <title>JavaWeb学习笔记之JSTL标签库 | codingLembre's blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8df4a33be20448b89bdfd23892548369";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/Lembre"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">codingLembre's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">I have a dream!</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            Abouts
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/09/29/JavaWeb学习笔记之JSTL标签库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lembre">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codingLembre's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">JavaWeb学习笔记之JSTL标签库</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T09:27:23+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Update on&#58;</span>
+              
+              <time title="Update on" itemprop="dateModified" datetime="2018-10-02T21:57:42+08:00">
+                2018-10-02
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/29/JavaWeb学习笔记之JSTL标签库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/29/JavaWeb学习笔记之JSTL标签库/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Wordcount&#58;</span>
+                
+                <span title="Wordcount">
+                  5,381
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="JSTL标签库介绍"><a href="#JSTL标签库介绍" class="headerlink" title="JSTL标签库介绍"></a>JSTL标签库介绍</h3><p>JSTL标签库的使用是为弥补html标签的不足，规范自定义标签的使用而诞生的。<strong>使用JSLT标签的目的就是不希望在jsp页面中出现java逻辑代码</strong>。<strong>JSTL也是对EL表达式的扩展(也就是说JSTL依赖EL)，是一门标签语言</strong>。JSTL标签使用起来非常方便，它与JSP动作标签一样，只不过它不是JSP内置的标签，需要我们自己导包，一定要指定标签库。</p>
+<p>如果你使用MyEclipse开发JavaWeb，那么把项目发布到Tomcat时，你会发现MyEclipse在lib目录下自动存放了JSTL的Jar包。如果你使用其他IDE，那么你需要手动导入这个JSTL的Jar包:jstl-1.2.jar。</p>
+<h3 id="JSTL标签库的分类"><a href="#JSTL标签库的分类" class="headerlink" title="JSTL标签库的分类"></a>JSTL标签库的分类</h3><ul>
+<li>core:核心标签库(用得最多)</li>
+<li>fmt:国际化标签库(只需学习两个，日期和数字)</li>
+<li>sql:数据库标签库(过时了，不需要学习)</li>
+<li>xml:xml标签库(过时了，不需要学习)</li>
+</ul>
+<h3 id="核心标签库使用说明"><a href="#核心标签库使用说明" class="headerlink" title="核心标签库使用说明"></a>核心标签库使用说明</h3><p>JSTL的核心标签库标签共13个，使用这些标签能够完成JSP页面的基本功能，减少编码工作。<br>从功能上可以分为4类:表达式控制标签、流程控制标签、循环标签、URL操作标签。</p>
+<ul>
+<li>表达式控制标签:out标签、set标签、remove标签、catch标签</li>
+<li>流程控制标签:if标签、choose标签、when标签、otherwise标签</li>
+<li>循环标签:forEach标签、forTokens标签</li>
+<li>URL操作标签</li>
+</ul>
+<p>在JSP页面引入核心标签库的代码为:</p>
+<pre><code>&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+</code></pre><h4 id="表达式控制标签——out标签使用"><a href="#表达式控制标签——out标签使用" class="headerlink" title="表达式控制标签——out标签使用"></a>表达式控制标签——out标签使用</h4><h5 id="lt-c-out-gt-标签的功能"><a href="#lt-c-out-gt-标签的功能" class="headerlink" title="&lt;c:out&gt;标签的功能"></a>&lt;c:out&gt;标签的功能</h5><p><strong>&lt;c:out&gt;标签主要是用来输出数据对象(字符串、表达式)的内容或结果。</strong><br>在使用Java脚本输出时常使用的方式为:<strong>&lt;% out.println(“字符串”); %&gt;或者&lt;%=表达式 %&gt;</strong>，在web开发中，<strong>为了避免暴露逻辑代码会尽量减少页面中的Java脚本</strong>，使用&lt;c:out&gt;标签就可以实现以上功能。</p>
+<pre><code>&lt;c:out value=&quot;字符串&quot;/&gt;或者&lt;c:out value=&quot;EL表达式&quot;/&gt;  
+</code></pre><p>JSTL的使用是和EL表达式分不开的，<strong>EL表达式虽然可以直接将结果返回给页面，但有时得到的结果为空，&lt;c:out&gt;有特定的结果处理功能，EL的单独使用会降低程序的易读性，建议把EL的结果输入放入&lt;c:out&gt;标签中。</strong></p>
+<h5 id="lt-c-out-gt-标签的语法"><a href="#lt-c-out-gt-标签的语法" class="headerlink" title="&lt;c:out&gt;标签的语法"></a>&lt;c:out&gt;标签的语法</h5><p>&lt;c:out&gt;标签的使用有两种语法格式:</p>
+<ul>
+<li>语法1:&lt;c:out value=”要显示的数据对象” [escapeXml=”true|false”][default=”默认值”]/&gt;</li>
+<li>语法2:&lt;c:out value=”要显示的数据对象” [escapeXml=”true|false”]&gt;默认值&lt;/c:out&gt;</li>
+</ul>
+<p>这两种方式没有本质的区别，只是格式上的差别。[escapeXml=”true|false”][defult=”默认值”]这些使用[]属性表示是不是必须的。</p>
+<h5 id="lt-c-out-gt-标签的属性"><a href="#lt-c-out-gt-标签的属性" class="headerlink" title="&lt;c:out&gt;标签的属性"></a>&lt;c:out&gt;标签的属性</h5><p><img src="https://i.imgur.com/zs1yvH1.png" alt=""></p>
+<blockquote>
+<p>default 指定如果value属性的值为null时所输出的默认值<br>注意，这个会直接输出到页面，不管你有没有把他放到table标签中。和&lt;% out.println(“字符串”)的效果一样。</p>
+</blockquote>
+<h5 id="lt-c-out-gt-标签的使用范例"><a href="#lt-c-out-gt-标签的使用范例" class="headerlink" title="&lt;c:out&gt;标签的使用范例"></a>&lt;c:out&gt;标签的使用范例</h5><pre><code>&lt;%@ page language=&quot;java&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%--引入JSTL核心标签库 --%&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;JSTL: --表达式控制标签“out”标签的使用&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h3&gt;&lt;c:out value=&quot;下面的代码演示了c:out的使用，以及在不同属性值状态下的结果。&quot;/&gt;&lt;/h3&gt;
+&lt;hr/&gt;
+&lt;ul&gt;
+&lt;%--（1）直接输出了一个字符串。 --%&gt;
+&lt;li&gt;（1）&lt;c:out value=&quot;JSTL的out标签的使用&quot; /&gt;&lt;/li&gt;
+
+&lt;li&gt;（2）&lt;c:out value=&quot;&lt;a href=&apos;http://www.cnblogs.com/&apos;&gt;点击链接到博客园&lt;/a&gt;&quot; /&gt;&lt;/li&gt;
+&lt;%--escapeXml=&quot;false&quot;表示value值中的html标签不进行转义，而是直接输出 --%&gt;
+&lt;li&gt;（3）&lt;c:out value=&quot;&lt;a href=&apos;http://www.cnblogs.com/&apos;&gt;点击链接到博客园&lt;/a&gt;&quot; escapeXml=&quot;false&quot;/&gt;&lt;/li&gt;
+
+&lt;%--(4）字符串中有转义字符，但在默认情况下没有转换。 --%&gt;
+&lt;li&gt;（4）&lt;c:out value=&quot;&amp;lt未使用字符转义&amp;gt&quot; /&gt;&lt;/li&gt;
+&lt;%--（5）使用了转义字符&amp;lt和&amp;gt分别转换成&lt;和&gt;符号。 --%&gt;
+&lt;li&gt;（5）&lt;c:out value=&quot;&amp;lt使用字符转义&amp;gt&quot; escapeXml=&quot;false&quot;&gt;&lt;/c:out&gt;&lt;/li&gt;
+
+&lt;%--（6）设定了默认值，从EL表达式${null}得到空值，所以直接输出设定的默认值。 --%&gt;
+&lt;li&gt;（6）&lt;c:out value=&quot;${null}&quot;&gt;使用了默认值&lt;/c:out&gt;&lt;/li&gt;
+&lt;%--（7）未设定默认值，输出结果为空。 --%&gt;
+&lt;li&gt;（7）&lt;c:out value=&quot;${null}&quot;&gt;&lt;/c:out&gt;&lt;/li&gt;
+
+&lt;%--（8）设定了默认值，从EL表达式${null}得到空值，所以直接输出设定的默认值。 --%&gt;
+&lt;li&gt;（8）&lt;c:out value=&quot;${null}&quot; default=&quot;默认值&quot;/&gt;&lt;/li&gt;
+&lt;%--（9）未设定默认值，输出结果为空。 --%&gt;
+&lt;li&gt;（9）&lt;c:out value=&quot;${null}&quot;/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt; 
+</code></pre><p>运行结果如下:<br><img src="http://od2xrf8gr.bkt.clouddn.com/1.png" alt=""></p>
+<h3 id="表达式控制标签——set标签的使用"><a href="#表达式控制标签——set标签的使用" class="headerlink" title="表达式控制标签——set标签的使用"></a>表达式控制标签——set标签的使用</h3><h4 id="lt-c-set-gt-标签的功能"><a href="#lt-c-set-gt-标签的功能" class="headerlink" title="&lt;c:set&gt;标签的功能"></a>&lt;c:set&gt;标签的功能</h4><p>&lt;c:set&gt;标签用于把某一个对象存在指定的域范围内，或者将某一个对象存储到Map或者JavaBean对象中。</p>
+<h4 id="lt-c-set-gt-标签的语法"><a href="#lt-c-set-gt-标签的语法" class="headerlink" title="&lt;c:set&gt;标签的语法"></a>&lt;c:set&gt;标签的语法</h4><p>&lt;c:set&gt;标签的编写共有4种语法格式。</p>
+<ul>
+<li>语法1:存值，把一个值放在指定的域范围内.&lt;c:set value=”值1” var=”name1” [scope=”page|request|session|application”]/&gt;<br>含义:把一个变量名为name1值为“值1”的变量存储在指定的scope范围内。</li>
+<li>语法2:&lt;c:set var=”name2” [scope=”page|request|session|application”]&gt;值2&lt;/c:set&gt;<br>含义：把一个变量名为name2，值为值2的变量存储在指定的scope范围内</li>
+<li>语法3: &lt;c:set value=”值3” target=”JavaBean对象” property=”属性名”/&gt;<br>含义:把一个值为“值3”赋值给指定的JavaBean的属性名。相当与setter()方法</li>
+<li>语法4: &lt;c:set target=”JavaBean对象” property=”属性名”&gt;值4&lt;/c:set&gt;<br>含义：把一个值4赋值给指定的JavaBean的属性名</li>
+</ul>
+<p>从功能上分语法1和语法2、语法3和语法4的效果是一样的，只是把value值放置的位置不同，至于使用那个根据个人的喜爱，语法1和语法2是向scope范围内存储一个值，语法3和语法4是给指定的JavaBean赋值。</p>
+<h4 id="lt-c-set-gt-标签的属性"><a href="#lt-c-set-gt-标签的属性" class="headerlink" title="&lt;c:set&gt;标签的属性"></a>&lt;c:set&gt;标签的属性</h4><p><img src="https://i.imgur.com/j22yi14.png" alt=""></p>
+<blockquote>
+<p>注意，有的属性并不支持EL表达式</p>
+</blockquote>
+<h4 id="lt-c-set-gt-标签的使用范例"><a href="#lt-c-set-gt-标签的使用范例" class="headerlink" title="&lt;c:set&gt;标签的使用范例"></a>&lt;c:set&gt;标签的使用范例</h4><pre><code>&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%--引入JSTL核心标签库 --%&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+%--使用JSP的指令元素指定要使用的JavaBean --%&gt;
+&lt;jsp:useBean id=&quot;person&quot; class=&quot;javabean.Person&quot;/&gt;
+&lt;%--负责实例化Bean，id指定实例化后的对象名，可以通过${person}得到person在内存中的值（或者使用person.toString()方法）。 --%&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+&lt;title&gt;JSTL: --表达式控制标签“set”标签的使用&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h3&gt;代码给出了给指定scope范围赋值的示例。&lt;/h3&gt;
+&lt;ul&gt;
+&lt;%--通过&lt;c:set&gt;标签将data1的值放入page范围中。--%&gt;
+&lt;li&gt;把一个值放入page域中:&lt;c:set var=&quot;data1&quot; value=&quot;xdp&quot; scope=&quot;page&quot;/&gt;&lt;/li&gt;
+&lt;%--ta使用EL表达式从pageScope得到da1的值。--%&gt;
+&lt;li&gt;从page域中得到值：${pageScope.data1}&lt;/li&gt;
+
+&lt;%--通过&lt;c:set&gt;标签将data2的值放入request范围中。--%&gt;
+&lt;li&gt;把一个值放入request域中:&lt;c:set var=&quot;data2&quot; value=&quot;gacl&quot; scope=&quot;request&quot;/&gt;&lt;/li&gt;
+&lt;%--使用EL表达式从requestScope得到data2的值。--%&gt;
+&lt;li&gt;从request域中得到值：${requestScope.data2}&lt;/li&gt;
+
+&lt;%--通过&lt;c:set&gt;标签将值name1的值放入session范围中。--%&gt;
+&lt;li&gt;把一个值放入session域中。&lt;c:set value=&quot;孤傲苍狼&quot; var=&quot;name1&quot; scope=&quot;session&quot;&gt;&lt;/c:set&gt;&lt;/li&gt;
+&lt;%--使用EL表达式从sessionScope得到name1的值。--%&gt;
+&lt;li&gt;从session域中得到值:${sessionScope.name1} &lt;/li&gt;
+
+&lt;%--把name2放入application范围中。 --%&gt;
+&lt;li&gt;把一个值放入application域中。&lt;c:set var=&quot;name2&quot; scope=&quot;application&quot;&gt;白虎神皇&lt;/c:set&gt;&lt;/li&gt;
+&lt;%--使用EL表达式从application范围中取值，用&lt;c:out&gt;标签输出使得页面规范化。 --%&gt;
+&lt;li&gt;使用out标签和EL表达式嵌套从application域中得到值： 
+     &lt;c:out value=&quot;${applicationScope.name2}&quot;&gt;未得到name的值&lt;/c:out&gt;
+&lt;/li&gt;
+
+&lt;%--不指定范围使用EL自动查找得到值 --%&gt; 
+&lt;li&gt;未指定scope的范围，会从不同的范围内查找得到相应的值：${data1}、${data2}、${name1}、${name2}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr/&gt;
+h3&gt;使用Java脚本实现以上功能&lt;/h3&gt;
+&lt;ul&gt;
+
+&lt;li&gt;把一个值放入page域中。&lt;%pageContext.setAttribute(&quot;data1&quot;,&quot;xdp&quot;);%&gt;&lt;/li&gt;
+&lt;li&gt;从page域中得到值:&lt;%out.println(pageContext.getAttribute(&quot;data1&quot;));%&gt;&lt;/li&gt;
+
+&lt;li&gt;把一个值放入request域中。&lt;%request.setAttribute(&quot;data2&quot;,&quot;gacl&quot;);%&gt;&lt;/li&gt;
+&lt;li&gt;从request域中得到值:&lt;%out.println(request.getAttribute(&quot;data2&quot;));%&gt;&lt;/li&gt;
+
+&lt;li&gt;把一个值放入session域中。&lt;%session.setAttribute(&quot;name1&quot;,&quot;孤傲苍狼&quot;);%&gt;&lt;/li&gt;
+&lt;li&gt;从session中域得到值:&lt;%out.println(session.getAttribute(&quot;name1&quot;));%&gt;&lt;/li&gt;
+&lt;%--out.println()方法与&lt;%=%&gt;表达式输出功能一样 
+但使用表达式输出（&lt;%=%&gt;）明显要比使用out.println()输出更好。
+--%&gt;
+&lt;li&gt;&lt;%=session.getAttribute(&quot;name1&quot;) %&gt;&lt;/li&gt;
+&lt;li&gt;把另一个值放入application域中。&lt;%application.setAttribute(&quot;name2&quot;,&quot;白虎神皇&quot;);%&gt;&lt;/li&gt;
+&lt;li&gt; 从application域中得到值：&lt;%out.println(application.getAttribute(&quot;name2&quot;));%&gt;&lt;/li&gt;
+&lt;li&gt;&lt;%=application.getAttribute(&quot;name2&quot;)%&gt;&lt;/li&gt;
+
+&lt;li&gt;未指定scope的范围，会从不同的范围内查找得到相应的值：
+    &lt;%=pageContext.findAttribute(&quot;data1&quot;)%&gt;、
+    &lt;%=pageContext.findAttribute(&quot;data2&quot;)%&gt;、
+    &lt;%=pageContext.findAttribute(&quot;name1&quot;)%&gt;、
+    &lt;%=pageContext.findAttribute(&quot;name2&quot;)%&gt;
+&lt;/li&gt;
+
+&lt;/ul&gt;
+&lt;hr/&gt;
+&lt;h3&gt;操作JavaBean，设置JavaBean的属性值&lt;/h3&gt;
+%--设置JavaBean的属性值，等同与setter方法，Target指向实例化后的对象，property指向要插入值的参数名。
+注意：使用target时一定要指向实例化后的JavaBean对象，也就是要跟&lt;jsp:useBean&gt;配套使用，
+也可以java脚本实例化，但这就失去了是用标签的本质意义。
+使用Java脚本实例化：
+&lt;%@page import=&quot;javabean.Person&quot;%
+&lt;% Person person=new Person(); %&gt;
+ --%&gt;
+&lt;c:set target=&quot;${person}&quot; property=&quot;name&quot;&gt;孤傲苍狼&lt;/c:set&gt;
+c:set target=&quot;${person}&quot; property=&quot;age&quot;&gt;25&lt;/c:set&gt;
+&lt;c:set target=&quot;${person}&quot; property=&quot;sex&quot;&gt;男&lt;/c:set&gt;
+&lt;c:set target=&quot;${person}&quot; property=&quot;home&quot;&gt;中国&lt;/c:set&gt;
+&lt;ul&gt;
+&lt;li&gt;使用的目标对象为：${person}&lt;/li&gt;
+&lt;li&gt;从Bean中获得的name值为：&lt;c:out value=&quot;${person.name}&quot;&gt;&lt;/c:out&gt;&lt;/li&gt;
+&lt;li&gt;从Bean中获得的age值为：&lt;c:out value=&quot;${person.age}&quot;&gt;&lt;/c:out&gt;&lt;/li&gt;
+&lt;li&gt;从Bean中获得的sex值为：&lt;c:out value=&quot;${person.sex}&quot;&gt;&lt;/c:out&gt;&lt;/li&gt;
+&lt;li&gt;从Bean中获得的home值为：&lt;c:out value=&quot;${person.home}&quot;&gt;&lt;/c:out&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr/&gt;
+&lt;h3&gt;操作Map&lt;/h3&gt;
+ &lt;% 
+        Map map = new HashMap();
+    request.setAttribute(&quot;map&quot;,map);
+ %&gt;
+ &lt;%--将data对象的值存储到map集合中 --%&gt;
+&lt;c:set property=&quot;data&quot; value=&quot;gacl&quot; target=&quot;${map}&quot;/&gt;
+        ${map.data}
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>运行结果如下:<br><img src="http://od2xrf8gr.bkt.clouddn.com/2.png" alt=""></p>
+<h3 id="表达式控制标签——remove标签的使用"><a href="#表达式控制标签——remove标签的使用" class="headerlink" title="表达式控制标签——remove标签的使用"></a>表达式控制标签——remove标签的使用</h3><h4 id="lt-c-remove-gt-标签的功能"><a href="#lt-c-remove-gt-标签的功能" class="headerlink" title="&lt;c:remove&gt;标签的功能"></a>&lt;c:remove&gt;标签的功能</h4><p><strong>&lt;c:remove&gt;标签主要用来从指定的JSP范围内移除指定的变量。</strong></p>
+<h4 id="lt-c-remove-gt-标签的语法"><a href="#lt-c-remove-gt-标签的语法" class="headerlink" title="&lt;c:remove&gt;标签的语法"></a>&lt;c:remove&gt;标签的语法</h4><p>&lt;c:remove var=”变量名” [scope=”page|request|session|application”]/&gt;其中var属性是必须的，scope可以以省略。</p>
+<h4 id="lt-c-remove-gt-标签的使用范例"><a href="#lt-c-remove-gt-标签的使用范例" class="headerlink" title="&lt;c:remove&gt;标签的使用范例"></a>&lt;c:remove&gt;标签的使用范例</h4><pre><code>&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+%--引入JSTL核心标签库 --%&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;JSTL: --表达式控制标签“remove”标签的使用&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;ul&gt;
+    &lt;c:set var=&quot;name&quot; scope=&quot;session&quot;&gt;孤傲苍狼&lt;/c:set&gt;
+    &lt;c:set var=&quot;age&quot; scope=&quot;session&quot;&gt;25&lt;/c:set&gt;
+    &lt;li&gt;&lt;c:out value=&quot;${sessionScope.name}&quot;&gt;&lt;/c:out&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;c:out value=&quot;${sessionScope.age}&quot;&gt;&lt;/c:out&gt;&lt;/li&gt;
+    &lt;%--使用remove标签移除age变量 --%&gt;
+    &lt;c:remove var=&quot;age&quot; /&gt;
+    &lt;li&gt;&lt;c:out value=&quot;${sessionScope.name}&quot;&gt;&lt;/c:out&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;c:out value=&quot;${sessionScope.age}&quot;&gt;&lt;/c:out&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>运行结果如下:<br><img src="src=&quot;http://od2xrf8gr.bkt.clouddn.com/3.png&quot;" alt=""></p>
+<h3 id="表达式控制标签——catch标签的使用"><a href="#表达式控制标签——catch标签的使用" class="headerlink" title="表达式控制标签——catch标签的使用"></a>表达式控制标签——catch标签的使用</h3><h4 id="lt-c-catch-gt-标签的功能"><a href="#lt-c-catch-gt-标签的功能" class="headerlink" title="&lt;c:catch&gt;标签的功能"></a>&lt;c:catch&gt;标签的功能</h4><p><strong>&lt;c:catch&gt;标签用于捕获嵌套在标签体中的内容抛出的异常。</strong></p>
+<h4 id="lt-c-catch-gt-标签的语法"><a href="#lt-c-catch-gt-标签的语法" class="headerlink" title="&lt;c:catch&gt;标签的语法"></a>&lt;c:catch&gt;标签的语法</h4><p>其语法格式如下：&lt;c:catch [var=”varName”]&gt;容易产生异常的代码&lt;/c:catch&gt;<br>var属性用于标识&lt;c:catch&gt;标签捕获的异常对象，它将保存在page这个Web域中。</p>
+<h4 id="lt-c-catch-gt-标签的使用范例"><a href="#lt-c-catch-gt-标签的使用范例" class="headerlink" title="&lt;c:catch&gt;标签的使用范例"></a>&lt;c:catch&gt;标签的使用范例</h4><pre><code>&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%--引入JSTL核心标签库 --%&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;JSTL: --表达式控制标签“catch”标签实例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h4&gt;catch标签实例&lt;/h4&gt;
+&lt;hr&gt;
+
+&lt;%--把容易产生异常的代码放在&lt;c:catch&gt;&lt;/c:catch&gt;中，自定义一个变量errorInfo用于存储异常信息 --%&gt;
+&lt;c:catch var=&quot;errorInfo&quot;&gt;
+   &lt;%--实现了一段异常代码，向一个不存在的JavaBean中插入一个值--%&gt;
+   &lt;c:set target=&quot;person&quot; property=&quot;hao&quot;&gt;&lt;/c:set&gt;
+&lt;/c:catch&gt;
+
+&lt;%--用EL表达式得到errorInfo的值，并使用&lt;c:out&gt;标签输出 --%&gt;
+异常：&lt;c:out value=&quot;${errorInfo}&quot; /&gt;&lt;br/&gt;
+异常 errorInfo.getMessage：&lt;c:out value=&quot;${errorInfo.message}&quot; /&gt;&lt;br /&gt;
+异常 errorInfo.getCause：&lt;c:out value=&quot;${errorInfo.cause}&quot; /&gt;&lt;br /&gt;
+异常 errorInfo.getStackTrace：&lt;c:out value=&quot;${errorInfo.stackTrace}&quot; /&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>运行代码如下:<br><img src="http://od2xrf8gr.bkt.clouddn.com/4.png" alt=""></p>
+<h3 id="流程控制标签——if标签使用总结"><a href="#流程控制标签——if标签使用总结" class="headerlink" title="流程控制标签——if标签使用总结"></a>流程控制标签——if标签使用总结</h3><h4 id="lt-c-if-gt-标签的功能"><a href="#lt-c-if-gt-标签的功能" class="headerlink" title="&lt;c:if&gt;标签的功能"></a>&lt;c:if&gt;标签的功能</h4><p><strong>&lt;c:if&gt; 标签和程序中的if语句作用相同，用来实现条件控制。</strong></p>
+<h4 id="lt-c-if-gt-标签的语法"><a href="#lt-c-if-gt-标签的语法" class="headerlink" title="&lt;c:if&gt;标签的语法"></a>&lt;c:if&gt;标签的语法</h4><ul>
+<li>语法1:没有标签体内容:&lt;c:if test=”testCondition” var=”varName” [scope=”{page|request|session|application}”]/&gt;</li>
+<li>语法2: 有标签体内容。&lt;c:if test=”testCondition” [var=”varName”] [scope=”{page|request|session|application}”]&gt;标签体内容。&lt;/c:if&gt;</li>
+</ul>
+<p>参数说明:</p>
+<ul>
+<li>test属性用于存放判断的条件，一般使用EL表达式来编写。</li>
+<li><strong>var属性用来存放判断的结果，类型为true或false，即把值放在这个变量中</strong></li>
+<li>scopes属性用来指定var属性存放的范围。</li>
+</ul>
+<h4 id="lt-c-if-gt-标签的属性"><a href="#lt-c-if-gt-标签的属性" class="headerlink" title="&lt;c:if&gt;标签的属性"></a>&lt;c:if&gt;标签的属性</h4><p><img src="https://i.imgur.com/lL3BM3b.png" alt=""></p>
+<h4 id="lt-c-if-gt-标签的使用范例。"><a href="#lt-c-if-gt-标签的使用范例。" class="headerlink" title="&lt;c:if&gt;标签的使用范例。"></a>&lt;c:if&gt;标签的使用范例。</h4><pre><code>&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;&lt;%--引入JSTL核心标签库 --%&gt;&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;JSTL: --流程控制标签 if标签示例&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h4&gt;if标签示例&lt;/h4&gt;
+&lt;hr&gt;
+&lt;form action=&quot;JSTL_if_tag.jsp&quot; method=&quot;post&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;uname&quot; value=&quot;${param.uname}&quot;&gt; 
+    &lt;input type=&quot;submit&quot; value=&quot;登录&quot;&gt;
+&lt;/form&gt;
+
+&lt;%--使用if标签进行判断并把检验后的结果赋给adminchock，存储在默认的page范围中。 --%&gt;
+&lt;c:if test=&quot;${param.uname==&apos;admin&apos;}&quot; var=&quot;adminchock&quot;&gt;
+&lt;%--可以把adminchock的属性范围设置为session，这样就可以在其他的页面中得到adminchock的值，
+使用&lt;c:if text=”${adminchock}”&gt;&lt;c:if&gt;判断，实现不同的权限。 --%&gt;
+    &lt;c:out value=&quot;管理员欢迎您！&quot;/&gt;
+&lt;/c:if&gt;
+&lt;%--使用EL表达式得到adminchock的值，如果输入的用户名为admin将显示true。 --%&gt;
+${adminchock}
+&lt;/body&gt;
+&lt;/html&gt;  
+</code></pre><h3 id="流程控制标签——choose标签、when标签、otherwise标签配合使用讲解"><a href="#流程控制标签——choose标签、when标签、otherwise标签配合使用讲解" class="headerlink" title="流程控制标签——choose标签、when标签、otherwise标签配合使用讲解"></a>流程控制标签——choose标签、when标签、otherwise标签配合使用讲解</h3><h4 id="lt-c-choose-gt-、-lt-c-when-gt-和-lt-c-otherwise-gt-标签的功能"><a href="#lt-c-choose-gt-、-lt-c-when-gt-和-lt-c-otherwise-gt-标签的功能" class="headerlink" title="&lt;c:choose&gt;、&lt;c:when&gt;和&lt;c:otherwise&gt;标签的功能"></a>&lt;c:choose&gt;、&lt;c:when&gt;和&lt;c:otherwise&gt;标签的功能</h4><p>&lt;c:choose&gt;、&lt;c:when&gt;和&lt;c:otherwise&gt;这3个标签通常情况下是一起使用的，&lt;c:choose&gt;标签作为&lt;c:when&gt;和&lt;c:otherwise&gt;标签的父标签来使用。<br><strong>使用&lt;c:choose&gt;，&lt;c:when&gt;和&lt;c:otherwise&gt;三个标签，可以构造类似 “if-else if-else” 的复杂条件判断结构</strong></p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><pre><code>&lt;c:choose&gt;
+ &lt;c:when test=&quot;条件1&quot;&gt;
+         //业务逻辑1
+ &lt;/c:when&gt;
+ &lt;c:when test=&quot;条件2&quot;&gt;
+         //业务逻辑2
+ &lt;/c:when&gt;
+ &lt;c:when test=&quot;条件n&quot;&gt;
+         //业务逻辑n
+ &lt;/c:when&gt;
+ &lt;c:otherwise&gt;
+         //业务逻辑
+ &lt;/c:otherwise&gt;
+&lt;/c:choose&gt;
+</code></pre><h4 id="使用范例"><a href="#使用范例" class="headerlink" title="使用范例"></a>使用范例</h4><pre><code>&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%--引入JSTL核心标签库 --%&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;JSTL: -- choose及其嵌套标签标签示例&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h4&gt;choose及其嵌套标签示例&lt;/h4&gt;
+&lt;hr/&gt;
+&lt;%--通过set标签设定score的值为85 --%&gt;
+&lt;c:set var=&quot;score&quot; value=&quot;85&quot;/&gt;
+
+&lt;c:choose&gt;
+
+&lt;%--使用&lt;c:when&gt;进行条件判断。
+如果大于等于90，输出“您的成绩为优秀”；
+如果大于等于70小于90，输出“您的成绩为良好”；
+大于等于60小于70，输出“您的成绩为及格”；
+其他（otherwise）输出“对不起，您没能通过考试”。
+ --%&gt;
+
+    &lt;c:when test=&quot;${score&gt;=90}&quot;&gt;
+    你的成绩为优秀！
+    &lt;/c:when&gt;
+
+    &lt;c:when test=&quot;${score&gt;70 &amp;&amp; score&lt;90}&quot;&gt;
+    您的成绩为良好!
+    &lt;/c:when&gt;
+
+    &lt;c:when test=&quot;${score&gt;60 &amp;&amp; score&lt;70}&quot;&gt;
+    您的成绩为及格
+    &lt;/c:when&gt;
+
+    &lt;c:otherwise&gt;
+    对不起，您没有通过考试！
+
+    &lt;/c:otherwise&gt;
+&lt;/c:choose&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="循环标签——forEach标签的使用"><a href="#循环标签——forEach标签的使用" class="headerlink" title="循环标签——forEach标签的使用"></a>循环标签——forEach标签的使用</h3><h4 id="lt-c-forEach-gt-标签的功能"><a href="#lt-c-forEach-gt-标签的功能" class="headerlink" title="&lt;c:forEach&gt;标签的功能"></a>&lt;c:forEach&gt;标签的功能</h4><p><strong>该标签根据循环条件遍历集合（Collection）中的元素。</strong></p>
+<h4 id="lt-c-forEach-gt-标签的语法"><a href="#lt-c-forEach-gt-标签的语法" class="headerlink" title="&lt;c:forEach&gt;标签的语法"></a>&lt;c:forEach&gt;标签的语法</h4><pre><code>&lt;c:forEach var=”name” items=”Collection” varStatus=”StatusName” begin=”begin” end=”end” step=”step”&gt;
+本体内容
+&lt;/c:forEach&gt;
+</code></pre><p>参数说明:</p>
+<ul>
+<li><strong>var设定变量名用于存储从集合中取出元素。</strong></li>
+<li>items指定要遍历的集合</li>
+<li>varStatus设定变量名，该变量用于存放集合中元素的信息。</li>
+<li>begin、end用于指定遍历的起始位置和终止位置（可选）。</li>
+<li>step指定循环的步长</li>
+</ul>
+<p>Dome:</p>
+<pre><code>&lt;c:forEach items=&quot;${itemsList}&quot; var=&quot;item&quot; varStatus=&quot;s&quot;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;input type=&quot;checkbox&quot; name=&quot;itemsList[${s.index}].id&quot; value=&quot;${item.id}&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;itemsList[${s.index}].name&quot; value=&quot;${item.name}&quot;&gt; &lt;/td&gt;
+            &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;itemsList[${s.index}].price&quot; value=&quot;${item.price}&quot;&gt; &lt;/td&gt;
+            &lt;td&gt;&lt;fmt:formatDate value=&quot;${item.createtime}&quot; pattern=&quot;yyyy-MM-dd HH:mm:ss&quot;/&gt;&lt;/td&gt;
+            &lt;td&gt;${item.detail }&lt;/td&gt;
+
+            &lt;td&gt;&lt;a href=&quot;${pageContext.request.contextPath }/items/editItems.action?id=${item.id}&quot;&gt;修改&lt;/a&gt;&lt;/td&gt;
+
+        &lt;/tr&gt;
+    &lt;/c:forEach&gt;
+</code></pre><h4 id="lt-c-forEach-gt-标签的属性"><a href="#lt-c-forEach-gt-标签的属性" class="headerlink" title="&lt;c:forEach&gt;标签的属性"></a>&lt;c:forEach&gt;标签的属性</h4><p><img src="https://i.imgur.com/PjqWhHR.png" alt=""><br>其中varStatus有4个状态属性，如下表所示:<br><img src="https://i.imgur.com/l8uSSnP.png" alt=""></p>
+<h4 id="lt-c-forEach-gt-的使用范例"><a href="#lt-c-forEach-gt-的使用范例" class="headerlink" title="&lt;c:forEach&gt;的使用范例"></a>&lt;c:forEach&gt;的使用范例</h4><pre><code>OCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;JSTL: -- forEach标签实例&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h4&gt;&lt;c:out value=&quot;forEach实例&quot;/&gt;&lt;/h4&gt;
+&lt;% 
+   List&lt;String&gt;list = new ArrayList&lt;String&gt;(); 
+   list.add(0, &quot;贝贝&quot;); 
+   list.add(1, &quot;晶晶&quot;); 
+   list.add(2, &quot;欢欢&quot;); 
+   list.add(3, &quot;莹莹&quot;); 
+   list.add(4, &quot;妮妮&quot;); 
+   request.setAttribute(&quot;list&quot;, list); 
+%&gt;
+&lt;B&gt;&lt;c:out value=&quot;不指定begin和end的迭代：&quot; /&gt;&lt;/B&gt;&lt;br&gt;
+&lt;%--不使用begin和end的迭代，从集合的第一个元素开始，遍历到最后一个元素。 --%&gt;
+
+&lt;c:forEach var=&quot;fuwa&quot; items=&quot;${list}&quot;&gt;
+    &amp;nbsp;&lt;c:out value=&quot;${fuwa}&quot;/&gt;&lt;br/&gt;
+&lt;/c:forEach&gt;
+
+&lt;B&gt;&lt;c:out value=&quot;指定begin和end的迭代：&quot; /&gt;&lt;/B&gt;&lt;br&gt;
+&lt;%--指定begin的值为1、end的值为3、step的值为2，
+从第二个开始首先得到晶晶，每两个遍历一次，
+则下一个显示的结果为莹莹，end为3则遍历结束。 --%&gt;
+&lt;c:forEach var=&quot;fuwa&quot; items=&quot;${list}&quot; begin=&quot;1&quot; end=&quot;3&quot; step=&quot;2&quot;&gt;
+   &lt;c:out value=&quot;${fuwa}&quot;/&gt;&lt;br/&gt;
+   &lt;/c:forEach&gt;
+
+&lt;B&gt;&lt;c:out value=&quot;输出整个迭代的信息：&quot; /&gt;&lt;/B&gt;&lt;br&gt;
+    &lt;%--指定varStatus的属性名为s，并取出存储的状态信息 --%&gt;
+    &lt;c:forEach var=&quot;fuwa&quot; items=&quot;${list}&quot; begin=&quot;3&quot; end=&quot;4&quot; varStatus=&quot;s&quot; step=&quot;1&quot;&gt;
+         &lt;c:out value=&quot;${fuwa}&quot; /&gt;的四种属性：&lt;br&gt;
+
+       所在位置，即索引：&lt;c:out value=&quot;${s.index}&quot; /&gt;&lt;br&gt;
+
+         总共已迭代的次数：&lt;c:out value=&quot;${s.count}&quot; /&gt;&lt;br&gt;
+
+         是否为第一个位置：&lt;c:out value=&quot;${s.first}&quot; /&gt;&lt;br&gt;
+
+         是否为最后一个位置：&lt;c:out value=&quot;${s.last}&quot; /&gt;&lt;br&gt;  
+    &lt;/c:forEach&gt;
+&lt;/body&gt;
+/html&gt;
+</code></pre><p>运行结果为:<br><img src="http://od2xrf8gr.bkt.clouddn.com/7.png" alt=""></p>
+<h3 id="URL操作标签——import标签的使用"><a href="#URL操作标签——import标签的使用" class="headerlink" title="URL操作标签——import标签的使用"></a>URL操作标签——import标签的使用</h3><h4 id="lt-c-import-gt-标签的功能"><a href="#lt-c-import-gt-标签的功能" class="headerlink" title="&lt;c:import&gt;标签的功能"></a>&lt;c:import&gt;标签的功能</h4><p><strong>该标签可以把其他静态或动态文件包含到本JSP页面，与<a href="jsp:include" target="_blank" rel="noopener">jsp:include</a>的区别为：<a href="jsp:include" target="_blank" rel="noopener">jsp:include</a>只能包含同一个web应用中的文件。而&lt;c:import&gt;可以包含其他web应用中的文件，甚至是网络上的资源。</strong></p>
+<h4 id="lt-c-import-gt-标签的语法"><a href="#lt-c-import-gt-标签的语法" class="headerlink" title="&lt;c:import&gt;标签的语法"></a>&lt;c:import&gt;标签的语法</h4><ul>
+<li>语法1:&lt;c:import url=”url” [context=”context”][value=”value”] [scope=”page|request|session|application”] [charEncoding=”encoding”]/&gt;</li>
+<li>语法2:&lt;c:import url=”url” varReader=”name” [context=”context”] [charEncoding=”encoding”]/&gt;</li>
+</ul>
+<h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明:"></a>参数说明:</h4><ul>
+<li><strong>URL为资源的路径，当引用的资源不存在时系统会抛出异常，因此该语句应该放在&lt;c:catch&gt;&lt;/c:catch&gt;语句块中捕获。</strong></li>
+<li>引用资源有两种方式：绝对路径和相对路径。</li>
+</ul>
+<blockquote>
+<p>使用绝对路径的示例如下：&lt;c:import url=”<a href="http://www.baidu.com”&gt;" target="_blank" rel="noopener">http://www.baidu.com”&gt;</a></p>
+<p>使用相对路径的示例如下：&lt;c:import url=”aa.txt”&gt;，<strong><em>aa.txt放在同一文件目录。</em></strong></p>
+</blockquote>
+<ul>
+<li>如果以“/”开头表示应用的根目录下。例如：tomcat应用程序的根目录文件夹为webapps。导入webapps下的文件bb.txt的编写方式为：&lt;c:import url=”/bb.txt”&gt;</li>
+<li>context属性用于在访问其他web应用的文件时，指定根目录。例如，访问root下的index.jsp的实现代码为：&lt;c:import url=”/index.jsp” context=”/root”&gt;。等同于webapps/root/index.jsp</li>
+<li>var、scope、charEncoding、varReader是可选属性。</li>
+</ul>
+<h4 id="lt-c-import-gt-标签使用范例"><a href="#lt-c-import-gt-标签使用范例" class="headerlink" title="&lt;c:import&gt;标签使用范例"></a>&lt;c:import&gt;标签使用范例</h4><pre><code>&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%--引入JSTL核心标签库 --%&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+       &lt;title&gt;JSTL: -- import标签实例&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h4&gt;&lt;c:out value=&quot;import实例&quot;/&gt;&lt;/h4&gt;
+&lt;hr/&gt;
+&lt;h4&gt;&lt;c:out value=&quot;绝对路径引用的实例&quot; /&gt;&lt;/h4&gt;
+&lt;%--使用绝对路径导入百度首页,导入时使用&lt;c:catch&gt;&lt;/c:catch&gt;捕获异常。--%&gt;
+    &lt;c:catch var=&quot;error1&quot;&gt;
+        &lt;c:import url=&quot;http://wwww.baidu.com&quot; charEncoding=&quot;utf-8&quot;/&gt;
+    &lt;/c:catch&gt;
+        ${error1}
+    &lt;hr/&gt;
+
+ &lt;h4&gt;&lt;c:out value=&quot;相对路径引用本应用中的文件&quot; /&gt;&lt;/h4&gt;
+ &lt;%--使用相对路径导入同一文件夹下的“JSTL的import标签使用说明”文件，接收的字符编码格式使用charEncoding设置为utf-8。 --%&gt;
+     &lt;c:catch var=&quot;error2&quot;&gt;
+         &lt;c:import url=&quot;JSTL的import标签使用说明&quot; charEncoding=&quot;utf-8&quot;/&gt;
+     &lt;/c:catch&gt;
+          ${error2}
+     &lt;hr/&gt;
+
+  &lt;h4&gt;&lt;c:out value=&quot;使用字符串输出相对路径引用的实例，并保存在session范围内&quot; /&gt;&lt;/h4&gt;
+  &lt;%--导入“JSTL的import标签使用说明.txt”，使用var定义的变量接收要导入的文件，并存储在session中，
+  如果在其他页面同样也要导入该文件，只须使用&lt;c:out&gt;输出“JSTL的import标签使用说明.txt”的值即可。--%&gt;
+      &lt;c:catch var=&quot;error3&quot;&gt;
+       &lt;c:import var=&quot;myurl&quot; url=&quot;JSTL的import标签使用说明&quot; scope=&quot;session&quot; charEncoding=&quot;utf-8&quot;/&gt;
+           &lt;c:out value=&quot;${myurl}&quot;&gt;&lt;/c:out&gt;
+       &lt;hr/&gt;
+        &lt;c:out value=&quot;${myurl}&quot; /&gt;
+      &lt;/c:catch&gt;
+           ${error3}
+   &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="URL操作符——url标签的使用"><a href="#URL操作符——url标签的使用" class="headerlink" title="URL操作符——url标签的使用"></a>URL操作符——url标签的使用</h3><h4 id="lt-c-url-gt-标签的功能"><a href="#lt-c-url-gt-标签的功能" class="headerlink" title="&lt;c:url&gt;标签的功能"></a>&lt;c:url&gt;标签的功能</h4><p>标签用于在JSP页面中构造一个URL地址，其主要目的是实现URL重写。</p>
+<h4 id="lt-c-url-gt-标签的语法"><a href="#lt-c-url-gt-标签的语法" class="headerlink" title="&lt;c:url&gt;标签的语法"></a>&lt;c:url&gt;标签的语法</h4><ul>
+<li>语法1:指定一个url不做修改，可以选择把该url存储在JSP不同的范围中。&lt;c:url value=”value” [var=”name”][scope=”page|request|session|application”] [context=”context”]/&gt;</li>
+<li>语法2:配合 &lt;c:param&gt;标签给url加上指定参数及参数值，可以选择以name存储该url。</li>
+</ul>
+<blockquote>
+<p>&lt;c:url value=”value” [var=”name”] [scope=”page|request|session|application”] [context=”context”]<br>    &lt;c:param name=”参数名” value=”值”&gt;<br>&lt;/c:url&gt;`</p>
+</blockquote>
+<h4 id="lt-c-url-gt-标签的主要属性"><a href="#lt-c-url-gt-标签的主要属性" class="headerlink" title="&lt;c:url&gt;标签的主要属性"></a>&lt;c:url&gt;标签的主要属性</h4><p><img src="https://i.imgur.com/rDMpJVJ.png" alt=""></p>
+<h4 id="lt-c-url-gt-标签使用范例"><a href="#lt-c-url-gt-标签使用范例" class="headerlink" title="&lt;c:url&gt;标签使用范例"></a>&lt;c:url&gt;标签使用范例</h4><pre><code>&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+%--引入JSTL核心标签库 --%&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;JSTL: -- url标签实例&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;c:out value=&quot;url标签使用&quot;&gt;&lt;/c:out&gt;
+&lt;h4&gt;使用url标签生成一个动态的url，并把值存入session中.&lt;/h4&gt;
+&lt;hr/&gt;
+&lt;c:url value=&quot;http://www.baidu.com&quot; var=&quot;url&quot; scope=&quot;session&quot;&gt;
+&lt;/c:url&gt;
+&lt;a href=&quot;${url}&quot;&gt;百度首页(不带参数)&lt;/a&gt;
+&lt;hr/&gt;
+&lt;h4&gt;
+配合 &amp;lt;c:param&amp;gt;标签给url加上指定参数及参数值，生成一个动态的url然后存储到paramUrl变量中
+&lt;/h4&gt;
+&lt;c:url value=&quot;http://www.baidu.com&quot; var=&quot;paramUrl&quot;&gt;
+    &lt;c:param name=&quot;userName&quot; value=&quot;codingxiaxw&quot;/&gt;
+    &lt;c:param name=&quot;pwd&quot;&gt;123456&lt;/c:param&gt;
+&lt;/c:url&gt;
+&lt;a href=&quot;${paramUrl}&quot;&gt;百度首页(带参数)&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
+<p>If you have some questions after you see my blog , you can tell your doubts in the comments area or you can find some infos by clicking these links or ask me by sending me an email：</p>
+</blockquote>
+<ul>
+<li><p><a href="https://github.com/Lembre" target="_blank" rel="noopener">Github@codinglembre</a></p>
+</li>
+<li><p><a href="https://www.zhihu.com/people/yan-zhong-hui-11/activities" target="_blank" rel="noopener">Zhihu@codinglembre</a></p>
+</li>
+<li><p><a href="https://codinglembre.top">Blog@codinglembre</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/09/29/JavaWeb学习笔记之JSTL标签库/">JavaWeb学习笔记之JSTL标签库</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
+  <p><span>发布时间:</span>2018年09月29日 - 09:09</p>
+  <p><span>最后更新:</span>2018年10月02日 - 21:10</p>
+  <p><span>原始链接:</span><a href="/2018/09/29/JavaWeb学习笔记之JSTL标签库/" title="JavaWeb学习笔记之JSTL标签库">http://codinglembre.top/2018/09/29/JavaWeb学习笔记之JSTL标签库/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/29/JavaWeb学习笔记之JSTL标签库/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+    </div>
+
+    
+
+        <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/alipay.jpg" alt="Lembre 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
+          
+            <a href="/tags/Servlet/" rel="tag"><i class="fa fa-tag"></i> Servlet</a>
+          
+            <a href="/tags/JSP/" rel="tag"><i class="fa fa-tag"></i> JSP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/27/JavaWeb学习笔记之EL表达式/" rel="next" title="JavaWeb学习笔记之EL表达式">
+                <i class="fa fa-chevron-left"></i> JavaWeb学习笔记之EL表达式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/29/Java之反射机制/" rel="prev" title="Java之反射机制">
+                Java之反射机制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Lembre" />
+            
+              <p class="site-author-name" itemprop="name">Lembre</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Lembre" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/yan-zhong-hui-11" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:huizy1587834945@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+<br>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=34040716&auto=0&height=66"></iframe>
+
+<br>          
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=4341314&auto=0&height=66"></iframe>            
+
+
+          
+
+        <div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSTL标签库介绍"><span class="nav-number">1.</span> <span class="nav-text">JSTL标签库介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSTL标签库的分类"><span class="nav-number">2.</span> <span class="nav-text">JSTL标签库的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心标签库使用说明"><span class="nav-number">3.</span> <span class="nav-text">核心标签库使用说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表达式控制标签——out标签使用"><span class="nav-number">3.1.</span> <span class="nav-text">表达式控制标签——out标签使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-out-gt-标签的功能"><span class="nav-number">3.1.1.</span> <span class="nav-text">&lt;c:out&gt;标签的功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-out-gt-标签的语法"><span class="nav-number">3.1.2.</span> <span class="nav-text">&lt;c:out&gt;标签的语法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-out-gt-标签的属性"><span class="nav-number">3.1.3.</span> <span class="nav-text">&lt;c:out&gt;标签的属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-out-gt-标签的使用范例"><span class="nav-number">3.1.4.</span> <span class="nav-text">&lt;c:out&gt;标签的使用范例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表达式控制标签——set标签的使用"><span class="nav-number">4.</span> <span class="nav-text">表达式控制标签——set标签的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-set-gt-标签的功能"><span class="nav-number">4.1.</span> <span class="nav-text">&lt;c:set&gt;标签的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-set-gt-标签的语法"><span class="nav-number">4.2.</span> <span class="nav-text">&lt;c:set&gt;标签的语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-set-gt-标签的属性"><span class="nav-number">4.3.</span> <span class="nav-text">&lt;c:set&gt;标签的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-set-gt-标签的使用范例"><span class="nav-number">4.4.</span> <span class="nav-text">&lt;c:set&gt;标签的使用范例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表达式控制标签——remove标签的使用"><span class="nav-number">5.</span> <span class="nav-text">表达式控制标签——remove标签的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-remove-gt-标签的功能"><span class="nav-number">5.1.</span> <span class="nav-text">&lt;c:remove&gt;标签的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-remove-gt-标签的语法"><span class="nav-number">5.2.</span> <span class="nav-text">&lt;c:remove&gt;标签的语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-remove-gt-标签的使用范例"><span class="nav-number">5.3.</span> <span class="nav-text">&lt;c:remove&gt;标签的使用范例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表达式控制标签——catch标签的使用"><span class="nav-number">6.</span> <span class="nav-text">表达式控制标签——catch标签的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-catch-gt-标签的功能"><span class="nav-number">6.1.</span> <span class="nav-text">&lt;c:catch&gt;标签的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-catch-gt-标签的语法"><span class="nav-number">6.2.</span> <span class="nav-text">&lt;c:catch&gt;标签的语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-catch-gt-标签的使用范例"><span class="nav-number">6.3.</span> <span class="nav-text">&lt;c:catch&gt;标签的使用范例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程控制标签——if标签使用总结"><span class="nav-number">7.</span> <span class="nav-text">流程控制标签——if标签使用总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-if-gt-标签的功能"><span class="nav-number">7.1.</span> <span class="nav-text">&lt;c:if&gt;标签的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-if-gt-标签的语法"><span class="nav-number">7.2.</span> <span class="nav-text">&lt;c:if&gt;标签的语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-if-gt-标签的属性"><span class="nav-number">7.3.</span> <span class="nav-text">&lt;c:if&gt;标签的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-if-gt-标签的使用范例。"><span class="nav-number">7.4.</span> <span class="nav-text">&lt;c:if&gt;标签的使用范例。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程控制标签——choose标签、when标签、otherwise标签配合使用讲解"><span class="nav-number">8.</span> <span class="nav-text">流程控制标签——choose标签、when标签、otherwise标签配合使用讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-choose-gt-、-lt-c-when-gt-和-lt-c-otherwise-gt-标签的功能"><span class="nav-number">8.1.</span> <span class="nav-text">&lt;c:choose&gt;、&lt;c:when&gt;和&lt;c:otherwise&gt;标签的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">8.2.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用范例"><span class="nav-number">8.3.</span> <span class="nav-text">使用范例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环标签——forEach标签的使用"><span class="nav-number">9.</span> <span class="nav-text">循环标签——forEach标签的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-forEach-gt-标签的功能"><span class="nav-number">9.1.</span> <span class="nav-text">&lt;c:forEach&gt;标签的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-forEach-gt-标签的语法"><span class="nav-number">9.2.</span> <span class="nav-text">&lt;c:forEach&gt;标签的语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-forEach-gt-标签的属性"><span class="nav-number">9.3.</span> <span class="nav-text">&lt;c:forEach&gt;标签的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-forEach-gt-的使用范例"><span class="nav-number">9.4.</span> <span class="nav-text">&lt;c:forEach&gt;的使用范例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL操作标签——import标签的使用"><span class="nav-number">10.</span> <span class="nav-text">URL操作标签——import标签的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-import-gt-标签的功能"><span class="nav-number">10.1.</span> <span class="nav-text">&lt;c:import&gt;标签的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-import-gt-标签的语法"><span class="nav-number">10.2.</span> <span class="nav-text">&lt;c:import&gt;标签的语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数说明"><span class="nav-number">10.3.</span> <span class="nav-text">参数说明:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-import-gt-标签使用范例"><span class="nav-number">10.4.</span> <span class="nav-text">&lt;c:import&gt;标签使用范例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL操作符——url标签的使用"><span class="nav-number">11.</span> <span class="nav-text">URL操作符——url标签的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-url-gt-标签的功能"><span class="nav-number">11.1.</span> <span class="nav-text">&lt;c:url&gt;标签的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-url-gt-标签的语法"><span class="nav-number">11.2.</span> <span class="nav-text">&lt;c:url&gt;标签的语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-url-gt-标签的主要属性"><span class="nav-number">11.3.</span> <span class="nav-text">&lt;c:url&gt;标签的主要属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-c-url-gt-标签使用范例"><span class="nav-number">11.4.</span> <span class="nav-text">&lt;c:url&gt;标签使用范例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">12.</span> <span class="nav-text">联系</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lembre</span>
+
+  
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+  <span class="post-meta-divider">|</span>
+</span>
+</div>
+
+  <div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://codinglembre.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://codinglembre.top/2018/09/29/JavaWeb学习笔记之JSTL标签库/';
+          this.page.identifier = '2018/09/29/JavaWeb学习笔记之JSTL标签库/';
+          this.page.title = 'JavaWeb学习笔记之JSTL标签库';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codinglembre.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

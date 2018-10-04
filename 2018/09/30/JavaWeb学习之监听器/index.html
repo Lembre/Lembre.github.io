@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "c57d71f5"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaWeb,Servlet," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="codingLembre's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="监听器(Listener)其实就是一个实现特定接口的普通java程序，监听器是一个专门用于对其他对象身上(三大域对象)发生的事件或状态改变进行监听和相应处理的对象，它可以监听客户端请求和服务端的操作，当被监视的对象发生情况时，立即采取相应的行动。这个程序专门用于监听另一个java对象的方法调用或属性改变，当被监听对象发生上述事件后，监听器某个方法立即被执行。 上述概念设计到3个名词概念:  事件源">
+<meta name="keywords" content="JavaWeb,Servlet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb学习之监听器">
+<meta property="og:url" content="http://codinglembre.top/2018/09/30/JavaWeb学习之监听器/index.html">
+<meta property="og:site_name" content="codingLembre&#39;s blog">
+<meta property="og:description" content="监听器(Listener)其实就是一个实现特定接口的普通java程序，监听器是一个专门用于对其他对象身上(三大域对象)发生的事件或状态改变进行监听和相应处理的对象，它可以监听客户端请求和服务端的操作，当被监视的对象发生情况时，立即采取相应的行动。这个程序专门用于监听另一个java对象的方法调用或属性改变，当被监听对象发生上述事件后，监听器某个方法立即被执行。 上述概念设计到3个名词概念:  事件源">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/9Em7yhT.png">
+<meta property="og:image" content="https://i.imgur.com/45msGDS.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/alistern.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/alistern.png">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/alistern.png">
+<meta property="og:image" content="https://i.imgur.com/CRoZZlF.png">
+<meta property="og:image" content="https://i.imgur.com/xpTMe4F.png">
+<meta property="og:image" content="https://i.imgur.com/ZDuyKUI.png">
+<meta property="og:image" content="https://i.imgur.com/oN7iBId.png">
+<meta property="og:image" content="https://i.imgur.com/e5cGadN.png">
+<meta property="og:updated_time" content="2018-10-03T13:27:23.517Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaWeb学习之监听器">
+<meta name="twitter:description" content="监听器(Listener)其实就是一个实现特定接口的普通java程序，监听器是一个专门用于对其他对象身上(三大域对象)发生的事件或状态改变进行监听和相应处理的对象，它可以监听客户端请求和服务端的操作，当被监视的对象发生情况时，立即采取相应的行动。这个程序专门用于监听另一个java对象的方法调用或属性改变，当被监听对象发生上述事件后，监听器某个方法立即被执行。 上述概念设计到3个名词概念:  事件源">
+<meta name="twitter:image" content="https://i.imgur.com/9Em7yhT.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://codinglembre.top/2018/09/30/JavaWeb学习之监听器/"/>
+
+
+
+
+
+  <title>JavaWeb学习之监听器 | codingLembre's blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8df4a33be20448b89bdfd23892548369";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/Lembre"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">codingLembre's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">I have a dream!</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            Abouts
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/09/30/JavaWeb学习之监听器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lembre">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codingLembre's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">JavaWeb学习之监听器</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T09:50:52+08:00">
+                2018-09-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Update on&#58;</span>
+              
+              <time title="Update on" itemprop="dateModified" datetime="2018-10-03T21:27:23+08:00">
+                2018-10-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/30/JavaWeb学习之监听器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/30/JavaWeb学习之监听器/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Wordcount&#58;</span>
+                
+                <span title="Wordcount">
+                  2,495
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>监听器(Listener)其实就是一个<strong><em>实现特定接口的普通java程序</em></strong>，监听器是一个<strong><em>专门用于对其他对象身上(三大域对象)发生的事件或状态改变进行监听和相应处理的对象，它可以监听客户端请求和服务端的操作</em></strong>，当被监视的对象发生情况时，立即采取相应的行动。这个程序专门用于监听另一个java对象的方法调用或属性改变，当被监听对象发生上述事件后，监听器某个方法立即被执行。</p>
+<p>上述概念设计到3个名词概念:</p>
+<ul>
+<li>事件源:即谁产生的事件</li>
+<li>事件对象:即产生了什么事件</li>
+<li>监听器:监听事件源的动作</li>
+</ul>
+<p>由于事件源可以产生多个动作(即产生多个事件)，而<strong><em>监听器中的每一个方法监听一个动作，故每个监听器中都有很多方法。</em></strong></p>
+<a id="more"></a>
+<h3 id="JavaWeb中的监听器的概念"><a href="#JavaWeb中的监听器的概念" class="headerlink" title="JavaWeb中的监听器的概念"></a>JavaWeb中的监听器的概念</h3><p>JavaWeb中的监听器是Servlet规范中定义的一种特殊类，它用于监听web应用程序中的ServletContext、HttpSession和 ServletRequest这三大域对象的创建、销毁事件以及监听这些域对象中的属性发生修改的事件。<br><img src="https://i.imgur.com/9Em7yhT.png" alt=""><br><img src="https://i.imgur.com/45msGDS.png" alt=""></p>
+<p>其中，<strong>Java中的ServletContext对象对应JSP的application对象（上下文对象，由容器创建和初始化），HTTPSession对象对应JSP的session对象（保存上下文对象的机制，放在服务器端，通过sessionID区分的，服务器关闭和结束时销毁），ServletRequest对象（容器创建时创建的对象，来进行封装请求对象，同时还会创建ServletResponse对象）对应JSP中的request对象。</strong></p>
+<p><strong>总而言之，就是监听这三个对象的创建销毁和属性的变化</strong></p>
+<h3 id="JavaWeb中监听器的分类"><a href="#JavaWeb中监听器的分类" class="headerlink" title="JavaWeb中监听器的分类"></a>JavaWeb中监听器的分类</h3><p>在Servlet规范中定义了多种类型的监听器(一共8个监听器)，它们用于监听的事件源分别为ServletContext，HttpSession和ServletRequest这三个域对象。Servlet规范针对这三个对象上的操作，又把多种类型的监听器划分为三种类型：</p>
+<ul>
+<li><p>域对象的生命周期监听:<strong>监听域对象自身的创建和销毁</strong>。这个监听器需要实现相应的监听器接口:ServletContextListener(<strong>定时器和全局属性对象</strong>)、HttpSessionListener(<strong>统计在线人数和记录访问日志</strong>)、ServletRequestListener(<strong>读取参数和记录访问历史</strong>)。<br>关于的ServletContext的Demo:<br>在配置文件web.xml配置:<br>  <context-param></context-param></p>
+<pre><code>&lt;param-name&gt;initParam&lt;/param-name&gt;
+&lt;param-value&gt;codingLembre&lt;/param-value&gt;
+</code></pre><p>  <br>然后可以在<strong>实现ServletContextListener接口的类中可以获取到相应的配置</strong>:</p>
+<p>  public void contextInitialized(ServletContextEvent sce) {</p>
+<pre><code>sce.getServletContext().getInitParameter(&quot;initParam&quot;);
+</code></pre><p><strong>结合之前的过滤器的学习，由此我们也可以知道配置文件中的配置和对应的映射的接口实现类中的参数的一些微妙的关系，在此之前我一直不懂</strong></p>
+</li>
+<li>域对象的属性监听:<strong>监听域对象中属性的增加和删除。</strong>这个监听器需要实现的监听器接口为:ServletContextAttributeListener、HttpSessionAttributeListener、ServletRequestAttributeListener</li>
+<li>感知监听(<strong>监听绑定到HTTPSession域中的某个对象的状态的事件监听器</strong>):监听绑定到HttpSession域中的某个JavaBean对象的状态的监听器。这个监听器需要实现的监听器接口:HttpSessionBindingListener、HttpSessionActiveationListener</li>
+</ul>
+<h3 id="第一类-域对象的生命周期监听"><a href="#第一类-域对象的生命周期监听" class="headerlink" title="第一类:域对象的生命周期监听"></a>第一类:域对象的生命周期监听</h3><p>事件源为:三大域<br>事件对象为:创建与销毁<br>监听器为:实现了ServletContextListener、HttpSessionListener、ServletRequestListener这三个接口的监听器</p>
+<h4 id="ServletContext的生命周期监听"><a href="#ServletContext的生命周期监听" class="headerlink" title="ServletContext的生命周期监听"></a>ServletContext的生命周期监听</h4><pre><code>public class AListener implements ServletContextListener{
+
+public void contextInitialized(ServletContextEvent sce)
+{
+  //在项目启动时调用
+}
+
+public void contextDestroyed(ServletContextEvent sce)
+{
+  //在项目关闭时调用
+}
+}
+</code></pre><p>需要在web.xml文件中进行配置:<br><img src="http://od2xrf8gr.bkt.clouddn.com/alistern.png" alt=""></p>
+<h4 id="HttpSession的生命周期监听"><a href="#HttpSession的生命周期监听" class="headerlink" title="HttpSession的生命周期监听"></a>HttpSession的生命周期监听</h4><pre><code>public class AListener implements HttpSessionListener{
+
+public void sessionCreated(HttpSessionEvent sce)
+{
+  //在会话产生时调用
+}
+
+public void sessionDestroyed(HttpSessionEvent sce)
+{
+  //在会话关闭时调用
+}
+}
+</code></pre><p>需要在web.xml文件中进行配置:<br><img src="http://od2xrf8gr.bkt.clouddn.com/alistern.png" alt=""></p>
+<h4 id="ServletRequest的生命周期"><a href="#ServletRequest的生命周期" class="headerlink" title="ServletRequest的生命周期"></a>ServletRequest的生命周期</h4><pre><code>public class AListener implements ServletRequestListener{
+
+public void requestInitialized(ServletRequestEvent sce)
+{
+  //在请求产生时调用
+}
+
+public void requestDestroyed(ServletRequestEvent sce)
+{
+  //在请求关闭时调用
+}
+}
+</code></pre><p>需要在web.xml文件中进行配置:<br><img src="http://od2xrf8gr.bkt.clouddn.com/alistern.png" alt=""></p>
+<h4 id="对各个监听器接口的方法中出现的类介绍"><a href="#对各个监听器接口的方法中出现的类介绍" class="headerlink" title="对各个监听器接口的方法中出现的类介绍"></a>对各个监听器接口的方法中出现的类介绍</h4><p>ServletContextEvent类:<strong><em>类中有一个方法getServletContext(),该方法返回ServletContext对象。</em></strong><br>HttpSessionEvent类:类中有一个方法<strong><em>getSession()，该方法返回一个HttpSession对象。</em></strong><br>ServletRequestEvent类:类中有两个方法，<strong><em>getServletContext()用于返回一个ServletContext对象，getServletRequest()用于返回一个ServletRequest对象。</em></strong></p>
+<h3 id="第二类-域对象的属性监听"><a href="#第二类-域对象的属性监听" class="headerlink" title="第二类:域对象的属性监听"></a>第二类:域对象的属性监听</h3><p>事件源:三大域<br>事件对象:属性的增加与删除<br>监听器:实现了ServletContextAttributeListener、HttpSessionAttributeListener、ServletRequestAttributeListener接口的监听器</p>
+<h4 id="ServletContext的属性监听"><a href="#ServletContext的属性监听" class="headerlink" title="ServletContext的属性监听"></a>ServletContext的属性监听</h4><pre><code>public class AListener implements ServletContextAttributeListener{
+
+public void attributeAdded(ServletcontextAttribute scab){
+  //给ServletContext对象添加属性时调用
+}
+
+public void attributeRemoved(ServletContextAttributeEvent scab){
+//给ServletContext对象删除属性时调用
+}
+
+public void attributeReplaced(ServletContextAttributeEvent scab){
+//给ServletContext对象替换属性值时调用
+}
+}
+</code></pre><p>同样需要在web.xml文件中对AListener进行配置。</p>
+<h4 id="HttpSession的属性监听"><a href="#HttpSession的属性监听" class="headerlink" title="HttpSession的属性监听"></a>HttpSession的属性监听</h4><pre><code>public class AListener implements HttpSessionAttributeListener{
+
+public void attributeAdded(HttpSessionAttribute scab){
+  //给HttpSession对象添加属性时调用
+}
+
+public void attributeRemoved(HttpSessionAttributeEvent scab){
+//给HttpSession对象删除属性时调用
+}    
+
+public void attributeReplaced(HttpSessionAttributeEvent scab){
+//给HttpSession对象替换属性值时调用
+}
+}
+</code></pre><p>同样需要在web.xml中对AListener进行配置。</p>
+<h4 id="ServletRequest的属性监听"><a href="#ServletRequest的属性监听" class="headerlink" title="ServletRequest的属性监听"></a>ServletRequest的属性监听</h4><pre><code>public class AListener implements ServletRequestAttributeListener{
+
+public void attributeAdded(ServletRequestAttribute scab){
+  //给ServletRequest对象添加属性时调用
+}
+
+public void attributeRemoved(ServletRequestAttributeEvent scab){
+//给ServletRequest对象删除属性时调用
+}
+
+public void attributeReplaced(ServletRequestAttributeEvent scab){
+//给ServletRequest对象替换属性值时调用
+}
+}
+</code></pre><h4 id="对各个监听器接口的方法中出现的类介绍-1"><a href="#对各个监听器接口的方法中出现的类介绍-1" class="headerlink" title="对各个监听器接口的方法中出现的类介绍"></a>对各个监听器接口的方法中出现的类介绍</h4><p>ServletContextAttributeEvent类:该类对象有三个方法，<strong><em>getSevletContext()用于返回一个ServletContext，getName()用于返回属性名，getValue()用于返回属性值。</em></strong></p>
+<p>HttpSessionBindingEvent类:该类对象有两个方法，<strong><em>getName()用于获取属性名，getValue()用于获取属性值。</em></strong></p>
+<p>ServletRequestAttributeEvent类:该类对象有两个方法，<strong><em>getName()用于获取属性名，getValue()用于获取属性值。</em></strong></p>
+<h3 id="感知监听器"><a href="#感知监听器" class="headerlink" title="感知监听器"></a>感知监听器</h3><p>在此之前先了解一下<strong>Session对象的几种状态机制</strong></p>
+<ul>
+<li>绑定:Session对象持久化到存储设备中</li>
+<li>解除绑定:Session对象从存储设备中回复</li>
+<li>钝化机制:session过多，session在服务器内存中的开销将十分巨大，直接影响Web服务器的性能。此时，服务器自动将不常用的session将被序列化到系统文件或数据库中，使用时再由服务器自动反序列化到服务器内存中。这个机制由SessionManager管理，它的管理机制:<br><img src="https://i.imgur.com/CRoZZlF.png" alt=""><br><img src="https://i.imgur.com/xpTMe4F.png" alt=""></li>
+</ul>
+<p><strong><em>保存在Session域中的对象可以有多种状态：绑定(session.setAttribute(“bean”,Object))到Session中,随Session对象持久化到一个存储设备中；从Session域中解除(session.removeAttribute(“bean”))绑定,随Session对象从一个存储设备中恢复。</em></strong></p>
+<p>Servlet 规范中定义了两个特殊的监听器接口<strong><em>”HttpSessionBindingListener和HttpSessionActivationListener”来帮助JavaBean 对象了解自己在Session域中的这些状态，实现这两个接口的类不需要 web.xml 文件中进行注册。</em></strong><br><img src="https://i.imgur.com/ZDuyKUI.png" alt=""></p>
+<h4 id="HttpSessionBindingListener接口"><a href="#HttpSessionBindingListener接口" class="headerlink" title="HttpSessionBindingListener接口"></a>HttpSessionBindingListener接口</h4><p>实现了HttpSessionBindingListener接口的JavaBean对象可以感知自己被绑定到Session中和 Session中删除的事件。</p>
+<p>当对象被绑定到HttpSession对象中时，web服务器调用该对象的void valueBound(HttpSessionBindingEvent event)方法。</p>
+<p>当对象从HttpSession对象中解除绑定时，web服务器调用该对象的void valueUnbound(HttpSessionBindingEvent event)方法。</p>
+<pre><code>public class JavaBeanDemo1 implements HttpSessionBindingListener {
+
+ private String name;
+
+ @Override
+ public void valueBound(HttpSessionBindingEvent event) {
+     System.out.println(name+&quot;被加到session中了&quot;);
+ }
+
+ @Override
+ public void valueUnbound(HttpSessionBindingEvent event) {
+     System.out.println(name+&quot;被session踢出来了&quot;);
+ }
+
+ public String getName() {
+     return name;
+ }
+
+ public void setName(String name) {
+     this.name = name;
+ }
+
+ public JavaBeanDemo1(String name) {
+     this.name = name;
+ }
+}
+</code></pre><p>上述的JavaBeanDemo1这个javabean实现了HttpSessionBindingListener接口，那么这个JavaBean对象可以感知自己被绑定到Session中和从Session中删除的这两个操作。</p>
+<h3 id="HttpSessionActivationListener接口"><a href="#HttpSessionActivationListener接口" class="headerlink" title="HttpSessionActivationListener接口"></a>HttpSessionActivationListener接口</h3><p><strong><em>实现了HttpSessionActivationListener接口的JavaBean对象可以感知自己被活化(反序列化)和钝化(序列化)的事件。</em></strong></p>
+<p>当绑定到HttpSession对象中的javabean对象将要随HttpSession对象被钝化(序列化)之前，web服务器调用该javabean对象的void sessionWillPassivate(HttpSessionEvent event) 方法。这样javabean对象就可以知道自己将要和HttpSession对象一起被序列化(钝化)到硬盘中。</p>
+<p>当绑定到HttpSession对象中的javabean对象将要随HttpSession对象被活化(反序列化)之后，web服务器调用该javabean对象的void sessionDidActive(HttpSessionEvent event)方法。这样javabean对象就可以知道自己将要和 HttpSession对象一起被反序列化(活化)回到内存中。(javabean随着HttpSession对象一起被活化的前提是该javabean对象除了实现该接口外还应该实现Serialize接口)。</p>
+<pre><code>public class JavaBeanDemo2 implements HttpSessionActivationListener,
+    Serializable {
+
+
+private static final long serialVersionUID = 7589841135210272124L;
+private String name;
+
+@Override
+public void sessionWillPassivate(HttpSessionEvent se) {
+
+    System.out.println(name+&quot;和session一起被序列化(钝化)到硬盘了，session的id是：&quot;+se.getSession().getId());
+}
+ @Override
+public void sessionDidActivate(HttpSessionEvent se) {
+    System.out.println(name+&quot;和session一起从硬盘反序列化(活化)回到内存了，session的id是：&quot;+se.getSession().getId());
+}
+
+public String getName() {
+    return name;
+}
+
+public void setName(String name) {        
+   this.name = name;
+}
+
+public JavaBeanDemo2(String name) {
+    this.name = name;
+}
+</code></pre><p>   }</p>
+<p>***如果某个类(ja888vabean对象)实现了HttpSessionActiveationListener接口后，当对象随着session被钝化和活化时，下面两个方法就会被调用</p>
+<pre><code>public void sessionWillPassivate(HttpSessionEvent se):当对象感知被活化时调用本方法。  
+public void sessionDidActivate(HttpSessionEvent se):当对象感知被钝化时调用本方法。
+</code></pre><h3 id="Servlet3-0新特性，注解监听器"><a href="#Servlet3-0新特性，注解监听器" class="headerlink" title="Servlet3.0新特性，注解监听器"></a>Servlet3.0新特性，注解监听器</h3><p><strong>使用@WebListener，该注解用于将类声明为监听器，但是没有定义顺序的标识</strong><br><img src="https://i.imgur.com/oN7iBId.png" alt=""></p>
+<p>这是使用注解和两个监听器实现的实时统计在线人数及IP信息<a href="https://github.com/Lembre/SessionManager" target="_blank" rel="noopener">github源代码</a></p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p><strong>监听器的启动加载顺序和在web.xml中的注册顺序有关</strong>，当同时存在监听器，过滤器和Servlet时，加载顺序为:<br><img src="https://i.imgur.com/e5cGadN.png" alt=""></p>
+<h3 id="监听域对象属性变化的实际应用"><a href="#监听域对象属性变化的实际应用" class="headerlink" title="监听域对象属性变化的实际应用"></a>监听域对象属性变化的实际应用</h3><p>待更新</p>
+<h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
+<p>If you have some questions after you see my blog , you can tell your doubts in the comments area or you can find some infos by clicking these links or ask me by sending me an email：</p>
+</blockquote>
+<ul>
+<li><p><a href="https://github.com/Lembre" target="_blank" rel="noopener">Github@codinglembre</a></p>
+</li>
+<li><p><a href="https://www.zhihu.com/people/yan-zhong-hui-11/activities" target="_blank" rel="noopener">Zhihu@codinglembre</a></p>
+</li>
+<li><p><a href="https://codinglembre.top">Blog@codinglembre</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/09/30/JavaWeb学习之监听器/">JavaWeb学习之监听器</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
+  <p><span>发布时间:</span>2018年09月30日 - 09:09</p>
+  <p><span>最后更新:</span>2018年10月03日 - 21:10</p>
+  <p><span>原始链接:</span><a href="/2018/09/30/JavaWeb学习之监听器/" title="JavaWeb学习之监听器">http://codinglembre.top/2018/09/30/JavaWeb学习之监听器/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/30/JavaWeb学习之监听器/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+    </div>
+
+    
+
+        <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/alipay.jpg" alt="Lembre 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaWeb/" rel="tag"><i class="fa fa-tag"></i> JavaWeb</a>
+          
+            <a href="/tags/Servlet/" rel="tag"><i class="fa fa-tag"></i> Servlet</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/29/JavaWeb学习之AJAX/" rel="next" title="JavaWeb学习之AJAX">
+                <i class="fa fa-chevron-left"></i> JavaWeb学习之AJAX
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/30/Java中String，StringBuilder和StringBuffer的区别/" rel="prev" title="String，StringBuilder和StringBuffer的区别">
+                String，StringBuilder和StringBuffer的区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Lembre" />
+            
+              <p class="site-author-name" itemprop="name">Lembre</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Lembre" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/yan-zhong-hui-11" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:huizy1587834945@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+<br>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=34040716&auto=0&height=66"></iframe>
+
+<br>          
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=4341314&auto=0&height=66"></iframe>            
+
+
+          
+
+        <div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaWeb中的监听器的概念"><span class="nav-number">1.</span> <span class="nav-text">JavaWeb中的监听器的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaWeb中监听器的分类"><span class="nav-number">2.</span> <span class="nav-text">JavaWeb中监听器的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一类-域对象的生命周期监听"><span class="nav-number">3.</span> <span class="nav-text">第一类:域对象的生命周期监听</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ServletContext的生命周期监听"><span class="nav-number">3.1.</span> <span class="nav-text">ServletContext的生命周期监听</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HttpSession的生命周期监听"><span class="nav-number">3.2.</span> <span class="nav-text">HttpSession的生命周期监听</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ServletRequest的生命周期"><span class="nav-number">3.3.</span> <span class="nav-text">ServletRequest的生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对各个监听器接口的方法中出现的类介绍"><span class="nav-number">3.4.</span> <span class="nav-text">对各个监听器接口的方法中出现的类介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二类-域对象的属性监听"><span class="nav-number">4.</span> <span class="nav-text">第二类:域对象的属性监听</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ServletContext的属性监听"><span class="nav-number">4.1.</span> <span class="nav-text">ServletContext的属性监听</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HttpSession的属性监听"><span class="nav-number">4.2.</span> <span class="nav-text">HttpSession的属性监听</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ServletRequest的属性监听"><span class="nav-number">4.3.</span> <span class="nav-text">ServletRequest的属性监听</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对各个监听器接口的方法中出现的类介绍-1"><span class="nav-number">4.4.</span> <span class="nav-text">对各个监听器接口的方法中出现的类介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#感知监听器"><span class="nav-number">5.</span> <span class="nav-text">感知监听器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HttpSessionBindingListener接口"><span class="nav-number">5.1.</span> <span class="nav-text">HttpSessionBindingListener接口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpSessionActivationListener接口"><span class="nav-number">6.</span> <span class="nav-text">HttpSessionActivationListener接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet3-0新特性，注解监听器"><span class="nav-number">7.</span> <span class="nav-text">Servlet3.0新特性，注解监听器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">8.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监听域对象属性变化的实际应用"><span class="nav-number">9.</span> <span class="nav-text">监听域对象属性变化的实际应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">10.</span> <span class="nav-text">联系</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lembre</span>
+
+  
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+  <span class="post-meta-divider">|</span>
+</span>
+</div>
+
+  <div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://codinglembre.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://codinglembre.top/2018/09/30/JavaWeb学习之监听器/';
+          this.page.identifier = '2018/09/30/JavaWeb学习之监听器/';
+          this.page.title = 'JavaWeb学习之监听器';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codinglembre.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -98,12 +98,13 @@
 <meta property="og:site_name" content="codingLembre&#39;s blog">
 <meta property="og:description" content="MVC模式是基于WEB系统模块化框架的大思想，繁衍出的一个把视图和处理做低耦合分离的一种模式。核心就是尽可能让一个后台系统，在几乎不做任何修改的情况下，同时支持多种视图。但是它的缺点是由于它没有明确的定义，所以完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。 接下来我将以代码重构的方式帮助我们更好地理解MVC设计模式。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/9si9eGI.png">
 <meta property="og:image" content="https://i.imgur.com/JKevvci.png">
-<meta property="og:updated_time" content="2018-09-25T14:33:53.013Z">
+<meta property="og:updated_time" content="2018-10-03T15:25:48.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码重构的方式理解MVC模式">
 <meta name="twitter:description" content="MVC模式是基于WEB系统模块化框架的大思想，繁衍出的一个把视图和处理做低耦合分离的一种模式。核心就是尽可能让一个后台系统，在几乎不做任何修改的情况下，同时支持多种视图。但是它的缺点是由于它没有明确的定义，所以完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。 接下来我将以代码重构的方式帮助我们更好地理解MVC设计模式。">
-<meta name="twitter:image" content="https://i.imgur.com/JKevvci.png">
+<meta name="twitter:image" content="https://i.imgur.com/9si9eGI.png">
 
 
 
@@ -357,8 +358,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-25T22:33:53+08:00">
-                2018-09-25
+              <time title="Update on" itemprop="dateModified" datetime="2018-10-03T23:25:48+08:00">
+                2018-10-03
               </time>
             
           </span>
@@ -445,8 +446,8 @@
       
 
       
-        <p>MVC模式是基于WEB系统模块化框架的大思想，繁衍出的一个把视图和处理做低耦合分离的一种模式。<br>核心就是尽可能让一个后台系统，在几乎不做任何修改的情况下，同时支持多种视图。但是它的缺点是由于它没有明确的定义，所以完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。 接下来我将以代码重构的方式帮助我们更好地理解MVC设计模式<br>。<br><a id="more"></a></p>
-<h2 id="关于MVC设计模式"><a href="#关于MVC设计模式" class="headerlink" title="关于MVC设计模式"></a>关于MVC设计模式</h2><p>MVC模式（Model-View-Controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）：</p>
+        <p><strong>MVC模式是基于WEB系统模块化框架的大思想，繁衍出的一个把视图和处理做低耦合分离的一种模式。</strong><br>核心就是尽可能让一个后台系统，在几乎不做任何修改的情况下，同时支持多种视图。但是它的缺点是由于它没有明确的定义，所以完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。 接下来我将以代码重构的方式帮助我们更好地理解MVC设计模式<br>。<br><a id="more"></a></p>
+<h2 id="关于MVC设计模式"><a href="#关于MVC设计模式" class="headerlink" title="关于MVC设计模式"></a>关于MVC设计模式</h2><p><strong>MVC模式（Model-View-Controller）是软件工程中的一种软件架构模式，把软件系统分为三个基本部分：模型（Model）、视图（View）和控制器（Controller）：</strong><br><img src="https://i.imgur.com/9si9eGI.png" alt=""></p>
 <ul>
 <li>Model——业务功能编写（例如算法实现）、数据库设计以及数据存取处理等操作实现</li>
 <li>Controller——负责转发请求并对请求进行处理</li>
@@ -692,7 +693,7 @@ public static void main(String[] args) {
   <p><span>本文标题:</span><a href="/2018/09/20/代码重构的方式理解MVC模式/">代码重构的方式理解MVC模式</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月20日 - 14:09</p>
-  <p><span>最后更新:</span>2018年09月25日 - 22:09</p>
+  <p><span>最后更新:</span>2018年10月03日 - 23:10</p>
   <p><span>原始链接:</span><a href="/2018/09/20/代码重构的方式理解MVC模式/" title="代码重构的方式理解MVC模式">http://codinglembre.top/2018/09/20/代码重构的方式理解MVC模式/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/20/代码重构的方式理解MVC模式/"  aria-label="复制成功！"></i></span>
   </p>
@@ -913,7 +914,7 @@ public static void main(String[] args) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -924,7 +925,7 @@ public static void main(String[] args) {
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -935,7 +936,7 @@ public static void main(String[] args) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="codingLembre&#39;s blog">
 <meta property="og:description" content="对于面向对象编程来说，抽象是它的一大特征之一。在Java中，可以通过两种形式来体现OOP的抽象：接口和抽象类。这两者有太多相似的地方，又有太多不同的地方。很多人在初学的时候会以为它们可以随意互换使用，但是实际则不然。下面我们一起来学习一下Java中的接口和抽象类：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-20T12:25:45.337Z">
+<meta property="og:updated_time" content="2018-10-02T13:49:49.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于抽象类和接口">
 <meta name="twitter:description" content="对于面向对象编程来说，抽象是它的一大特征之一。在Java中，可以通过两种形式来体现OOP的抽象：接口和抽象类。这两者有太多相似的地方，又有太多不同的地方。很多人在初学的时候会以为它们可以随意互换使用，但是实际则不然。下面我们一起来学习一下Java中的接口和抽象类：">
@@ -355,8 +355,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-20T20:25:45+08:00">
-                2018-09-20
+              <time title="Update on" itemprop="dateModified" datetime="2018-10-02T21:49:49+08:00">
+                2018-10-02
               </time>
             
           </span>
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  935
+                  1,043
                 </span>
               
 
@@ -445,41 +445,41 @@
       
         <p>对于面向对象编程来说，抽象是它的一大特征之一。在Java中，可以通过两种形式来体现OOP的抽象：接口和抽象类。这两者有太多相似的地方，又有太多不同的地方。很多人在初学的时候会以为它们可以随意互换使用，但是实际则不然。下面我们一起来学习一下Java中的接口和抽象类：</p>
 <a id="more"></a>
-<h2 id="什么是抽象方法和抽象类"><a href="#什么是抽象方法和抽象类" class="headerlink" title="什么是抽象方法和抽象类"></a>什么是抽象方法和抽象类</h2><p>在了解抽象类之前，先来了解一下抽象方法。抽象方法是一种特殊的方法：它只有声明，而没有具体的实现。抽象方法和抽象类的声明格式分别为：</p>
+<h3 id="什么是抽象方法和抽象类"><a href="#什么是抽象方法和抽象类" class="headerlink" title="什么是抽象方法和抽象类"></a>什么是抽象方法和抽象类</h3><p>在了解抽象类之前，先来了解一下抽象方法。<strong>抽象方法是一种特殊的方法：它只有声明，而没有具体的实现(方法体)，包含抽象方法的一定是抽象类</strong>。抽象方法和抽象类的声明格式分别为：</p>
 <blockquote>
 <p>抽象方法: abstract void fun();</p>
 <p>抽象类:abstract class ClassName {abstract void fun();}</p>
 </blockquote>
 <p>关于抽象类</p>
 <ul>
-<li>抽象类是为了继承而存在的，它并不能被实例化</li>
-<li>如果一个类继承于一个抽象类，那么它必须实现父类的抽象方法，除非它自己也是抽象类。</li>
+<li><strong>抽象类并不能被实例化，它是为了继承而存在的。</strong></li>
+<li><strong>如果一个类继承于一个抽象类，那么它必须实现父类的抽象方法，除非它自己也是抽象类。</strong></li>
 </ul>
 <p>　　</p>
-<h2 id="什么是接口"><a href="#什么是接口" class="headerlink" title="什么是接口"></a>什么是接口</h2><p>在软件工程中，接口泛指供别人调用的方法或者函数。从这里，我们可以体会到Java语言设计者的初衷，它是对行为的抽象。</p>
+<h3 id="什么是接口"><a href="#什么是接口" class="headerlink" title="什么是接口"></a>什么是接口</h3><p>在软件工程中，<strong>接口泛指供别人调用的方法或者函数。从这里，我们可以体会到Java语言设计者的初衷，它是对行为的抽象。</strong></p>
 <ul>
-<li>接口中可以含有变量，而方法会被隐式地指定为public abstract方法，它是一种极度抽象的类型，它比抽象类更加“抽象”</li>
-<li>接口中的变量会被隐式地指定为public static final变量，但是一般情况下不在接口中定义变量。</li>
+<li><strong>接口中可以含有变量，而方法会被隐式地指定为public abstract方法，它是一种极度抽象的类型，它比抽象类更加“抽象”</strong></li>
+<li><strong>接口中的变量会被隐式地指定为public static final变量，但是一般情况下不在接口中定义变量。</strong></li>
 </ul>
-<p>##抽象类和接口的区别</p>
-<p>1.语法层面上的区别</p>
+<h3 id="抽象类和接口的区别"><a href="#抽象类和接口的区别" class="headerlink" title="抽象类和接口的区别"></a>抽象类和接口的区别</h3><p>1.语法层面上的区别</p>
 <ul>
-<li><p>抽象类可以提供成员方法的实现细节，而接口中只能存在public abstract 方法；</p>
+<li><p><strong>抽象类可以提供成员方法的实现细节，而接口中只能存在public abstract 方法；</strong></p>
 </li>
-<li><p>接口中不能含有静态代码块以及静态方法，而抽象类可以有静态代码块和静态方法；</p>
+<li><p><strong>接口中不能含有静态代码块以及静态方法，而抽象类可以有静态代码块和静态方法；</strong></p>
 </li>
 </ul>
 <p>2.设计层面上的区别</p>
 <ul>
-<li>抽象类是对一种事物的抽象，即对类抽象，而接口是对行为的抽象。</li>
+<li><strong>抽象类是对一种事物的抽象，即对类抽象，而接口是对行为的抽象。</strong></li>
 <li>设计层面不同，抽象类作为很多子类的父类，它是一种模板式设计。而接口是一种行为规范，它是一种辐射式设计。什么是模板式设计？最简单例子，大家都用过ppt里面的模板，如果用模板A设计了ppt B和ppt C，ppt B和ppt C公共的部分就是模板A了，如果它们的公共部分需要改动，则只需要改动模板A就可以了，不需要重新对ppt B和ppt C进行改动。而辐射式设计，比如某个电梯都装了某种报警器，一旦要更新报警器，就必须全部更新。也就是说对于抽象类，如果需要添加新的方法，可以直接在抽象类中添加具体的实现，子类可以不进行变更；而对于接口则不行，如果接口进行了变更，则所有实现这个接口的类都必须进行相应的改动。</li>
 </ul>
-<h2 id="什么时候用抽象类，什么时候用接口"><a href="#什么时候用抽象类，什么时候用接口" class="headerlink" title="什么时候用抽象类，什么时候用接口"></a>什么时候用抽象类，什么时候用接口</h2><ul>
-<li>如果你拥有一些方法并且想让它们中的一些有默认实现，那么使用抽象类吧。</li>
-<li>如果你想实现多重继承，那么你必须使用接口。由于Java不支持多继承，子类不能够继承多个类，但可以实现多个接口。因此你就可以使用接口来解决它。</li>
-<li>如果基本功能在不断改变，那么就需要使用抽象类。如果不断改变基本功能并且使用接口，那么就需要改变所有实现了该接口的类。</li>
+<h3 id="接口存在的意义"><a href="#接口存在的意义" class="headerlink" title="接口存在的意义"></a>接口存在的意义</h3><p><strong>接口就是为了实现多继承的抽象类</strong>，是一种高度抽象的模板、标准或者说协议。规定了什么东西该是这样，如果你继承了我这接口，就必须这样。<strong>比如USB接口，就是小方口，两根电源线和两根数据线，不能多不能少。</strong></p>
+<h3 id="什么时候用抽象类，什么时候用接口"><a href="#什么时候用抽象类，什么时候用接口" class="headerlink" title="什么时候用抽象类，什么时候用接口"></a>什么时候用抽象类，什么时候用接口</h3><ul>
+<li><strong>如果你拥有一些方法并且想让它们中的一些有默认实现，那么使用抽象类吧。</strong></li>
+<li><strong>如果你想实现多重继承，那么你必须使用接口。由于Java不支持多继承，子类不能够继承多个类，但可以实现多个接口。因此你就可以使用接口来解决它。</strong></li>
+<li><strong>如果基本功能在不断改变，那么就需要使用抽象类。如果不断改变基本功能并且使用接口，那么就需要改变所有实现了该接口的类。</strong></li>
 </ul>
-<h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><ul>
+<h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><ul>
 <li><p><a href="https://github.com/Lembre" target="_blank" rel="noopener">Github@codinglembre</a></p>
 </li>
 <li><p><a href="https://www.zhihu.com/people/yan-zhong-hui-11/activities" target="_blank" rel="noopener">Zhihu@codinglembre</a></p>
@@ -506,7 +506,7 @@
   <p><span>本文标题:</span><a href="/2018/09/20/关于抽象类和接口/">关于抽象类和接口</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月20日 - 16:09</p>
-  <p><span>最后更新:</span>2018年09月20日 - 20:09</p>
+  <p><span>最后更新:</span>2018年10月02日 - 21:10</p>
   <p><span>原始链接:</span><a href="/2018/09/20/关于抽象类和接口/" title="关于抽象类和接口">http://codinglembre.top/2018/09/20/关于抽象类和接口/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/20/关于抽象类和接口/"  aria-label="复制成功！"></i></span>
   </p>
@@ -727,7 +727,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -738,7 +738,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -749,7 +749,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -817,7 +817,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是抽象方法和抽象类"><span class="nav-number">1.</span> <span class="nav-text">什么是抽象方法和抽象类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是接口"><span class="nav-number">2.</span> <span class="nav-text">什么是接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么时候用抽象类，什么时候用接口"><span class="nav-number">3.</span> <span class="nav-text">什么时候用抽象类，什么时候用接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">4.</span> <span class="nav-text">联系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是抽象方法和抽象类"><span class="nav-number">1.</span> <span class="nav-text">什么是抽象方法和抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是接口"><span class="nav-number">2.</span> <span class="nav-text">什么是接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类和接口的区别"><span class="nav-number">3.</span> <span class="nav-text">抽象类和接口的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口存在的意义"><span class="nav-number">4.</span> <span class="nav-text">接口存在的意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候用抽象类，什么时候用接口"><span class="nav-number">5.</span> <span class="nav-text">什么时候用抽象类，什么时候用接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">6.</span> <span class="nav-text">联系</span></a></li></ol></div>
             
 
           </div>

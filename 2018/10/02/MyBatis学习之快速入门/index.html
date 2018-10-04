@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "c57d71f5"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MyBatis," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="codingLembre's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="在学习框架之前，我们先弄明白为什么要学框架。首先个人认为简化开发并不是采用框架唯一的目的，更重要的是规范，不用框架时写出来的代码千奇百怪，各种凌乱，有框架的约束更容易制定规范，而简化的任务是基于框架再做一些有针对性的封装时该做的事。 而因为框架内部执行的复杂带来的性能损耗是要配合其他手段来优化的，比如连接池、缓存之类的，而这些手段是很容易通过框架间的整合融入进来的，如果你只用纯jdbc， 就比较困">
+<meta name="keywords" content="MyBatis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis学习之快速入门">
+<meta property="og:url" content="http://codinglembre.top/2018/10/02/MyBatis学习之快速入门/index.html">
+<meta property="og:site_name" content="codingLembre&#39;s blog">
+<meta property="og:description" content="在学习框架之前，我们先弄明白为什么要学框架。首先个人认为简化开发并不是采用框架唯一的目的，更重要的是规范，不用框架时写出来的代码千奇百怪，各种凌乱，有框架的约束更容易制定规范，而简化的任务是基于框架再做一些有针对性的封装时该做的事。 而因为框架内部执行的复杂带来的性能损耗是要配合其他手段来优化的，比如连接池、缓存之类的，而这些手段是很容易通过框架间的整合融入进来的，如果你只用纯jdbc， 就比较困">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/mybatis.png">
+<meta property="og:image" content="https://i.imgur.com/uNUVLFS.png">
+<meta property="og:updated_time" content="2018-10-02T01:53:13.416Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MyBatis学习之快速入门">
+<meta name="twitter:description" content="在学习框架之前，我们先弄明白为什么要学框架。首先个人认为简化开发并不是采用框架唯一的目的，更重要的是规范，不用框架时写出来的代码千奇百怪，各种凌乱，有框架的约束更容易制定规范，而简化的任务是基于框架再做一些有针对性的封装时该做的事。 而因为框架内部执行的复杂带来的性能损耗是要配合其他手段来优化的，比如连接池、缓存之类的，而这些手段是很容易通过框架间的整合融入进来的，如果你只用纯jdbc， 就比较困">
+<meta name="twitter:image" content="http://od2xrf8gr.bkt.clouddn.com/mybatis.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://codinglembre.top/2018/10/02/MyBatis学习之快速入门/"/>
+
+
+
+
+
+  <title>MyBatis学习之快速入门 | codingLembre's blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8df4a33be20448b89bdfd23892548369";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/Lembre"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">codingLembre's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">I have a dream!</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            Abouts
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://codinglembre.top/2018/10/02/MyBatis学习之快速入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lembre">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codingLembre's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">MyBatis学习之快速入门</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T01:09:51+08:00">
+                2018-10-02
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Update on&#58;</span>
+              
+              <time title="Update on" itemprop="dateModified" datetime="2018-10-02T09:53:13+08:00">
+                2018-10-02
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/02/MyBatis学习之快速入门/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/02/MyBatis学习之快速入门/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Wordcount&#58;</span>
+                
+                <span title="Wordcount">
+                  2,667
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在学习框架之前，我们先弄明白为什么要学框架。首先个人认为<strong><em>简化开发并不是采用框架唯一的目的，更重要的是规范，不用框架时写出来的代码千奇百怪，各种凌乱，有框架的约束更容易制定规范，而简化的任务是基于框架再做一些有针对性的封装时该做的事。</em></strong> 而因为框架内部执行的复杂带来的性能损耗是要配合其他手段来优化的，比如连接池、缓存之类的，而这些手段是很容易通过框架间的整合融入进来的，如果你只用纯jdbc， 就比较困难，自己要做很多事情，还很难做好。框架整合封装完毕后，再来测试性能问题，单纯的执行一条SQL语句来判断效率是没有必要的，没什么实际价值，更多的应该是去看在并发的情况下、不同的业务场景、针对业务有效的优化后，再来看整个工程所有功能模块的平均效率，你才会做出合理的判断。项目代码<a href="https://github.com/Lembre/FirstMyBatis" target="_blank" rel="noopener"></a></p>
+<a id="more"></a>
+<h3 id="MyBatis框架的引入"><a href="#MyBatis框架的引入" class="headerlink" title="MyBatis框架的引入"></a>MyBatis框架的引入</h3><p>我们来看看传统的编程方式中使用jdbc的问题:</p>
+<ul>
+<li>数据库连接频繁的创建和关闭，缺点:浪费数据库的资源，影响操作效率。解决方法:<strong><em>使用数据库连接池如c3p0.</em></strong></li>
+<li>sql语句是硬编码(不利用系统维护)，如果需求变更需要修改sql，这时候就需要修改java代码，然后需要重新编译，系统不易维护。解决方法:将sql语句统一配置在文件中。这样以后修改sql时就不需要修改java代码了。</li>
+<li>我们通过preparedStatement对象向占位符设置参数，存在硬编码(参数位置、参数)问题，系统不易维护。解决方法:<strong><em>将sql中的占位符及对应的参数类型配置在配置文件中，能够自动输入的映射。</em></strong></li>
+<li>遍历查询结果集存在硬编码(列名)。解决方法:<strong><em>自动进行sql查询结果向java对象的映射(输出映射)</em></strong></li>
+</ul>
+<h3 id="MyBatis的优点"><a href="#MyBatis的优点" class="headerlink" title="MyBatis的优点"></a>MyBatis的优点</h3><p><strong><em>MyBatis是一个优秀的持久层框架，它对jdbc的操作数据库的过程进行封装，使开发者只需要关注 SQL 本身</em></strong>，而不需要花费精力去处理例如注册驱动、创建connection、创建statement、手动设置参数、结果集检索等jdbc繁杂的过程代码。<br>MyBatis通过xml或注解的方式将要执行的各种statement（statement、preparedStatemnt、CallableStatement）配置起来，并通过java对象和statement中的sql进行映射生成最终执行的sql语句，最后由mybatis框架执行sql并将结果映射成java对象并返回。</p>
+<h3 id="MyBatis架构"><a href="#MyBatis架构" class="headerlink" title="MyBatis架构"></a>MyBatis架构</h3><p>如下图:<br><img src="http://od2xrf8gr.bkt.clouddn.com/mybatis.png" alt=""></p>
+<h3 id="MyBatis快速入门"><a href="#MyBatis快速入门" class="headerlink" title="MyBatis快速入门"></a>MyBatis快速入门</h3><ul>
+<li>编写SqlMapConfig.xml</li>
+<li>编写mapper.xml(每个字段定义一个statement)</li>
+<li>编程通过配置文件创建SqlSessionFactory</li>
+<li>通过SqlSessionFactory获取SqlSession对象。</li>
+<li>通过SqlSession操作数据库。(如果执行添加、更新、删除需要调用SqlSession.commit())</li>
+<li>SqlSesion使用完成要关闭。</li>
+</ul>
+<h4 id="准备开发环境"><a href="#准备开发环境" class="headerlink" title="准备开发环境"></a>准备开发环境</h4><p>1.创建测试项目，普通java项目或是web项目都可<br>2.导入jar包:mybatis-3.1.1.jar(低于这个版本的jar包需要导入很多依赖包)和mysql-connection-java<br>3.创建数据库和相应的表,SQL脚本如下:</p>
+<pre><code>create database mybatis;
+
+use mybatis;
+
+create table user(
+  id int primary key auto_increment,
+  username varchar(50),
+   birthday date,
+  sex varchar(20),
+  address varchar(50)
+);
+
+insert into user values(null,&apos;yzh&apos;,&apos;1996-09-14&apos;,&apos;male&apos;,null);
+
+insert into user values(null,&apos;pcl&apos;,&apos;1997-08-26&apos;,&apos;female&apos;,null);
+</code></pre><p>到此，环境配置就告一段落。</p>
+<h4 id="使用MyBatis查询表中数据-通过id查询"><a href="#使用MyBatis查询表中数据-通过id查询" class="headerlink" title="使用MyBatis查询表中数据(通过id查询)"></a>使用MyBatis查询表中数据(通过id查询)</h4><p>1.添加Mybatis的配置文件SqlMapConfig.xml(名字可以随便起)</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+
+&lt;!DOCTYPE configuration
+PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+
+&lt;configuration&gt;
+
+
+&lt;!--和spring整合后，environments配置将废除--&gt;
+&lt;environments default=&quot;development&quot;&gt;
+&lt;environment id=&quot;development&quot;&gt;
+    &lt;!--使用JDBC事务管理--&gt;
+  &lt;transactionManager type=&quot;JDBC&quot;&gt;
+    &lt;property name=&quot;&quot; value=&quot;&quot;/&gt;
+  &lt;/transactionManager&gt;
+    &lt;!--数据库连接池--&gt;
+  &lt;dataSource type=&quot;POOLED&quot;&gt;
+    &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+    &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/mybatis&quot;/&gt;
+    &lt;property name=&quot;username&quot; value=&quot;root&quot;/&gt;
+    &lt;property name=&quot;password&quot; value=&quot;123456&quot;/&gt;
+  &lt;/dataSource&gt;
+&lt;/environment&gt;
+&lt;/environments&gt;
+&lt;/configuration&gt;
+</code></pre><p>2.定义表所需要的实体类User.java<br>3.定义操作user表的sql映射文件User.xml<br>这里我们没将文件命名为userMapper.xml，后面我们会改。<br>文件内容如下:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE mapper
+    PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+    &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+
+&lt;mapper namespace=&quot;Message&quot;&gt;
+&lt;!--根据id查询用户信息--&gt;
+&lt;!--id为唯一标识
+#{}表示一个占位符，如果#{}传入的是简单类型的参数，那么他里面的名称随意，
+paramterType:输入参数的类型，通过占位符#{}接受paramterType传入的参数值
+resultType：输出结果参数--&gt;
+&lt;select id=&quot;findUserById&quot; parameterType=&quot;int&quot; resultType=&quot;entity.User&quot;&gt;
+    SELECT * from user WHERE id = #{id}
+&lt;/select&gt;
+
+&lt;/mapper&gt;
+</code></pre><p><strong><em>在User.xml中写SQL语句，在参数处使用占位符#{}，应该注意的是大括号{}中传入的数据应该与User.java中的属性对应，文件中各个属性的解释见图中注释处。</em></strong></p>
+<p>4.在SqlMapConfig文件中注册User.xml文件<br><strong><em>在SqlMapConfig.xml中添加一个<mappers></mappers>字段，并在里面传入User.xml文件路径。</em></strong></p>
+<p>5.接下来我们便可以借助上面MyBatis架构图来编写测试类了</p>
+<pre><code>public class FirstMyBatis {
+
+private SqlSessionFactory sqlSqlSessFactory;
+
+//创建工厂
+@Before
+public void init() throws IOException {
+    //配置文件
+    String resource = &quot;Configuration.xml&quot;;
+    //加载配置文件到输入流中
+    //InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(resource);
+    InputStream inputStream = Resources.getResourceAsStream(resource);
+    //创建会话工厂
+    sqlSqlSessFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+}
+
+//根据id查找用户
+@Test
+public void testFindUserById(){
+    //通过sqlSqlSessFactory创建sqlSession
+    SqlSession sqlSession = sqlSqlSessFactory.openSession();
+    User user = null;
+    //通过sqlSession操作数据库
+    //第一个参数为statement的位置，等于namespace+statement的id
+    //第二个参数，传给占位符大的参数
+    user = sqlSession.selectOne(&quot;test.findUserById&quot;, 1);
+    System.out.println(user);
+}
+}
+</code></pre><h4 id="使用MyBatis根据用户名模糊查询用户信息-通过name"><a href="#使用MyBatis根据用户名模糊查询用户信息-通过name" class="headerlink" title="使用MyBatis根据用户名模糊查询用户信息(通过name)"></a>使用MyBatis根据用户名模糊查询用户信息(通过name)</h4><p>1.需要在mapper.xml中添加以下字段:</p>
+<pre><code>&lt;select id=&quot;findUserByNamr&quot; parameterType=&quot;java.lang.String&quot; resultType=&quot;entity.User&quot;&gt;
+    SELECT  * from user WHERE username like &apos;%${value}%&apos;
+&lt;/select&gt;
+</code></pre><p>此时，我们在传入参数的地方不再使用占位符#{}而是使用${}，二者区别如下:</p>
+<ul>
+<li>#{}:1.<strong><em>表示一个占位符，向占位符输入参数，mybatis自动进行java类型和jdbc类型的转换。</em></strong>2.<strong><em>程序员不需要考虑参数的类型，比如：传入字符串，mybatis最终拼接好的sql就是参数两边加单引号</em></strong>。3.#{}接收pojo(Plain Old Java Object Java数据对象)数据，可以使用OGNL(就是el表达式)解析出pojo的属性值。</li>
+<li>${}:1.<strong><em>表示sql的拼接，通过${}接收参数，将参数的内容不加任何修饰拼接在sql中。</em></strong>2.${}也可以接收pojo数据，可以使用OGNL解析出pojo的属性值。3.缺点:不能防止sql注入</li>
+</ul>
+<p>什么是sql注入，怎样防止？<br><strong><em>，如果是直接拼接的方式那么就非常容易被注入</em></strong>。比如：select <em> from tablename where user=’admin’ and pwd =’123’ 假设说这个是一个登录的sql语句，admin是用户文本框输入的，pwd是密码框输入的。如果密码文本框如果输入：’ or ‘1’=’1 那么拼接起sql就是select </em> from tablename where user=’admin’ and pwd =’’ or ‘1’=’1’ 那么就会跳过sql的条件就直接进入登录，但是如果是使用绑定变量的就不一样</p>
+<p>Demo：</p>
+<pre><code>//测试根据name查询用户（得到多条记录）
+@Test
+public void testFindUserByName(){
+
+    //通过sqlSqlSessFactory创建sqlSession
+    SqlSession sqlSession = sqlSqlSessFactory.openSession();
+
+    List&lt;User&gt; list = null;
+    list = sqlSession.selectList(&quot;test.findUserByName&quot;,&quot;y&quot;);
+    sqlSession.close();
+    System.out.println(list.get(0).getUsername());
+
+}
+</code></pre><p>注意，此时我们通过name查询出来的语句为多条，<strong><em>故此时我们应该选择调用sqlSession对象的selectList()方法返回多条记录，输出我们查询到的第一条记录即可。若使用selectOne()方法，当返回的记录为多条时就会发生异常。</em></strong></p>
+<p>这样我们便完成了查询时将sql结果输出映射到Java对象中。那如何将Java对象输入映射到sql语句中，接下来我们就来讲通过MyBatis实现增、删、改数据库。</p>
+<h3 id="使用MyBatis向表中插入一条记录"><a href="#使用MyBatis向表中插入一条记录" class="headerlink" title="使用MyBatis向表中插入一条记录"></a>使用MyBatis向表中插入一条记录</h3><pre><code>&lt;insert id=&quot;insertUser&quot; parameterType=&quot;entity.User&quot;&gt;
+    INSERT INTO user VALUES (#{id},#{username},#{birthday},#{sex},#{address})
+&lt;/insert&gt;
+</code></pre><p>测试类:</p>
+<pre><code>@Test
+public void testInsertUser(){
+    SqlSession sqlSession = sqlSqlSessFactory.openSession();
+
+    User user = new User();
+    user.setUsername(&quot;codingLembre&quot;);
+    user.setAddress(&quot;GuangDong&quot;);
+    user.setBirthday(new Date());
+    user.setSex(&quot;1&quot;);
+
+    sqlSession.insert(&quot;test.insertUser&quot;,user);
+    sqlSession.commit();
+    sqlSession.close();
+}
+</code></pre><p>此时查看数据库，发现数据已经被插入</p>
+<blockquote>
+<p><strong><em>注意插入和查询不一样需要sqlSession.commit();否则没有效果</em></strong></p>
+</blockquote>
+<p>Demo:<br><img src="https://i.imgur.com/uNUVLFS.png" alt=""></p>
+<h3 id="拓展-主键返回"><a href="#拓展-主键返回" class="headerlink" title="拓展:主键返回"></a>拓展:主键返回</h3><p>在测试类中，我们没有给User对象的id属性设置值，所以我们在测试类中尝试输出User对象的id时会输出id=0，但是该对象通过输入映射在数据库中是有对应的id值的(因为我们为该字段设置了自增长属性)。那么我们想输出该对象在记录中的id时，又该怎么做呢？只需在User.xml文件中的<insert></insert>标签中添加<selectkey>标签即可,属性解释见图:</selectkey></p>
+<pre><code>&lt;!--主键返回,order属性比那时该字段在insert语句之后才执行,还要借助函数--&gt;
+&lt;insert id=&quot;insertUserByKey&quot; parameterType=&quot;entity.User&quot;&gt;
+    &lt;selectKey keyProperty=&quot;id&quot; order=&quot;AFTER&quot; resultType=&quot;int&quot;&gt;
+        SELECT LAST_INSERT_ID()
+    &lt;/selectKey&gt;
+    INSERT INTO user VALUES (#{id},#{username},#{birthday},#{sex},#{address})
+&lt;/insert&gt;
+</code></pre><p>此时我们在测试类中便可输出该User对象插入在表中的记录id值了。</p>
+<blockquote>
+<p><strong><em>如果未设置主键返回，那么sout(id)得到的都是0；</em></strong></p>
+</blockquote>
+<p>这里我们<strong><em>由于在建表时设置了id字段为自增长，采用自增长的形式生成主键，所以我们在传入User对象的id属性时可以将该属性设置为null。</em></strong>那么当我们使用uuid生成主键时又该怎么做呢？</p>
+<pre><code>&lt;insert id=&quot;insertUserByUUID&quot; parameterType=&quot;entity.User&quot;&gt;
+    &lt;selectKey keyProperty=&quot;id&quot; order=&quot;BEFORE&quot; resultType=&quot;int&quot;&gt;
+        SELECT uuid()
+    &lt;/selectKey&gt;
+    INSERT INTO user VALUES (#{id},#{username},#{birthday},#{sex},#{address})
+&lt;/insert&gt;
+</code></pre><p>属性值”before”的意思表示在执行插入操作时，会先调用uuid()函数生成uuid得到主键，然后将主键设置到User对象中，再将User对象插入到数据库。所以此时我们在测试类中也可以不对User的id属性进行设置值。但是无法演示功能，因为user表已经设置为自动增长。</p>
+<h4 id="使用MyBatis实现删除表中数据"><a href="#使用MyBatis实现删除表中数据" class="headerlink" title="使用MyBatis实现删除表中数据"></a>使用MyBatis实现删除表中数据</h4><p>因为和上述的操作差不多，注意commit即可，不再演示。</p>
+<h4 id="使用MyBatis实现更新表中数据"><a href="#使用MyBatis实现更新表中数据" class="headerlink" title="使用MyBatis实现更新表中数据"></a>使用MyBatis实现更新表中数据</h4><p>因为和上述的操作差不多，注意commit即可，不再演示。</p>
+<h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
+<p>If you have some questions after you see my blog , you can tell your doubts in the comments area or you can find some infos by clicking these links or ask me by sending me an email：</p>
+</blockquote>
+<ul>
+<li><p><a href="https://github.com/Lembre" target="_blank" rel="noopener">Github@codinglembre</a></p>
+</li>
+<li><p><a href="https://www.zhihu.com/people/yan-zhong-hui-11/activities" target="_blank" rel="noopener">Zhihu@codinglembre</a></p>
+</li>
+<li><p><a href="https://codinglembre.top">Blog@codinglembre</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/10/02/MyBatis学习之快速入门/">MyBatis学习之快速入门</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
+  <p><span>发布时间:</span>2018年10月02日 - 01:10</p>
+  <p><span>最后更新:</span>2018年10月02日 - 09:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/02/MyBatis学习之快速入门/" title="MyBatis学习之快速入门">http://codinglembre.top/2018/10/02/MyBatis学习之快速入门/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/10/02/MyBatis学习之快速入门/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+    </div>
+
+    
+
+        <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/alipay.jpg" alt="Lembre 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MyBatis/" rel="tag"><i class="fa fa-tag"></i> MyBatis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/30/MySQL学习笔记之MySQL语法/" rel="next" title="MySQL学习笔记之MySQL语法">
+                <i class="fa fa-chevron-left"></i> MySQL学习笔记之MySQL语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/02/MyBatis之Mapper动态代理开发/" rel="prev" title="MyBatis之Mapper动态代理开发">
+                MyBatis之Mapper动态代理开发 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Lembre" />
+            
+              <p class="site-author-name" itemprop="name">Lembre</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Lembre" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/yan-zhong-hui-11" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:huizy1587834945@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+<br>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=34040716&auto=0&height=66"></iframe>
+
+<br>          
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=4341314&auto=0&height=66"></iframe>            
+
+
+          
+
+        <div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyBatis框架的引入"><span class="nav-number">1.</span> <span class="nav-text">MyBatis框架的引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MyBatis的优点"><span class="nav-number">2.</span> <span class="nav-text">MyBatis的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MyBatis架构"><span class="nav-number">3.</span> <span class="nav-text">MyBatis架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MyBatis快速入门"><span class="nav-number">4.</span> <span class="nav-text">MyBatis快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备开发环境"><span class="nav-number">4.1.</span> <span class="nav-text">准备开发环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用MyBatis查询表中数据-通过id查询"><span class="nav-number">4.2.</span> <span class="nav-text">使用MyBatis查询表中数据(通过id查询)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用MyBatis根据用户名模糊查询用户信息-通过name"><span class="nav-number">4.3.</span> <span class="nav-text">使用MyBatis根据用户名模糊查询用户信息(通过name)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用MyBatis向表中插入一条记录"><span class="nav-number">5.</span> <span class="nav-text">使用MyBatis向表中插入一条记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓展-主键返回"><span class="nav-number">6.</span> <span class="nav-text">拓展:主键返回</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用MyBatis实现删除表中数据"><span class="nav-number">6.1.</span> <span class="nav-text">使用MyBatis实现删除表中数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用MyBatis实现更新表中数据"><span class="nav-number">6.2.</span> <span class="nav-text">使用MyBatis实现更新表中数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">7.</span> <span class="nav-text">联系</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lembre</span>
+
+  
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+  <span class="post-meta-divider">|</span>
+</span>
+</div>
+
+  <div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://codinglembre.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://codinglembre.top/2018/10/02/MyBatis学习之快速入门/';
+          this.page.identifier = '2018/10/02/MyBatis学习之快速入门/';
+          this.page.title = 'MyBatis学习之快速入门';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codinglembre.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

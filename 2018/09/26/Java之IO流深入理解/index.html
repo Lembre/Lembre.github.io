@@ -98,10 +98,20 @@
 <meta property="og:site_name" content="codingLembre&#39;s blog">
 <meta property="og:description" content="大多数程序都要实现和设备之间的数据传输，例如键盘可以输入数据，显示器可以显示程序的运行结果等。在Java中，将这种通过不同输入输出设备(键盘，内存，显示器，网络等)之间的数据传输抽象表述为”流”，程序允许通过流的方式与输入输出设备进行数据的传输。Java中的”流”都位于java.io包中，称为IO(输入输出)流。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-26T02:59:23.510Z">
+<meta property="og:image" content="https://i.imgur.com/h2ZRC8d.png">
+<meta property="og:image" content="https://i.imgur.com/qH8hdYA.png">
+<meta property="og:image" content="https://i.imgur.com/sGLDObi.png">
+<meta property="og:image" content="https://i.imgur.com/ggkruUf.png">
+<meta property="og:image" content="https://i.imgur.com/FPp4e1v.png">
+<meta property="og:image" content="https://i.imgur.com/F3Jsucg.png">
+<meta property="og:image" content="https://i.imgur.com/qc0LxIB.png">
+<meta property="og:image" content="https://i.imgur.com/09B5Hum.png">
+<meta property="og:image" content="https://i.imgur.com/FPfuC5g.png">
+<meta property="og:updated_time" content="2018-10-03T16:46:28.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java之IO流深入理解">
 <meta name="twitter:description" content="大多数程序都要实现和设备之间的数据传输，例如键盘可以输入数据，显示器可以显示程序的运行结果等。在Java中，将这种通过不同输入输出设备(键盘，内存，显示器，网络等)之间的数据传输抽象表述为”流”，程序允许通过流的方式与输入输出设备进行数据的传输。Java中的”流”都位于java.io包中，称为IO(输入输出)流。">
+<meta name="twitter:image" content="https://i.imgur.com/h2ZRC8d.png">
 
 
 
@@ -355,8 +365,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-26T10:59:23+08:00">
-                2018-09-26
+              <time title="Update on" itemprop="dateModified" datetime="2018-10-04T00:46:28+08:00">
+                2018-10-04
               </time>
             
           </span>
@@ -418,7 +428,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  2,267
+                  2,899
                 </span>
               
 
@@ -443,28 +453,54 @@
       
 
       
-        <p>大多数程序都要实现和设备之间的数据传输，例如键盘可以输入数据，显示器可以显示程序的运行结果等。在Java中，将这种通过不同输入输出设备(键盘，内存，显示器，网络等)之间的数据传输抽象表述为”流”，程序允许通过流的方式与输入输出设备进行数据的传输。Java中的”流”都位于java.io包中，称为IO(输入输出)流。 </p>
+        <p><strong>大多数程序都要实现和设备之间的数据传输</strong>，例如键盘可以输入数据，显示器可以显示程序的运行结果等。在Java中，将这种通过不同输入输出设备(键盘，内存，显示器，网络等)之间的数据传输抽象表述为”流”，程序允许通过流的方式与输入输出设备进行数据的传输。Java中的”流”都位于java.io包中，称为IO(输入输出)流。 </p>
 <a id="more"></a>
+<h3 id="文件的编码"><a href="#文件的编码" class="headerlink" title="文件的编码"></a>文件的编码</h3><p><img src="https://i.imgur.com/h2ZRC8d.png" alt=""></p>
+<ul>
+<li>gbk一个中文两个字节，一个英文一个字节</li>
+<li>utf-8一个中文三个字节，一个英文一个字节</li>
+<li><strong>java是双字节编码，英文中文都是两个字节。</strong></li>
+</ul>
+<p><img src="https://i.imgur.com/qH8hdYA.png" alt=""><br><strong>这里的byte4是以utf-16be的编码编成字节序列，所以将字节序列转解码成字符串时也要用utf-16be；而现实生活中，文本文件就是一种字节序列</strong><br>总结:当你的字节序列是某种编码时，这个时候想把字节序列变成字符串，也需要用这种编码方式，否则会出现乱码。</p>
+<h3 id="File常用API"><a href="#File常用API" class="headerlink" title="File常用API"></a>File常用API</h3><p>java中java.io.File代表文件(目录)，注意File类只用于表示文件(目录)的信息(名称，大小等)，不能用于文件内容的访问。</p>
+<h4 id="文件路径分隔符写法"><a href="#文件路径分隔符写法" class="headerlink" title="文件路径分隔符写法"></a>文件路径分隔符写法</h4><p>需要注意的地方，为了使得程序更有健壮性,路径分隔符的写法应该这样写File.separator:<br><img src="https://i.imgur.com/sGLDObi.png" alt=""></p>
+<h4 id="遍历目录"><a href="#遍历目录" class="headerlink" title="遍历目录"></a>遍历目录</h4><p><img src="https://i.imgur.com/ggkruUf.png" alt=""></p>
+<h4 id="递归实现子目录的内容的遍历"><a href="#递归实现子目录的内容的遍历" class="headerlink" title="递归实现子目录的内容的遍历"></a>递归实现子目录的内容的遍历</h4><p><img src="https://i.imgur.com/FPp4e1v.png" alt=""><br><strong>这个要注意一下</strong></p>
+<h4 id="文件内容的访问类RandomAccessFile类"><a href="#文件内容的访问类RandomAccessFile类" class="headerlink" title="文件内容的访问类RandomAccessFile类"></a>文件内容的访问类RandomAccessFile类</h4><p><strong>既可以读文件，也可以写文件，它支持随机访问文件的任何位置，但是这个类是读写操作，没有删除操作</strong><br>在学习RandomAccessFile之前先了解一下：<br>1.<strong>java文件模型:</strong></p>
+<ul>
+<li>在硬盘上的文件是byte存储的，是数据的集合。</li>
+</ul>
+<p>2<strong>.打开硬盘文件有两种模式</strong></p>
+<ul>
+<li>“rw”是读写</li>
+<li>“r”是只读</li>
+</ul>
+<p>RandomAccessFile raf = new RandomAccessFile(file,”rw”)<br>文件指针，打开文件时，<strong>指针在pointer=0;getFilePointer()获得指针的位置</strong><br>3.写方法<br>raf.write(int)–&gt;只写一个字节(后八位)，同时指针指向下一个文件的位置<br><strong>raf.writeInt()–&gt;直接写一个int</strong><br><strong>4.读方法</strong><br>raf.read(int)–&gt;一次读一个字节</p>
+<p>Demo:<br><img src="https://i.imgur.com/F3Jsucg.png" alt=""></p>
+<p><strong>注意Arrays.toString是将数组转化成字符串进行输出</strong><br><strong>5.文件读写以后一定要关闭</strong></p>
 <h3 id="IO流的四大抽象类"><a href="#IO流的四大抽象类" class="headerlink" title="IO流的四大抽象类"></a>IO流的四大抽象类</h3><ul>
-<li>InputStream:输入字节流。</li>
-<li>OutputStream:输出字节流</li>
+<li>InputStream:输入字节流。<strong>抽象了应用程序读取数据的方式</strong></li>
+<li>OutputStream:输出字节流     <strong>抽象了应用程序写出数据的方式</strong></li>
 <li>Reader:输入字符流</li>
 <li>Writer:输出字符流</li>
 </ul>
-<p>其中，前两个是字节流，后两个是字符流</p>
-<h3 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>在计算机中，无论文本，图片，视频，音频，所有的文件都是以二进制(字节)形式存在。IO流中针对字节的输入输出设备提供了一系列的流，统称为字节流。字节流是程序中最常用的流，根据数据的传输方向可将其分为字节输入流和字节输出流。在JDK中，提供了两个抽象类InputStream和OutputStream，它们是字节流的顶级父类，所有的字节输入流都继承自InputStream，所有的字节输出流都继承自OutputStream。 </p>
+<p>其中，前两个是字节流，后两个是字符流。<br><img src="https://i.imgur.com/qc0LxIB.png" alt=""></p>
+<h3 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>在计算机中，无论文本，图片，视频，音频，所有的文件都是以二进制(字节)形式存在。IO流中针对字节的输入输出设备提供了一系列的流，统称为字节流。字节流是程序中最常用的流，根据数据的传输方向可将其分为字节输入流和字节输出流。<strong>在JDK中，提供了两个抽象类InputStream和OutputStream，它们是字节流的顶级父类</strong>，所有的字节输入流都继承自InputStream，所有的字节输出流都继承自OutputStream。 </p>
 <h4 id="字节输入流-InputStream"><a href="#字节输入流-InputStream" class="headerlink" title="字节输入流(InputStream)"></a>字节输入流(InputStream)</h4><p>常用API方法:</p>
 <ul>
-<li>int read()从输入流读取一个8位的字节，把它转换成0~255之间的整数，并返回这一整数。</li>
-<li>int read(byte[] b);从输入流读取若干字节，把它们保存到参数b指定的字节数组中，返回的整数表示读取字节数。</li>
-<li>int read(byte[] b,int off,int len);从输入流读取若干字节，把它们保存到参数b指定的字节数组中，off指定字节数组开始保存数据的起始下标，len表示读取的字节数目</li>
+<li><strong>int read()从输入流读取一个8位的字节，把它转换成0~255之间的整数，并返回这一整数。</strong></li>
+<li>int read(byte[] b);从输入流读取若干字节，把它们保存到参数b指定的<strong>字节数组</strong>中，返回的整数表示读取字节数。</li>
+<li>int read(byte[] b,int off,int len);从输入流读取若干字节，把它们保存到参数b指定的<strong>字节数组</strong>中，off指定字节数组开始保存数据的起始下标，len表示读取的字节数目，<strong>注意这个返回的是读到字节的个数</strong></li>
+</ul>
+<p>Demo:<br><img src="https://i.imgur.com/09B5Hum.png" alt=""></p>
+<ul>
 <li>void close();关闭此输入流并释放与该流关联的所有系统资源。</li>
 </ul>
-<p>前三个read()方法都是用来读数据的，其中，第一个read()方法是从输入流中逐个读入字节，而第二个和第三个read()方法则将若干字节以字节数组的形式一次性读入，从而提高读数据的效率。在进行IO流操作时，当前IO流会占用一定的内存，由于系统资源宝贵，因此，在IO流操作结束后，应该调用close()方法关闭流，从而释放当前IO流所占的系统资源。<br>实例:</p>
+<p>前三个read()方法都是用来读数据的，其中，<strong>第一个read()方法是从输入流中逐个读入字节，而第二个和第三个read()方法则将若干字节以字节数组的形式一次性读入，从而提高读数据的效率。</strong>在<strong>进行IO流操作时，当前IO流会占用一定的内存，由于系统资源宝贵，因此，在IO流操作结束后，应该调用close()方法关闭流，从而释放当前IO流所占的系统资源。</strong><br>实例:</p>
 <pre><code>import java.io.*;
 public class Example{
 public static void main(String[] args){
-    FileInputStream in=new FileInputStream(&quot;text.txt&quot;);
+    FileInputStream in=new FileInputStream(源文件的路径);
     int b;//定义一个int类型的变量，记住每次读取的一个字节。
     while((b=in.read())!=-1)
     {
@@ -476,7 +512,7 @@ public static void main(String[] args){
 <li>void write(int b);向输出流写入一个字节。</li>
 <li>void write(byte[] b);把参数b指定的字节数组的所有字节写到输出流。</li>
 <li>void write(byte[] b,int off,int len);将指定byte数组中从偏移量off开始的len个字节写入输出流。</li>
-<li>void flush();刷新此输出流并强制写出所有缓冲的输出字节。</li>
+<li>void flush();<strong>刷新此输出流并强制写出所有缓冲的输出字节。</strong></li>
 <li>void close();关闭此输出流并释放与此流相关的所有系统资源。</li>
 </ul>
 <p>实例:</p>
@@ -493,7 +529,7 @@ public static void main(String[] args){
     out.close();
 }
 }
-</code></pre><p>InputStream和OutputStream这两个类虽然提供了一系列和读写数据有关的方法，但是这两个类都是抽象类，不能被实例化。因此，针对不同的功能，二者提供了不同的子类。</p>
+</code></pre><p><strong>InputStream和OutputStream这两个类虽然提供了一系列和读写数据有关的方法，但是这两个类都是抽象类，不能被实例化。</strong>因此，针对不同的功能，二者提供了不同的子类。</p>
 <h4 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h4><pre><code>import java.io.*;
 public class Example{
  public static void main(String[] args){
@@ -522,7 +558,10 @@ public class Example{
      }
 }
    }
-</code></pre><h4 id="字节缓冲流-BufferedInputStream和BufferedOutputStream"><a href="#字节缓冲流-BufferedInputStream和BufferedOutputStream" class="headerlink" title="字节缓冲流(BufferedInputStream和BufferedOutputStream)"></a>字节缓冲流(BufferedInputStream和BufferedOutputStream)</h4><p>上面的例子实现了对文件的复制，但是一个字节一个字节的读写，需要频繁的操作文件，效率非常低。为了提高效率，需要使用两个带缓冲的字节流，分别是BufferedInputStream和BufferedOutputStream,它们两个同时也属]<a href="https://codinglembre.top/2018/09/25/JDBC%E4%B9%8B%E9%AB%98%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9/">JDBC之高级知识点</a>中讲到的装饰流。下面通过增加字节缓冲流来对上述例子进行变动: </p>
+</code></pre><blockquote>
+<p><strong>注意在填写文件名时，扩展名要写对</strong></p>
+</blockquote>
+<h4 id="字节缓冲流-BufferedInputStream和BufferedOutputStream"><a href="#字节缓冲流-BufferedInputStream和BufferedOutputStream" class="headerlink" title="字节缓冲流(BufferedInputStream和BufferedOutputStream)"></a>字节缓冲流(BufferedInputStream和BufferedOutputStream)</h4><p>上面的例子<strong>实现了对文件的复制，但是一个字节一个字节的读写，需要频繁的操作文件，效率非常低。为了提高效率，需要使用两个带缓冲的字节流</strong>，分别是BufferedInputStream和BufferedOutputStream,它们两个同时也属]<a href="https://codinglembre.top/2018/09/25/JDBC%E4%B9%8B%E9%AB%98%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9/">JDBC之高级知识点</a>中讲到的<strong>装饰者模式</strong>。下面通过增加字节缓冲流来对上述例子进行变动: </p>
 <pre><code>import java.io.*;
 public class Example{
  public static void main(String[] args){
@@ -558,7 +597,7 @@ public class Example{
      }
 }
 }
-</code></pre><h3 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>前面我们讲过的InputStream和OutputStream类在读写文件时操作的都是字节，如果希望在程序中操作字符，使用这两个类就不太方便，为此JDK提供了字符流。同字节流一样，字符流也有两个抽象的顶级父类，分别是Reader和Writer。其中Reader是字符输入流，用于从某个源设备读取字符，Writer是字符输出流，用于向某个目标设备写入字符。其API跟字节流的类似。 </p>
+</code></pre><h3 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>前面我们讲过的InputStream和OutputStream类在读写文件时操作的都是字节，如果希望在程序中操作字符，使用这两个类就不太方便，为此JDK提供了字符流。<strong>同字节流一样，字符流也有两个抽象的顶级父类，分别是Reader和Writer。</strong> 其中Reader是字符输入流，用于从某个源设备读取字符，Writer是字符输出流，用于向某个目标设备写入字符。其API跟字节流的类似。 </p>
 <h4 id="输入字符流-FileReader"><a href="#输入字符流-FileReader" class="headerlink" title="输入字符流(FileReader)"></a>输入字符流(FileReader)</h4><pre><code>import java.io.*;
 public class Example{
  public static void main(String[] args){
@@ -581,7 +620,7 @@ public static void main(String[] args){
     out.close();
 }
 }
-</code></pre><h4 id="字符缓冲流-BufferedWriter和BufferedReader"><a href="#字符缓冲流-BufferedWriter和BufferedReader" class="headerlink" title="字符缓冲流(BufferedWriter和BufferedReader)"></a>字符缓冲流(BufferedWriter和BufferedReader)</h4><p> 字符流同样提供了带缓冲区的包装流，分别是BufferedWriter和BufferedReader,其中BufferedReader用于对字符输入流的包装，BufferedWriter用于对字符输出流的包装。需要注意的是，在BufferedReader中有一个重要的方法readLine()，该方法用于一次读取一行文本。</p>
+</code></pre><h4 id="字符缓冲流-BufferedWriter和BufferedReader"><a href="#字符缓冲流-BufferedWriter和BufferedReader" class="headerlink" title="字符缓冲流(BufferedWriter和BufferedReader)"></a>字符缓冲流(BufferedWriter和BufferedReader)</h4><p> 字符流同样提供了带缓冲区的包装流，分别是BufferedWriter和BufferedReader,其中BufferedReader用于对字符输入流的包装，<strong>BufferedWriter用于对字符输出流的包装。需要注意的是，在BufferedReader中有一个重要的方法readLine()，该方法用于一次读取一行文本。</strong></p>
 <pre><code>import java.io.*;
 public class Example{
  public static void main(String[] args){
@@ -617,7 +656,8 @@ public class Example{
      }
 }
 }
-</code></pre><h3 id="字节字符转换流-InputStreamReader和OutputStreamWriter"><a href="#字节字符转换流-InputStreamReader和OutputStreamWriter" class="headerlink" title="字节字符转换流(InputStreamReader和OutputStreamWriter)"></a>字节字符转换流(InputStreamReader和OutputStreamWriter)</h3><p>转换流也是一种包装流，其中OutputStreamWriter是Writer的子类，它可以将一个字节输出流包装成字符输出流，方便直接写入字符，而InputStreamReader是Reader的子类，它可以将一个字节输入流包装成字符输入流，方便直接读取字符。 </p>
+</code></pre><h3 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h3><p><strong>设置int变量接收读到的字节还有字节数组形式的方法还有用System.out.println(in.read());输出字节到控制台的形式的（设置类型转换）,以及字符缓冲流的readline和newline()方法的方法</strong><br>Demo:<br><img src="https://i.imgur.com/FPfuC5g.png" alt=""></p>
+<h3 id="字节字符转换流-InputStreamReader和OutputStreamWriter"><a href="#字节字符转换流-InputStreamReader和OutputStreamWriter" class="headerlink" title="字节字符转换流(InputStreamReader和OutputStreamWriter)"></a>字节字符转换流(InputStreamReader和OutputStreamWriter)</h3><p>转换流也是一种包装流，其中OutputStreamWriter是Writer的子类，它可以将一个字节输出流包装成字符输出流，方便直接写入字符，而InputStreamReader是Reader的子类，它可以将一个字节输入流包装成字符输入流，方便直接读取字符。 </p>
 <pre><code>import java.io.*;
 public class Example{
  public static void main(String[] args){
@@ -661,12 +701,13 @@ public class Example{
      out.close();
 }
 </code></pre><p>将从fileName1文件中读取的字节全部写入该对象的缓冲区，通过FileOutputStream对象将缓冲区的数据一次性写入fileName2文件。<br>与ByteArrayOutputStream类似，ByteArrayInputStream是从缓冲区中读取数据，接下来通过一个案例来演示ByteArrayInputStream如何读取缓冲区的数据。<br>    import java.io.*;<br>    public class Example{<br>     public static void main(String[] args){<br>         byte[] bytes=new byte[]{97,98,99,100};<br>         ByteArrayInputStream bis=new ByteArrayInputStream(bytes);</p>
-<pre><code>int b;
-while((b=bis.read())!=-1)
-{
-    System.out.println((char)b);
-}
-</code></pre><p>} </p>
+<pre><code>     int b;
+     while((b=bis.read())!=-1)
+     {
+         System.out.println((char)b);
+     }
+} 
+</code></pre><h3 id="对象序列化和反序列化"><a href="#对象序列化和反序列化" class="headerlink" title="对象序列化和反序列化"></a>对象序列化和反序列化</h3><p>待更新</p>
 <h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
 <p>If you have some questions after you see my blog , you can tell your doubts in the comments area or you can find some infos by clicking these links or ask me by sending me an email：</p>
 </blockquote>
@@ -697,7 +738,7 @@ while((b=bis.read())!=-1)
   <p><span>本文标题:</span><a href="/2018/09/26/Java之IO流深入理解/">Java之IO流深入理解</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月26日 - 08:09</p>
-  <p><span>最后更新:</span>2018年09月26日 - 10:09</p>
+  <p><span>最后更新:</span>2018年10月04日 - 00:10</p>
   <p><span>原始链接:</span><a href="/2018/09/26/Java之IO流深入理解/" title="Java之IO流深入理解">http://codinglembre.top/2018/09/26/Java之IO流深入理解/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/26/Java之IO流深入理解/"  aria-label="复制成功！"></i></span>
   </p>
@@ -918,7 +959,7 @@ while((b=bis.read())!=-1)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -929,7 +970,7 @@ while((b=bis.read())!=-1)
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -940,7 +981,7 @@ while((b=bis.read())!=-1)
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1008,7 +1049,7 @@ while((b=bis.read())!=-1)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#IO流的四大抽象类"><span class="nav-number">1.</span> <span class="nav-text">IO流的四大抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字节流"><span class="nav-number">2.</span> <span class="nav-text">字节流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">2.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字节输入流-InputStream"><span class="nav-number">2.2.</span> <span class="nav-text">字节输入流(InputStream)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字节输入流-OutputStream"><span class="nav-number">2.3.</span> <span class="nav-text">字节输入流(OutputStream)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码示例"><span class="nav-number">2.4.</span> <span class="nav-text">代码示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字节缓冲流-BufferedInputStream和BufferedOutputStream"><span class="nav-number">2.5.</span> <span class="nav-text">字节缓冲流(BufferedInputStream和BufferedOutputStream)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符流"><span class="nav-number">3.</span> <span class="nav-text">字符流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入字符流-FileReader"><span class="nav-number">3.2.</span> <span class="nav-text">输入字符流(FileReader)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出字符流-FileWrite"><span class="nav-number">3.3.</span> <span class="nav-text">输出字符流(FileWrite)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符缓冲流-BufferedWriter和BufferedReader"><span class="nav-number">3.4.</span> <span class="nav-text">字符缓冲流(BufferedWriter和BufferedReader)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字节字符转换流-InputStreamReader和OutputStreamWriter"><span class="nav-number">4.</span> <span class="nav-text">字节字符转换流(InputStreamReader和OutputStreamWriter)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他IO流"><span class="nav-number">5.</span> <span class="nav-text">其他IO流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ByteArrayInputStream和ByteArrayOutputStream"><span class="nav-number">5.1.</span> <span class="nav-text">ByteArrayInputStream和ByteArrayOutputStream</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">6.</span> <span class="nav-text">联系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的编码"><span class="nav-number">1.</span> <span class="nav-text">文件的编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File常用API"><span class="nav-number">2.</span> <span class="nav-text">File常用API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件路径分隔符写法"><span class="nav-number">2.1.</span> <span class="nav-text">文件路径分隔符写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历目录"><span class="nav-number">2.2.</span> <span class="nav-text">遍历目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#递归实现子目录的内容的遍历"><span class="nav-number">2.3.</span> <span class="nav-text">递归实现子目录的内容的遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件内容的访问类RandomAccessFile类"><span class="nav-number">2.4.</span> <span class="nav-text">文件内容的访问类RandomAccessFile类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IO流的四大抽象类"><span class="nav-number">3.</span> <span class="nav-text">IO流的四大抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字节流"><span class="nav-number">4.</span> <span class="nav-text">字节流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字节输入流-InputStream"><span class="nav-number">4.2.</span> <span class="nav-text">字节输入流(InputStream)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字节输入流-OutputStream"><span class="nav-number">4.3.</span> <span class="nav-text">字节输入流(OutputStream)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码示例"><span class="nav-number">4.4.</span> <span class="nav-text">代码示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字节缓冲流-BufferedInputStream和BufferedOutputStream"><span class="nav-number">4.5.</span> <span class="nav-text">字节缓冲流(BufferedInputStream和BufferedOutputStream)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符流"><span class="nav-number">5.</span> <span class="nav-text">字符流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">5.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入字符流-FileReader"><span class="nav-number">5.2.</span> <span class="nav-text">输入字符流(FileReader)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出字符流-FileWrite"><span class="nav-number">5.3.</span> <span class="nav-text">输出字符流(FileWrite)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符缓冲流-BufferedWriter和BufferedReader"><span class="nav-number">5.4.</span> <span class="nav-text">字符缓冲流(BufferedWriter和BufferedReader)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键点"><span class="nav-number">6.</span> <span class="nav-text">关键点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字节字符转换流-InputStreamReader和OutputStreamWriter"><span class="nav-number">7.</span> <span class="nav-text">字节字符转换流(InputStreamReader和OutputStreamWriter)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他IO流"><span class="nav-number">8.</span> <span class="nav-text">其他IO流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ByteArrayInputStream和ByteArrayOutputStream"><span class="nav-number">8.1.</span> <span class="nav-text">ByteArrayInputStream和ByteArrayOutputStream</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象序列化和反序列化"><span class="nav-number">9.</span> <span class="nav-text">对象序列化和反序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">10.</span> <span class="nav-text">联系</span></a></li></ol></div>
             
 
           </div>

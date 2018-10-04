@@ -90,20 +90,22 @@
 
 
 
-<meta name="description" content="Servlet的生命周期指的是 Servlet从被Web服务器加载到它被销毁的整个生命过程。那么他的生命周期主要分为哪几个阶段以及它的工作原理是怎么样的呢？本博文接下来将讨论这些内容。">
+<meta name="description" content="Servlet的生命周期指的是Servlet从被Web服务器加载到它被销毁的整个生命过程。那么他的生命周期主要分为哪几个阶段以及它的工作原理是怎么样的呢？本博文接下来将讨论这些内容。">
 <meta name="keywords" content="JavaWeb,Servlet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Servlet的生命周期与创建时机">
 <meta property="og:url" content="http://codinglembre.top/2018/09/26/Servlet的生命周期与创建时机/index.html">
 <meta property="og:site_name" content="codingLembre&#39;s blog">
-<meta property="og:description" content="Servlet的生命周期指的是 Servlet从被Web服务器加载到它被销毁的整个生命过程。那么他的生命周期主要分为哪几个阶段以及它的工作原理是怎么样的呢？本博文接下来将讨论这些内容。">
+<meta property="og:description" content="Servlet的生命周期指的是Servlet从被Web服务器加载到它被销毁的整个生命过程。那么他的生命周期主要分为哪几个阶段以及它的工作原理是怎么样的呢？本博文接下来将讨论这些内容。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/MkvBfh2.png">
+<meta property="og:image" content="https://i.imgur.com/2pfhXkD.png">
 <meta property="og:image" content="https://i.imgur.com/WhRjp5B.png">
-<meta property="og:updated_time" content="2018-09-26T09:43:00.171Z">
+<meta property="og:updated_time" content="2018-10-03T15:04:34.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet的生命周期与创建时机">
-<meta name="twitter:description" content="Servlet的生命周期指的是 Servlet从被Web服务器加载到它被销毁的整个生命过程。那么他的生命周期主要分为哪几个阶段以及它的工作原理是怎么样的呢？本博文接下来将讨论这些内容。">
-<meta name="twitter:image" content="https://i.imgur.com/WhRjp5B.png">
+<meta name="twitter:description" content="Servlet的生命周期指的是Servlet从被Web服务器加载到它被销毁的整个生命过程。那么他的生命周期主要分为哪几个阶段以及它的工作原理是怎么样的呢？本博文接下来将讨论这些内容。">
+<meta name="twitter:image" content="https://i.imgur.com/MkvBfh2.png">
 
 
 
@@ -357,8 +359,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-26T17:43:00+08:00">
-                2018-09-26
+              <time title="Update on" itemprop="dateModified" datetime="2018-10-03T23:04:34+08:00">
+                2018-10-03
               </time>
             
           </span>
@@ -420,7 +422,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  1,084
+                  1,186
                 </span>
               
 
@@ -445,49 +447,54 @@
       
 
       
-        <p>Servlet的生命周期指的是 Servlet从被Web服务器加载到它被销毁的整个生命过程。那么他的生命周期主要分为哪几个阶段以及它的工作原理是怎么样的呢？本博文接下来将讨论这些内容。</p>
+        <p>Servlet的生命周期指的是<strong><em>Servlet从被Web服务器加载到它被销毁的整个生命过程</em></strong>。那么他的生命周期主要分为哪几个阶段以及它的工作原理是怎么样的呢？本博文接下来将讨论这些内容。</p>
 <a id="more"></a>
-<h3 id="Servlet的生命周期的详细分析"><a href="#Servlet的生命周期的详细分析" class="headerlink" title="Servlet的生命周期的详细分析"></a>Servlet的生命周期的详细分析</h3><p>Servlet的生命周期分为三个阶段</p>
+<h3 id="Servlet的生命周期的详细分析"><a href="#Servlet的生命周期的详细分析" class="headerlink" title="Servlet的生命周期的详细分析"></a>Servlet的生命周期的详细分析</h3><p>首先看图:<br><img src="https://i.imgur.com/MkvBfh2.png" alt=""></p>
+<p>Servlet的生命周期分为三个阶段:</p>
 <ul>
-<li>初始化阶段，调用init()方法</li>
-<li>响应客户请求阶段，调用service()方法</li>
-<li>终止阶段，调用destory()方法</li>
+<li>初始化阶段，先判断Servlet实例是否已经存在，若不存在，调用都早方法，调用init(ServletConfig)方法,<strong>注意调用构造方法先于调用init()方法，且在一个生命周期内，只调用一次init()方法</strong></li>
+<li><strong><em>响应客户端请求阶段，调用service()方法，决定doGet还是doPost方法</em></strong></li>
+<li>销毁阶段，调用destory()方法</li>
 </ul>
-<p>一个Servlet的具体步骤以及和JSP的区别(web.xml和Service方法)</p>
+<p>###一个Servlet的具体步骤以及和JSP的区别(web.xml和Service方法)<br><img src="https://i.imgur.com/2pfhXkD.png" alt=""></p>
+<blockquote>
+<p><strong>注意严格来说，第一个的类型不一样，一个是JspWrite,另一个是PrintWriter</strong></p>
+</blockquote>
 <ul>
-<li>Web服务器加载Servlet：Web服务器启动后，它会根据每个工程的web.xml文件去查找该工程的Servlet，并且找到这些Servlet的Class文件所在的地址，将它们载入到Web容器中，不同的Servlet被Web容器加载的次序不同，通过web.xml文件可以配置每个Servlet载入的次序。</li>
-<li>一般来说，Servlet在服务器启动时就会被Web服务器加载，而JSP文件只有在用户访问到该页面时才会被动态载入。</li>
-<li>创建一个Servlet实例：这时会调用该Servlet的构造函数去创建一个具体的对象。 </li>
-<li>经过以上的两个步骤后，这时如果有客户端请求，Web服务器就会调用Servlet对象的init()方法 </li>
-<li>接着Web服务器调用Servlet的service()方法去接收请求，处理请求，并把处理结果返回。 </li>
+<li>1.<strong>Tomcat服务器加载Servlet</strong>：Web服务器启动后，它会根据每个工程的web.xml文件去查找该工程的Servlet，并且找到这些Servlet的Class文件所在的地址，将它们载入到Web容器中，不同的Servlet被Web容器加载的次序不同，通过web.xml文件可以配置每个Servlet载入的次序。</li>
+<li>一般来说，<strong>Servlet在服务器启动时就会被Web服务器加载，而JSP文件只有在用户访问到该页面时才会被动态载入。</strong></li>
+<li>创建一个Servlet实例：这时会<strong>调用该Servlet的构造函数去创建一个具体的Servlet对象。</strong> </li>
+<li>经过以上的两个步骤后，这时如果有客户端请求，<strong>Web服务器就会调用Servlet对象的init()方法 </strong></li>
+<li>接着Web服务器调用<strong>Servlet的service()方法去接收请求，处理请求，并把处理结果返回。</strong></li>
 <li>销毁：Servlet实例被销毁，这是通过调用Servlet的destory()方法来实现的。</li>
 </ul>
-<p>在以上的几个阶段中，Servlet对外提供服务阶段最重要的。service()方法是编程人员真正要关心的方法，因为它才是Servlet真正开始响应客户端请求，并且处理业务逻辑的方法。Service()接收到客户端请求后，再调用Servlet的doGet()方法或者doPost()方法去处理请求。所以在编写自己的Servlet时，一般只需要重写doGet()和doPost()方法，在该方法中去处理客户端请求，并把处理结果返回。</p>
+<p>在以上的几个阶段中，Servlet对外提供服务阶段最重要的。<strong>service()方法是编程人员真正要关心的方法，因为它才是Servlet真正开始响应客户端请求，并且处理业务逻辑的方法。Service()接收到客户端请求后，再调用Servlet的doGet()方法或者doPost()方法去处理请求。</strong>所以在编写自己的Servlet时，一般只需要重写doGet()和doPost()方法，在该方法中去处理客户端请求，并把处理结果返回。</p>
+<blockquote>
+<p>注意Servlet的构造函数和init()函数的带哦用实际</p>
+</blockquote>
 <p><img src="https://i.imgur.com/WhRjp5B.png" alt=""></p>
-<p>过程分析:</p>
-<ul>
-<li>Web Client向Servlet容器(tomcat)发出Http请求 </li>
-<li>Servlet容器接收Web Client的请求 </li>
-<li>Servlet容器创建一个HttpRequest对象，将Web Client请求的信息封装到这个对象中。 </li>
+<h3 id="web请求的过程具体分析"><a href="#web请求的过程具体分析" class="headerlink" title="web请求的过程具体分析:"></a>web请求的过程具体分析:</h3><ul>
+<li>Web 客户端向Servlet容器(tomcat)发出Http请求 </li>
+<li>Servlet容器接收Web 客户端的请求 </li>
+<li>Servlet容器创建一个HttpRequest对象，将Web 客户端请求的信息封装到这个对象中。 </li>
 <li>Servlet容器创建一个HttpResponse对象 </li>
 <li>Servlet容器调用HttpServlet对象的service方法，把HttpRequest对象与HttpResponse对象作为参数传递给HttpServlet对象。 </li>
 <li>HttpServlet调用HttpRequest对象的有关方法，获取Http请求信息 </li>
 <li>HttpServlet调用HttpResponse对象的有关方法，生成响应数据 </li>
-<li>Servlet容器把HttpServlet的响应结果传入Web Client。</li>
+<li><strong>Servlet容器把HttpServlet的响应结果传入Web 客户端</strong>。</li>
 </ul>
 <h3 id="Servlet工作原理"><a href="#Servlet工作原理" class="headerlink" title="Servlet工作原理:"></a>Servlet工作原理:</h3><p>首先客户发送个请求，Servlet容器会创建特定于这个请求的ServletRequest对象和ServletResponse对象，然后调用Servlet的service()方法。Service()方法从ServletRequest对象获得客户请求信息，处理该请求，然后通过ServletResponse对象向客户返回响应信息。</p>
-<p>创建Servlet对象的时机:</p>
-<ul>
-<li>Servlet容器启动时：读取web.xml配置文件中的信息，构造指定的Servlet对象，创建ServletConfig对象，同时将ServletConfig对象作为参数来调用Servlet对象的init方法。 </li>
-<li>在Servlet容器启动后：客户首次向Servlet发出请求，Servlet容器会判断内存中是否存在指定的Servlet对象，如果没有则创建它，然后根据客户的请求创建HttpRequest、HttpResponse对象，从而调用Servlet 对象的service方法。 </li>
-<li>Servlet容器在启动时自动创建Servlet，这是由在web.xml文件中为Servlet设置的<load-on-startup>属性决定的。从中我们也能看到同一个类型的Servlet对象在Servlet容器中以单例的形式存在。</load-on-startup></li>
+<h3 id="Tomcat同期装载Servlet的三个时机"><a href="#Tomcat同期装载Servlet的三个时机" class="headerlink" title="Tomcat同期装载Servlet的三个时机:"></a>Tomcat同期装载Servlet的三个时机:</h3><ul>
+<li><p>1.<strong>Servlet容器启动时自动装载</strong>，但是这需要配置以下代码内容：读取web.xml配置文件中的信息，构造指定的Servlet对象，创建ServletConfig对象，同时将ServletConfig对象作为参数来调用Servlet对象的init方法。</p>
+<p>  <servlet></servlet></p>
+<pre><code>&lt;servlet-name&gt;Init&lt;/servlet-name&gt;
+&lt;servlet-class&gt;org.xl.servlet.InitServlet&lt;/servlet-class&gt;
+&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+</code></pre><p>  <br><strong>在servlet的配置当中，<load-on-startup>1</load-on-startup>的含义是：<br>标记容器是否在启动的时候就加载这个servlet。</strong><br>当值为0或者大于0时，表示容器在应用启动时就加载这个servlet；<br>当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载。<br>正数的值越小，启动该servlet的优先级越高。</p>
+</li>
+<li><strong>2.在Servlet容器启动后：客户首次向Servlet发出请求的时候。Servlet容器会判断内存中是否存在指定的Servlet对象，如果没有那么创建它，然后根据客户的请求创建HttpRequest、HttpResponse对象，从而调用Servlet 对象的service方法。</strong> </li>
+<li><strong>3.Servlet被更新后，重新装载Servlet的时候</strong></li>
 </ul>
-<pre><code>&lt;servlet&gt;
-    &lt;servlet-name&gt;Init&lt;/servlet-name&gt;
-    &lt;servlet-class&gt;org.xl.servlet.InitServlet&lt;/servlet-class&gt;
-    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
-&lt;/servlet&gt;
-</code></pre><p>在servlet的配置当中，<load-on-startup>1</load-on-startup>的含义是：<br>标记容器是否在启动的时候就加载这个servlet。<br>当值为0或者大于0时，表示容器在应用启动时就加载这个servlet；<br>当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载。<br>正数的值越小，启动该servlet的优先级越高。</p>
 <h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
 <p>If you have some questions after you see my blog , you can tell your doubts in the comments area or you can find some infos by clicking these links or ask me by sending me an email：</p>
 </blockquote>
@@ -518,7 +525,7 @@
   <p><span>本文标题:</span><a href="/2018/09/26/Servlet的生命周期与创建时机/">Servlet的生命周期与创建时机</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月26日 - 15:09</p>
-  <p><span>最后更新:</span>2018年09月26日 - 17:09</p>
+  <p><span>最后更新:</span>2018年10月03日 - 23:10</p>
   <p><span>原始链接:</span><a href="/2018/09/26/Servlet的生命周期与创建时机/" title="Servlet的生命周期与创建时机">http://codinglembre.top/2018/09/26/Servlet的生命周期与创建时机/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/26/Servlet的生命周期与创建时机/"  aria-label="复制成功！"></i></span>
   </p>
@@ -741,7 +748,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -752,7 +759,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -763,7 +770,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -831,7 +838,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet的生命周期的详细分析"><span class="nav-number">1.</span> <span class="nav-text">Servlet的生命周期的详细分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet工作原理"><span class="nav-number">2.</span> <span class="nav-text">Servlet工作原理:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">3.</span> <span class="nav-text">联系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet的生命周期的详细分析"><span class="nav-number">1.</span> <span class="nav-text">Servlet的生命周期的详细分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web请求的过程具体分析"><span class="nav-number">2.</span> <span class="nav-text">web请求的过程具体分析:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet工作原理"><span class="nav-number">3.</span> <span class="nav-text">Servlet工作原理:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat同期装载Servlet的三个时机"><span class="nav-number">4.</span> <span class="nav-text">Tomcat同期装载Servlet的三个时机:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">5.</span> <span class="nav-text">联系</span></a></li></ol></div>
             
 
           </div>
