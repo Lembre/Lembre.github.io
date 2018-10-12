@@ -98,10 +98,15 @@
 <meta property="og:site_name" content="codingLembre&#39;s blog">
 <meta property="og:description" content="通俗地说,反射机制就是可以把一个类,类的成员(函数,属性),当成一个对象来操作,希望读者能理解,也就是说,类,类的成员,我们在运行的时候还可以动态地去操作他们。反射机制的利用其实我们经常在用，比如数据库JDBC中通过Class.forName(Driver).来获得数据库连接驱动；再比如，工厂模式：Factory类中用反射的话，添加了一个新的类之后，就不需要再修改工厂类Factory；访问一些不能">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-02T13:59:20.494Z">
+<meta property="og:image" content="https://i.imgur.com/X2xdT8i.png">
+<meta property="og:image" content="https://i.imgur.com/TBi9ywC.png">
+<meta property="og:image" content="https://i.imgur.com/zGofYjJ.png">
+<meta property="og:image" content="https://i.imgur.com/6hJtP5q.png">
+<meta property="og:updated_time" content="2018-10-08T09:19:51.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java之反射机制">
 <meta name="twitter:description" content="通俗地说,反射机制就是可以把一个类,类的成员(函数,属性),当成一个对象来操作,希望读者能理解,也就是说,类,类的成员,我们在运行的时候还可以动态地去操作他们。反射机制的利用其实我们经常在用，比如数据库JDBC中通过Class.forName(Driver).来获得数据库连接驱动；再比如，工厂模式：Factory类中用反射的话，添加了一个新的类之后，就不需要再修改工厂类Factory；访问一些不能">
+<meta name="twitter:image" content="https://i.imgur.com/X2xdT8i.png">
 
 
 
@@ -355,8 +360,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-10-02T21:59:20+08:00">
-                2018-10-02
+              <time title="Update on" itemprop="dateModified" datetime="2018-10-08T17:19:51+08:00">
+                2018-10-08
               </time>
             
           </span>
@@ -418,7 +423,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  1,413
+                  2,009
                 </span>
               
 
@@ -445,7 +450,35 @@
       
         <p>通俗地说,<strong>反射机制就是可以把一个类,类的成员(函数,属性),当成一个对象来操作,希望读者能理解,也就是说,类,类的成员,我们在运行的时候还可以动态地去操作他们。</strong>反射机制的利用其实我们经常在用，比如数据库JDBC中通过Class.forName(Driver).来获得数据库连接驱动；再比如，工厂模式：Factory类中用反射的话，添加了一个新的类之后，就不需要再修改工厂类Factory；<strong>访问一些不能访问的变量或属性：破解别人代码。</strong></p>
 <a id="more"></a>
-<h3 id="理论介绍"><a href="#理论介绍" class="headerlink" title="理论介绍"></a>理论介绍</h3><p>为了便于理解，在给出代码例子之前，首先用文字给大家说说关于”Java反射机制”的理论介绍。<br><strong>Java反射是Java语言的一个很重要的特征，它使得Java具有了“动态性”。</strong><br>在Java运行时环境中，对于一个类，能否知道这个类有哪些属性和方法？对于任意一个对象，能否调用它的任意一个方法？答案是肯定的。这种动态获取类的信息以及动态调用对象的方法的功能来自于Java语言的反射(Reflection)机制。</p>
+<h3 id="万物皆对象，那么类也是对象？"><a href="#万物皆对象，那么类也是对象？" class="headerlink" title="万物皆对象，那么类也是对象？"></a>万物皆对象，那么类也是对象？</h3><p><strong>所有的类都是java.lang.Class类的实例对象,这个类的对象称为类的类类型。这个类的构造方法是一个私有方法</strong><br>这个类的实例对象该如何表示呢？</p>
+<h3 id="Class类的三种表示方式"><a href="#Class类的三种表示方式" class="headerlink" title="Class类的三种表示方式:"></a>Class类的三种表示方式:</h3><p>1.利用任何一个类都隐含有一个静态成员变量class。</p>
+<ul>
+<li>Class c1 = A.class;<br>2.已知该类的实例对象</li>
+<li>Class c1 = a.getClass():</li>
+</ul>
+<p>3.Class c1 = Class.forName(“类的全称”);</p>
+<p><strong>我们可以通过类的类类型创建该类的对象实例,但是前提是Foo类有无参的构造方法</strong></p>
+<pre><code>Foo foo = (Foo)c1.newInstance();
+</code></pre><h3 id="Java动态加载类"><a href="#Java动态加载类" class="headerlink" title="Java动态加载类"></a>Java动态加载类</h3><p>区分静态加载类和动态加载类:<br><strong>编译时刻加载类是静态加载类，运行时刻加载类是动态加载类:</strong></p>
+<p><strong>new对象是静态加载类，在编译时刻就需要加载所有可能使用到的类</strong><br>动态加载类和静态加载类的区别:<br>可以理解为装修房子(编译)买电器,我之前计划的有电视冰箱洗衣机,全都随着装修安装完毕了(静态加载),之后呢(运行),觉得少个微波炉,可是根本就没有规划微波炉的线路,那么就需要拆掉原先的线路为新的电器设置安装.而现在我不想那么麻烦,就在装修的时候预留好电源插座这种接口(interface),只要所有的电器都实现了这个接口,有了两孔或者三孔的插头,那么我后期想增添任何电器都可以随时增加(动态加载)</p>
+<h3 id="Java获取方法信息"><a href="#Java获取方法信息" class="headerlink" title="Java获取方法信息"></a>Java获取方法信息</h3><p><img src="https://i.imgur.com/X2xdT8i.png" alt=""><br><img src="https://i.imgur.com/TBi9ywC.png" alt=""></p>
+<h3 id="Java获取成员变量的信息"><a href="#Java获取成员变量的信息" class="headerlink" title="Java获取成员变量的信息"></a>Java获取成员变量的信息</h3><p><strong>成员变量也是对象，java.lang.reflect.Field，Filed类封装了关于成员变量的所有操作。</strong><br><img src="https://i.imgur.com/zGofYjJ.png" alt=""><br><strong>构造函数也是对象，java.lang.Constructor封装了构造函数的信息</strong><br><img src="https://i.imgur.com/6hJtP5q.png" alt=""></p>
+<h3 id="方法的反射"><a href="#方法的反射" class="headerlink" title="方法的反射:"></a>方法的反射:</h3><p>1.如如何获取某个方法:<br>方法的名称和方法的参数列表才能唯一决定某个方法<br>2.方法反射的操作:<br><strong>method.invoke(对象，参数列表)</strong></p>
+<p>Demo：</p>
+<pre><code>public Class A{ 
+    public void print(){}; 
+    public void Print(Sting a,String b){}; 
+    public void Print(int a,int b){}; 
+} 
+public Class B{ 
+    public static void main(String[] args){
+         A a1 = new A(); 
+            Class c= a1.getclass; 
+            Method getMet=c.getMethod(&quot;print&quot;,String.class,String.class);
+            Object obj=getMet.invoke(a1,&quot;df&quot;,&quot;df&quot;); 
+    } 
+}
+</code></pre><h3 id="理论介绍"><a href="#理论介绍" class="headerlink" title="理论介绍"></a>理论介绍</h3><p>为了便于理解，在给出代码例子之前，首先用文字给大家说说关于”Java反射机制”的理论介绍。<br><strong>Java反射是Java语言的一个很重要的特征，它使得Java具有了“动态性”。</strong><br>在Java运行时环境中，对于一个类，能否知道这个类有哪些属性和方法？对于任意一个对象，能否调用它的任意一个方法？答案是肯定的。这种动态获取类的信息以及动态调用对象的方法的功能来自于Java语言的反射(Reflection)机制。</p>
 <h3 id="Java反射机制提供的功能"><a href="#Java反射机制提供的功能" class="headerlink" title="Java反射机制提供的功能"></a>Java反射机制提供的功能</h3><ul>
 <li>在运行时判断任意一个对象所属的类。</li>
 <li>在运行时构造任意一个类的对象。</li>
@@ -526,7 +559,7 @@
   <p><span>本文标题:</span><a href="/2018/09/29/Java之反射机制/">Java之反射机制</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月29日 - 14:09</p>
-  <p><span>最后更新:</span>2018年10月02日 - 21:10</p>
+  <p><span>最后更新:</span>2018年10月08日 - 17:10</p>
   <p><span>原始链接:</span><a href="/2018/09/29/Java之反射机制/" title="Java之反射机制">http://codinglembre.top/2018/09/29/Java之反射机制/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/29/Java之反射机制/"  aria-label="复制成功！"></i></span>
   </p>
@@ -749,7 +782,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -771,7 +804,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -839,7 +872,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#理论介绍"><span class="nav-number">1.</span> <span class="nav-text">理论介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java反射机制提供的功能"><span class="nav-number">2.</span> <span class="nav-text">Java反射机制提供的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java反射机制的API"><span class="nav-number">3.</span> <span class="nav-text">Java反射机制的API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得Class对象"><span class="nav-number">4.</span> <span class="nav-text">获得Class对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建实例对象"><span class="nav-number">5.</span> <span class="nav-text">创建实例对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">6.</span> <span class="nav-text">联系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#万物皆对象，那么类也是对象？"><span class="nav-number">1.</span> <span class="nav-text">万物皆对象，那么类也是对象？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class类的三种表示方式"><span class="nav-number">2.</span> <span class="nav-text">Class类的三种表示方式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java动态加载类"><span class="nav-number">3.</span> <span class="nav-text">Java动态加载类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java获取方法信息"><span class="nav-number">4.</span> <span class="nav-text">Java获取方法信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java获取成员变量的信息"><span class="nav-number">5.</span> <span class="nav-text">Java获取成员变量的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的反射"><span class="nav-number">6.</span> <span class="nav-text">方法的反射:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理论介绍"><span class="nav-number">7.</span> <span class="nav-text">理论介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java反射机制提供的功能"><span class="nav-number">8.</span> <span class="nav-text">Java反射机制提供的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java反射机制的API"><span class="nav-number">9.</span> <span class="nav-text">Java反射机制的API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得Class对象"><span class="nav-number">10.</span> <span class="nav-text">获得Class对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建实例对象"><span class="nav-number">11.</span> <span class="nav-text">创建实例对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">12.</span> <span class="nav-text">联系</span></a></li></ol></div>
             
 
           </div>
