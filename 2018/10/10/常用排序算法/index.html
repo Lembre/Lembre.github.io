@@ -103,7 +103,8 @@
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-01-11%20%E4%B8%8B%E5%8D%889.21.33.png">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-01-08%20%E4%B8%8B%E5%8D%887.55.30.png">
 <meta property="og:image" content="https://i.imgur.com/Kb3JZix.png">
-<meta property="og:updated_time" content="2018-10-12T02:34:40.980Z">
+<meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-01-08%20%E4%B8%8B%E5%8D%888.00.04.png">
+<meta property="og:updated_time" content="2018-10-19T12:12:11.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用排序算法">
 <meta name="twitter:description" content="作为一个Java工程师，所以里面的算法都是用Java语言实现的，不过其实不管你用的是哪种语言，实现该算法的思路都是一样的，所以借鉴此篇文章的你即使用的不是Java，看完此片文章的实现思路及其实现代码后你也是可以用其他语言实现的～">
@@ -361,8 +362,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-10-12T10:34:40+08:00">
-                2018-10-12
+              <time title="Update on" itemprop="dateModified" datetime="2018-10-19T20:12:11+08:00">
+                2018-10-19
               </time>
             
           </span>
@@ -424,7 +425,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  5,680
+                  6,618
                 </span>
               
 
@@ -493,7 +494,8 @@ public static void swap(int[] arr, int i, int j) {
     arr[j] = temp;
 }
 }
-</code></pre><h4 id="选择排序实现思路"><a href="#选择排序实现思路" class="headerlink" title="选择排序实现思路"></a>选择排序实现思路</h4><p>选择排序的思想其实和冒泡排序有点类似，都是在一次排序后把最大的元素放到最右边。但是过程不同，<strong>冒泡排序是通过相邻的比较和交换。而选择排序是通过对整体的选择。</strong><br>举个栗子，对5,3,8,6,4这个无序序列进行简单选择排序。第一次选择排序:<strong>首先要循环遍历该数组，选择整体中5以外的最小数来和5交换</strong>，遍历该数组时发现3是最小的数字，那么就会拿3和5交换，一次遍历和排序后就变成了3,5,8,6,4，实现了将最小的数字放在最前面。对剩下的序列依次进行第二次选择和交换、…、第n次选择和交换，最终就会得到一个有序序列。<strong>其实选择排序可以看成冒泡排序的优化，因为其目的相同，只是选择排序只有在确定了最小数的前提下才进行交换，大大减少了交换的次数。选择排序的时间复杂度为O(n^2)。</strong><br>Demo:</p>
+</code></pre><p>总结:<br>1.设置外循环从0开始，内循环也从0开始<br>2.arr[j]和arr[j+1]两两比较（注意arr[i+1]决定了j&lt;arr.length-i-1的写法），否则越界。满足条件则执行交换操作而且内层循环的比较终点随着外循环i值改变</p>
+<h4 id="选择排序实现思路"><a href="#选择排序实现思路" class="headerlink" title="选择排序实现思路"></a>选择排序实现思路</h4><p>选择排序的思想其实和冒泡排序有点类似，都是在一次排序后把最大的元素放到最右边。但是过程不同，<strong>冒泡排序是通过相邻的比较和交换。而选择排序是通过对整体的选择。</strong><br>举个栗子，对5,3,8,6,4这个无序序列进行简单选择排序。第一次选择排序:<strong>首先要循环遍历该数组，选择整体中5以外的最小数来和5交换</strong>，遍历该数组时发现3是最小的数字，那么就会拿3和5交换，一次遍历和排序后就变成了3,5,8,6,4，实现了将最小的数字放在最前面。对剩下的序列依次进行第二次选择和交换、…、第n次选择和交换，最终就会得到一个有序序列。<strong>其实选择排序可以看成冒泡排序的优化，因为其目的相同，只是选择排序只有在确定了最小数的前提下才进行交换，大大减少了交换的次数。选择排序的时间复杂度为O(n^2)。</strong><br>Demo:</p>
 <pre><code>public class SelectSort {
 
 public static void selectSort(int[] arr) {
@@ -524,7 +526,7 @@ public static void swap(int[] arr, int i, int j) {
 }
 
 }
-</code></pre><p><strong>重点通过设置下标 minIndex，而且如果找到了更小的minIndex，但是这个minIndex实际上和数组没什么关系，它只是我们自己设置的，因此，对数组而言还需要通过minIndex进行数组的值的交换</strong></p>
+</code></pre><p>总结:<br>1.设置基准下标minIndex，设置外循环从0开始，将当前i赋值给minIndex<br>2.设置内循环，将基准值对应得数组值与数组的遍历进行比较，满足条件，将下标赋值给基准<br>3.比较基准值与初始值即i是否相等，不想等，则根据这两个下标交换对应的值</p>
 <h4 id="插入排序实现思路"><a href="#插入排序实现思路" class="headerlink" title="插入排序实现思路"></a>插入排序实现思路</h4><p>插入排序不是通过交换位置而是<strong>通过比较找到合适的位置插入元素来达到排序的目的的。</strong>相信大家都有过打扑克牌的经历，特别是牌数较大的。在分牌时可能要整理自己的牌，牌多的时候怎么整理呢？就是拿到一张牌，找到一个合适的位置插入。这个原理其实和插入排序是一样的。<br>举个栗子，对5,3,8,6,4这个无序序列进行简单插入排序，<strong>首先假设第一个数的位置是正确的，想一下在拿到第一张牌的时候，没必要整理。</strong>然后第二张牌3要插到5前面，所以把5后移一位，变成3,5,8,6,4.想一下整理牌的时候应该也是这样吧。然后拿到第三张牌时8不用动，拿到第四张牌6时要插在8前面，此时8后移一位，拿到第五张牌4时，要插在5前面，从5开始都向后移一位。<strong>注意在插入一个数的时候要保证这个数前面的数已经有序。简单插入排序的时间复杂度也是O(n^2)。</strong><br>Demo：</p>
 <pre><code>public class InsertSort {
 
@@ -549,7 +551,7 @@ public static void insertSort(int[] arr) {
     }         
 }
 }
-</code></pre><p><strong>关键是在内层循环开始之前先设置temp保存带插入的元素以及实现后移的那段代码</strong></p>
+</code></pre><p>总结:<br>1.设置外层循环从1开始,将i赋值给j，保存待插入的元素arr[j]然后判断是否满足wille循环条件<br>2.将保存的arr[j]与之前已经排好的数组进行比较，然后插入到一个适当的位置上，满足条件执行交换后，j–</p>
 <h3 id="高效排序"><a href="#高效排序" class="headerlink" title="高效排序"></a>高效排序</h3><h4 id="快速排序-不稳定-o-nlogn"><a href="#快速排序-不稳定-o-nlogn" class="headerlink" title="快速排序(不稳定,o(nlogn))"></a>快速排序(不稳定,o(nlogn))</h4><p>快速排序一听名字就觉得很高端，在实际应用当中快速排序确实也是表现最好的排序算法。<strong>快速排序虽然高端，但其实其思想是来自冒泡排序，冒泡排序是通过相邻元素的比较和交换把最小的冒泡到最顶端，而快速排序是同时比较和交换小数和大数，这样一来不仅把小数冒泡到上面同时也把大数沉到下面。</strong><br>基本思想是</p>
 <ul>
 <li>1先从数列中取出一个数作为基准数</li>
@@ -656,6 +658,7 @@ public static void sort(int[] arr) {
 <li>5 3 4(left) 6 8(right)=swap(arr, left, right)</li>
 <li>3 4 5 6 8= swap(arr, pivotPointer, left) </li>
 </ul>
+<p>总结:<br>1.判断左右下标是否满足快速排序条件，若满足，执行partition方法;，并将得到的下标+1，-1进行左右递归<br>2.partition方法先设置基准值为arr[left]，并保存基准值下标left，即赋值给pivotPointer。左右下标满足条件时<br>3.将执行while下的两个子while循环，当不满足条件时，交换左右下标对应的数组值。所有大于等于和小于等于基准值的数组值都被放到了合适位置，最后将基准值和左指针left的值进行交换。此时新的基准值的左边全是&lt;=，右边全是&gt;=基准值的。</p>
 <h4 id="堆排序实现思路-不稳定-O-nlogn"><a href="#堆排序实现思路-不稳定-O-nlogn" class="headerlink" title="堆排序实现思路(不稳定,O(nlogn))"></a>堆排序实现思路(不稳定,O(nlogn))</h4><p><strong>堆排序是借助堆（一种数据结构，即完全二叉树，每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆；或者每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆。用公式表示就是大顶堆：arr[i] &gt;= arr[2i+1] &amp;&amp; arr[i] &gt;= arr[2i+2]  ）来实现的选择排序，思想同简单的选择排序</strong>，以下以大顶堆为例。注意：<strong>如果想升序排序就使用大顶堆，反之使用小顶堆。原因是堆顶元素需要交换到序列尾部。</strong></p>
 <p>基本思想:<br><strong>将待排序序列构造成一个大顶堆，此时，整个序列的最大值就是堆顶的根节点。将其与末尾元素进行交换，此时末尾就为最大值。然后将剩余n-1个元素重新构造成一个堆，这样会得到n个元素的次小值。如此反复执行，便能得到一个有序序列了</strong></p>
 <p>具体步骤:</p>
@@ -762,11 +765,71 @@ public static void shellInsert(int[] arr, int d) {
     }
 }
 }
-</code></pre><p>基本步骤:</p>
-<ul>
-<li><strong>设置增量，实现分组并对每个分组进行组内排序</strong></li>
-<li><strong>分组排序完后，当增量等于1时，实际上隐式地完成了整个数组的排序</strong><br><img src="https://i.imgur.com/Kb3JZix.png" alt=""></li>
-</ul>
+</code></pre><p>总结:<br><strong>设置增量d（就是将数组分成d组，每组的元素个数未必相等），希尔增量序列建议为{n/2,(n/2)/2…1}当增量&gt;=1就执行shellInsert方法。将j设置为i-d,保存i对应的数组值到temp中，当满足条件时，执行while循环将新的值和temp对应的值交换。执行完shellInsert方法后，设置新的d /= 2;</strong><br><img src="https://i.imgur.com/Kb3JZix.png" alt=""></p>
+<h4 id="归并排序实现思路-O-nlogn"><a href="#归并排序实现思路-O-nlogn" class="headerlink" title="归并排序实现思路(O(nlogn))"></a>归并排序实现思路(O(nlogn))</h4><p><strong>归并排序是另一种不同的排序方法，因为归并排序使用了递归分治的思想，所以理解起来比较容易</strong>。其基本思想是，先递归划分子问题，然后合并结果。把待排序列看成由两个有序的子序列，然后合并两个子序列;然后把子序列看成两个有序的子子序列，然后合并这两个子子序列;然后…倒着来看，其实就是先两两合并，然后四四合并，最终形成一个有序序列。空间复杂度为O(n)，时间复杂度为O(nlogn)。<br>Demo:<br><img src="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-01-08%20%E4%B8%8B%E5%8D%888.00.04.png" alt=""></p>
+<pre><code>public class MergeSort {
+
+public static void mergeSort(int[] arr) {
+    mSort(arr, 0, arr.length-1);
+}
+
+/**
+ * 递归分治
+ * @param arr 待排数组
+ * @param left 左指针
+ * @param right 右指针
+ */
+public static void mSort(int[] arr, int left, int right) {
+    if(left &gt;= right)
+        return ;
+    int mid = (left + right) / 2;
+
+    mSort(arr, left, mid); //递归排序左边
+    mSort(arr, mid+1, right); //递归排序右边
+    merge(arr, left, mid, right); //合并
+}
+
+/**
+ * 合并两个有序数组
+ * @param arr 待合并数组
+ * @param left 左指针
+ * @param mid 中间指针
+ * @param right 右指针
+ */
+public static void merge(int[] arr, int left, int mid, int right) {
+    //[left, mid] [mid+1, right]
+    int[] temp = new int[right - left + 1]; //中间数组
+
+    int i = left;
+    int j = mid + 1;
+    int k = 0;
+
+    //执行完这个while循环，相当于将两个子序列合并后重新进行了一次排序并将排序结果记录在了临时数组temp[k]中。while走完后k的值等于数组的长度，i的值此时大于mid，j的值大于right
+    while(i &lt;= mid &amp;&amp; j &lt;= right) {
+        if(arr[i] &lt;= arr[j]) {
+            temp[k++] = arr[i++];
+        }
+        else {
+            temp[k++] = arr[j++];
+        }
+    }
+
+    while(i &lt;= mid) {
+        temp[k++] = arr[i++];
+    }
+
+    while(j &lt;= right) {
+        temp[k++] = arr[j++];
+    }
+
+    //将有序的临时数组temp[k]一个一个赋值到原数组arr[]中
+    for(int p=0; p&lt;temp.length; p++) {
+        arr[left + p] = temp[p];
+    }
+
+}
+}
+</code></pre><p><strong>归并排序是分治法的应用。将原数组分成左右两个子数组，并且一直左递归，直到不能再分成左右子数组然后调用merge方法进行排序，并且将得到的子数组赋值到原数组。然后右递归，最后合并得到的最终的左右子数组的出结果</strong></p>
 <h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
 <p>If you have some questions after you see my blog , you can tell your doubts in the comments area or you can find some infos by clicking these links or ask me by sending me an email：</p>
 </blockquote>
@@ -797,7 +860,7 @@ public static void shellInsert(int[] arr, int d) {
   <p><span>本文标题:</span><a href="/2018/10/10/常用排序算法/">常用排序算法</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年10月10日 - 17:10</p>
-  <p><span>最后更新:</span>2018年10月12日 - 10:10</p>
+  <p><span>最后更新:</span>2018年10月19日 - 20:10</p>
   <p><span>原始链接:</span><a href="/2018/10/10/常用排序算法/" title="常用排序算法">http://codinglembre.top/2018/10/10/常用排序算法/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/10/10/常用排序算法/"  aria-label="复制成功！"></i></span>
   </p>
@@ -1018,7 +1081,7 @@ public static void shellInsert(int[] arr, int d) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1108,7 +1171,7 @@ public static void shellInsert(int[] arr, int d) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单排序"><span class="nav-number">2.</span> <span class="nav-text">简单排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序实现思想"><span class="nav-number">2.1.</span> <span class="nav-text">冒泡排序实现思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择排序实现思路"><span class="nav-number">2.2.</span> <span class="nav-text">选择排序实现思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序实现思路"><span class="nav-number">2.3.</span> <span class="nav-text">插入排序实现思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高效排序"><span class="nav-number">3.</span> <span class="nav-text">高效排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序-不稳定-o-nlogn"><span class="nav-number">3.1.</span> <span class="nav-text">快速排序(不稳定,o(nlogn))</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆排序实现思路-不稳定-O-nlogn"><span class="nav-number">3.2.</span> <span class="nav-text">堆排序实现思路(不稳定,O(nlogn))</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#希尔排序实现思路"><span class="nav-number">3.3.</span> <span class="nav-text">希尔排序实现思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">4.</span> <span class="nav-text">联系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单排序"><span class="nav-number">2.</span> <span class="nav-text">简单排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序实现思想"><span class="nav-number">2.1.</span> <span class="nav-text">冒泡排序实现思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择排序实现思路"><span class="nav-number">2.2.</span> <span class="nav-text">选择排序实现思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序实现思路"><span class="nav-number">2.3.</span> <span class="nav-text">插入排序实现思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高效排序"><span class="nav-number">3.</span> <span class="nav-text">高效排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序-不稳定-o-nlogn"><span class="nav-number">3.1.</span> <span class="nav-text">快速排序(不稳定,o(nlogn))</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆排序实现思路-不稳定-O-nlogn"><span class="nav-number">3.2.</span> <span class="nav-text">堆排序实现思路(不稳定,O(nlogn))</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#希尔排序实现思路"><span class="nav-number">3.3.</span> <span class="nav-text">希尔排序实现思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#归并排序实现思路-O-nlogn"><span class="nav-number">3.4.</span> <span class="nav-text">归并排序实现思路(O(nlogn))</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">4.</span> <span class="nav-text">联系</span></a></li></ol></div>
             
 
           </div>

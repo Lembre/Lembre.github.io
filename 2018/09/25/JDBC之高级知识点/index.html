@@ -102,7 +102,7 @@
 <meta property="og:image" content="https://i.imgur.com/GB43BDH.png">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/jdni.png">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-10-17%20%E4%B8%8B%E5%8D%888.43.16.png">
-<meta property="og:updated_time" content="2018-10-02T13:48:58.939Z">
+<meta property="og:updated_time" content="2018-11-05T07:24:10.639Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC之高级知识点">
 <meta name="twitter:description" content="事务管理事务的四大特性（ACID） 原子性:事务中的所有操作要么全部执行成功，要么执行全部失败。 一致性:事务执行后，数据库状态与其它业务规则保持一致。   张三必须扣100，李四必须加100，这个就是一致性了，如果因为某些逻辑原因，导致张三扣了100，流水记录100转账，而李四只加了60。然后这3条操作都成功了，那原子性就符合了，但是一致性就不符合了   隔离性:隔离性是指在并发操作中，不同事务">
@@ -360,8 +360,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-10-02T21:48:58+08:00">
-                2018-10-02
+              <time title="Update on" itemprop="dateModified" datetime="2018-11-05T15:24:10+08:00">
+                2018-11-05
               </time>
             
           </span>
@@ -423,7 +423,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  3,206
+                  3,207
                 </span>
               
 
@@ -489,8 +489,14 @@
 设置最大连接数:connection.setMaxActive();
 设置增量:一次创建的最小单位。
 设置最大的等待时间:connection.setMaxWait();
-</code></pre><h3 id="c3p0数据库连接池"><a href="#c3p0数据库连接池" class="headerlink" title="c3p0数据库连接池"></a>c3p0数据库连接池</h3><p>c3p0,全名叫ComboPooledDataSource; 需要导入的jar包连接池的实现:c3p0-0.9.5.2.jar和依赖库:mchange－commons.jar<br>实例:<br>    public class Demo{<br>    public static void main(String[] args)<br>    {<br>        //创建连接池对象<br>        ComboPooledDataSource dataSource=new ComboPooledDataSource();</p>
-<pre><code>    //进行四大参数的配置
+</code></pre><h3 id="c3p0数据库连接池"><a href="#c3p0数据库连接池" class="headerlink" title="c3p0数据库连接池"></a>c3p0数据库连接池</h3><p>c3p0,全名叫ComboPooledDataSource; 需要导入的jar包连接池的实现:c3p0-0.9.5.2.jar和依赖库:mchange－commons.jar<br>实例:</p>
+<pre><code>public class Demo{
+public static void main(String[] args)
+{
+    //创建连接池对象
+    ComboPooledDataSource dataSource=new ComboPooledDataSource();
+
+    //进行四大参数的配置
     dataSource.setDriverClass(“com.mysql.jdbc.Driver”);
     dataSource.setJdbcUrl(“jdbc:mysql://localhost:3306/mydb”);
     dataSource.setUser(&quot;root&quot;);
@@ -554,8 +560,12 @@ MyBean bean=(MyBean)envCtx.lookup(“bean/MyBeanFactory”);//通过该上下文
 </ul>
 </li>
 </ul>
-<p>dbutil结果处理集原理代码:<br>    public class QR<t><br>    {<br>        private DataSource dataSource;</t></p>
-<pre><code>public QR(DataSource dataSource)
+<p>dbutil结果处理集原理代码:</p>
+<pre><code>public class QR&lt;T&gt;
+{
+    private DataSource dataSource;
+
+public QR(DataSource dataSource)
 {
    this.dataSource=dataSource;
 }
@@ -716,7 +726,7 @@ public T get(){
   <p><span>本文标题:</span><a href="/2018/09/25/JDBC之高级知识点/">JDBC之高级知识点</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月25日 - 23:09</p>
-  <p><span>最后更新:</span>2018年10月02日 - 21:10</p>
+  <p><span>最后更新:</span>2018年11月05日 - 15:11</p>
   <p><span>原始链接:</span><a href="/2018/09/25/JDBC之高级知识点/" title="JDBC之高级知识点">http://codinglembre.top/2018/09/25/JDBC之高级知识点/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/25/JDBC之高级知识点/"  aria-label="复制成功！"></i></span>
   </p>
@@ -941,7 +951,7 @@ public T get(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

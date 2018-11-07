@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="codingLembre&#39;s blog">
 <meta property="og:description" content="现在很多互联网公司面试java的面试官都喜欢问这样一个问题，那么就来谈谈java中String、StringBuilder和StringBuffer的区别。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-30T12:51:41.676Z">
+<meta property="og:updated_time" content="2018-11-05T03:00:15.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String，StringBuilder和StringBuffer的区别">
 <meta name="twitter:description" content="现在很多互联网公司面试java的面试官都喜欢问这样一个问题，那么就来谈谈java中String、StringBuilder和StringBuffer的区别。">
@@ -355,8 +355,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-30T20:51:41+08:00">
-                2018-09-30
+              <time title="Update on" itemprop="dateModified" datetime="2018-11-05T11:00:15+08:00">
+                2018-11-05
               </time>
             
           </span>
@@ -452,18 +452,18 @@
 </ul>
 <h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>所谓常量，即该对象的值已经被赋予了，不能再更改。若非要更改，则只能再重新创建另一个对象，在这个新创建的对象上再进行赋值。因此，每次在对String类型的对象进行改变的时候其实都等同于生成了一个新的String对象，然后将指针指向新的String对象，所以经常改变内容的字符串最好不要用String，因为每次生成对象都会对系统性能产生影响，特别当内存中无引用对象多了以后，JVM的GC就会开始工作，那速度是一定会相当慢的。</p>
 <h3 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h3><p>所谓变量，即是可以随时变化的量。如果对StringBuffer对象进行改变，每次结果都会对StringBuffer对象进行操作，而不是生成新的对象。所以一般字符串要经常变化的话我推荐使用StringBuffer。</p>
-<h3 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h3><p>StringBuilder和StringBuffer类功能基本相似，方法也差不多，主要区别在于<strong><em>StringBuffer类的方法是多线程安全的，而StringBuilder不是线程安全的</em></strong>，相比而言<strong><em>StringBuilder类会略微快一点。</em></strong></p>
+<h3 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h3><p>StringBuilder和StringBuffer类功能基本相似，方法也差不多，主要区别在于<strong>StringBuffer类的方法是多线程安全的，而StringBuilder不是线程安全的</strong>，相比而言<strong>StringBuilder类会略微快一点。</strong></p>
 <h3 id="运行速度"><a href="#运行速度" class="headerlink" title="运行速度"></a>运行速度</h3><ul>
 <li>Java中对String对象进行的操作实际上是一个<strong>不断创建新的对象并且将旧的对象回收的一个过程</strong>，所以执行速度很慢。</li>
-<li>而StringBuilder和StringBuffer的对象是变量，<strong><em>对变量进行操作就是直接对该对象进行更改，而不进行创建和回收的操作</em></strong>，所以速度要比String快很多。</li>
+<li>而StringBuilder和StringBuffer的对象是变量，<strong>对变量进行操作就是直接对该对象进行更改，而不进行创建和回收的操作</strong>，所以速度要比String快很多。</li>
 </ul>
 <p>但是，有时候我们会这样对字符串进行赋值:</p>
 <pre><code>String str=&quot;abc&quot;+&quot;de&quot;;
 StringBuilder stringBuilder=new StringBuilder().append(&quot;abc&quot;).append(&quot;de&quot;);
 System.out.println(str);
 System.out.println(stringBuilder.toString());
-</code></pre><p>这样输出结果也是“abcde”和“abcde”，但是<strong><em>String的速度却比StringBuilder的反应速度要快很多</em></strong></p>
-<h3 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h3><p>如果<strong><em>一个StringBuffer对象在字符串缓冲区被多个线程使用时，StringBuffer中很多方法可以带有synchronized关键字</em></strong>，所以可以保证线程是安全的，但<strong><em>StringBuilder的方法则没有该关键字，所以不能保证线程安全</em></strong>，有可能会出现一些错误的操作。所以如果要进行的操作是多线程的，那么就要使用StringBuffer，但是在单线程的情况下，还是建议使用速度比较快的StringBuilder。</p>
+</code></pre><p>这样输出结果也是“abcde”和“abcde”，但是<strong>String的速度却比StringBuilder的反应速度要快很多</strong></p>
+<h3 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h3><p>如果<strong>一个StringBuffer对象在字符串缓冲区被多个线程使用时，StringBuffer中很多方法可以带有synchronized关键字</strong>，所以可以保证线程是安全的，但<strong>StringBuilder的方法则没有该关键字，所以不能保证线程安全</strong>，有可能会出现一些错误的操作。所以如果要进行的操作是多线程的，那么就要使用StringBuffer，但是在单线程的情况下，还是建议使用速度比较快的StringBuilder。</p>
 <h3 id="使用须知"><a href="#使用须知" class="headerlink" title="使用须知"></a>使用须知</h3><ul>
 <li><p>String：适用于少量的字符串操作的情况</p>
 </li>
@@ -507,7 +507,7 @@ System.out.println(stringBuilder.toString());
   <p><span>本文标题:</span><a href="/2018/09/30/Java中String，StringBuilder和StringBuffer的区别/">String，StringBuilder和StringBuffer的区别</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月30日 - 11:09</p>
-  <p><span>最后更新:</span>2018年09月30日 - 20:09</p>
+  <p><span>最后更新:</span>2018年11月05日 - 11:11</p>
   <p><span>原始链接:</span><a href="/2018/09/30/Java中String，StringBuilder和StringBuffer的区别/" title="String，StringBuilder和StringBuffer的区别">http://codinglembre.top/2018/09/30/Java中String，StringBuilder和StringBuffer的区别/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/30/Java中String，StringBuilder和StringBuffer的区别/"  aria-label="复制成功！"></i></span>
   </p>
@@ -728,7 +728,7 @@ System.out.println(stringBuilder.toString());
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

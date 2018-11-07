@@ -101,7 +101,7 @@
 <meta property="og:image" content="https://i.imgur.com/ROVeEju.png">
 <meta property="og:image" content="https://i.imgur.com/0zOSzBh.png">
 <meta property="og:image" content="https://i.imgur.com/wis98px.png">
-<meta property="og:updated_time" content="2018-10-09T11:11:11.289Z">
+<meta property="og:updated_time" content="2018-11-05T09:46:24.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL学习笔记之MySQL语法">
 <meta name="twitter:description" content="SQL语句分类 DDL(Data Definition Language):数据定义语言，用来定义数据库对象：库、表、列等。功能：创建、删除、修改库和表结构。 DML(Data Manipulation Language):数据操作语言，用来定义数据库记录:增、删、改表记录。 DCL(Data Control Language):数据控制语言，用来定义访问权限和安全级别 DQL(Data Quer">
@@ -359,8 +359,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-10-09T19:11:11+08:00">
-                2018-10-09
+              <time title="Update on" itemprop="dateModified" datetime="2018-11-05T17:46:24+08:00">
+                2018-11-05
               </time>
             
           </span>
@@ -422,7 +422,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  2,396
+                  2,395
                 </span>
               
 
@@ -517,14 +517,14 @@
 <li>1.字段(列)控制<blockquote>
 <p>1.查询所有列:select * from 表名;其中＊表示查询所有列，而不是所有行的意思。</p>
 <p>2.查询指定列:select 列1，列2，列n from 表名；</p>
-<p>3.完全重复的记录只显示一次:<strong><em>:select distinct $ from 表名；缺省值为all。</em></strong></p>
-<p>4.列运算<br>  a.<strong><em>数量类型的列可以做加、减、乘、除</em></strong>:SELECT sal<em>5 from 表名；说明:1.**</em>遇到null加任何值都等于null的情况，需要用到ifnull()函数。2.将字符串做加减乘除运算，会把字符串当作0。<strong><em><br>  b.字符串累类型可以做连续运算(需要用到concat()函数):select concat(列名1，列名2) from 表名;其中列名的类型要为字符串。</em></strong>在mysql中不能使用+等运算符进行字符串的连接<strong><em><br>  c. </em></strong>给列名起别名:select 列名1 (as) 别名1,列名2 (as) 别名2 from 表名；***</p>
+<p>3.完全重复的记录只显示一次:<strong>:select distinct $ from 表名；缺省值为all。</strong></p>
+<p>4.列运算<br>  a.<strong>数量类型的列可以做加、减、乘、除</strong>:SELECT sal*5 from 表名；说明:1.<strong>遇到null加任何值都等于null的情况，需要用到ifnull()函数。2.将字符串做加减乘除运算，会把字符串当作0。</strong><br>  b.字符串累类型可以做连续运算(需要用到concat()函数):select concat(列名1，列名2) from 表名;其中列名的类型要为字符串。<strong>在mysql中不能使用+等运算符进行字符串的连接</strong><br>  c. <strong>给列名起别名:select 列名1 (as) 别名1,列名2 (as) 别名2 from 表名；</strong></p>
 </blockquote>
 </li>
 <li><p>2.条件控制</p>
 <blockquote>
 <p>1.条件查询。在后面添加where指定条件:select * from 表名 where 列名＝指定值;</p>
-<p>2.模糊查询：当你想查询所有姓张的记录。用到关键字like。eg:select <em> from 表名 where 列名 like ‘张_’;(**</em>_代表匹配任意一个字符，％代表匹配0～n个任意字符)。***</p>
+<p>2.模糊查询：当你想查询所有姓张的记录。用到关键字like。eg:select * from 表名 where 列名 like ‘张<em>’;(**</em>代表匹配任意一个字符，％代表匹配0～n个任意字符)。**</p>
 </blockquote>
 </li>
 <li><p>3.聚合函数</p>
@@ -585,7 +585,7 @@
   <p><span>本文标题:</span><a href="/2018/09/30/MySQL学习笔记之MySQL语法/">MySQL学习笔记之MySQL语法</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月30日 - 11:09</p>
-  <p><span>最后更新:</span>2018年10月09日 - 19:10</p>
+  <p><span>最后更新:</span>2018年11月05日 - 17:11</p>
   <p><span>原始链接:</span><a href="/2018/09/30/MySQL学习笔记之MySQL语法/" title="MySQL学习笔记之MySQL语法">http://codinglembre.top/2018/09/30/MySQL学习笔记之MySQL语法/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/30/MySQL学习笔记之MySQL语法/"  aria-label="复制成功！"></i></span>
   </p>
@@ -806,7 +806,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -122,7 +122,7 @@
 <meta property="og:image" content="https://i.imgur.com/GD3k516.png">
 <meta property="og:image" content="https://i.imgur.com/MsHeI7S.png">
 <meta property="og:image" content="https://i.imgur.com/wzdFsDc.png">
-<meta property="og:updated_time" content="2018-10-04T02:30:23.278Z">
+<meta property="og:updated_time" content="2018-11-06T04:24:31.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb学习之JSP">
 <meta name="twitter:description" content="JSP，即Java Server Pages，和Servlet一样，都是SUN公司定义的一种用于开发动态WEB资源的技术的标准，在服务器端执行的动态网页。JSP虽然像是在写HTML，但是JSP允许在页面中嵌套Java代码，或者利用某个标签表示Java代码（EL与jstl）。这就使得我们在写JSP时能够获取请求对象Request和响应对象Response等这样的web开发常用对象，实现与浏览器的交互">
@@ -380,8 +380,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-10-04T10:30:23+08:00">
-                2018-10-04
+              <time title="Update on" itemprop="dateModified" datetime="2018-11-06T12:24:31+08:00">
+                2018-11-06
               </time>
             
           </span>
@@ -478,7 +478,8 @@
 <li>post：<strong>将用户提交的信息封装在HTML、HEADER内。适合提交数据量大，安全性高的用户信息。比如：注册、修改、上传等功能。</strong><br><img src="https://i.imgur.com/c7sl04S.png" alt=""><br><img src="https://i.imgur.com/bPqdyGv.png" alt=""><br><strong>注意URL传递中文参数乱码的问题无法通过req.setCharacterEncoding解决，需要到Tomcat配置文件中设置修改tomcat中的server.xml 在端口号后，增加URIEncoding=”utf-8”;</strong><br><strong>response对象虽然重要，但是实际上JSP很少用他。*</strong><br><img src="https://i.imgur.com/pAgkss8.png" alt=""><br><strong>特别注意:PrintWriter向客户端输出字符串对象， 而且先于jspWriter，使用out.flush()来避免 PrintWriter response.getWriter()*</strong><br><img src="https://i.imgur.com/NVTxAW7.png" alt=""><br><strong>特别注意:对象是否保存！！</strong></li>
 </ul>
 <p>3.session:是<strong>客户端与服务器端建立的一个会话并保存在服务器中，和用户意义对应，session对象保存在服务器端的同时服务器还会给客户端发送一个带有JSESSIONID的Cookie。它实际是一个特定的时间概念</strong><br><img src="https://i.imgur.com/e0qWXdF.png" alt=""></p>
-<p><strong>注意在之前讲过的session中的生命周期中，原有会话还在服务器端，只是再也没有客户端会携带它然后交于服务端进行校验</strong><br><img src="https://i.i8mgur.com/Gw0mfkA.png" alt=""><br>4.application（<strong>相当于Java中的全局变量，是ServletContext类的实例，服务器的关闭启动决定他的周期</strong>）<br><img src="https://i.imgur.com/5eNbRcK.png" alt=""><br><img src="https://i.imgur.com/Yf54HFW.png" alt=""><br>5.page对象（<strong>指向当前JSP页面本身，相当于this,，是Object类的实例）<br><img src="https://i.imgur.com/lTc2tZX.png" alt=""><br>6.pageContext和Config对象
+<p><strong>注意在之前讲过的session中的生命周期中，原有会话还在服务器端，只是再也没有客户端会携带它然后交于服务端进行校验</strong><br><img src="https://i.i8mgur.com/Gw0mfkA.png" alt=""></p>
+<p>4.application（<strong>相当于Java中的全局变量，是ServletContext类的实例，服务器的关闭启动决定他的周期</strong>）<br><img src="https://i.imgur.com/5eNbRcK.png" alt=""><br><img src="https://i.imgur.com/Yf54HFW.png" alt=""><br>5.page对象（<strong>指向当前JSP页面本身，相当于this,，是Object类的实例）<br><img src="https://i.imgur.com/lTc2tZX.png" alt=""><br>6.pageContext和Config对象
 </strong>pageContext 用于获取其他对象，功能的集大成者<strong><br><img src="https://i.imgur.com/AILNWGT.png" alt=""><br>pageContext常用API如下:<br><img src="https://i.imgur.com/OpzsHxG.png" alt=""><br>Config对象及常用API如下:<br><img src="https://i.imgur.com/ISekqRE.png" alt=""><br>7.exception对象<br><img src="https://i.imgur.com/yeUeARD.png" alt="">
 </strong>但是需要在page指令中写属性errorpage=“出错跳转到的页面” 2.在跳转到的错误处理页面page指令中输入属性isErrorPage=“true”**</p>
 <h3 id="JavaBeans"><a href="#JavaBeans" class="headerlink" title="JavaBeans"></a>JavaBeans</h3><p><strong>解决了代码重复编写，减少代码冗余，功能区分明确，提高了代码的维护性</strong><br>设计原则:</p>
@@ -568,7 +569,7 @@
   <p><span>本文标题:</span><a href="/2018/10/04/JavaWeb学习之JSP/">JavaWeb学习之JSP</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年10月04日 - 00:10</p>
-  <p><span>最后更新:</span>2018年10月04日 - 10:10</p>
+  <p><span>最后更新:</span>2018年11月06日 - 12:11</p>
   <p><span>原始链接:</span><a href="/2018/10/04/JavaWeb学习之JSP/" title="JavaWeb学习之JSP">http://codinglembre.top/2018/10/04/JavaWeb学习之JSP/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/10/04/JavaWeb学习之JSP/"  aria-label="复制成功！"></i></span>
   </p>
@@ -660,8 +661,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/04/Java学习之阅读Java编程思想/" rel="prev" title="Java学习之阅读Java编程思想">
-                Java学习之阅读Java编程思想 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/08/Java学习之Java中的集合框架/" rel="prev" title="Java学习之Java中的集合框架与泛型">
+                Java学习之Java中的集合框架与泛型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -791,7 +792,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

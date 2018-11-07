@@ -100,7 +100,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/mybatis.png">
 <meta property="og:image" content="https://i.imgur.com/uNUVLFS.png">
-<meta property="og:updated_time" content="2018-10-02T01:53:13.416Z">
+<meta property="og:updated_time" content="2018-11-07T00:39:11.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis学习之快速入门">
 <meta name="twitter:description" content="在学习框架之前，我们先弄明白为什么要学框架。首先个人认为简化开发并不是采用框架唯一的目的，更重要的是规范，不用框架时写出来的代码千奇百怪，各种凌乱，有框架的约束更容易制定规范，而简化的任务是基于框架再做一些有针对性的封装时该做的事。 而因为框架内部执行的复杂带来的性能损耗是要配合其他手段来优化的，比如连接池、缓存之类的，而这些手段是很容易通过框架间的整合融入进来的，如果你只用纯jdbc， 就比较困">
@@ -358,8 +358,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-10-02T09:53:13+08:00">
-                2018-10-02
+              <time title="Update on" itemprop="dateModified" datetime="2018-11-07T08:39:11+08:00">
+                2018-11-07
               </time>
             
           </span>
@@ -421,7 +421,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  2,667
+                  2,666
                 </span>
               
 
@@ -446,16 +446,16 @@
       
 
       
-        <p>在学习框架之前，我们先弄明白为什么要学框架。首先个人认为<strong><em>简化开发并不是采用框架唯一的目的，更重要的是规范，不用框架时写出来的代码千奇百怪，各种凌乱，有框架的约束更容易制定规范，而简化的任务是基于框架再做一些有针对性的封装时该做的事。</em></strong> 而因为框架内部执行的复杂带来的性能损耗是要配合其他手段来优化的，比如连接池、缓存之类的，而这些手段是很容易通过框架间的整合融入进来的，如果你只用纯jdbc， 就比较困难，自己要做很多事情，还很难做好。框架整合封装完毕后，再来测试性能问题，单纯的执行一条SQL语句来判断效率是没有必要的，没什么实际价值，更多的应该是去看在并发的情况下、不同的业务场景、针对业务有效的优化后，再来看整个工程所有功能模块的平均效率，你才会做出合理的判断。项目代码<a href="https://github.com/Lembre/FirstMyBatis" target="_blank" rel="noopener"></a></p>
+        <p>在学习框架之前，我们先弄明白为什么要学框架。首先个人认为<strong>简化开发并不是采用框架唯一的目的，更重要的是规范，不用框架时写出来的代码千奇百怪，各种凌乱，有框架的约束更容易制定规范，而简化的任务是基于框架再做一些有针对性的封装时该做的事。</strong> 而因为框架内部执行的复杂带来的性能损耗是要配合其他手段来优化的，比如连接池、缓存之类的，而这些手段是很容易通过框架间的整合融入进来的，如果你只用纯jdbc， 就比较困难，自己要做很多事情，还很难做好。框架整合封装完毕后，再来测试性能问题，单纯的执行一条SQL语句来判断效率是没有必要的，没什么实际价值，更多的应该是去看在并发的情况下、不同的业务场景、针对业务有效的优化后，再来看整个工程所有功能模块的平均效率，你才会做出合理的判断。项目代码<a href="https://github.com/Lembre/FirstMyBatis" target="_blank" rel="noopener"></a></p>
 <a id="more"></a>
 <h3 id="MyBatis框架的引入"><a href="#MyBatis框架的引入" class="headerlink" title="MyBatis框架的引入"></a>MyBatis框架的引入</h3><p>我们来看看传统的编程方式中使用jdbc的问题:</p>
 <ul>
-<li>数据库连接频繁的创建和关闭，缺点:浪费数据库的资源，影响操作效率。解决方法:<strong><em>使用数据库连接池如c3p0.</em></strong></li>
+<li>数据库连接频繁的创建和关闭，缺点:浪费数据库的资源，影响操作效率。解决方法:<strong>使用数据库连接池如c3p0.</strong></li>
 <li>sql语句是硬编码(不利用系统维护)，如果需求变更需要修改sql，这时候就需要修改java代码，然后需要重新编译，系统不易维护。解决方法:将sql语句统一配置在文件中。这样以后修改sql时就不需要修改java代码了。</li>
-<li>我们通过preparedStatement对象向占位符设置参数，存在硬编码(参数位置、参数)问题，系统不易维护。解决方法:<strong><em>将sql中的占位符及对应的参数类型配置在配置文件中，能够自动输入的映射。</em></strong></li>
-<li>遍历查询结果集存在硬编码(列名)。解决方法:<strong><em>自动进行sql查询结果向java对象的映射(输出映射)</em></strong></li>
+<li>我们通过preparedStatement对象向占位符设置参数，存在硬编码(参数位置、参数)问题，系统不易维护。解决方法:<strong>将sql中的占位符及对应的参数类型配置在配置文件中，能够自动输入的映射。</strong></li>
+<li>遍历查询结果集存在硬编码(列名)。解决方法:<strong>自动进行sql查询结果向java对象的映射(输出映射)</strong></li>
 </ul>
-<h3 id="MyBatis的优点"><a href="#MyBatis的优点" class="headerlink" title="MyBatis的优点"></a>MyBatis的优点</h3><p><strong><em>MyBatis是一个优秀的持久层框架，它对jdbc的操作数据库的过程进行封装，使开发者只需要关注 SQL 本身</em></strong>，而不需要花费精力去处理例如注册驱动、创建connection、创建statement、手动设置参数、结果集检索等jdbc繁杂的过程代码。<br>MyBatis通过xml或注解的方式将要执行的各种statement（statement、preparedStatemnt、CallableStatement）配置起来，并通过java对象和statement中的sql进行映射生成最终执行的sql语句，最后由mybatis框架执行sql并将结果映射成java对象并返回。</p>
+<h3 id="MyBatis的优点"><a href="#MyBatis的优点" class="headerlink" title="MyBatis的优点"></a>MyBatis的优点</h3><p><strong>MyBatis是一个优秀的持久层框架，它对jdbc的操作数据库的过程进行封装，使开发者只需要关注 SQL 本身</strong>，而不需要花费精力去处理例如注册驱动、创建connection、创建statement、手动设置参数、结果集检索等jdbc繁杂的过程代码。<br>MyBatis通过xml或注解的方式将要执行的各种statement（statement、preparedStatemnt、CallableStatement）配置起来，并通过java对象和statement中的sql进行映射生成最终执行的sql语句，最后由mybatis框架执行sql并将结果映射成java对象并返回。</p>
 <h3 id="MyBatis架构"><a href="#MyBatis架构" class="headerlink" title="MyBatis架构"></a>MyBatis架构</h3><p>如下图:<br><img src="http://od2xrf8gr.bkt.clouddn.com/mybatis.png" alt=""></p>
 <h3 id="MyBatis快速入门"><a href="#MyBatis快速入门" class="headerlink" title="MyBatis快速入门"></a>MyBatis快速入门</h3><ul>
 <li>编写SqlMapConfig.xml</li>
@@ -526,8 +526,8 @@ resultType：输出结果参数--&gt;
 &lt;/select&gt;
 
 &lt;/mapper&gt;
-</code></pre><p><strong><em>在User.xml中写SQL语句，在参数处使用占位符#{}，应该注意的是大括号{}中传入的数据应该与User.java中的属性对应，文件中各个属性的解释见图中注释处。</em></strong></p>
-<p>4.在SqlMapConfig文件中注册User.xml文件<br><strong><em>在SqlMapConfig.xml中添加一个<mappers></mappers>字段，并在里面传入User.xml文件路径。</em></strong></p>
+</code></pre><p><strong>在User.xml中写SQL语句，在参数处使用占位符#{}，应该注意的是大括号{}中传入的数据应该与User.java中的属性对应，文件中各个属性的解释见图中注释处。</strong></p>
+<p>4.在SqlMapConfig文件中注册User.xml文件<br><strong>在SqlMapConfig.xml中添加一个<mappers></mappers>字段，并在里面传入User.xml文件路径。</strong></p>
 <p>5.接下来我们便可以借助上面MyBatis架构图来编写测试类了</p>
 <pre><code>public class FirstMyBatis {
 
@@ -565,10 +565,10 @@ public void testFindUserById(){
 &lt;/select&gt;
 </code></pre><p>此时，我们在传入参数的地方不再使用占位符#{}而是使用${}，二者区别如下:</p>
 <ul>
-<li>#{}:1.<strong><em>表示一个占位符，向占位符输入参数，mybatis自动进行java类型和jdbc类型的转换。</em></strong>2.<strong><em>程序员不需要考虑参数的类型，比如：传入字符串，mybatis最终拼接好的sql就是参数两边加单引号</em></strong>。3.#{}接收pojo(Plain Old Java Object Java数据对象)数据，可以使用OGNL(就是el表达式)解析出pojo的属性值。</li>
-<li>${}:1.<strong><em>表示sql的拼接，通过${}接收参数，将参数的内容不加任何修饰拼接在sql中。</em></strong>2.${}也可以接收pojo数据，可以使用OGNL解析出pojo的属性值。3.缺点:不能防止sql注入</li>
+<li>#{}:1.<strong>表示一个占位符，向占位符输入参数，mybatis自动进行java类型和jdbc类型的转换</strong>2.<strong>程序员不需要考虑参数的类型，比如：传入字符串，mybatis最终拼接好的sql就是参数两边加单引号</strong>。3.#{}接收pojo(Plain Old Java Object Java数据对象)数据，可以使用OGNL(就是el表达式)解析出pojo的属性值。</li>
+<li>${}:1.<strong>表示sql的拼接，通过${}接收参数，将参数的内容不加任何修饰拼接在sql中。</strong>2.${}也可以接收pojo数据，可以使用OGNL解析出pojo的属性值。3.缺点:不能防止sql注入</li>
 </ul>
-<p>什么是sql注入，怎样防止？<br><strong><em>，如果是直接拼接的方式那么就非常容易被注入</em></strong>。比如：select <em> from tablename where user=’admin’ and pwd =’123’ 假设说这个是一个登录的sql语句，admin是用户文本框输入的，pwd是密码框输入的。如果密码文本框如果输入：’ or ‘1’=’1 那么拼接起sql就是select </em> from tablename where user=’admin’ and pwd =’’ or ‘1’=’1’ 那么就会跳过sql的条件就直接进入登录，但是如果是使用绑定变量的就不一样</p>
+<p>什么是sql注入，怎样防止？<br><strong>，如果是直接拼接的方式那么就非常容易被注入</strong>。比如：select <em> from tablename where user=’admin’ and pwd =’123’ 假设说这个是一个登录的sql语句，admin是用户文本框输入的，pwd是密码框输入的。如果密码文本框如果输入：’ or ‘1’=’1 那么拼接起sql就是select </em> from tablename where user=’admin’ and pwd =’’ or ‘1’=’1’ 那么就会跳过sql的条件就直接进入登录，但是如果是使用绑定变量的就不一样</p>
 <p>Demo：</p>
 <pre><code>//测试根据name查询用户（得到多条记录）
 @Test
@@ -583,7 +583,7 @@ public void testFindUserByName(){
     System.out.println(list.get(0).getUsername());
 
 }
-</code></pre><p>注意，此时我们通过name查询出来的语句为多条，<strong><em>故此时我们应该选择调用sqlSession对象的selectList()方法返回多条记录，输出我们查询到的第一条记录即可。若使用selectOne()方法，当返回的记录为多条时就会发生异常。</em></strong></p>
+</code></pre><p>注意，此时我们通过name查询出来的语句为多条，<strong>故此时我们应该选择调用sqlSession对象的selectList()方法返回多条记录，输出我们查询到的第一条记录即可。若使用selectOne()方法，当返回的记录为多条时就会发生异常。</strong></p>
 <p>这样我们便完成了查询时将sql结果输出映射到Java对象中。那如何将Java对象输入映射到sql语句中，接下来我们就来讲通过MyBatis实现增、删、改数据库。</p>
 <h3 id="使用MyBatis向表中插入一条记录"><a href="#使用MyBatis向表中插入一条记录" class="headerlink" title="使用MyBatis向表中插入一条记录"></a>使用MyBatis向表中插入一条记录</h3><pre><code>&lt;insert id=&quot;insertUser&quot; parameterType=&quot;entity.User&quot;&gt;
     INSERT INTO user VALUES (#{id},#{username},#{birthday},#{sex},#{address})
@@ -605,7 +605,7 @@ public void testInsertUser(){
 }
 </code></pre><p>此时查看数据库，发现数据已经被插入</p>
 <blockquote>
-<p><strong><em>注意插入和查询不一样需要sqlSession.commit();否则没有效果</em></strong></p>
+<p><strong>注意插入和查询不一样需要sqlSession.commit();否则没有效果</strong></p>
 </blockquote>
 <p>Demo:<br><img src="https://i.imgur.com/uNUVLFS.png" alt=""></p>
 <h3 id="拓展-主键返回"><a href="#拓展-主键返回" class="headerlink" title="拓展:主键返回"></a>拓展:主键返回</h3><p>在测试类中，我们没有给User对象的id属性设置值，所以我们在测试类中尝试输出User对象的id时会输出id=0，但是该对象通过输入映射在数据库中是有对应的id值的(因为我们为该字段设置了自增长属性)。那么我们想输出该对象在记录中的id时，又该怎么做呢？只需在User.xml文件中的<insert></insert>标签中添加<selectkey>标签即可,属性解释见图:</selectkey></p>
@@ -618,9 +618,9 @@ public void testInsertUser(){
 &lt;/insert&gt;
 </code></pre><p>此时我们在测试类中便可输出该User对象插入在表中的记录id值了。</p>
 <blockquote>
-<p><strong><em>如果未设置主键返回，那么sout(id)得到的都是0；</em></strong></p>
+<p><strong>如果未设置主键返回，那么sout(id)得到的都是0；</strong></p>
 </blockquote>
-<p>这里我们<strong><em>由于在建表时设置了id字段为自增长，采用自增长的形式生成主键，所以我们在传入User对象的id属性时可以将该属性设置为null。</em></strong>那么当我们使用uuid生成主键时又该怎么做呢？</p>
+<p>这里我们<strong>由于在建表时设置了id字段为自增长，采用自增长的形式生成主键，所以我们在传入User对象的id属性时可以将该属性设置为null。</strong>那么当我们使用uuid生成主键时又该怎么做呢？</p>
 <pre><code>&lt;insert id=&quot;insertUserByUUID&quot; parameterType=&quot;entity.User&quot;&gt;
     &lt;selectKey keyProperty=&quot;id&quot; order=&quot;BEFORE&quot; resultType=&quot;int&quot;&gt;
         SELECT uuid()
@@ -660,7 +660,7 @@ public void testInsertUser(){
   <p><span>本文标题:</span><a href="/2018/10/02/MyBatis学习之快速入门/">MyBatis学习之快速入门</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年10月02日 - 01:10</p>
-  <p><span>最后更新:</span>2018年10月02日 - 09:10</p>
+  <p><span>最后更新:</span>2018年11月07日 - 08:11</p>
   <p><span>原始链接:</span><a href="/2018/10/02/MyBatis学习之快速入门/" title="MyBatis学习之快速入门">http://codinglembre.top/2018/10/02/MyBatis学习之快速入门/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/10/02/MyBatis学习之快速入门/"  aria-label="复制成功！"></i></span>
   </p>
@@ -881,7 +881,7 @@ public void testInsertUser(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

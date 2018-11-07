@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://i.imgur.com/ZDuyKUI.png">
 <meta property="og:image" content="https://i.imgur.com/oN7iBId.png">
 <meta property="og:image" content="https://i.imgur.com/e5cGadN.png">
-<meta property="og:updated_time" content="2018-10-03T13:27:23.517Z">
+<meta property="og:updated_time" content="2018-11-06T02:29:02.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb学习之监听器">
 <meta name="twitter:description" content="监听器(Listener)其实就是一个实现特定接口的普通java程序，监听器是一个专门用于对其他对象身上(三大域对象)发生的事件或状态改变进行监听和相应处理的对象，它可以监听客户端请求和服务端的操作，当被监视的对象发生情况时，立即采取相应的行动。这个程序专门用于监听另一个java对象的方法调用或属性改变，当被监听对象发生上述事件后，监听器某个方法立即被执行。 上述概念设计到3个名词概念:  事件源">
@@ -366,8 +366,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-10-03T21:27:23+08:00">
-                2018-10-03
+              <time title="Update on" itemprop="dateModified" datetime="2018-11-06T10:29:02+08:00">
+                2018-11-06
               </time>
             
           </span>
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  2,495
+                  2,434
                 </span>
               
 
@@ -454,29 +454,30 @@
       
 
       
-        <p>监听器(Listener)其实就是一个<strong><em>实现特定接口的普通java程序</em></strong>，监听器是一个<strong><em>专门用于对其他对象身上(三大域对象)发生的事件或状态改变进行监听和相应处理的对象，它可以监听客户端请求和服务端的操作</em></strong>，当被监视的对象发生情况时，立即采取相应的行动。这个程序专门用于监听另一个java对象的方法调用或属性改变，当被监听对象发生上述事件后，监听器某个方法立即被执行。</p>
+        <p>监听器(Listener)其实就是一个<strong>实现特定接口的普通java程序</strong>，监听器是一个<strong>专门用于对其他对象身上(三大域对象)发生的事件或状态改变进行监听和相应处理的对象，它可以监听客户端请求和服务端的操作</strong>，当被监视的对象发生情况时，立即采取相应的行动。这个程序专门用于监听另一个java对象的方法调用或属性改变，当被监听对象发生上述事件后，监听器某个方法立即被执行。</p>
 <p>上述概念设计到3个名词概念:</p>
 <ul>
 <li>事件源:即谁产生的事件</li>
 <li>事件对象:即产生了什么事件</li>
 <li>监听器:监听事件源的动作</li>
 </ul>
-<p>由于事件源可以产生多个动作(即产生多个事件)，而<strong><em>监听器中的每一个方法监听一个动作，故每个监听器中都有很多方法。</em></strong></p>
+<p>由于事件源可以产生多个动作(即产生多个事件)，而<strong>监听器中的每一个方法监听一个动作，故每个监听器中都有很多方法。</strong></p>
 <a id="more"></a>
 <h3 id="JavaWeb中的监听器的概念"><a href="#JavaWeb中的监听器的概念" class="headerlink" title="JavaWeb中的监听器的概念"></a>JavaWeb中的监听器的概念</h3><p>JavaWeb中的监听器是Servlet规范中定义的一种特殊类，它用于监听web应用程序中的ServletContext、HttpSession和 ServletRequest这三大域对象的创建、销毁事件以及监听这些域对象中的属性发生修改的事件。<br><img src="https://i.imgur.com/9Em7yhT.png" alt=""><br><img src="https://i.imgur.com/45msGDS.png" alt=""></p>
 <p>其中，<strong>Java中的ServletContext对象对应JSP的application对象（上下文对象，由容器创建和初始化），HTTPSession对象对应JSP的session对象（保存上下文对象的机制，放在服务器端，通过sessionID区分的，服务器关闭和结束时销毁），ServletRequest对象（容器创建时创建的对象，来进行封装请求对象，同时还会创建ServletResponse对象）对应JSP中的request对象。</strong></p>
 <p><strong>总而言之，就是监听这三个对象的创建销毁和属性的变化</strong></p>
 <h3 id="JavaWeb中监听器的分类"><a href="#JavaWeb中监听器的分类" class="headerlink" title="JavaWeb中监听器的分类"></a>JavaWeb中监听器的分类</h3><p>在Servlet规范中定义了多种类型的监听器(一共8个监听器)，它们用于监听的事件源分别为ServletContext，HttpSession和ServletRequest这三个域对象。Servlet规范针对这三个对象上的操作，又把多种类型的监听器划分为三种类型：</p>
 <ul>
-<li><p>域对象的生命周期监听:<strong>监听域对象自身的创建和销毁</strong>。这个监听器需要实现相应的监听器接口:ServletContextListener(<strong>定时器和全局属性对象</strong>)、HttpSessionListener(<strong>统计在线人数和记录访问日志</strong>)、ServletRequestListener(<strong>读取参数和记录访问历史</strong>)。<br>关于的ServletContext的Demo:<br>在配置文件web.xml配置:<br>  <context-param></context-param></p>
+<li><p>域对象的生命周期监听:<strong>监听域对象自身的创建和销毁</strong>。这个监听器需要实现相应的监听器接口:ServletContextListener(<strong>定时器和全局属性对象</strong>)、HttpSessionListener(<strong>统计在线人数和记录访问日志</strong>)、ServletRequestListener(<strong>读取参数和记录访问历史</strong>)。<br>关于的ServletContext的Demo:<br>在配置文件web.xml配置:</p>
+<p>  <context-param></context-param></p>
 <pre><code>&lt;param-name&gt;initParam&lt;/param-name&gt;
 &lt;param-value&gt;codingLembre&lt;/param-value&gt;
 </code></pre><p>  <br>然后可以在<strong>实现ServletContextListener接口的类中可以获取到相应的配置</strong>:</p>
-<p>  public void contextInitialized(ServletContextEvent sce) {</p>
-<pre><code>sce.getServletContext().getInitParameter(&quot;initParam&quot;);
-</code></pre><p><strong>结合之前的过滤器的学习，由此我们也可以知道配置文件中的配置和对应的映射的接口实现类中的参数的一些微妙的关系，在此之前我一直不懂</strong></p>
+<pre><code>public void contextInitialized(ServletContextEvent sce) {
+sce.getServletContext().getInitParameter(&quot;initParam&quot;);
+</code></pre></li>
+<li><p>域对象的属性监听:<strong>监听域对象中属性的增加和删除。</strong>这个监听器需要实现的监听器接口为:ServletContextAttributeListener、HttpSessionAttributeListener、ServletRequestAttributeListener</p>
 </li>
-<li>域对象的属性监听:<strong>监听域对象中属性的增加和删除。</strong>这个监听器需要实现的监听器接口为:ServletContextAttributeListener、HttpSessionAttributeListener、ServletRequestAttributeListener</li>
 <li>感知监听(<strong>监听绑定到HTTPSession域中的某个对象的状态的事件监听器</strong>):监听绑定到HttpSession域中的某个JavaBean对象的状态的监听器。这个监听器需要实现的监听器接口:HttpSessionBindingListener、HttpSessionActiveationListener</li>
 </ul>
 <h3 id="第一类-域对象的生命周期监听"><a href="#第一类-域对象的生命周期监听" class="headerlink" title="第一类:域对象的生命周期监听"></a>第一类:域对象的生命周期监听</h3><p>事件源为:三大域<br>事件对象为:创建与销毁<br>监听器为:实现了ServletContextListener、HttpSessionListener、ServletRequestListener这三个接口的监听器</p>
@@ -565,17 +566,17 @@ public void attributeReplaced(ServletRequestAttributeEvent scab){
 //给ServletRequest对象替换属性值时调用
 }
 }
-</code></pre><h4 id="对各个监听器接口的方法中出现的类介绍-1"><a href="#对各个监听器接口的方法中出现的类介绍-1" class="headerlink" title="对各个监听器接口的方法中出现的类介绍"></a>对各个监听器接口的方法中出现的类介绍</h4><p>ServletContextAttributeEvent类:该类对象有三个方法，<strong><em>getSevletContext()用于返回一个ServletContext，getName()用于返回属性名，getValue()用于返回属性值。</em></strong></p>
-<p>HttpSessionBindingEvent类:该类对象有两个方法，<strong><em>getName()用于获取属性名，getValue()用于获取属性值。</em></strong></p>
-<p>ServletRequestAttributeEvent类:该类对象有两个方法，<strong><em>getName()用于获取属性名，getValue()用于获取属性值。</em></strong></p>
+</code></pre><h4 id="对各个监听器接口的方法中出现的类介绍-1"><a href="#对各个监听器接口的方法中出现的类介绍-1" class="headerlink" title="对各个监听器接口的方法中出现的类介绍"></a>对各个监听器接口的方法中出现的类介绍</h4><p>ServletContextAttributeEvent类:该类对象有三个方法，<strong>getSevletContext()用于返回一个ServletContext，getName()用于返回属性名，getValue()用于返回属性值。</strong></p>
+<p>HttpSessionBindingEvent类:该类对象有两个方法，<strong>getName()用于获取属性名，getValue()用于获取属性值。</strong></p>
+<p>ServletRequestAttributeEvent类:该类对象有两个方法，<strong>getName()用于获取属性名，getValue()用于获取属性值。</strong></p>
 <h3 id="感知监听器"><a href="#感知监听器" class="headerlink" title="感知监听器"></a>感知监听器</h3><p>在此之前先了解一下<strong>Session对象的几种状态机制</strong></p>
 <ul>
 <li>绑定:Session对象持久化到存储设备中</li>
 <li>解除绑定:Session对象从存储设备中回复</li>
 <li>钝化机制:session过多，session在服务器内存中的开销将十分巨大，直接影响Web服务器的性能。此时，服务器自动将不常用的session将被序列化到系统文件或数据库中，使用时再由服务器自动反序列化到服务器内存中。这个机制由SessionManager管理，它的管理机制:<br><img src="https://i.imgur.com/CRoZZlF.png" alt=""><br><img src="https://i.imgur.com/xpTMe4F.png" alt=""></li>
 </ul>
-<p><strong><em>保存在Session域中的对象可以有多种状态：绑定(session.setAttribute(“bean”,Object))到Session中,随Session对象持久化到一个存储设备中；从Session域中解除(session.removeAttribute(“bean”))绑定,随Session对象从一个存储设备中恢复。</em></strong></p>
-<p>Servlet 规范中定义了两个特殊的监听器接口<strong><em>”HttpSessionBindingListener和HttpSessionActivationListener”来帮助JavaBean 对象了解自己在Session域中的这些状态，实现这两个接口的类不需要 web.xml 文件中进行注册。</em></strong><br><img src="https://i.imgur.com/ZDuyKUI.png" alt=""></p>
+<p><strong>保存在Session域中的对象可以有多种状态：绑定(session.setAttribute(“bean”,Object))到Session中,随Session对象持久化到一个存储设备中；从Session域中解除(session.removeAttribute(“bean”))绑定,随Session对象从一个存储设备中恢复。</strong></p>
+<p>Servlet 规范中定义了两个特殊的监听器接口<strong>”HttpSessionBindingListener和HttpSessionActivationListener”来帮助JavaBean 对象了解自己在Session域中的这些状态，实现这两个接口的类不需要 web.xml 文件中进行注册。</strong><br><img src="https://i.imgur.com/ZDuyKUI.png" alt=""></p>
 <h4 id="HttpSessionBindingListener接口"><a href="#HttpSessionBindingListener接口" class="headerlink" title="HttpSessionBindingListener接口"></a>HttpSessionBindingListener接口</h4><p>实现了HttpSessionBindingListener接口的JavaBean对象可以感知自己被绑定到Session中和 Session中删除的事件。</p>
 <p>当对象被绑定到HttpSession对象中时，web服务器调用该对象的void valueBound(HttpSessionBindingEvent event)方法。</p>
 <p>当对象从HttpSession对象中解除绑定时，web服务器调用该对象的void valueUnbound(HttpSessionBindingEvent event)方法。</p>
@@ -606,7 +607,7 @@ public void attributeReplaced(ServletRequestAttributeEvent scab){
  }
 }
 </code></pre><p>上述的JavaBeanDemo1这个javabean实现了HttpSessionBindingListener接口，那么这个JavaBean对象可以感知自己被绑定到Session中和从Session中删除的这两个操作。</p>
-<h3 id="HttpSessionActivationListener接口"><a href="#HttpSessionActivationListener接口" class="headerlink" title="HttpSessionActivationListener接口"></a>HttpSessionActivationListener接口</h3><p><strong><em>实现了HttpSessionActivationListener接口的JavaBean对象可以感知自己被活化(反序列化)和钝化(序列化)的事件。</em></strong></p>
+<h3 id="HttpSessionActivationListener接口"><a href="#HttpSessionActivationListener接口" class="headerlink" title="HttpSessionActivationListener接口"></a>HttpSessionActivationListener接口</h3><p><strong>实现了HttpSessionActivationListener接口的JavaBean对象可以感知自己被活化(反序列化)和钝化(序列化)的事件。</strong></p>
 <p>当绑定到HttpSession对象中的javabean对象将要随HttpSession对象被钝化(序列化)之前，web服务器调用该javabean对象的void sessionWillPassivate(HttpSessionEvent event) 方法。这样javabean对象就可以知道自己将要和HttpSession对象一起被序列化(钝化)到硬盘中。</p>
 <p>当绑定到HttpSession对象中的javabean对象将要随HttpSession对象被活化(反序列化)之后，web服务器调用该javabean对象的void sessionDidActive(HttpSessionEvent event)方法。这样javabean对象就可以知道自己将要和 HttpSession对象一起被反序列化(活化)回到内存中。(javabean随着HttpSession对象一起被活化的前提是该javabean对象除了实现该接口外还应该实现Serialize接口)。</p>
 <pre><code>public class JavaBeanDemo2 implements HttpSessionActivationListener,
@@ -675,7 +676,7 @@ public void sessionDidActivate(HttpSessionEvent se):当对象感知被钝化时�
   <p><span>本文标题:</span><a href="/2018/09/30/JavaWeb学习之监听器/">JavaWeb学习之监听器</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月30日 - 09:09</p>
-  <p><span>最后更新:</span>2018年10月03日 - 21:10</p>
+  <p><span>最后更新:</span>2018年11月06日 - 10:11</p>
   <p><span>原始链接:</span><a href="/2018/09/30/JavaWeb学习之监听器/" title="JavaWeb学习之监听器">http://codinglembre.top/2018/09/30/JavaWeb学习之监听器/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/30/JavaWeb学习之监听器/"  aria-label="复制成功！"></i></span>
   </p>
@@ -898,7 +899,7 @@ public void sessionDidActivate(HttpSessionEvent se):当对象感知被钝化时�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

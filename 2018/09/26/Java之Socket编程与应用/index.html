@@ -99,7 +99,7 @@
 <meta property="og:description" content="本博文首先是对TCP的简单介绍，然后在分析Socket通信的模型后进行Java Socket实现TCP编程的代码编写，最后是利用Socket的知识编写一个简单的聊天室">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-29%20%E4%B8%8B%E5%8D%887.18.56.png">
-<meta property="og:updated_time" content="2018-09-26T07:48:22.217Z">
+<meta property="og:updated_time" content="2018-11-05T03:41:02.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java之Socket编程与应用">
 <meta name="twitter:description" content="本博文首先是对TCP的简单介绍，然后在分析Socket通信的模型后进行Java Socket实现TCP编程的代码编写，最后是利用Socket的知识编写一个简单的聊天室">
@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-09-26T15:48:22+08:00">
-                2018-09-26
+              <time title="Update on" itemprop="dateModified" datetime="2018-11-05T11:41:02+08:00">
+                2018-11-05
               </time>
             
           </span>
@@ -468,9 +468,11 @@
 <li>close()——关闭此套接字</li>
 <li>getInetAddress()——得到ServerSocket对象绑定的IP地址。如果ServerSocket对象未绑定IP地址，返回0.0.0.0</li>
 <li><p>getLocalPort()——返回此套接字在其上侦听的端口</p>
-<p>  public class Server<br>  {</p>
-<p>  public static void main(String[] args)<br>  {</p>
-<pre><code>//1.创建一个服务器Socket，即ServerSocket,指定绑定的端口，并坚挺
+<pre><code> public class Server{
+
+ public static void main(String[] args)
+ {
+//1.创建一个服务器Socket，即ServerSocket,指定绑定的端口，并坚挺
 try {
     ServerSocket serverSocket=new ServerSocket(8888);
     //2，调用accept()开始监听，等待客户端的链接
@@ -722,7 +724,7 @@ public static void main(String[] args)
   <p><span>本文标题:</span><a href="/2018/09/26/Java之Socket编程与应用/">Java之Socket编程与应用</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年09月26日 - 09:09</p>
-  <p><span>最后更新:</span>2018年09月26日 - 15:09</p>
+  <p><span>最后更新:</span>2018年11月05日 - 11:11</p>
   <p><span>原始链接:</span><a href="/2018/09/26/Java之Socket编程与应用/" title="Java之Socket编程与应用">http://codinglembre.top/2018/09/26/Java之Socket编程与应用/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/09/26/Java之Socket编程与应用/"  aria-label="复制成功！"></i></span>
   </p>
@@ -943,7 +945,7 @@ public static void main(String[] args)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
