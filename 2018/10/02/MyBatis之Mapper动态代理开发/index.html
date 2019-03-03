@@ -100,7 +100,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/namespace.png">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/ceshissss.png">
-<meta property="og:updated_time" content="2018-10-02T13:47:11.115Z">
+<meta property="og:updated_time" content="2018-11-13T01:20:16.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis之Mapper动态代理开发">
 <meta name="twitter:description" content="SqlSession的使用范围1.SqlSessionFactoryBuilderSqlSessionFactoryBuilder是以工具类的方式来使用:需要创建sqlSessionFactory时就new一个 SqlSessionFactoryBuilder 2.sqlSessionFactory正常开发时，以单例方式管理sqlSessionFactory，整个系统运行过程中sqlSession">
@@ -358,8 +358,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-10-02T21:47:11+08:00">
-                2018-10-02
+              <time title="Update on" itemprop="dateModified" datetime="2018-11-13T09:20:16+08:00">
+                2018-11-13
               </time>
             
           </span>
@@ -421,7 +421,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  973
+                  971
                 </span>
               
 
@@ -456,11 +456,15 @@
 <li>2.<strong>dao的实现类中存在硬编码，调用sqlSession方法时将statement的id硬编码。</strong></li>
 </ul>
 <h4 id="mapper动态代理的方式"><a href="#mapper动态代理的方式" class="headerlink" title="mapper动态代理的方式"></a>mapper动态代理的方式</h4><p>程序员只需要写dao接口，dao接口实现对象由mybatis自动生成代理对象。因为本身dao在三层架构中就是一个通用的接口。<br>1.mapper开发规范：<br>要想让mybatis自动创建dao接口实现类的代理对象，必须要遵循一些规则:</p>
-<pre><code>- **mapper.xml中 namespace指定为mapper接口的全限定名。此步骤的目的:将mapper.xml和mapper.java关联。**
-- mapper.xml中**statement的id就是mapper.java中的方法名。即对应相同**
-- mapper.xml中**statement的parameterType和mapper.java中方法输入参数一致。即参数一致**
-- **mapper.xml中statement的resultType和mapper.java中方法的返回值类型一致。即返回值一致**
-</code></pre><p>2.mapper.xml(映射文件)<br><img src="http://od2xrf8gr.bkt.clouddn.com/namespace.png" alt=""><br>3.mapper.java接口</p>
+<ul>
+<li><strong>mapper.xml中 namespace指定为mapper接口的全限定名。此步骤的目的:将mapper.xml和mapper.java关联。</strong></li>
+<li>mapper.xml中<strong>statement的id就是mapper.java中的方法名。即对应相同</strong></li>
+<li>mapper.xml中<strong>statement的parameterType和mapper.java中方法输入参数一致。即参数一致</strong></li>
+<li><strong>mapper.xml中statement的resultType和mapper.java中方法的返回值类型一致。即返回值一致</strong></li>
+</ul>
+<p>2.mapper.xml(映射文件)</p>
+<p><img src="http://od2xrf8gr.bkt.clouddn.com/namespace.png" alt=""></p>
+<p>3.mapper.java接口</p>
 <pre><code>public interface UserMapper{};
 </code></pre><p>4.将mapper.xml在SqlMapConfing.xml中进行注册</p>
 <pre><code>&lt;mappers&gt;
@@ -473,9 +477,11 @@ List&lt;User&gt; findUserByName (String username) throws Exception;
 </code></pre><p><strong>对于UserMapper.xml，不管你查询的记录是单条还是多条，在statement(即UserMapper.xml)中的resultType都定义一致，都是单条记录映射的pojo类型</strong></p>
 <p><strong>而对于UserMapper.java接口方法中的返回值，如果返回的是单个对象，返回值类型是pojo，生成的代理对象内部会自动通过selectOne获取记录，如果返回值类型是多条对象，生成的代理对象内部会自动通过selectList获取记录。</strong><br><img src="http://od2xrf8gr.bkt.clouddn.com/ceshissss.png" alt=""></p>
 <p><strong>UserMapper userMapper = sqlsession.getMapper(UserMapper.class)</strong></p>
-<h3 id="注意-mapper动态代理开发的问题"><a href="#注意-mapper动态代理开发的问题" class="headerlink" title="注意:mapper动态代理开发的问题"></a>注意:mapper动态代理开发的问题</h3><pre><code>- 返回值的问题:如果方法(即UserMapper.java接口中的方法)调用的statement中返回是多条记录，而mapper.java方法的返回值为pojo，此时代理对象通过selectOne调用，但由于返回的是多条记录所以会报错:Expected one result (for null ) to be returned by selectOne() but found 4;
-- 输入参数的问题:使用mapper代理的方式开发，mapper接口方法的输入参数只有一个，可扩展性是否很差?答:可扩展性没有问题，因为dao层就是通用的，可以通过扩展pojo(定义pojo包装类型，后面第四篇文章–MyBatis输入输出映射会讲扩展pojo的知识)来将不同的参数(可以是pojo也可以是简单类型)传入进去
-</code></pre><h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
+<h3 id="注意-mapper动态代理开发的问题"><a href="#注意-mapper动态代理开发的问题" class="headerlink" title="注意:mapper动态代理开发的问题"></a>注意:mapper动态代理开发的问题</h3><ul>
+<li>返回值的问题:如果方法(即UserMapper.java接口中的方法)调用的statement中返回是多条记录，而mapper.java方法的返回值为pojo，此时代理对象通过selectOne调用，但由于返回的是多条记录所以会报错:Expected one result (for null ) to be returned by selectOne() but found 4;</li>
+<li>输入参数的问题:使用mapper代理的方式开发，mapper接口方法的输入参数只有一个，可扩展性是否很差?答:可扩展性没有问题，因为dao层就是通用的，可以通过扩展pojo(定义pojo包装类型，后面第四篇文章–MyBatis输入输出映射会讲扩展pojo的知识)来将不同的参数(可以是pojo也可以是简单类型)传入进去</li>
+</ul>
+<h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><blockquote>
 <p>If you have some questions after you see my blog , you can tell your doubts in the comments area or you can find some infos by clicking these links or ask me by sending me an email：</p>
 </blockquote>
 <ul>
@@ -505,7 +511,7 @@ List&lt;User&gt; findUserByName (String username) throws Exception;
   <p><span>本文标题:</span><a href="/2018/10/02/MyBatis之Mapper动态代理开发/">MyBatis之Mapper动态代理开发</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年10月02日 - 09:10</p>
-  <p><span>最后更新:</span>2018年10月02日 - 21:10</p>
+  <p><span>最后更新:</span>2018年11月13日 - 09:11</p>
   <p><span>原始链接:</span><a href="/2018/10/02/MyBatis之Mapper动态代理开发/" title="MyBatis之Mapper动态代理开发">http://codinglembre.top/2018/10/02/MyBatis之Mapper动态代理开发/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/10/02/MyBatis之Mapper动态代理开发/"  aria-label="复制成功！"></i></span>
   </p>
@@ -837,7 +843,7 @@ List&lt;User&gt; findUserByName (String username) throws Exception;
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

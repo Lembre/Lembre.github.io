@@ -138,7 +138,7 @@
 <meta property="og:image" content="http://codinglembre.top/2018/10/03/Spring学习之快速入门/img%20src=%22http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-12%20%E4%B8%8B%E5%8D%881.21.06.png%22%20alt=%22%22">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-12%20%E4%B8%8B%E5%8D%881.21.10.png">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-12%20%E4%B8%8B%E5%8D%881.21.15.png">
-<meta property="og:updated_time" content="2018-10-02T17:23:17.644Z">
+<meta property="og:updated_time" content="2018-11-13T13:06:16.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring学习之快速入门">
 <meta name="twitter:description" content="当客户端向服务器发出请求时，服务器把得到的请求发送给控制器Servlet，而在Servlet中需要创建Service对象来调用业务层相关功能(故说控制器层Servlet依赖于业务层Service),而在Service中又需要创建数据库层DAO对象来对数据库进行操作(故说业务层Service依赖于数据库层DAO)。 思考:针对上述过程，我们需要考虑这样几个问题。1.Servlet、Service以及">
@@ -396,8 +396,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-10-03T01:23:17+08:00">
-                2018-10-03
+              <time title="Update on" itemprop="dateModified" datetime="2018-11-13T21:06:16+08:00">
+                2018-11-13
               </time>
             
           </span>
@@ -459,7 +459,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  4,320
+                  4,329
                 </span>
               
 
@@ -486,9 +486,12 @@
       
         <p>当客户端向服务器发出请求时，服务器把得到的请求发送给控制器Servlet，而在Servlet中需要创建Service对象来调用业务层相关功能(故说控制器层Servlet依赖于业务层Service),而在Service中又需要创建数据库层DAO对象来对数据库进行操作(故说业务层Service依赖于数据库层DAO)。</p>
 <p>思考:针对上述过程，我们需要考虑这样几个问题。1.Servlet、Service以及Dao对象的创建时间、创建数量。2.<strong>Servlet、Service以及Dao之间的依赖关系。如何处理这些问题呢</strong>？<strong>Spring就是用来处理对象的创建、以及对象之间依赖关系的一个开发框架</strong>。它打破了我们传统开发的观念，我们不再需要像以前那样在具体的类中创建具体的对象，而是将<strong>对象的创建交给它去完成</strong>。它是我们所要学习的框架中最重要的框架，请务必好好学习。</p>
-<h3 id="Spring框架中的专业术语"><a href="#Spring框架中的专业术语" class="headerlink" title="Spring框架中的专业术语"></a>Spring框架中的专业术语</h3><h4 id="组件／框架设计"><a href="#组件／框架设计" class="headerlink" title="组件／框架设计"></a>组件／框架设计</h4><pre><code>- 侵入式设计:对现有类的结构有影响，即需要实现或继承某些特定类。 如Struts框架。
-- **非侵入式设计:引入了框架，对现有的类结构没有影响。如Spring框架**／Hibernate框架。
-</code></pre><h4 id="控制反转"><a href="#控制反转" class="headerlink" title="控制反转"></a>控制反转</h4><p>Inversion On Control，简称IOC。对象的创建交给外部容器自动完成，这个就叫做控制反转。(有控制反转就有控制正转，<strong>控制正转:对象的创建由我们自己创建</strong>)</p>
+<a id="more"></a>
+<h3 id="Spring框架中的专业术语"><a href="#Spring框架中的专业术语" class="headerlink" title="Spring框架中的专业术语"></a>Spring框架中的专业术语</h3><h4 id="组件／框架设计"><a href="#组件／框架设计" class="headerlink" title="组件／框架设计"></a>组件／框架设计</h4><ul>
+<li>侵入式设计:对现有类的结构有影响，即需要实现或继承某些特定类。 如Struts框架。</li>
+<li><strong>非侵入式设计:引入了框架，对现有的类结构没有影响。如Spring框架</strong>／Hibernate框架。</li>
+</ul>
+<h4 id="控制反转和依赖注入"><a href="#控制反转和依赖注入" class="headerlink" title="控制反转和依赖注入"></a>控制反转和依赖注入</h4><p>控制反转Inversion On Control，简称IOC。对象的创建交给外部容器自动完成，这个就叫做控制反转。(有控制反转就有控制正转，<strong>控制正转:对象的创建由我们自己创建</strong>)</p>
 <p>依赖注入dependency injection,简称DI，用于处理对象间的依赖关系。</p>
 <p><strong>二者区别:控制反转(IOC):解决对象创建的问题，(对象的创建交给别人)。依赖注入(DI):在创建完对象后，对象关系的处理就是依赖注入，(通过set方法依赖注入。)</strong></p>
 <h4 id="面向切面编程AOP"><a href="#面向切面编程AOP" class="headerlink" title="面向切面编程AOP"></a>面向切面编程AOP</h4><p>面向切面编程。<strong>切面，简单来说可以理解为一个类，由很多重复代码形成的类。切面举例:事务、日志、权限。</strong> 关于AOP的详细讲解我推荐你们看这篇博客:<a href="https://www.ibm.com/developerworks/cn/java/j-lo-springaopcglib/" target="_blank" rel="noopener">Spring AOP实现原理与应用</a></p>
@@ -594,7 +597,7 @@ xsi:schemaLocation=&quot;
   <p><span>本文标题:</span><a href="/2018/10/03/Spring学习之快速入门/">Spring学习之快速入门</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年10月03日 - 00:10</p>
-  <p><span>最后更新:</span>2018年10月03日 - 01:10</p>
+  <p><span>最后更新:</span>2018年11月13日 - 21:11</p>
   <p><span>原始链接:</span><a href="/2018/10/03/Spring学习之快速入门/" title="Spring学习之快速入门">http://codinglembre.top/2018/10/03/Spring学习之快速入门/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/10/03/Spring学习之快速入门/"  aria-label="复制成功！"></i></span>
   </p>
@@ -905,7 +908,7 @@ xsi:schemaLocation=&quot;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring框架中的专业术语"><span class="nav-number">1.</span> <span class="nav-text">Spring框架中的专业术语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件／框架设计"><span class="nav-number">1.1.</span> <span class="nav-text">组件／框架设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制反转"><span class="nav-number">1.2.</span> <span class="nav-text">控制反转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面向切面编程AOP"><span class="nav-number">1.3.</span> <span class="nav-text">面向切面编程AOP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring框架概述"><span class="nav-number">2.</span> <span class="nav-text">Spring框架概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring开发步骤"><span class="nav-number">3.</span> <span class="nav-text">Spring开发步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-bean-gt-创建的细节"><span class="nav-number">4.</span> <span class="nav-text">&lt;bean&gt;创建的细节</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标签中的其它属性说明"><span class="nav-number">4.1.</span> <span class="nav-text">标签中的其它属性说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-IOC容器"><span class="nav-number">5.</span> <span class="nav-text">Spring IOC容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对象的创建"><span class="nav-number">5.1.</span> <span class="nav-text">对象的创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理对象的依赖关系"><span class="nav-number">5.2.</span> <span class="nav-text">处理对象的依赖关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">6.</span> <span class="nav-text">联系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring框架中的专业术语"><span class="nav-number">1.</span> <span class="nav-text">Spring框架中的专业术语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件／框架设计"><span class="nav-number">1.1.</span> <span class="nav-text">组件／框架设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制反转和依赖注入"><span class="nav-number">1.2.</span> <span class="nav-text">控制反转和依赖注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面向切面编程AOP"><span class="nav-number">1.3.</span> <span class="nav-text">面向切面编程AOP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring框架概述"><span class="nav-number">2.</span> <span class="nav-text">Spring框架概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring开发步骤"><span class="nav-number">3.</span> <span class="nav-text">Spring开发步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-bean-gt-创建的细节"><span class="nav-number">4.</span> <span class="nav-text">&lt;bean&gt;创建的细节</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标签中的其它属性说明"><span class="nav-number">4.1.</span> <span class="nav-text">标签中的其它属性说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-IOC容器"><span class="nav-number">5.</span> <span class="nav-text">Spring IOC容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对象的创建"><span class="nav-number">5.1.</span> <span class="nav-text">对象的创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理对象的依赖关系"><span class="nav-number">5.2.</span> <span class="nav-text">处理对象的依赖关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">6.</span> <span class="nav-text">联系</span></a></li></ol></div>
             
 
           </div>
@@ -926,7 +929,7 @@ xsi:schemaLocation=&quot;
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

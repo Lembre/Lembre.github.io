@@ -109,7 +109,7 @@
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-10%20%E4%B8%8A%E5%8D%8811.45.41.png">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-10%20%E4%B8%8A%E5%8D%8811.59.32.png">
 <meta property="og:image" content="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-10%20%E4%B8%8B%E5%8D%8812.00.18.png">
-<meta property="og:updated_time" content="2018-10-02T14:24:25.911Z">
+<meta property="og:updated_time" content="2018-11-13T11:59:48.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis学习之查询缓存">
 <meta name="twitter:description" content="正如大多数持久层框架一样，MyBatis同样也提供了对查询数据的缓存支持。今后我们要学习的SpringMVC框架属于系统控制层，它也有它的缓存区域，对响应的jsp页面进行缓存；Spring属于系统业务层，它的缓存区域对业务数据进行缓存。而它们三者的缓存区域都存在于用户要访问数据库的中间，当用户向数据库中发送查询请求时，系统会先在它们三者的缓存区域看是否有满足用户要求的查询数据，若有则直接从缓存区域">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">Update on&#58;</span>
               
-              <time title="Update on" itemprop="dateModified" datetime="2018-10-02T22:24:25+08:00">
-                2018-10-02
+              <time title="Update on" itemprop="dateModified" datetime="2018-11-13T19:59:48+08:00">
+                2018-11-13
               </time>
             
           </span>
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">Wordcount&#58;</span>
                 
                 <span title="Wordcount">
-                  1,883
+                  1,884
                 </span>
               
 
@@ -477,12 +477,15 @@
 <p>2.<strong>在你的Mapper映射文件中添加一行:<cache> ，表示此mapper开启二级缓存。</cache></strong><br>3.查询结果映射的pojo序列化：<br><strong>mybatis二级缓存需要将查询结果映射的pojo实现 java.io.serializable接口，如果不实现则抛出异常：</strong><br>org.apache.ibatis.cache.CacheException: Error serializing object. Cause: java.io.NotSerializableException: cn.itcast.mybatis.po.User</p>
 <p>二级缓存可以将内存的数据写到磁盘，存在对象的序列化和反序列化，所以要实现java.io.serializable接口。</p>
 <p>如果结果映射的pojo中还包括了pojo，都要实现java.io.serializable接口。</p>
-<h4 id="二级缓存的禁用"><a href="#二级缓存的禁用" class="headerlink" title="二级缓存的禁用"></a>二级缓存的禁用</h4><p>于变化频率较高的sql，需要禁用二级缓存：在statement中设置useCache=false可以禁用当前select语句的二级缓存，即每次查询都会发出sql去查询，默认情况是true，即该sql使用二级缓存。</p>
+<h4 id="二级缓存的禁用"><a href="#二级缓存的禁用" class="headerlink" title="二级缓存的禁用"></a>二级缓存的禁用</h4><p>对于变化频率较高的sql，需要禁用二级缓存：在statement中设置useCache=false可以禁用当前select语句的二级缓存，即每次查询都会发出sql去查询，默认情况是true，即该sql使用二级缓存。</p>
 <pre><code>&lt;select id=&quot;findOrderListResultMap&quot; resultMap=&quot;ordersUserMap&quot; useCache=&quot;false&quot;&gt;
 </code></pre><h4 id="刷新缓存"><a href="#刷新缓存" class="headerlink" title="刷新缓存"></a>刷新缓存</h4><p>将二级缓存进行刷新操作有两种方式:</p>
-<pre><code>- **如果sqlsession操作commit操作，对二级缓存进行刷新（全局清空）。**
-- 设置statement的flushCache是否刷新缓存，默认值是true。
-</code></pre><h4 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h4><p><img src="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-10%20%E4%B8%8A%E5%8D%8811.41.06.png" alt=""><br>分别将中间更新用户信息的代码注释:发现两次打印用户信息的操作只向数据库中发送一次查询请求;去掉注释:三次操作向数据库中发送三次请求。</p>
+<ul>
+<li><strong>如果sqlsession操作commit操作，对二级缓存进行刷新（全局清空）。</strong></li>
+<li>设置statement的flushCache是否刷新缓存，默认值是true。</li>
+</ul>
+<h4 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h4><p><img src="http://od2xrf8gr.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-10%20%E4%B8%8A%E5%8D%8811.41.06.png" alt=""></p>
+<p>分别将中间更新用户信息的代码注释:发现两次打印用户信息的操作只向数据库中发送一次查询请求;去掉注释:三次操作向数据库中发送三次请求。</p>
 <h4 id="二级缓存的应用场景"><a href="#二级缓存的应用场景" class="headerlink" title="二级缓存的应用场景"></a>二级缓存的应用场景</h4><p><strong>对查询频率高，变化频率低的数据建议使用二级缓存。</strong></p>
 <p>对于访问多的查询请求且用户对查询结果实时性要求不高，此时可采用mybatis二级缓存技术降低数据库访问量，提高访问速度，业务场景比如：耗时较高的统计分析sql、电话账单查询sql等。</p>
 <p>实现方法如下：通过设置刷新间隔时间，由mybatis每隔一段时间自动清空缓存，根据数据变化频率设置缓存刷新间隔flushInterval，比如设置为30分钟、60分钟、24小时等，根据需求而定。</p>
@@ -526,7 +529,7 @@
   <p><span>本文标题:</span><a href="/2018/10/02/MyBatis学习之查询缓存/">MyBatis学习之查询缓存</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Lembre 的个人博客">Lembre</a></p>
   <p><span>发布时间:</span>2018年10月02日 - 22:10</p>
-  <p><span>最后更新:</span>2018年10月02日 - 22:10</p>
+  <p><span>最后更新:</span>2018年11月13日 - 19:11</p>
   <p><span>原始链接:</span><a href="/2018/10/02/MyBatis学习之查询缓存/" title="MyBatis学习之查询缓存">http://codinglembre.top/2018/10/02/MyBatis学习之查询缓存/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://codinglembre.top/2018/10/02/MyBatis学习之查询缓存/"  aria-label="复制成功！"></i></span>
   </p>
@@ -858,7 +861,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
